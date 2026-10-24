@@ -294,7 +294,6 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
 .mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
-.mk-logo img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #e2e1e7; }
 .mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
 .mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
 .mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
@@ -302,7 +301,7 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 .mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
 .mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
 @media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
-@media (max-width: 400px) { .mk-logo span { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
 @media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
 @media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
 </style>
@@ -311,7 +310,7 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 
 <header class="mk-bar">
   <div class="mk-bar-in">
-    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home"><img src="../assets/matan-kidrony.jpg" alt="" width="30" height="30"><span>Matan Kidrony</span></a>
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
     <nav class="mk-nav" aria-label="Site">
       <a href="../#work" aria-current="page">Case Studies</a>
       <a class="mk-wide" href="../#side">Side projects</a>
