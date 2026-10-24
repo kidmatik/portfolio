@@ -95,9 +95,17 @@ p { margin: 0; }
 .feat .tex { position: absolute; background: url("assets/head.webp") 0 0 / 100% 100% no-repeat; will-change: transform; }
 .feat.eye { clip-path: ellipse(50% 47% at 50% 50%); }
 .feat.brow { -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 55%, transparent 100%); }
-.face-hint { position: absolute; left: 50%; bottom: max(18px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; background: var(--ink); color: var(--paper); font: 500 .8rem/1 var(--f-mono); letter-spacing: .04em; white-space: nowrap; pointer-events: none; transition: opacity .3s ease; }
-.face-hint::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.face-stage.played .face-hint { opacity: 0; }
+.float { position: relative; }
+.face-hint { position: absolute; right: 86%; top: 46%; z-index: 2; padding: 12px 18px; background: #fff; color: #15131c; border: 3px solid #15131c; border-radius: 22px; font: 800 clamp(1rem, 1.5vw, 1.25rem)/1 var(--f-display); letter-spacing: -0.01em; white-space: nowrap; pointer-events: none; transform: translateZ(80px) rotate(-7deg); transform-origin: 100% 100%; box-shadow: 4px 4px 0 #15131c; animation: pop .5s cubic-bezier(.3,1.6,.5,1) .6s both, wobble 2.8s ease-in-out 1.2s infinite; transition: opacity .3s ease; }
+/* tail: outlined triangle pointing down-right, toward the mouth */
+.face-hint::before, .face-hint::after { content: ""; position: absolute; width: 0; height: 0; border-style: solid; }
+.face-hint::before { right: 12px; bottom: -22px; border-width: 22px 0 0 22px; border-color: #15131c transparent transparent transparent; }
+.face-hint::after { right: 16.5px; bottom: -13px; border-width: 14px 0 0 14px; border-color: #fff transparent transparent transparent; }
+@keyframes pop { from { opacity: 0; transform: translateZ(80px) rotate(-7deg) scale(.4); } to { opacity: 1; transform: translateZ(80px) rotate(-7deg) scale(1); } }
+@keyframes wobble { 0%, 100% { transform: translateZ(80px) rotate(-7deg) scale(1); } 50% { transform: translateZ(80px) rotate(-4deg) scale(1.04); } }
+@media (prefers-reduced-motion: reduce) { .face-hint { animation: none; } }
+@media (max-width: 860px) { .face-hint { right: 72%; top: 46%; padding: 10px 14px; font-size: 1rem; } }
+.face-stage.played .face-hint { animation: none; opacity: 0; transform: translateZ(80px) rotate(-7deg) scale(.6); }
 .face-hint .t { display: none; }
 @media (hover: none) { .face-hint .h { display: none; } .face-hint .t { display: inline; } }
 .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
@@ -295,9 +303,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         <span class="feat eye" style="left:65.649%;top:42.986%;width:13.740%;height:4.208%"><span class="tex iris" style="left:-477.778%;top:-1021.429%;width:727.778%;height:2376.190%"></span></span>
         </span>
       </button>
+      <span class="face-hint" aria-hidden="true"><span class="h">Click me!</span><span class="t">Tap me!</span></span>
       </div>
       <span class="ground" aria-hidden="true"></span>
-      <span class="face-hint" aria-hidden="true"><span class="h">Click me</span><span class="t">Tap me</span></span>
     </div>
   </section>
 
