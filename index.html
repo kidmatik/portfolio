@@ -38,8 +38,7 @@
     --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933;
     --accent: #f39545; --accent-ink: #f6a865; --spot-bg: #1c1a25;
     color-scheme: dark;
-  }
-}
+  } }
 :root[data-theme="dark"] {
   --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933;
   --accent: #f39545; --accent-ink: #f6a865; --spot-bg: #1c1a25;
@@ -58,16 +57,6 @@ a { color: inherit; }
 h1, h2, h3 { font-family: var(--f-display); font-weight: 800; letter-spacing: -0.025em; line-height: 1.02; margin: 0; text-wrap: balance; }
 p { margin: 0; }
 .mono { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* top bar */
-.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-.topbar .wrap { height: 60px; display: flex; align-items: center; gap: 20px; }
-.topbar .name { font: 600 15px var(--f-display); text-decoration: none; white-space: nowrap; }
-.topbar nav { margin-left: auto; display: flex; gap: 4px; }
-.topbar nav a { white-space: nowrap; text-decoration: none; font: 500 14px var(--f-body); color: var(--ink-soft); padding: 7px 12px; border-radius: 999px; }
-.topbar nav a:hover { color: var(--ink); background: var(--surface); }
-
-@media (max-width: 600px) { .topbar nav a.wide { display: none; } }
 
 /* intro: text left; my cut-out head right. Eyes follow the pointer, brows lift when
    the pointer comes close, and a click throws design-icon confetti. */
@@ -116,8 +105,7 @@ p { margin: 0; }
   .intro { grid-template-columns: minmax(0, 1fr); min-height: 0; }
   .face-stage { order: -1; padding: 24px 20px 72px; }
   .float { height: min(44svh, 330px); max-height: none; }
-  .intro-text { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 8px 56px; }
-}
+  .intro-text { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 8px 56px; } }
 
 /* work */
 .work { padding-block: clamp(32px, 5vw, 64px) clamp(72px, 10vw, 128px); }
@@ -161,8 +149,7 @@ a.project:hover .go span { transform: translateX(4px); }
 .cover.placeholder .word { font: 800 clamp(2.6rem, 7vw, 5rem)/1 var(--f-display); letter-spacing: -0.04em; color: var(--ink); opacity: .9; }
 @media (max-width: 860px) {
   .project { grid-template-columns: minmax(0, 1fr); }
-  .project .cover { min-height: 0; aspect-ratio: 16 / 10; }
-}
+  .project .cover { min-height: 0; aspect-ratio: 16 / 10; } }
 
 /* more work: hover spotlight (after github.com/Animmaster/bounce-hover) */
 .more { padding-block: 0 clamp(72px, 10vw, 128px); }
@@ -186,8 +173,7 @@ a.project:hover .go span { transform: translateX(4px); }
 @media (hover: none), (max-width: 760px) {
   .spot-cards { display: none; }
   .spot-item a { padding-block: 4px; }
-  .spot-hint .h { display: none; }
-}
+  .spot-hint .h { display: none; } }
 @media (hover: hover) and (min-width: 761px) { .spot-hint .t { display: none; } }
 
 /* side projects */
@@ -237,9 +223,8 @@ footer { border-top: 1px solid var(--line); padding-block: 28px; font: 400 .85re
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 /* mobile: give every small text link a comfortable 44px tap area */
 @media (max-width: 760px) {
-  footer a, .btn.ghost, figcaption a, .cap a, .rail a, .topbar a, .topbar nav a, .next a { display: inline-flex; align-items: center; min-height: 44px; }
-  .copy, .toggle { min-height: 44px; padding-inline: 16px; }
-}
+  footer a, .btn.ghost, figcaption a, .cap a, .rail a, .next a { display: inline-flex; align-items: center; min-height: 44px; }
+  .copy, .toggle { min-height: 44px; padding-inline: 16px; } }
 /* shared site header: identical on every page */
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
