@@ -209,6 +209,29 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 @media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
 @media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
 @media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #f39545; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+.mk-menu-foot { display: flex; gap: 10px; flex-wrap: wrap; }
+.mk-menu-foot a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .2); color: #fff; text-decoration: none; font: 600 15px "Instrument Sans", system-ui, sans-serif; }
+.mk-menu-foot a.wa { background: #1f8f4e; border-color: #1f8f4e; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
 </style>
 </head>
 <body>
@@ -223,8 +246,26 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
       <a class="mk-wide" href="../testimonials/">Testimonials</a>
       <a class="mk-cta" href="../#contact">Contact</a>
     </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
   </div>
 </header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
+      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+  </nav>
+  <div class="mk-menu-foot">
+    <a class="wa" href="https://wa.me/972526884104" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://www.linkedin.com/in/matankidrony" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
 
 <main id="top">
   <div class="hero">
@@ -523,6 +564,24 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
     img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
   });
   lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
 })();
 </script>
 </body>
