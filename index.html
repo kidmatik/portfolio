@@ -227,6 +227,11 @@ a.project:hover .go span { transform: translateX(4px); }
 
 footer { border-top: 1px solid var(--line); padding-block: 28px; font: 400 .85rem var(--f-mono); color: var(--ink-soft); }
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+/* mobile: give every small text link a comfortable 44px tap area */
+@media (max-width: 760px) {
+  footer a, .btn.ghost, figcaption a, .cap a, .rail a, .topbar a, .topbar nav a, .next a { display: inline-flex; align-items: center; min-height: 44px; }
+  .copy, .toggle { min-height: 44px; padding-inline: 16px; }
+}
 </style>
 </head>
 <body>

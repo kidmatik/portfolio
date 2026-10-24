@@ -172,6 +172,10 @@ dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(1200p
 dialog.lb::backdrop { background: rgb(10 8 30 / .88); }
 dialog.lb img { width: 100%; border-radius: 10px; }
 dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border: 0; border-radius: 999px; padding: 8px 14px; font: 600 14px var(--f-body); background: #fff; color: var(--navy); cursor: pointer; }
+/* mobile: give every small text link a comfortable 44px tap area */
+@media (max-width: 760px) {
+  footer a, .btn.ghost, figcaption a, .cap a, .rail a, .topbar a, .topbar nav a, .next a { display: inline-flex; align-items: center; min-height: 44px; }
+}
 </style>
 </head>
 <body>
