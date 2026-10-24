@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wideview.io Case Study | Matan Kidrony</title>
+<meta name="description" content="UX/UI product case study by Matan Kidrony: designing Wideview.io, a decision-making and management system for eCommerce executives.">
+<meta property="og:title" content="Wideview.io Case Study | Matan Kidrony">
+<meta property="og:description" content="From static BI dashboards to a decision-making system for eCommerce executives.">
+<meta property="og:image" content="https://matan-kidrony.netlify.app/wideview/assets/img/wideview-W1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a product-document page. Indigo "app chrome" bands frame a light reading column;
+   section labels borrow the product's own KPI language (vs. TGT chips, metric tiles). */
+:root {
+  --ink: #160a45;          /* Wideview sidebar indigo, used for text + dark bands */
+  --ink-soft: #4a4370;
+  --paper: #f7f6fb;        /* page ground, faintly violet */
+  --surface: #ffffff;
+  --line: #e3e0f0;
+  --violet: #6b35f0;       /* brand accent */
+  --violet-tint: #efe9ff;
+  --good: #217540;  --good-tint: #e3f6e9;
+  --warn: #855d0c;  --warn-tint: #fdf3d8;
+  --bad:  #b3303f;  --bad-tint:  #fde6e9;
+  --band: #160a45;  --band-fg: #f3f0ff;  --band-muted: #a99fd6;
+
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --gutter-l: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+  --wrap: 1160px;
+  --read: 68ch;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgb(22 10 69 / .06), 0 12px 32px -12px rgb(22 10 69 / .18);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #ece8ff; --ink-soft: #a9a2cc; --paper: #0e0824; --surface: #170f36; --line: #2a2152;
+    --violet: #9b78ff; --violet-tint: #241a4f;
+    --good: #5fcf86; --good-tint: #133322; --warn: #e6b851; --warn-tint: #352a10; --bad: #f07d8c; --bad-tint: #3a1720;
+    --band: #07031a; --band-fg: #f3f0ff; --band-muted: #9a90cc;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 16px 40px -16px rgb(0 0 0 / .7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #ece8ff; --ink-soft: #a9a2cc; --paper: #0e0824; --surface: #170f36; --line: #2a2152;
+  --violet: #9b78ff; --violet-tint: #241a4f;
+  --good: #5fcf86; --good-tint: #133322; --warn: #e6b851; --warn-tint: #352a10; --bad: #f07d8c; --bad-tint: #3a1720;
+  --band: #07031a; --band-fg: #f3f0ff; --band-muted: #9a90cc;
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 16px 40px -16px rgb(0 0 0 / .7);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 17px/1.65 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--violet); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.read { max-width: var(--read); }
+
+h1, h2, h3 { font-family: var(--f-display); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.6rem, 6.4vw, 5.4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+h3 { font-size: clamp(1.35rem, 2.2vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; }
+p { margin: 0; }
+.lede { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.55; color: var(--ink-soft); }
+.label {
+  font: 500 .74rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--violet);
+  display: inline-flex; align-items: center; gap: .6em;
+}
+.label .step { color: var(--ink-soft); }
+.stack { display: flex; flex-direction: column; gap: 1.1rem; }
+
+/* ---------- top bar ---------- */
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; gap: 24px; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 600 15px var(--f-display); color: var(--ink); text-decoration: none; white-space: nowrap; }
+.brand-mark { width: 26px; height: 26px; border-radius: 7px; background: var(--violet); display: grid; place-items: center; }
+.brand-mark svg { width: 15px; height: 15px; }
+.nav { display: flex; gap: 4px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a { font: 500 14px var(--f-body); color: var(--ink-soft); text-decoration: none; padding: 7px 12px; border-radius: 999px; white-space: nowrap; }
+.nav a:hover, .nav a.active { color: var(--ink); background: var(--violet-tint); }
+@media (max-width: 760px) { .nav { display: none; } }
+
+/* ---------- hero ---------- */
+.hero { padding-block: clamp(48px, 8vw, 96px) 0; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.hero h1 em { font-style: normal; color: var(--violet); }
+.hero .meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.hero .meta div { padding: 16px 18px 16px 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.hero .meta div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+.hero .meta dt { font: 500 .7rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.hero .meta dd { margin: 0; font-weight: 600; }
+@media (max-width: 700px) {
+  .hero .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero .meta div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .hero .meta div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
+.hero-shot {
+  margin: clamp(40px, 6vw, 72px) auto 0;
+  width: fit-content; max-width: 100%;
+  border-radius: 18px; background: var(--band);
+  padding: clamp(12px, 2vw, 20px);
+}
+.hero-shot img { display: block; width: 674px; max-width: 100%; height: auto; border-radius: 10px; }
+
+/* ---------- section scaffolding ---------- */
+section { padding-block: clamp(64px, 9vw, 120px); }
+section + section { border-top: 1px solid var(--line); }
+.sec-head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; margin-bottom: clamp(32px, 4vw, 56px); }
+.two-col { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+@media (max-width: 900px) { .two-col { grid-template-columns: minmax(0, 1fr); } }
+
+/* dark band (problem / solution) */
+.band { background: var(--band); color: var(--band-fg); border-top: 0 !important; }
+.band + section { border-top: 0; }
+.band .label { color: #b9a2ff; }
+.band .lede, .band p { color: var(--band-muted); }
+.band h2, .band h3 { color: var(--band-fg); }
+
+/* ---------- about ---------- */
+.about { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; background: var(--violet-tint); box-shadow: 0 0 0 4px var(--surface), 0 0 0 5px var(--line); }
+@media (max-width: 560px) { .about { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- media frames ---------- */
+.frame {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.frame figcaption, .caption { font: 400 .8rem/1.4 var(--f-mono); color: var(--ink-soft); padding: 12px 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.band .caption { color: var(--band-muted); border-color: rgb(255 255 255 / .1); }
+
+.embed { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: var(--band); color: var(--band-fg); }
+.embed.tall { aspect-ratio: 4 / 3; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.embed-poster {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 24px; text-align: center;
+  background:
+    radial-gradient(120% 90% at 50% 120%, rgb(107 53 240 / .55), transparent 60%),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / .04) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(0deg, rgb(255 255 255 / .04) 0 1px, transparent 1px 64px),
+    #160a45;
+  background-size: cover;
+}
+.embed-poster.has-img { background-size: cover; background-position: top center; }
+.embed-poster.has-img::before { content: ""; position: absolute; inset: 0; background: rgb(22 10 69 / .62); }
+.embed-poster > * { position: relative; }
+.embed-poster .k { font: 500 .72rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: #b9a2ff; }
+.embed-poster .t { font: 600 clamp(1.1rem, 2.4vw, 1.5rem)/1.2 var(--f-display); color: #fff; max-width: 28ch; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; border: 0; cursor: pointer;
+  font: 600 15px var(--f-body); color: #fff; background: #6b35f0;
+  padding: 12px 20px; border-radius: 999px; text-decoration: none;
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); background: #5a26dc; }
+.btn svg { width: 16px; height: 16px; }
+.btn.ghost { background: transparent; color: var(--violet); padding: 0; }
+.btn.ghost:hover { transform: none; text-decoration: underline; background: transparent; }
+.pending-note { font: 400 .8rem/1.4 var(--f-mono); color: #d9ceff; border: 1px dashed rgb(217 206 255 / .5); padding: 8px 12px; border-radius: 8px; }
+
+/* tall screenshots scroll inside their frame, like scrolling the real screen */
+.screen { max-height: 620px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--violet) transparent; }
+.screen img { width: 100%; cursor: zoom-in; }
+
+/* ---------- KPI-chip vocabulary ---------- */
+.chip { display: inline-block; font: 500 .72rem/1 var(--f-mono); padding: 6px 9px; border-radius: 999px; white-space: nowrap; }
+.chip.good { background: var(--good-tint); color: var(--good); }
+.chip.warn { background: var(--warn-tint); color: var(--warn); }
+.chip.bad { background: var(--bad-tint); color: var(--bad); }
+.chip.v { background: var(--violet-tint); color: var(--violet); }
+
+/* ---------- problem / solution ---------- */
+.ps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); }
+@media (max-width: 860px) { .ps { grid-template-columns: minmax(0, 1fr); } }
+.ps h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 800; }
+
+.pillars { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1px; background: rgb(255 255 255 / .1); border: 1px solid rgb(255 255 255 / .1); border-radius: var(--radius); overflow: hidden; }
+.pillar { background: var(--band); padding: 28px 26px 30px; display: flex; flex-direction: column; gap: 12px; }
+.pillar .n { font: 500 .78rem var(--f-mono); color: #b9a2ff; }
+.pillar h4 { margin: 0; font: 600 1.15rem/1.25 var(--f-display); color: var(--band-fg); }
+.pillar p { font-size: .96rem; line-height: 1.6; }
+
+.flow { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 860px) { .flow { grid-template-columns: minmax(0, 1fr); } }
+.flow figure { margin: 0; background: #fff; border-radius: var(--radius); overflow: hidden; }
+.flow figcaption { display: flex; align-items: baseline; gap: 10px; padding: 14px 16px; background: rgb(255 255 255 / .04); color: var(--band-fg); font: 600 1rem var(--f-display); border-top: 0; }
+.flow figure { background: transparent; border: 1px solid rgb(255 255 255 / .12); }
+.flow img { background: #fff; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.flow figcaption span { font: 400 .78rem var(--f-mono); color: var(--band-muted); }
+
+/* ---------- role / team / tools ---------- */
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 900px) { .facts { grid-template-columns: minmax(0, 1fr); } }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.fact h3 { font-size: 1.15rem; }
+.fact ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.fact li { padding: 10px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; }
+.fact li:first-child { border-top: 0; padding-top: 0; }
+.fact .num { font: 500 .95rem var(--f-mono); font-variant-numeric: tabular-nums; color: var(--violet); }
+.fact li.me { font-weight: 600; }
+
+/* ---------- process rail ---------- */
+.rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); counter-reset: step; border-top: 2px solid var(--ink); }
+.rail li { counter-increment: step; padding: 16px 14px 0 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.rail li::before { content: "0" counter(step); font: 500 .78rem var(--f-mono); color: var(--violet); }
+.rail a { font: 600 1rem/1.25 var(--f-display); color: var(--ink); text-decoration: none; }
+.rail a:hover { color: var(--violet); }
+@media (max-width: 860px) { .rail { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 20px; } }
+
+.sub { padding-top: clamp(56px, 7vw, 96px); }
+.sub:first-of-type { padding-top: clamp(40px, 5vw, 64px); }
+
+/* personas */
+.personas { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px; align-items: start; }
+@media (max-width: 900px) { .personas { grid-template-columns: minmax(0, 1fr); } }
+.persona { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 16px; }
+.persona header { display: flex; align-items: center; gap: 14px; }
+.persona .ini { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font: 800 1.2rem var(--f-display); background: var(--violet-tint); color: var(--violet); flex: none; }
+.persona h4 { margin: 0; font: 600 1.2rem/1.2 var(--f-display); }
+.persona .role { font: 400 .8rem var(--f-mono); color: var(--ink-soft); }
+.persona dl { margin: 0; display: grid; gap: 14px; }
+.persona dt { font: 500 .7rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 4px; }
+.persona dd { margin: 0; font-size: .97rem; line-height: 1.55; }
+
+/* stat callout */
+.stat { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.stat b { font: 800 clamp(3.4rem, 7vw, 5.4rem)/0.9 var(--f-display); color: var(--violet); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stat span { font-weight: 600; max-width: 18ch; line-height: 1.3; }
+
+.ticks { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.ticks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; }
+.ticks li::before { content: ""; width: 10px; height: 10px; margin-top: .55em; border-radius: 3px; background: var(--violet); }
+
+.evolve { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 20px; align-items: center; }
+.evolve .arrow { font: 500 .75rem var(--f-mono); color: var(--ink-soft); display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+.evolve .arrow svg { width: 40px; height: 16px; color: var(--violet); }
+@media (max-width: 760px) { .evolve { grid-template-columns: minmax(0, 1fr); } .evolve .arrow svg { transform: rotate(90deg); } }
+
+
+/* screens gallery */
+.screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 760px) { .screens { grid-template-columns: minmax(0, 1fr); } }
+.screens figure { margin: 0; }
+.screens .screen { max-height: 560px; }
+
+/* conclusion */
+.closing { font: 600 clamp(1.4rem, 2.6vw, 2rem)/1.35 var(--f-display); letter-spacing: -0.01em; color: var(--band-fg); max-width: 32ch; }
+footer { padding-block: 40px; border-top: 1px solid rgb(255 255 255 / .1); color: var(--band-muted); font: 400 .85rem var(--f-mono); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer a { color: var(--band-fg); }
+
+/* mockups */
+.mockup { margin: 0; border-radius: var(--radius); overflow: hidden; }
+.mockup img { width: 100%; cursor: zoom-in; }
+.mockup.cover { max-width: 950px; margin: 0 auto clamp(48px, 6vw, 80px); border: 1px solid rgb(255 255 255 / .1); }
+.band .mockup figcaption { color: var(--band-muted); border-color: rgb(255 255 255 / .1); }
+
+/* lightbox */
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh; overflow: auto; }
+dialog.lb::backdrop { background: rgb(10 5 30 / .85); }
+dialog.lb img { width: 100%; border-radius: 8px; }
+dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border: 0; border-radius: 999px; padding: 8px 14px; font: 600 14px var(--f-body); background: #fff; color: #160a45; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="All projects by Matan Kidrony">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M1.5 3h3.2l2.1 7.2L9 3h2l-3.3 10H5.9L1.5 3Z" fill="#fff"/><path d="M10.6 3h3.9l-3.3 10H8.9l1.7-10Z" fill="#fff" opacity=".6"/></svg></span>
+      Matan Kidrony
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem &amp; solution</a>
+      <a href="#role">Role</a>
+      <a href="#process">Process</a>
+      <a href="#screens">Final screens</a>
+      <a href="#conclusion">Conclusion</a>
+      <a href="../#work">All projects</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <span class="label">Product case study · Wideview.io</span>
+        <h1>From static dashboards to a <em>decision-making system</em> for eCommerce brands.</h1>
+        <p class="lede read">How I led the UX/UI of Wideview.io, an end-to-end operations and management platform that lets brand executives set targets, see where they stand, and turn insight into team action.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Lead UX/UI Product Designer</dd></div>
+          <div><dt>Scope</dt><dd>Product, brand &amp; marketing</dd></div>
+          <div><dt>Team</dt><dd>8 people, 1 designer</dd></div>
+          <div><dt>Deliverable</dt><dd>MVP, web app</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="hero-shot">
+        <img src="assets/img/gif-manage.gif" alt="Animated Wideview 'Manage' view: company top KPIs with targets, and department health gauges for Marketing, Finance and Website." width="674" height="450">
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section id="intro" style="border-top:0">
+    <div class="wrap">
+      <div class="about">
+        <img class="avatar" src="assets/img/matan-kidrony.jpg" alt="Portrait of Matan Kidrony" width="120" height="120">
+        <div class="stack read">
+          <span class="label">Introduction</span>
+          <h2>Hello, I'm Matan.</h2>
+          <p>I'm a product designer with over 10 years of experience, working on everything from mobile apps to web applications. I care about intuitive, user-friendly design that makes people's lives easier.</p>
+          <p>My journey in UX began after college, at a digital agency. I became fascinated by the intersection of technology, human behavior and data, and knew this was the field I wanted to work in. I've been sharpening those skills through projects ever since, and Wideview is one I'm especially glad to share.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="stack">
+          <span class="label">Quick overview</span>
+          <h2>One place to plan, measure and act.</h2>
+        </div>
+        <div class="stack">
+          <p class="lede">As the lead UX/UI product designer at Wideview.io, my mission was to create an end-to-end decision-making and management system for eCommerce brands, giving executives real value in running their operations.</p>
+          <p>The goal was to move traditional business intelligence (BI) from static dashboards to a dynamic system. Executives get macro-level insight into operations, plus micro-level task and team management, so that the goals and targets they set actually hold up in the daily life of an eCommerce brand.</p>
+        </div>
+      </div>
+
+      <figure class="frame" style="margin:clamp(40px,5vw,64px) 0 0">
+        <div class="embed" data-embed="https://player.vimeo.com/video/782460512?autoplay=1&title=0&byline=0&portrait=0" data-title="Wideview teaser">
+          <div class="embed-poster has-img" style="background-image:url('assets/img/screen-wide-views.png')">
+            <span class="k">Video · Teaser</span>
+            <span class="t">Wideview teaser</span>
+            <button class="btn" type="button" data-load><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5-9-5.5Z"/></svg>Play video</button>
+          </div>
+        </div>
+        <figcaption><span>Wideview teaser</span><a class="btn ghost" href="https://vimeo.com/782460512" target="_blank" rel="noopener">Watch on Vimeo ↗</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PROBLEM / SOLUTION -->
+  <section id="problem" class="band">
+    <div class="wrap">
+      <figure class="mockup cover">
+        <img src="assets/img/wideview-W1.jpg" alt="Wideview logo beside two tablet mockups showing the Workspace with department KPIs and the Channels Gantt, and the across-channels view." loading="lazy" width="950" height="618" data-zoom>
+      </figure>
+      <div class="ps">
+        <div class="stack">
+          <span class="label">The problem</span>
+          <h3>Disjointed data and inefficient decision-making.</h3>
+          <p>eCommerce brand executives were juggling disjointed data from dozens of systems, platforms and company departments. That fragmentation slowed decisions down and made it hard to see the business as a whole. Handling the data, managing the team and executing took a lot of time and a lot of people.</p>
+          <p>As lead designer, one of my key challenges was an MVP that could consolidate those sources into one coherent data language, so executives could make informed decisions quickly and without the effort.</p>
+        </div>
+        <div class="stack">
+          <span class="label">The solution</span>
+          <h3>A unified data intelligence platform for eCommerce executives.</h3>
+          <p>To solve this, we built a unified data intelligence platform. The MVP, designed under my lead, focused on five key elements.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+            <span class="chip v">Connect</span><span class="chip v">Define</span><span class="chip v">Manage</span><span class="chip v">Plan</span><span class="chip v">Act</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <article class="pillar">
+          <span class="n">01</span>
+          <h4>Data integration &amp; visualization</h4>
+          <p>A robust integration layer connected the brand's operational systems and departments. Executives could see data from every source in a single view, with interactive charts that make complex data quick to read.</p>
+        </article>
+        <article class="pillar">
+          <span class="n">02</span>
+          <h4>Intuitive UI &amp; UX</h4>
+          <p>An interface shaped around how eCommerce executives actually work. Simplicity came first, so they could move through the platform and reach the right insight with minimal effort. User testing and feedback loops fine-tuned it.</p>
+        </article>
+        <article class="pillar">
+          <span class="n">03</span>
+          <h4>Actionable insights &amp; decision support</h4>
+          <p>Built on a top / down / act method: start from a high-level overview, drill into a specific area, find the drivers behind performance, then prioritize issues and act on them before they grow.</p>
+        </article>
+        <article class="pillar">
+          <span class="n">04</span>
+          <h4>Strategic empowerment &amp; growth</h4>
+          <p>A strategic planning tool and growth-opportunity finder. Executives define which metrics to measure and get data-driven suggestions for growth areas, resource optimization, goal setting and future planning.</p>
+        </article>
+        <article class="pillar">
+          <span class="n">05</span>
+          <h4>Real-time monitoring &amp; tracking</h4>
+          <p>Live performance tracking against targets. Executives assign action items to team members and follow progress toward key goals, keeping teams accountable and improving continuously.</p>
+        </article>
+      </div>
+
+      <div class="flow">
+        <figure>
+          <img src="assets/img/gif-connect.gif" alt="Animated onboarding: connecting store platforms and data sources to Wideview." loading="lazy" width="674" height="450">
+          <figcaption>Connect <span>every source in one place</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/gif-data-language.gif" alt="Animated 'Data Language – P&amp;L' builder: dragging expenses such as refunds and taxes into the brand's P&amp;L structure." loading="lazy" width="674" height="450">
+          <figcaption>Define <span>one data language (P&amp;L)</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/gif-manage.gif" alt="Animated 'Manage' view with KPI cards against targets and department health gauges." loading="lazy" width="674" height="450">
+          <figcaption>Manage <span>targets, teams, action</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLE / TEAM / TOOLS -->
+  <section id="role">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Project setup</span>
+        <h2>My role, the team and the tools.</h2>
+      </div>
+      <div class="facts">
+        <div class="fact">
+          <h3>My role</h3>
+          <ul>
+            <li>Research, wireframing, prototyping</li>
+            <li>UI and UX design</li>
+            <li>Handoff to the dev team</li>
+            <li>Working with cross-functional teams to ensure clear, consistent design</li>
+            <li>Owning every design touchpoint, from product to brand and marketing</li>
+          </ul>
+        </div>
+        <div class="fact">
+          <h3>The team</h3>
+          <ul>
+            <li>Developers <span class="num">4</span></li>
+            <li>Data Scientist <span class="num">1</span></li>
+            <li>VP Product <span class="num">1</span></li>
+            <li>Product Manager <span class="num">1</span></li>
+            <li class="me">Designer (me) <span class="num">1</span></li>
+          </ul>
+        </div>
+        <div class="fact">
+          <h3>Tools I used</h3>
+          <ul>
+            <li>Figma <span class="chip v">UI · DS</span></li>
+            <li>Adobe XD <span class="chip v">Prototypes</span></li>
+            <li>Miro + FigJam <span class="chip v">Research</span></li>
+            <li>After Effects <span class="chip v">Motion</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- DEMO VIDEO: replace data-embed with the demo URL once found -->
+      <figure class="frame" style="margin:clamp(40px,5vw,64px) 0 0">
+        <div class="embed" data-embed="" data-title="Wideview demo">
+          <div class="embed-poster has-img" style="background-image:url('assets/img/screen-workspace-gantt.png')">
+            <span class="k">Video · Product demo</span>
+            <span class="t">Wideview product demo</span>
+            <button class="btn" type="button" data-load><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5-9-5.5Z"/></svg>Play demo</button>
+          </div>
+        </div>
+        <figcaption><span>Full product walkthrough</span><a class="btn ghost" data-open href="#" target="_blank" rel="noopener" hidden>Open in new tab ↗</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">My design process</span>
+        <h2>Six steps from research to the final product.</h2>
+      </div>
+      <ol class="rail">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#interviews">User interviews</a></li>
+        <li><a href="#journey">User journey</a></li>
+        <li><a href="#wireframes">Wireframes</a></li>
+        <li><a href="#components">Components &amp; design system</a></li>
+        <li><a href="#screens">Final product design</a></li>
+      </ol>
+
+      <!-- 01 Research -->
+      <div class="sub" id="research">
+        <div class="two-col">
+          <div class="stack">
+            <span class="label"><span class="step">01</span> Research &amp; personas</span>
+            <h3>Two people who run the business from different seats.</h3>
+          </div>
+          <p class="read">To keep the work user-centric, we ran extensive research into the pain points and needs of eCommerce brand executives. Through interviews, surveys and usability testing we identified two primary audiences.</p>
+        </div>
+        <div class="personas" style="margin-top:36px">
+          <figure class="frame" style="margin:0">
+            <img src="assets/img/persona-sara.png" alt="Persona card for Sara, 32, Chief Marketing Officer based in Tel Aviv, selling on Amazon, Shopify, WooCommerce and DTC." loading="lazy" width="1128" height="812" data-zoom>
+            <figcaption><span>Persona card · Sara, CMO</span></figcaption>
+          </figure>
+          <div class="stack">
+            <article class="persona">
+              <header><span class="ini" aria-hidden="true">S</span><div><h4>Sara</h4><span class="role">Executive · Chief Marketing Officer</span></div></header>
+              <dl>
+                <div><dt>Background</dt><dd>Holds a key leadership role in the brand's marketing strategy and decision-making.</dd></div>
+                <div><dt>Goals</dt><dd>A holistic understanding of the business, spotting growth opportunities, making data-driven strategic decisions.</dd></div>
+                <div><dt>Challenges</dt><dd>Overwhelmed by scattered data, no unified view of the business, struggles to prioritize key issues.</dd></div>
+              </dl>
+            </article>
+            <article class="persona">
+              <header><span class="ini" aria-hidden="true">A</span><div><h4>Alex</h4><span class="role">Operations · Chief Operating Officer</span></div></header>
+              <dl>
+                <div><dt>Background</dt><dd>Responsible for optimizing and streamlining operations across departments.</dd></div>
+                <div><dt>Goals</dt><dd>Cross-organizational insights and optimizations that improve overall business performance.</dd></div>
+                <div><dt>Challenges</dt><dd>Fragmented data systems, and no context layer for benchmarks and external events.</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
+
+        <div class="stack" style="margin-top:56px">
+          <h3>Product research: industry &amp; competition</h3>
+          <figure class="frame" style="margin:0">
+            <div class="embed tall">
+              <iframe src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fboard%2FVLAVbj8JalRHCw1uudAM2f%2FProduct-Research%3Fnode-id%3D0-1%26p%3Df%26t%3DYfW85XKPd3Dmtf0w-0" title="Product research board (FigJam)" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <figcaption><span>Product research board</span><a class="btn ghost" href="https://www.figma.com/board/VLAVbj8JalRHCw1uudAM2f/Product-Research?node-id=0-1&amp;p=f&amp;t=YfW85XKPd3Dmtf0w-0" target="_blank" rel="noopener">Open in Figma ↗</a></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 02 Interviews -->
+      <div class="sub" id="interviews">
+        <div class="two-col">
+          <div class="stack">
+            <span class="label"><span class="step">02</span> User interviews</span>
+            <h3>Listening before drawing.</h3>
+            <div class="stat"><b>32</b><span>open-ended questions in the interview script</span></div>
+          </div>
+          <p class="read">During ideation I ran user interviews to build the personas and inform the design. With the team, we prepared a script of 32 open-ended questions about our audiences' values, motivations and daily routines. We came back to the interview findings throughout the entire design process.</p>
+        </div>
+      </div>
+
+      <!-- 03 Journey -->
+      <div class="sub" id="journey">
+        <div class="two-col">
+          <div class="stack">
+            <span class="label"><span class="step">03</span> User journey</span>
+            <h3>Mapping the path from first login to daily habit.</h3>
+          </div>
+          <p class="read">The journey map traces how an executive moves from connecting data, to understanding the business, to assigning and following up on action.</p>
+        </div>
+        <figure class="frame" style="margin:36px 0 0">
+            <div class="embed tall">
+              <iframe src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fboard%2FqCnur6HVYjmS2oZjahagLg%2FWideView---Users-Flows---Sign-In_Up%3Fnode-id%3D0-1%26t%3DIu7P4VciQcuDpawM-0" title="User flows: sign in / sign up (FigJam)" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <figcaption><span>User flows · sign in / sign up</span><a class="btn ghost" href="https://www.figma.com/board/qCnur6HVYjmS2oZjahagLg/WideView---Users-Flows---Sign-In_Up?node-id=0-1&amp;t=Iu7P4VciQcuDpawM-0" target="_blank" rel="noopener">Open in Figma ↗</a></figcaption>
+          </figure>
+
+        <div class="stack" style="margin-top:56px">
+          <h3>Onboarding flow</h3>
+          <figure class="frame" style="margin:0">
+            <div class="embed" data-embed="https://xd.adobe.com/embed/7457037e-97f5-4e06-b134-4e52eab367f9-2104/" data-title="Onboarding flow prototype">
+              <div class="embed-poster has-img" style="background-image:url('assets/img/gif-connect.gif')">
+                <span class="k">Adobe XD prototype</span>
+                <span class="t">Onboarding flow</span>
+                <button class="btn" type="button" data-load>View prototype</button>
+              </div>
+            </div>
+            <figcaption><span>Onboarding: connect, define, manage</span><a class="btn ghost" href="https://xd.adobe.com/view/7457037e-97f5-4e06-b134-4e52eab367f9-2104/?fullscreen" target="_blank" rel="noopener">Open in Adobe XD ↗</a></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 04 Sketches & wireframes -->
+      <div class="sub" id="wireframes">
+        <div class="two-col">
+          <div class="stack">
+            <span class="label"><span class="step">04</span> Sketches &amp; wireframes</span>
+            <h3>Fewer distractions, faster decisions.</h3>
+          </div>
+          <div class="stack read">
+            <p>I started with low-fidelity sketches and wireframes to speed up decisions through visualization. The sketches drew on the first user interviews, the business goal and a heuristic evaluation, and all of them pointed to the same thing: there were too many distractions in the flow. We kept coming back to them to stay focused on our primary goals.</p>
+            <ul class="ticks">
+              <li>We began with a "standard" dashboard. Then, guided by interview feedback and our goal of disrupting the dashboard approach, we iterated.</li>
+              <li>Because the data is complex, I made multiple versions. The main difference between them was how and where the data was visualized.</li>
+              <li>We chose the clearest one: a semi-dashboard with a calm layout and a clear arrangement of elements on screen.</li>
+              <li>Sketches and wireframes let us move fast and walk our design partners through user flows early.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="evolve" style="margin-top:40px">
+          <figure class="frame" style="margin:0">
+            <img src="assets/img/sketch-dashboard.jpg" alt="Hand sketch of the first dashboard layout: menu, toolbar, bar chart, line chart and a data table." loading="lazy" width="2000" height="1500" data-zoom>
+            <figcaption><span>Paper sketch · first layout</span></figcaption>
+          </figure>
+          <div class="arrow" aria-hidden="true"><svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h36M31 2l6 6-6 6"/></svg>iterate</div>
+          <figure class="frame" style="margin:0">
+            <div class="screen" style="max-height:340px" tabindex="0" aria-label="Wireframe, scrollable"><img src="assets/img/wireframe-dashboard.png" alt="Grayscale wireframe of the Wideview dashboard with KPI cards, revenue growth chart, sales by country map and customer growth." loading="lazy" width="1260" height="1417" data-zoom></div>
+            <figcaption><span>Figma wireframe · scroll</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="stack read" style="margin-top:40px">
+          <p>In Figma, I turned the sketches into low-fidelity wireframes, then refined them with relevant stock images and copy from the marketing team. At that point they were defined enough for user testing. After 4 tests I made a few changes and moved on to high-fidelity prototypes.</p>
+        </div>
+      </div>
+
+      <!-- 05 Components -->
+      <div class="sub" id="components">
+        <div class="two-col">
+          <div class="stack">
+            <span class="label"><span class="step">05</span> Components &amp; design system</span>
+            <h3>A system built for dense data.</h3>
+          </div>
+          <p class="read">KPI cards with target chips, department health gauges, financial tables and timelines all share one component library, so every new screen speaks the same visual language.</p>
+        </div>
+
+        <div class="two-col" style="margin-top:56px">
+          <div class="stack">
+            <span class="label">Component example</span>
+            <h3>The Gantt.</h3>
+            <p>We needed a Gantt component that could live in many places across the platform. It sits under every over-time graph, lining up events, alerts and team efforts with the data, so planning and context are read together.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <span class="chip v">Events</span><span class="chip bad">Alerts</span><span class="chip good">Efforts</span>
+            </div>
+          </div>
+          <figure class="frame" style="margin:0">
+            <div class="screen" style="max-height:480px" tabindex="0" aria-label="Workspace screen with Channels Gantt, scrollable"><img src="assets/img/screen-workspace-gantt.png" alt="Workspace screen with department KPIs and the Channels Gantt: a revenue line chart above rows of events, alerts and efforts." loading="lazy" width="1600" height="2158" data-zoom></div>
+            <figcaption><span>Workspace · Channels Gantt</span></figcaption>
+          </figure>
+        </div>
+        <figure class="frame" style="margin:24px 0 0">
+          <div class="embed" data-embed="https://xd.adobe.com/embed/598c94d1-1854-4e50-955a-6cfd67afc69b-0cdf/" data-title="Gantt component prototype">
+            <div class="embed-poster">
+              <span class="k">Adobe XD prototype</span>
+              <span class="t">Gantt component, interactive</span>
+              <button class="btn" type="button" data-load>View prototype</button>
+            </div>
+          </div>
+          <figcaption><span>Gantt component prototype</span><a class="btn ghost" href="https://xd.adobe.com/view/598c94d1-1854-4e50-955a-6cfd67afc69b-0cdf/?fullscreen" target="_blank" rel="noopener">Open in Adobe XD ↗</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 SCREENS -->
+  <section id="screens">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="stack">
+          <span class="label"><span class="step">06</span> Final product design</span>
+          <h2>The final screens.</h2>
+        </div>
+        <p class="read">With the usability issues resolved, I designed the final screens in Figma. The goal was a visual identity aligned with the brand's values and message. I also reviewed the competition and dug into my own catalog of references for inspiration. Scroll inside each screen to see it in full.</p>
+      </div>
+
+      <figure class="frame mockup" style="margin-top:40px">
+        <img src="assets/img/wideview-thumb.png" alt="Laptop mockup showing the Wideview Workspace screen with department KPIs and the Channels Gantt." loading="lazy" width="1500" height="1125" data-zoom>
+        <figcaption><span>Workspace on desktop</span></figcaption>
+      </figure>
+
+      <div class="screens" style="margin-top:24px">
+        <figure class="frame">
+          <div class="screen" tabindex="0" aria-label="Wide Views screen, scrollable"><img src="assets/img/screen-wide-views.png" alt="Wide Views: company top KPIs, departments overview gauges and department KPIs against targets." loading="lazy" width="1600" height="2035" data-zoom></div>
+          <figcaption><span>Wide Views · company &amp; department KPIs</span><span class="chip good">101% vs. TGT</span></figcaption>
+        </figure>
+        <figure class="frame">
+          <div class="screen" tabindex="0" aria-label="P&amp;L screen, scrollable"><img src="assets/img/screen-pnl.png" alt="P&amp;L overview waterfall against targets, P&amp;L financial table and expenses breakdown." loading="lazy" width="1600" height="2035" data-zoom></div>
+          <figcaption><span>P&amp;L overview &amp; financial table</span><span class="chip warn">95% vs. TGT</span></figcaption>
+        </figure>
+        <figure class="frame">
+          <div class="screen" tabindex="0" aria-label="Planning screen, scrollable"><img src="assets/img/screen-planning.png" alt="Planning: yearly gross revenue plan against historical and forecast lines with seasonal events, and a planning breakdown table." loading="lazy" width="1600" height="2035" data-zoom></div>
+          <figcaption><span>Planning · targets &amp; forecast</span><span class="chip v">Plan 2022</span></figcaption>
+        </figure>
+        <figure class="frame">
+          <div class="screen" tabindex="0" aria-label="Workspace screen, scrollable"><img src="assets/img/screen-workspace-gantt.png" alt="Workspace: department KPIs, Channels Gantt, efforts table and alerts table." loading="lazy" width="1600" height="2158" data-zoom></div>
+          <figcaption><span>Workspace · efforts &amp; alerts</span><span class="chip bad">85% vs. TGT</span></figcaption>
+        </figure>
+      </div>
+
+      <figure class="frame" style="margin:40px 0 0">
+        <div class="embed" data-embed="https://xd.adobe.com/embed/18b8325c-203e-4ece-8ce5-3a9f7c0a3d90-4deb/" data-title="Final product prototype">
+          <div class="embed-poster has-img" style="background-image:url('assets/img/screen-planning.png')">
+            <span class="k">Adobe XD prototype</span>
+            <span class="t">Click through the final product</span>
+            <button class="btn" type="button" data-load>Launch demo</button>
+          </div>
+        </div>
+        <figcaption><span>Final screens · interactive demo</span><a class="btn ghost" href="https://xd.adobe.com/view/18b8325c-203e-4ece-8ce5-3a9f7c0a3d90-4deb/?fullscreen" target="_blank" rel="noopener">Open full screen ↗</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section id="conclusion" class="band">
+    <div class="wrap">
+      <div class="two-col">
+        <div class="stack">
+          <span class="label">Conclusion</span>
+          <p class="closing">A fascinating product and industry, and a project that taught me a lot.</p>
+        </div>
+        <div class="stack read">
+          <p>I crafted the brand identity, the product and the website, including all the marketing materials. I worked with every stakeholder and team, ran user interviews, and presented ideas to the CEO and other directors. Within the usual technical constraints, I had complete creative freedom.</p>
+          <p>Along the way I mastered Figma (and still use it every day), refined my design and research process, and built the soft skills to carry a message across the group and bring my voice to the decision-making table.</p>
+          <p style="color:var(--band-fg)">Thanks for reading.</p>
+        </div>
+      </div>
+      <figure class="frame mockup" style="margin-top:clamp(40px,5vw,64px);background:transparent;border-color:rgb(255 255 255 / .1)">
+        <img src="assets/img/wideview0scrn.png" alt="Laptop mockup of the Wideview marketing website hero: Easily manage your eCommerce business, operation and team from one place." loading="lazy" width="1400" height="1050" data-zoom>
+        <figcaption class="caption"><span>The Wideview marketing website, also designed by me</span></figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<div class="band">
+  <footer>
+    <div class="wrap">
+      <span>Wideview.io case study · Matan Kidrony</span>
+      <a href="../cymbio/">Next project: Cymbio →</a>
+    </div>
+  </footer>
+</div>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  // Click-to-load embeds (video, Figma, XD). An empty data-embed means the link isn't added yet.
+  document.querySelectorAll('.embed[data-embed]').forEach(function (box) {
+    var src = box.getAttribute('data-embed');
+    var fig = box.closest('figure');
+    var open = fig && fig.querySelector('[data-open]');
+    var btn = box.querySelector('[data-load]');
+    if (!src) {
+      if (btn) btn.remove();
+      var note = document.createElement('span');
+      note.className = 'pending-note';
+      note.textContent = 'Link coming soon';
+      var poster = box.querySelector('.embed-poster');
+      if (poster) poster.appendChild(note);
+      return;
+    }
+    if (open) { open.href = src; open.hidden = false; }
+    if (btn) btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = src;
+      f.title = box.getAttribute('data-title') || 'Embedded content';
+      f.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write';
+      f.allowFullscreen = true;
+      box.innerHTML = '';
+      box.appendChild(f);
+    });
+  });
+
+  // Lightbox
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () {
+      lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt;
+      if (lb.showModal) lb.showModal();
+    });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+
+  // Active nav link
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach(function (t) { if (t) io.observe(t); });
+  }
+})();
+</script>
+</body>
+</html>

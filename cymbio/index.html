@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cymbio Brand Case Study | Matan Kidrony</title>
+<meta name="description" content="Full rebrand of Cymbio by Matan Kidrony: logo, visual language, marketing materials and website.">
+<meta property="og:title" content="Cymbio Brand Case Study | Matan Kidrony">
+<meta property="og:description" content="The whole shebang: a new logo, visual language, marketing and website for Cymbio.">
+<meta property="og:image" content="https://matan-kidrony.netlify.app/cymbio/assets/stationery.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Cymbio's own world. Deep navy "brand" bands alternate with soft lavender
+   "paper" bands; the magenta-to-violet gradient is the one loud element.
+   Deliberately single-theme: the page shows the brand's real colors. */
+:root {
+  --navy: #14133A;          /* Cymbio brand navy */
+  --magenta: #FF03EC;       /* Cymbio brand magenta */
+  --violet: #5C03EC;        /* Cymbio brand violet */
+  --lavender: #F4F0FE;
+  --paper: #FBFAFF;
+  --ink: #14133A;
+  --ink-soft: #55537A;
+  --line: #E4DEF7;
+  --on-navy: #F3F0FF;
+  --on-navy-soft: #A9A5D6;
+  --grad: linear-gradient(100deg, #FF03EC 0%, #5C03EC 100%);
+
+  --f-brand: "Rubik", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 18px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--violet); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--magenta); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-brand); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.7rem, 6.8vw, 5.6rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.65rem); font-weight: 500; }
+p { margin: 0; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.label { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--violet); }
+.navy .label { color: #E07BFF; }
+.lede { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.55; color: var(--ink-soft); }
+.navy .lede, .navy p { color: var(--on-navy-soft); }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.read { max-width: 64ch; }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+@media (max-width: 900px) { .two { grid-template-columns: minmax(0, 1fr); } }
+
+section { padding-block: clamp(72px, 10vw, 128px); }
+.navy { background: var(--navy); color: var(--on-navy); }
+.navy h1, .navy h2, .navy h3 { color: var(--on-navy); }
+.lav { background: var(--lavender); }
+
+.kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.exit { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font: 600 .85rem/1 var(--f-body); background: #fff; color: #14133A; }
+.exit::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #FF03EC; }
+/* topbar */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgb(20 19 58 / .88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgb(255 255 255 / .08); }
+.topbar .wrap { height: 60px; display: flex; align-items: center; gap: 20px; }
+.home { font: 600 15px var(--f-body); color: var(--on-navy); text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+.home span { color: var(--on-navy-soft); }
+.topbar nav { margin-left: auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.topbar nav::-webkit-scrollbar { display: none; }
+.topbar nav a { font: 500 14px var(--f-body); color: var(--on-navy-soft); text-decoration: none; padding: 7px 12px; border-radius: 999px; white-space: nowrap; }
+.topbar nav a:hover { color: #fff; background: rgb(255 255 255 / .08); }
+@media (max-width: 820px) { .topbar nav a:not(.all) { display: none; } }
+
+/* hero */
+.hero { padding-block: clamp(56px, 9vw, 112px) 0; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; width: 900px; height: 900px; right: -320px; top: -380px; border-radius: 50%; background: radial-gradient(closest-side, rgb(255 3 236 / .35), rgb(92 3 236 / .18) 55%, transparent 72%); pointer-events: none; }
+.hero .wrap { position: relative; }
+.hero-text { display: flex; flex-direction: column; gap: 26px; max-width: 980px; }
+.meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgb(255 255 255 / .12); margin-top: 18px; }
+.meta div { padding: 16px 16px 0 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.meta dt { font: 500 .7rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--on-navy-soft); }
+.meta dd { margin: 0; font-weight: 600; color: var(--on-navy); }
+@media (max-width: 700px) { .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; } }
+.hero-shot { margin-top: clamp(48px, 6vw, 80px); border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
+.hero-shot img { width: 100%; }
+
+/* figures */
+figure { margin: 0; }
+.fig { border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid var(--line); }
+.navy .fig { border-color: rgb(255 255 255 / .1); background: transparent; }
+.cap { font: 400 .8rem/1.4 var(--f-mono); color: var(--ink-soft); padding-top: 12px; }
+.navy .cap { color: var(--on-navy-soft); }
+[data-zoom] { cursor: zoom-in; }
+
+/* before / after */
+.ba { margin-top: 40px; }
+
+/* the mark */
+.equation { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 8px; }
+.equation .term { display: flex; flex-direction: column; gap: 4px; padding: 14px 18px; border-radius: 14px; border: 1px solid rgb(255 255 255 / .14); background: rgb(255 255 255 / .04); }
+.equation .term b { font: 500 1.05rem var(--f-brand); color: #fff; }
+.equation .term span { font-size: .85rem; color: var(--on-navy-soft); }
+.equation .op { font: 500 1.4rem var(--f-brand); color: var(--magenta); }
+.clear { margin-top: 28px; background: #fff; border-radius: var(--radius); padding: 12px; }
+
+/* foundations */
+.found { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 48px; }
+@media (max-width: 900px) { .found { grid-template-columns: minmax(0, 1fr); } }
+.card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.card h3 { font: 500 .78rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.specimen .aa { font: 700 clamp(5rem, 13vw, 9rem)/.9 var(--f-brand); letter-spacing: -0.04em; }
+.specimen .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 14px; }
+.specimen .row span:first-child { font-family: var(--f-brand); font-size: 1.35rem; }
+.specimen .row .w4 { font-weight: 400; } .specimen .row .w7 { font-weight: 700; }
+.specimen .row span:last-child { font: 400 .78rem var(--f-mono); color: var(--ink-soft); }
+.specimen .sample { font: 700 clamp(1.4rem, 2.6vw, 2rem)/1.1 var(--f-brand); text-transform: uppercase; letter-spacing: -0.01em; }
+.chars { font: 400 1rem/1.6 var(--f-brand); color: var(--ink-soft); word-break: break-all; }
+
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.swatch { border: 0; padding: 0; background: none; cursor: pointer; text-align: left; font: inherit; color: inherit; display: flex; flex-direction: column; gap: 10px; }
+.swatch .chip { aspect-ratio: 1; border-radius: 14px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .06); transition: transform .2s ease; }
+.swatch:hover .chip { transform: translateY(-3px); }
+.swatch b { font: 500 1rem var(--f-brand); }
+.swatch code { font: 400 .8rem var(--f-mono); color: var(--ink-soft); }
+.swatch .copied { font: 500 .72rem var(--f-mono); color: var(--violet); min-height: 1em; }
+.gradbar { height: 64px; border-radius: 14px; background: var(--grad); display: flex; align-items: flex-end; justify-content: space-between; padding: 10px 14px; color: #fff; font: 500 .75rem var(--f-mono); }
+
+/* graphic language */
+.lang { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 24px; margin-top: 48px; align-items: stretch; }
+@media (max-width: 900px) { .lang { grid-template-columns: minmax(0, 1fr); } }
+.lang .fig { display: flex; flex-direction: column; justify-content: center; padding: clamp(12px, 2vw, 24px); }
+.motifs { margin: 36px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.motifs li { border-top: 2px solid var(--ink); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.motifs b { font: 500 1.05rem var(--f-brand); }
+.motifs span { color: var(--ink-soft); font-size: .95rem; }
+@media (max-width: 760px) { .motifs { grid-template-columns: minmax(0, 1fr); } }
+
+/* touchpoints */
+.tp-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 48px; }
+.embed { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: var(--navy); border-radius: var(--radius); overflow: hidden; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: center / cover no-repeat; display: grid; place-items: center; }
+.poster::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(20 19 58 / .15), rgb(20 19 58 / .55)); }
+.play { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--grad); color: #fff; font: 600 15px var(--f-body); transition: transform .2s ease; }
+.poster:hover .play { transform: scale(1.04); }
+.play svg { width: 16px; height: 16px; }
+
+/* website */
+.site { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 24px; margin-top: 48px; align-items: start; }
+@media (max-width: 900px) { .site { grid-template-columns: minmax(0, 1fr); } }
+.scroller { max-height: 720px; overflow-y: auto; overscroll-behavior: contain; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; scrollbar-width: thin; scrollbar-color: var(--violet) transparent; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; background: var(--grad); color: #fff; text-decoration: none; font: 600 15px var(--f-body); width: fit-content; }
+
+/* outro */
+.outro .closing { font: 500 clamp(1.5rem, 2.8vw, 2.2rem)/1.3 var(--f-brand); color: var(--on-navy); max-width: 30ch; }
+.next { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: clamp(56px, 7vw, 96px); padding-top: 28px; border-top: 1px solid rgb(255 255 255 / .12); }
+.next a { color: #fff; text-decoration: none; font: 700 clamp(1.6rem, 3.4vw, 2.6rem) var(--f-brand); display: inline-flex; gap: 14px; align-items: center; }
+.next a span { transition: transform .2s ease; display: inline-block; }
+.next a:hover span { transform: translateX(6px); }
+footer { background: var(--navy); color: var(--on-navy-soft); font: 400 .82rem var(--f-mono); padding-block: 24px; border-top: 1px solid rgb(255 255 255 / .08); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+footer a { color: var(--on-navy); }
+
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh; overflow: auto; }
+dialog.lb::backdrop { background: rgb(10 8 30 / .88); }
+dialog.lb img { width: 100%; border-radius: 10px; }
+dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border: 0; border-radius: 999px; padding: 8px 14px; font: 600 14px var(--f-body); background: #fff; color: var(--navy); cursor: pointer; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="home" href="../">Matan Kidrony <span>/ Cymbio</span></a>
+    <nav aria-label="Sections">
+      <a href="#brief">Brief</a>
+      <a href="#mark">The mark</a>
+      <a href="#foundations">Foundations</a>
+      <a href="#language">Language</a>
+      <a href="#touchpoints">Touchpoints</a>
+      <a href="#website">Website</a>
+      <a class="all" href="../#work">All projects</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero navy">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="kicker"><span class="label">Brand case study · Cymbio</span><span class="exit">Acquired by PayPal</span></div>
+        <h1>Rebranding Cymbio. <span class="grad-text">The whole shebang.</span></h1>
+        <p class="lede read">A new logo, a fresh visual language, marketing materials and a new website for the platform that connects brands to retailers.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Brand &amp; web designer</dd></div>
+          <div><dt>Scope</dt><dd>Full rebrand</dd></div>
+          <div><dt>Industry</dt><dd>eCommerce SaaS</dd></div>
+          <div><dt>Deliverables</dt><dd>Identity, marketing, website</dd></div>
+        </dl>
+      </div>
+      <div class="hero-shot">
+        <img src="assets/stationery.jpg" alt="Cymbio brand flat lay: letterhead, business cards, envelope, and the new website on a laptop, tablet and phone." width="2000" height="1334" data-zoom>
+      </div>
+    </div>
+  </div>
+
+  <section id="brief">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">The brief</span>
+          <h2>A growing platform with a brand that hadn't caught up.</h2>
+        </div>
+        <div class="stack read">
+          <p class="lede">Cymbio helps brands scale by adding digital sales channels through fully automated drop ship and marketplace operations. Its unified platform connects brands with their retailer partners.</p>
+          <p>I was called in for "the whole shebang": a full rebrand, from a new logo and visual language to marketing materials and a new website. I walked the Cymbio team through the creative process step by step, from the first concepts to the launch of the new site.</p>
+        </div>
+      </div>
+      <figure class="ba">
+        <div class="fig"><img src="assets/logo-old-new.png" alt="Old Cymbio logo, an infinity-like double loop with a thin wordmark, next to the new logo: a magenta-violet C symbol and a rounded lowercase wordmark." width="1366" height="516" data-zoom></div>
+        <figcaption class="cap">Before and after. The old infinity loop became a mark with a story.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="mark" class="navy">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">The mark</span>
+          <h2>One symbol, three ideas.</h2>
+          <p>The new symbol starts from Cymbio's initial. Two open arcs read as a C, close into a full cycle like the endless loop between brand and retailer, and lock into each other like a handshake.</p>
+          <div class="equation" aria-label="Letter C plus full cycle plus handshake">
+            <div class="term"><b>Letter C</b><span>The initial</span></div>
+            <span class="op" aria-hidden="true">+</span>
+            <div class="term"><b>Full cycle</b><span>Brand-to-retail loop</span></div>
+            <span class="op" aria-hidden="true">+</span>
+            <div class="term"><b>Handshake</b><span>Two partners</span></div>
+          </div>
+        </div>
+        <figure>
+          <div class="fig"><img src="assets/logo-construction.png" alt="Construction of the Cymbio symbol on a grid: two gradient arcs inside a circle, with icons for letter C, full cycle and handshake." width="1322" height="672" data-zoom></div>
+          <figcaption class="cap">Built on a circle and a modular grid.</figcaption>
+        </figure>
+      </div>
+      <figure class="clear">
+        <img src="assets/logo-clearspace.png" alt="Cymbio logo lockup in navy with its clear-space grid." width="1366" height="300" data-zoom>
+      </figure>
+      <p class="cap">Lockup and clear space. The rounded wordmark echoes the curves of the symbol.</p>
+    </div>
+  </section>
+
+  <section id="foundations" class="lav">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Foundations</span>
+          <h2>A friendly typeface and a gradient with energy.</h2>
+        </div>
+        <p class="lede read">Rubik's soft, rounded corners match the curves of the mark and keep a technical product approachable. The palette pairs a calm navy with a magenta-to-violet gradient that carries the energy of connection.</p>
+      </div>
+
+      <div class="found">
+        <div class="card specimen">
+          <h3>Typeface</h3>
+          <div class="aa" aria-hidden="true">Aa</div>
+          <div class="row"><span class="w4">Rubik Regular</span><span>Body · 400</span></div>
+          <div class="row"><span class="w7">Rubik Bold</span><span>Headlines · 700</span></div>
+          <p class="sample">The leader in <span class="grad-text">brand-to-retail</span> connectivity</p>
+          <p class="chars" aria-hidden="true">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</p>
+        </div>
+        <div class="card">
+          <h3>Color · click to copy</h3>
+          <div class="swatches">
+            <button class="swatch" type="button" data-hex="#FF03EC"><span class="chip" style="background:#FF03EC"></span><b>Magenta</b><code>#FF03EC</code><span class="copied" aria-live="polite"></span></button>
+            <button class="swatch" type="button" data-hex="#5C03EC"><span class="chip" style="background:#5C03EC"></span><b>Violet</b><code>#5C03EC</code><span class="copied" aria-live="polite"></span></button>
+            <button class="swatch" type="button" data-hex="#14133A"><span class="chip" style="background:#14133A"></span><b>Navy</b><code>#14133A</code><span class="copied" aria-live="polite"></span></button>
+          </div>
+          <div class="gradbar"><span>#FF03EC</span><span>Signature gradient</span><span>#5C03EC</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="language">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Graphic language</span>
+          <h2>Showing connection, not just saying it.</h2>
+        </div>
+        <p class="lede read">Cymbio's product is invisible plumbing between companies, so the visual language had to make connection visible. The same few motifs repeat across illustrations, diagrams, the website and print.</p>
+      </div>
+      <div class="lang">
+        <figure class="fig"><img src="assets/connectivity.png" alt="Diagram: Your Brand connects through the Cymbio symbol with dashed lines to retailers such as Nordstrom, Macy's, Walmart, Target, Urban Outfitters, Kohl's, Farfetch, REI and Express." width="1611" height="1144" data-zoom></figure>
+        <figure class="fig"><img src="assets/illustration-style.png" alt="Cymbio illustration style: a woman at a laptop with the Cymbio symbol, drawn in violet with magenta accents and thin outlines." width="1366" height="500" data-zoom></figure>
+      </div>
+      <ul class="motifs">
+        <li><b>Dashed connection lines</b><span>The path between a brand and its retailers.</span></li>
+        <li><b>Glowing gradient orb</b><span>Cymbio as the hub in the middle of it all.</span></li>
+        <li><b>Line-and-fill illustration</b><span>Violet fills, thin outlines and magenta details.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="touchpoints" class="lav">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Touchpoints</span>
+          <h2>One brand, everywhere it shows up.</h2>
+        </div>
+        <p class="lede read">From business cards and letterheads to web banners and an animated explainer, every piece uses the same mark, gradient and type, so Cymbio is recognizable before you read a word.</p>
+      </div>
+      <div class="tp-grid">
+        <figure>
+          <div class="fig"><img src="assets/banner-hero.png" alt="Cymbio web banner: retailer storefronts on device frames beside the headline The leader in brand-to-retail connectivity in a magenta-violet gradient." width="1400" height="425" data-zoom loading="lazy"></div>
+          <figcaption class="cap">Campaign banner</figcaption>
+        </figure>
+        <figure>
+          <div class="embed" data-embed="https://www-ccv.adobe.io/v1/player/ccv/PzAL75fZT-8/embed?bgcolor=%2314133A&amp;lazyLoading=true&amp;api_key=BehancePro2View">
+            <button class="poster" type="button" style="background-image:url('assets/video-poster.jpg')" aria-label="Play the Cymbio explainer video">
+              <span class="play"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5-9-5.5Z"/></svg>Play explainer · 1:25</span>
+            </button>
+          </div>
+          <figcaption class="cap">Animated explainer video in the new visual language</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="website">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Website</span>
+          <h2>A new home for the new brand.</h2>
+        </div>
+        <div class="stack read">
+          <p class="lede">The website brings it all together: the gradient headline, retailer storefronts in device frames, the connection diagram and clear calls to action for brands ready to grow their channels.</p>
+          <a class="btn" href="https://cym.bio" target="_blank" rel="noopener">Visit cym.bio ↗</a>
+        </div>
+      </div>
+      <div class="site">
+        <figure>
+          <div class="fig"><img src="assets/website-imac.jpg" alt="Cymbio homepage on an iMac: The leader in brand-to-retail connectivity, with a business email field and Get Started button." width="1920" height="1344" data-zoom loading="lazy"></div>
+          <figcaption class="cap">Homepage hero</figcaption>
+        </figure>
+        <figure>
+          <div class="scroller" tabindex="0" aria-label="Full Cymbio homepage, scrollable"><img src="assets/website-home.jpg" alt="Full-length Cymbio homepage: hero, customer logos, testimonials, benefits, retailer logos, stats, integrations and footer." width="1440" height="7945" loading="lazy"></div>
+          <figcaption class="cap">Full homepage · scroll inside</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="navy outro">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Wrap-up</span>
+          <p class="closing">From an infinity loop to a brand with a story.</p>
+        </div>
+        <div class="stack read">
+          <p>The rebrand gave Cymbio one consistent voice across product, sales and marketing, and a visual language built to grow with the company.</p>
+          <p>A big thank-you to the Cymbio team for trusting me with this journey and letting me walk them through the whole creative process.</p>
+        </div>
+      </div>
+      <div class="next">
+        <span class="label">Next project</span>
+        <a href="../voca/">Voca.ai <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Cymbio case study · Matan Kidrony</span>
+    <a href="../">All projects</a>
+  </div>
+</footer>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  document.querySelectorAll('.embed[data-embed]').forEach(function (box) {
+    var btn = box.querySelector('.poster');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = box.getAttribute('data-embed') + '&autoplay=true';
+      f.title = btn.getAttribute('aria-label') || 'Video';
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      box.innerHTML = '';
+      box.appendChild(f);
+    });
+  });
+
+  document.querySelectorAll('.swatch').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var hex = b.getAttribute('data-hex'), out = b.querySelector('.copied');
+      var done = function (msg) { out.textContent = msg; setTimeout(function () { out.textContent = ''; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hex).then(function () { done('Copied'); }, function () { done(hex); });
+      } else { done(hex); }
+    });
+  });
+
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+</body>
+</html>
