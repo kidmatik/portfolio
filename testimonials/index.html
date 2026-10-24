@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Testimonials | Matan Kidrony</title>
+<meta name="description" content="What founders, CEOs and marketing leaders say about working with Matan Kidrony, product and brand designer.">
+<meta property="og:title" content="Testimonials | Matan Kidrony">
+<meta property="og:description" content="What founders, CEOs and marketing leaders say about working with Matan Kidrony.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/wideview/assets/img/wideview-W1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a wall of quotes. Masonry columns of cards; each card highlights the one phrase
+   that says it best, and links to the case study when there is one. */
+:root {
+  --ink: #15131c; --ink-soft: #5a5666; --paper: #f3f3f5; --surface: #ffffff; --line: #e2e1e7;
+  --accent: #e5701a; --accent-ink: #b4520a; --mark: #fde3cc;
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #f39545; --accent-ink: #f6a865; --mark: #4a2a12; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #f39545; --accent-ink: #f6a865; --mark: #4a2a12; color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--f-body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1 { font: 800 clamp(2.6rem, 6vw, 5rem)/1.02 var(--f-display); letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+h1 span { color: var(--accent); }
+.mono { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.intro { padding-block: clamp(56px, 8vw, 104px) clamp(36px, 5vw, 56px); display: flex; flex-direction: column; gap: 22px; }
+.intro p { margin: 0; max-width: 54ch; color: var(--ink-soft); font-size: clamp(1.05rem, 1.5vw, 1.25rem); }
+.stars { display: inline-flex; align-items: center; gap: 10px; }
+.stars i { font-style: normal; color: #f4b400; letter-spacing: 2px; font-size: 1.1rem; }
+
+.wall { columns: 3 320px; column-gap: 22px; padding-bottom: clamp(56px, 8vw, 96px); }
+.quote { break-inside: avoid; margin: 0 0 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px 26px 24px; display: flex; flex-direction: column; gap: 22px; position: relative; }
+.quote::before { content: "\201C"; position: absolute; top: 6px; right: 20px; font: 800 4.5rem/1 var(--f-display); color: var(--accent); opacity: .22; pointer-events: none; }
+.quote blockquote { margin: 0; }
+.quote p { margin: 0; font-size: 1.02rem; line-height: 1.65; }
+.quote mark { background: linear-gradient(transparent 55%, var(--mark) 55%); color: inherit; font-weight: 600; padding: 0 .1em; }
+.quote figcaption { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+.quote figcaption img { width: 52px; height: 52px; border-radius: 50%; flex: none; filter: grayscale(1); }
+.quote .who { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.quote .who b { font: 600 1rem/1.2 var(--f-display); }
+.quote .who span { font-size: .88rem; color: var(--ink-soft); }
+.quote .cs { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; font: 600 14px var(--f-body); color: var(--accent-ink); text-decoration: none; }
+.quote .cs span { transition: transform .2s ease; }
+.quote .cs:hover span { transform: translateX(4px); }
+
+.cta { margin-bottom: clamp(72px, 10vw, 120px); background: #15131c; color: #fff; border-radius: clamp(24px, 4vw, 40px); padding: clamp(32px, 5vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta h2 { margin: 0; font: 800 clamp(1.7rem, 3.4vw, 2.6rem)/1.1 var(--f-display); letter-spacing: -0.02em; }
+.cta h2 span { color: #f39545; }
+.cta a { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #f39545; color: #15131c; text-decoration: none; font: 600 16px var(--f-body); }
+.cta a:hover { background: #ffad66; }
+footer { border-top: 1px solid var(--line); padding-block: 28px; font: 400 .85rem var(--f-mono); color: var(--ink-soft); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 760px) { footer a { display: inline-flex; align-items: center; min-height: 44px; } }
+
+/* shared site header: identical on every page */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-logo img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #e2e1e7; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 400px) { .mk-logo span { display: none; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+</style>
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home"><img src="../assets/matan-kidrony.jpg" alt="" width="30" height="30"><span>Matan Kidrony</span></a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/" aria-current="page">Testimonials</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="intro">
+      <span class="stars"><i aria-hidden="true">★★★★★</i><span class="mono">9 recommendations</span></span>
+      <h1>What they <span>say.</span></h1>
+      <p>Founders, CEOs and marketing leaders I've built brands and products with, in their own words.</p>
+    </section>
+    <section class="wall" aria-label="Testimonials">
+      <figure class="quote">
+        <blockquote><p>Matan is by far <mark>the most talented full-stack designer that I've ever had the pleasure to work with</mark>. He is skilled in every aspect, quick and detailed. We've built some truly incredible brands together and I am so thankful for his professionalism. Matan is an absolutely pleasure to work and truly one of a kind.</p></blockquote>
+        <figcaption>
+          <img src="assets/jolene-amit.webp" alt="Jolene Amit" width="56" height="56" loading="lazy">
+          <span class="who"><b>Jolene Amit</b><span>VP Marketing · Cymbio</span></span>
+        </figcaption>
+        <a class="cs" href="../cymbio/">Read the case study <span aria-hidden="true">→</span></a>
+      </figure>
+      <figure class="quote">
+        <blockquote><p>Matan is a pleasant, efficient, and talented designer and UX developer. At Voca AI, we worked with Matan on various projects - starting from the website, through conferences graphics and also product UX and design. Matan was, and still is, <mark>our go-to choice for UX and design</mark>. I highly recommend Matan - he is a real pro!</p></blockquote>
+        <figcaption>
+          <img src="assets/einav-itamar.webp" alt="Einav Itamar" width="56" height="56" loading="lazy">
+          <span class="who"><b>Einav Itamar</b><span>CEO · Voca.ai (Acquired by Snap)</span></span>
+        </figcaption>
+        <a class="cs" href="../voca/">Read the case study <span aria-hidden="true">→</span></a>
+      </figure>
+      <figure class="quote">
+        <blockquote><p>Matan consistently pushed us with his <mark>exceptional design skills and attention to details</mark>. His ability to transform concepts into visually stunning creations is nothing but short of remarkable.</p></blockquote>
+        <figcaption>
+          <img src="assets/omer-fogel.webp" alt="Omer Fogel" width="56" height="56" loading="lazy">
+          <span class="who"><b>Omer Fogel</b><span>CEO &amp; Founder · Wideview.io</span></span>
+        </figcaption>
+        <a class="cs" href="../wideview/">Read the case study <span aria-hidden="true">→</span></a>
+      </figure>
+      <figure class="quote">
+        <blockquote><p>We worked with Matan at Blings.io's initial stage. Matan helped us with design, motion graphics and videos, both for us and for our clients. <mark>Everything Matan touched looked great</mark>, and it resulted in new clients and finally with an investment. Matan will be a great asset for any startup.</p></blockquote>
+        <figcaption>
+          <img src="assets/yonatan-schrieber.webp" alt="Yonatan Schrieber" width="56" height="56" loading="lazy">
+          <span class="who"><b>Yonatan Schrieber</b><span>CEO &amp; Co-Founder · Blings.io</span></span>
+        </figcaption>
+        
+      </figure>
+      <figure class="quote">
+        <blockquote><p>Matan is a brilliant creative individual. He executes his vision in an exceptional manner and the results are shown! I love working with him and <mark>I highly recommend Matan to anybody who needs branding and creative ideas</mark>.</p></blockquote>
+        <figcaption>
+          <img src="assets/lee-shafrir.webp" alt="Lee Shafrir" width="56" height="56" loading="lazy">
+          <span class="who"><b>Lee Shafrir</b><span>VP Marketing &amp; Biz Dev · Brooks-Keret</span></span>
+        </figcaption>
+        
+      </figure>
+      <figure class="quote">
+        <blockquote><p>Matan was our lead graphic designer for the class of 2019 at Techstars. He supported the companies not only with his creative input, but also helped sharpen their story and define their narrative. Even in times of immense pressure he kept a calm and positive perspective of things and got every job done often even earlier than expected. If you need any kind of creative support, <mark>Matan is your go to guy</mark>.</p></blockquote>
+        <figcaption>
+          <img src="assets/franka-godina.webp" alt="Franka Godina" width="56" height="56" loading="lazy">
+          <span class="who"><b>Franka Godina</b><span>Program Manager · Techstars Tel Aviv</span></span>
+        </figcaption>
+        
+      </figure>
+      <figure class="quote">
+        <blockquote><p>Matan did an amazing job <mark>designing to 20 different companies in such a short periods of time</mark> without compromising on quality and professionalism. It was a pleasure working with him on both a personal and professional level.</p></blockquote>
+        <figcaption>
+          <img src="assets/hilla-ovil-brenner.webp" alt="Hilla Ovil-Brenner" width="56" height="56" loading="lazy">
+          <span class="who"><b>Hilla Ovil-Brenner</b><span>Managing Director · Techstars Tel Aviv</span></span>
+        </figcaption>
+        
+      </figure>
+      <figure class="quote">
+        <blockquote><p>Matan was always very switched on, a good listener, who is resourceful to deliver UI/UX and product designs with short turnaround. He implements great ideas, whether they origin from himself or others, making him <mark>a true team player</mark>.</p></blockquote>
+        <figcaption>
+          <img src="assets/jens-schindler.webp" alt="Jens Schindler" width="56" height="56" loading="lazy">
+          <span class="who"><b>Jens Schindler</b><span>Director · DACH</span></span>
+        </figcaption>
+        
+      </figure>
+      <figure class="quote">
+        <blockquote><p>Matan is <mark>super efficient, fun and easy to work with</mark>. He is also really good under pressure with tight schedules. I highly recommend working with him!</p></blockquote>
+        <figcaption>
+          <img src="assets/yaakov-goldenhersh.webp" alt="Yaakov Goldenhersh" width="56" height="56" loading="lazy">
+          <span class="who"><b>Yaakov Goldenhersh</b><span>CEO · List Funding</span></span>
+        </figcaption>
+        
+      </figure>
+    </section>
+    <section class="cta">
+      <h2>Your company could be <span>next.</span></h2>
+      <a href="../#contact">Let's talk <span aria-hidden="true">→</span></a>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Matan Kidrony</span>
+    <span><a href="../">Home</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

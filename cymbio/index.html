@@ -11,7 +11,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Rubik:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: Cymbio's own world. Deep navy "brand" bands alternate with soft lavender
    "paper" bands; the magenta-to-violet gradient is the one loud element.
@@ -176,21 +176,34 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 @media (max-width: 760px) {
   footer a, .btn.ghost, figcaption a, .cap a, .rail a, .topbar a, .topbar nav a, .next a { display: inline-flex; align-items: center; min-height: 44px; }
 }
+/* shared site header: identical on every page */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-logo img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #e2e1e7; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 400px) { .mk-logo span { display: none; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap">
-    <a class="home" href="../">Matan Kidrony <span>/ Cymbio</span></a>
-    <nav aria-label="Sections">
-      <a href="#brief">Brief</a>
-      <a href="#mark">The mark</a>
-      <a href="#foundations">Foundations</a>
-      <a href="#language">Language</a>
-      <a href="#touchpoints">Touchpoints</a>
-      <a href="#website">Website</a>
-      <a class="all" href="../#work">All projects</a>
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home"><img src="../assets/matan-kidrony.jpg" alt="" width="30" height="30"><span>Matan Kidrony</span></a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
     </nav>
   </div>
 </header>
