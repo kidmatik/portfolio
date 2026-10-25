@@ -51,6 +51,7 @@ h1 span { color: var(--accent); }
 .quote .who { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .quote .who b { font: 600 1rem/1.2 var(--f-display); }
 .quote .who span { font-size: .88rem; color: var(--ink-soft); }
+.quote .ini { width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--line); color: var(--ink-soft); font: 600 1rem var(--f-display); }
 .quote .src { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font: 500 .72rem/1 var(--f-mono); letter-spacing: .06em; color: var(--ink-soft); }
 .quote .src i { font-style: normal; color: #f4b400; letter-spacing: 1px; }
 .quote blockquote[dir="rtl"] p { text-align: right; font-size: 1.05rem; }
@@ -135,7 +136,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 <main id="top">
   <div class="wrap">
     <section class="intro">
-      <span class="stars"><i aria-hidden="true">★★★★★</i><span class="mono">11 recommendations</span></span>
+      <span class="stars"><i aria-hidden="true">★★★★★</i><span class="mono">12 recommendations</span></span>
       <h1>What they <span>say.</span></h1>
       <p>Founders, CEOs and marketing leaders I've built brands and products with, in their own words.</p>
     </section>
@@ -163,6 +164,14 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <span class="who"><b>Omer Fogel</b><span>CEO &amp; Founder · Wideview.io</span></span>
         </figcaption>
         <a class="cs" href="../wideview/">Read the case study <span aria-hidden="true">→</span></a>
+      </figure>
+      <figure class="quote">
+        <blockquote><p>I had the pleasure of working with Matan on the development of my website, and the experience was exceptional. Matan is a true professional who combines <mark>technical expertise with a great eye for design and user experience</mark>. He was attentive to every detail, highly responsive, and made sure the final result exceeded my expectations. If you're looking for someone talented and reliable to bring your vision to life, I highly recommend working with Matan!</p></blockquote>
+        <figcaption>
+          <img src="assets/eli-maurice.webp" alt="Eli Maurice" width="56" height="56" loading="lazy" onerror="this.outerHTML='&lt;span class=&quot;ini&quot; aria-hidden=&quot;true&quot;&gt;EM&lt;/span&gt;'">
+          <span class="who"><b>Eli Maurice</b><span>Managing Director · Gate Ventures</span></span>
+        </figcaption>
+        <a class="cs" href="https://gate-ventures.com/" target="_blank" rel="noopener">See the website <span aria-hidden="true">↗</span></a>
       </figure>
       <figure class="quote">
         <blockquote><p>We worked with Matan at Blings.io's initial stage. Matan helped us with design, motion graphics and videos, both for us and for our clients. <mark>Everything Matan touched looked great</mark>, and it resulted in new clients and finally with an investment. Matan will be a great asset for any startup.</p></blockquote>
