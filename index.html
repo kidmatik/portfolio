@@ -231,7 +231,7 @@ a.project:hover .go span { transform: translateX(4px); }
 .skills span { color: var(--ink-soft); font-size: .95rem; }
 .glance { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .glance li { display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 2px solid var(--accent); }
-.glance b { font: 800 clamp(1.8rem, 3vw, 2.4rem)/1 var(--f-display, inherit); }
+.glance b { font: 800 clamp(1.8rem, 3vw, 2.4rem)/1 var(--f-display, inherit); font-variant-numeric: tabular-nums; }
 .glance span { font-size: .92rem; color: var(--ink-soft); }
 /* endless photo strip, as on matan.design/about */
 .about-ticker { margin-top: clamp(48px, 7vw, 88px); overflow: hidden; }
@@ -527,8 +527,8 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <p>My journey began at a digital agency, where I got hooked on the meeting point of technology, human behavior and data. Since then I've designed mobile apps, web platforms and brand identities, often as the only designer in the room.</p>
           <p>Over the years I've worked hands-on with more than 100 startups, founders and managers: bringing order to design chaos, aligning product and brand, and helping teams move faster with confidence. Sometimes I step in as an external Head of Design, sometimes as a strategic advisor. Always focused on clarity, momentum and decisions, not endless debates.</p>
           <ul class="glance" aria-label="At a glance">
-            <li><b>15+</b><span>years designing</span></li>
-            <li><b>100+</b><span>startups &amp; founders</span></li>
+            <li><b data-to="15">15+</b><span>years designing</span></li>
+            <li><b data-to="100">100+</b><span>startups &amp; founders</span></li>
           </ul>
           <div class="skills">
             <div><b>Brand</b><span>Identity, visual language, guidelines, marketing</span></div>
@@ -868,6 +868,25 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
   menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
   matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+<script>
+/* About stats count up once, the first time they scroll into view */
+(function () {
+  var nums = document.querySelectorAll('.glance b[data-to]');
+  if (!nums.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  nums.forEach(function (b) { b.textContent = '0+'; });
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries.some(function (e) { return e.isIntersecting; })) return;
+    io.disconnect();
+    var t0 = performance.now(), DUR = 1600;
+    (function step(now) {
+      var p = Math.min(1, (now - t0) / DUR), e = 1 - Math.pow(1 - p, 3);   // ease-out: fast start, gentle landing
+      nums.forEach(function (b) { b.textContent = Math.round(e * +b.dataset.to) + '+'; });
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }, { threshold: 0.6 });
+  io.observe(document.querySelector('.glance'));
 })();
 </script>
 </body>
