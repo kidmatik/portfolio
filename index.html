@@ -974,6 +974,7 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
       setTimeout(function () {
         el.classList.add('typing');
         run(el, len, 0, ERASE, function () {
+          show(el, len);
           el.classList.remove('typing', 'on');
           idx = (idx + 1) % sentences.length;
           sentences[idx].classList.add('on');
@@ -982,7 +983,8 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
       }, HOLD);
     });
   }
-  sentences.forEach(function (el, i) { el.classList.toggle('on', i === 0); show(el, 0); });
+  // every sentence keeps its full length in the stack, so the headline height never changes
+  sentences.forEach(function (el, i) { var len = el.dataset.a.length + el.dataset.b.length; el.classList.toggle('on', i === 0); show(el, i === 0 ? 0 : len); });
   cycle();
 })();
 </script>
