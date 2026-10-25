@@ -271,6 +271,25 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 @media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
 @media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
 html.mk-lock, html.mk-lock body { overflow: hidden; }
+/* hero variant: head with body, anchored to the bottom and filling the full first screen */
+.intro { grid-template-columns: minmax(0, 1fr) clamp(380px, 50vw, 920px); height: calc(100svh - 60px); min-height: 560px; }
+.intro-text { padding-block: clamp(24px, 4vh, 56px); }
+.intro:has(.bodied) { overflow: hidden; }
+.intro:has(.bodied) .intro-text { position: relative; z-index: 1; }
+/* the shoulders run out past the column and off the window edge, like a cropped portrait */
+.face-stage.bodied { display: block; padding: 0; perspective: none; overflow: visible; min-height: 100%; }
+.bodied .bust { position: absolute; left: 50%; bottom: 0; height: 95%; aspect-ratio: 5220 / 3328; transform: translateX(-54.6%); }
+.bodied .head { position: absolute; inset: 0; width: 100%; height: 100%; transform-style: flat; transform-origin: 50% 100%; filter: none; }
+.bodied .head > .bust-img { width: 100%; height: 100%; display: block; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+.bodied .feat .tex { background-image: url("assets/body-2k.webp"); }
+.bodied .face-hint { right: 56.3%; top: 36%; transform: rotate(-7deg); }
+@media (max-width: 860px) {
+  .intro { grid-template-columns: minmax(0, 1fr); height: auto; min-height: 0; }
+  .intro-text { padding-block: 8px 56px; }
+  .face-stage.bodied { height: min(66svh, 560px); min-height: 0; overflow: hidden; }
+  .bodied .bust { height: 96%; }
+  .bodied .face-hint { right: 56%; top: 34%; }
+}
 </style>
 </head>
 <body>
@@ -313,30 +332,17 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <div><span class="mono">Case studies</span><b>3 projects</b></div>
       </div>
     </div>
-    <div class="face-stage" id="faceStage">
-      <div class="float">
+    <div class="face-stage bodied" id="faceStage">
+      <div class="bust">
       <button class="head" id="head" type="button" aria-label="Matan Kidrony. Click for a surprise.">
-        <span class="edge" style="transform:translateZ(-1.4px);background:#f4f4f6"></span>
-        <span class="edge" style="transform:translateZ(-2.8px);background:#ededf1"></span>
-        <span class="edge" style="transform:translateZ(-4.2px);background:#e6e6eb"></span>
-        <span class="edge" style="transform:translateZ(-5.6px);background:#dfdfe5"></span>
-        <span class="edge" style="transform:translateZ(-7.0px);background:#d8d8df"></span>
-        <span class="edge" style="transform:translateZ(-8.4px);background:#d2d2da"></span>
-        <span class="edge" style="transform:translateZ(-9.8px);background:#cbcbd4"></span>
-        <span class="edge" style="transform:translateZ(-11.2px);background:#c4c4ce"></span>
-        <span class="edge" style="transform:translateZ(-12.6px);background:#bdbdc8"></span>
-        <span class="edge" style="transform:translateZ(-14.0px);background:#b6b6c2"></span>
-        <span class="front">
-        <img src="assets/head.webp" alt="" width="655" height="998">
-        <span class="feat brow" style="left:19.847%;top:36.874%;width:27.786%;height:5.010%"><span class="tex" style="left:-71.429%;top:-736.000%;width:359.890%;height:1996.000%"></span></span>
-        <span class="feat brow" style="left:58.473%;top:36.273%;width:25.954%;height:5.010%"><span class="tex" style="left:-225.294%;top:-724.000%;width:385.294%;height:1996.000%"></span></span>
-        <span class="feat eye" style="left:27.481%;top:43.487%;width:16.794%;height:4.008%"><span class="tex iris" style="left:-163.636%;top:-1085.000%;width:595.455%;height:2495.000%"></span></span>
-        <span class="feat eye" style="left:65.649%;top:42.986%;width:13.740%;height:4.208%"><span class="tex iris" style="left:-477.778%;top:-1021.429%;width:727.778%;height:2376.190%"></span></span>
-        </span>
+        <img class="bust-img" src="assets/body-2k.webp" srcset="assets/body-2k.webp 2610w, assets/body-4k.webp 5220w" sizes="(max-width: 860px) 230vw, 90vw" alt="" width="5220" height="3328" fetchpriority="high">
+        <span class="feat brow" style="left:45.402%;top:28.395%;width:8.621%;height:3.456%"><span class="tex" style="left:-526.667%;top:-821.739%;width:1160.000%;height:2893.913%"></span></span>
+        <span class="feat brow" style="left:58.046%;top:29.147%;width:9.004%;height:3.456%"><span class="tex" style="left:-644.681%;top:-843.478%;width:1110.638%;height:2893.913%"></span></span>
+        <span class="feat eye" style="left:47.510%;top:32.602%;width:4.981%;height:2.855%"><span class="tex iris" style="left:-953.846%;top:-1142.105%;width:2007.692%;height:3503.158%"></span></span>
+        <span class="feat eye" style="left:59.291%;top:33.804%;width:5.077%;height:3.456%"><span class="tex iris" style="left:-1167.925%;top:-978.261%;width:1969.811%;height:2893.913%"></span></span>
       </button>
       <span class="face-hint" aria-hidden="true"><span class="h">Click me!</span><span class="t">Tap me!</span></span>
       </div>
-      <span class="ground" aria-hidden="true"></span>
     </div>
   </section>
 
@@ -530,24 +536,27 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   if (!head) return;
   var irises = head.querySelectorAll('.iris'), brows = head.querySelectorAll('.brow .tex');
   var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var SRC_W = 655;                       // source image width, feature offsets are in source px
-  var MAX_X = 8, MAX_Y = 3, BROW_UP = 6;
+  var SRC_W = 5220;                       // source image width, feature offsets are in source px
+  var MAX_X = 19, MAX_Y = 7, BROW_UP = 14;
   var look = { x: 0, y: 0 }, lookT = { x: 0, y: 0 };
   var tilt = { r: 0, ry: 0, rx: 0 }, tiltT = { r: 0, ry: 0, rx: 0 };
   var brow = 0, browT = 0, lastMove = 0;
 
   function scale() { return head.getBoundingClientRect().width / SRC_W; }
+  var bustImg = head.querySelector('.bust-img');
+  function syncTex() { var u = bustImg && bustImg.currentSrc; if (u) head.querySelectorAll('.feat .tex').forEach(function (t) { t.style.backgroundImage = 'url(' + u + ')'; }); }
+  if (bustImg) { if (bustImg.complete) syncTex(); bustImg.addEventListener('load', syncTex); }
 
   function aim(px, py) {
     var b = head.getBoundingClientRect();
-    var cx = b.left + b.width / 2, cy = b.top + b.height * 0.45;
+    var cx = b.left + b.width * 0.546, cy = b.top + b.height * 0.36;   // the face sits upper-centre of the bust
     var dx = px - cx, dy = py - cy, dist = Math.sqrt(dx * dx + dy * dy) || 1;
     var reach = Math.min(1, dist / 260);
     lookT.x = dx / dist * reach; lookT.y = dy / dist * reach;
     tiltT.ry = Math.max(-1, Math.min(1, dx / 700)) * 7;
     tiltT.rx = Math.max(-1, Math.min(1, -dy / 700)) * 5;
     tiltT.r = Math.max(-1, Math.min(1, dx / 900)) * 2.5;
-    browT = dist < b.width * 0.75 ? 1 : 0;   // curious when the pointer comes close
+    browT = dist < b.width * 0.22 ? 1 : 0;   // curious when the pointer comes close
     lastMove = performance.now();
   }
 
@@ -566,8 +575,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     var ix = look.x * MAX_X * s, iy = look.y * MAX_Y * s;
     for (var i = 0; i < irises.length; i++) irises[i].style.transform = 'translate(' + ix.toFixed(2) + 'px,' + iy.toFixed(2) + 'px)';
     for (var j = 0; j < brows.length; j++) brows[j].style.transform = 'translateY(' + (-brow * BROW_UP * s).toFixed(2) + 'px)';
-    var sway = Math.sin(t / 1000 * 0.75) * 16;   // turns left and right on its own axis
-    if (!calm) head.style.transform = 'rotateY(' + (sway + tilt.ry).toFixed(2) + 'deg) rotateX(' + tilt.rx.toFixed(2) + 'deg) rotate(' + tilt.r.toFixed(2) + 'deg)';
+    if (!calm) head.style.transform = 'rotate(' + (tilt.r * 0.45).toFixed(2) + 'deg)';   // a gentle lean toward the pointer
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
@@ -625,14 +633,14 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 
   head.addEventListener('click', function (e) {
     var b = head.getBoundingClientRect();
-    var x = e.clientX || b.left + b.width / 2, y = e.clientY || b.top + b.height * 0.4;
+    var x = e.clientX || b.left + b.width * 0.546, y = e.clientY || b.top + b.height * 0.4;
     stage.classList.add('played');
     browT = 1; lastMove = performance.now();
-    if (!calm) head.animate([{ scale: '1' }, { scale: '0.94' }, { scale: '1.05' }, { scale: '1' }], { duration: 520, easing: 'cubic-bezier(.3,1.6,.5,1)', composite: 'add' });
+    if (!calm) head.animate([{ scale: '1' }, { scale: '0.985' }, { scale: '1.015' }, { scale: '1' }], { duration: 520, easing: 'cubic-bezier(.3,1.6,.5,1)', composite: 'add' });
     burst(x, y);
   });
   // clicks anywhere in the portrait area count, and the confetti still comes out of the head
-  stage.addEventListener('click', function (e) { if (head.contains(e.target)) return; var b = head.getBoundingClientRect(); head.dispatchEvent(new MouseEvent('click', { clientX: b.left + b.width / 2, clientY: b.top + b.height * 0.4, bubbles: false })); });
+  stage.addEventListener('click', function (e) { if (head.contains(e.target)) return; var b = head.getBoundingClientRect(); head.dispatchEvent(new MouseEvent('click', { clientX: b.left + b.width * 0.546, clientY: b.top + b.height * 0.4, bubbles: false })); });
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
