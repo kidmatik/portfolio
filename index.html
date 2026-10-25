@@ -326,6 +326,19 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 @media (max-width: 860px) {
   .face-stage.circled { --d: min(80vw, 380px); height: calc(var(--d) * 1.25); }
 }
+/* quote bubbles that pop out of the portrait on click, same comic style as "Click me!" */
+.say { position: fixed; z-index: 60; padding: 11px 16px; background: #fff; color: #15131c; border: 3px solid #15131c; border-radius: 22px; font: 800 clamp(.95rem, 1.25vw, 1.15rem)/1.1 var(--f-display); letter-spacing: -0.01em; white-space: nowrap; pointer-events: none; box-shadow: 4px 4px 0 #15131c; --r: -6deg; transform: rotate(var(--r)); transform-origin: var(--ox, 100%) 100%; animation: say-in .45s cubic-bezier(.3,1.6,.5,1) both, say-out .35s ease-in forwards; animation-delay: 0s, var(--life, 1.5s); }
+.say::before, .say::after { content: ""; position: absolute; width: 0; height: 0; border-style: solid; }
+.say::before { right: 12px; bottom: -22px; border-width: 22px 0 0 22px; border-color: #15131c transparent transparent transparent; }
+.say::after { right: 16.5px; bottom: -13px; border-width: 14px 0 0 14px; border-color: #fff transparent transparent transparent; }
+/* bubbles on the right of the face point their tail down-left instead */
+.say.r { --r: 6deg; --ox: 0%; }
+.say.r::before { right: auto; left: 12px; border-width: 22px 22px 0 0; }
+.say.r::after { right: auto; left: 16.5px; border-width: 14px 14px 0 0; }
+@keyframes say-in { from { opacity: 0; transform: rotate(var(--r)) scale(.4); } to { opacity: 1; transform: rotate(var(--r)) scale(1); } }
+@keyframes say-out { to { opacity: 0; transform: rotate(var(--r)) scale(.85) translateY(-8px); } }
+@media (max-width: 860px) { .say { padding: 8px 12px; font-size: .9rem; border-width: 2.5px; box-shadow: 3px 3px 0 #15131c; } }
+@media (prefers-reduced-motion: reduce) { .say { animation: say-fade .2s both, say-out .3s forwards; animation-delay: 0s, var(--life, 1.5s); } @keyframes say-fade { from { opacity: 0; } } }
 </style>
 </head>
 <body>
@@ -709,7 +722,39 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     browT = 1; lastMove = performance.now();
     if (!calm) head.animate([{ scale: '1' }, { scale: '0.985' }, { scale: '1.015' }, { scale: '1' }], { duration: 520, easing: 'cubic-bezier(.3,1.6,.5,1)', composite: 'add' });
     burst(x, y);
+    talk();
   });
+  // short lines about design, product and leadership: one bubble per click, never the same line twice in a row
+  var LINES = ['Design is a decision.', 'Less, but better.', 'Every pixel has a job.', 'White space is a feature.', 'Make it obvious.',
+    'Start with the problem.', 'Ship, learn, repeat.', 'What can we cut?', 'Clarity beats clever.', 'Users scan, not read.',
+    'Clarity over consensus.', 'Decide, then iterate.', 'Good taste scales.', 'Strong opinions, loosely held.', 'Design is a team sport.'];
+  // spots around the face, in disc diameters from its centre; r = bubble sits to the right
+  var SPOTS = [{ x: -.28, y: -.36 }, { x: .26, y: -.44, r: 1 }, { x: -.34, y: .08 }, { x: .36, y: -.02, r: 1 }];
+  var spotAt = 0, deck = [];
+  function nextLine() {
+    if (!deck.length) { deck = LINES.slice().sort(function () { return Math.random() - .5; }); }
+    return deck.pop();
+  }
+  function talk() {
+    document.querySelectorAll('.say').forEach(function (el) { el.remove(); });
+    var sb = stage.getBoundingClientRect(), hb = head.getBoundingClientRect();
+    var disc = stage.querySelector('.disc'), d = disc ? disc.getBoundingClientRect().width : hb.width * .5;
+    var fx = hb.left + hb.width * 0.546 - sb.left, fy = hb.top + hb.height * 0.36 - sb.top;
+    var spot = SPOTS[spotAt]; spotAt = (spotAt + 1) % SPOTS.length;
+    var el = document.createElement('span');
+    el.className = 'say' + (spot.r ? ' r' : '');
+    el.setAttribute('aria-hidden', 'true');
+    el.textContent = nextLine();
+    el.style.animationDelay = '.1s, 1.7s';
+    document.body.appendChild(el);   // above the confetti layer
+    var w = el.offsetWidth, h = el.offsetHeight;
+    var ax = fx + spot.x * d, ay = fy + spot.y * d;      // the tail tip lands here
+    var left = spot.r ? ax - 14 : ax - w + 14, top = ay - h - 18;
+    var minL = Math.max(8, sb.left) - sb.left, maxL = document.documentElement.clientWidth - sb.left - w - 8;   // never over the headline column
+    left = Math.max(minL, Math.min(maxL, left)); top = Math.max(16, Math.min(sb.height - h - 30, top));
+    el.style.left = (sb.left + left) + 'px'; el.style.top = (sb.top + top) + 'px';
+    setTimeout(function () { el.remove(); }, 2100);
+  }
   // clicks anywhere in the portrait area count, and the confetti still comes out of the head
   stage.addEventListener('click', function (e) { if (head.contains(e.target)) return; var b = head.getBoundingClientRect(); head.dispatchEvent(new MouseEvent('click', { clientX: b.left + b.width * 0.546, clientY: b.top + b.height * 0.4, bubbles: false })); });
 })();
