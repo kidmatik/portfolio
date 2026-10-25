@@ -946,11 +946,11 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
 })();
 </script>
 <script>
-/* headline: one sentence at a time, typed in and erased, about every 2.5-3 seconds */
+/* headline: one sentence at a time, typed in, held for 3 seconds, then erased */
 (function () {
   var sentences = [].slice.call(document.querySelectorAll('.rotate .s'));
   if (sentences.length < 2 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var TYPE = 30, ERASE = 12, MIN_CYCLE = 2500;
+  var TYPE = 30, ERASE = 12, HOLD = 3000;
   function show(el, n) {
     var A = el.dataset.a, B = el.dataset.b;
     el.querySelector('.a').textContent = A.slice(0, n);
@@ -968,11 +968,9 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
   var idx = 0;
   function cycle() {
     var el = sentences[idx], len = el.dataset.a.length + el.dataset.b.length;
-    var typeMs = len * TYPE, eraseMs = len * ERASE;
     el.classList.add('typing');
     run(el, 0, len, TYPE, function () {
       el.classList.remove('typing');
-      var hold = Math.max(400, MIN_CYCLE - typeMs - eraseMs);
       setTimeout(function () {
         el.classList.add('typing');
         run(el, len, 0, ERASE, function () {
@@ -981,7 +979,7 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
           sentences[idx].classList.add('on');
           cycle();
         });
-      }, hold);
+      }, HOLD);
     });
   }
   sentences.forEach(function (el, i) { el.classList.toggle('on', i === 0); show(el, 0); });
