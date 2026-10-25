@@ -229,7 +229,31 @@ a.project:hover .go span { transform: translateX(4px); }
 .skills div { border-top: 2px solid var(--ink); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
 .skills b { font: 600 1rem var(--f-display); }
 .skills span { color: var(--ink-soft); font-size: .95rem; }
-@media (max-width: 760px) { .about-grid, .skills { grid-template-columns: minmax(0, 1fr); } }
+.glance { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.glance li { display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 2px solid var(--accent); }
+.glance b { font: 800 clamp(1.8rem, 3vw, 2.4rem)/1 var(--f-display, inherit); }
+.glance span { font-size: .92rem; color: var(--ink-soft); }
+.about .sign { color: var(--ink-soft); }
+.about .sign b { color: var(--ink); }
+/* endless photo strip, as on matan.design/about */
+.about-ticker { margin-top: clamp(48px, 7vw, 88px); overflow: hidden; }
+.tick { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; width: max-content; animation: tick 48s linear infinite; }
+.about-ticker:hover .tick { animation-play-state: paused; }
+.tick li { flex: 0 0 auto; height: clamp(240px, 30vw, 434px); }
+.tick img { height: 100%; width: auto; display: block; border-radius: 12px; }
+@keyframes tick { to { transform: translateX(calc(-50% - 8px)); } }
+@media (prefers-reduced-motion: reduce) { .tick { animation: none; } .about-ticker { overflow-x: auto; } }
+.mentor { margin-top: clamp(56px, 8vw, 104px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+.mentor-head { display: flex; flex-direction: column; gap: 12px; }
+.mentor h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.15; }
+.mentor-head p { color: var(--ink-soft); line-height: 1.55; }
+.adp { width: 100%; height: 560px; border: 0; border-radius: 16px; background: #fff; }
+@media (max-width: 760px) {
+  .about-grid, .skills, .mentor { grid-template-columns: minmax(0, 1fr); }
+  .glance { gap: 10px; }
+  .tick { gap: 10px; animation-duration: 36s; } @keyframes tick { to { transform: translateX(calc(-50% - 5px)); } }
+  .adp { height: 620px; }
+}
 
 footer { border-top: 1px solid var(--line); padding-block: 28px; font: 400 .85rem var(--f-mono); color: var(--ink-soft); }
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -498,14 +522,44 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       <div class="about-grid">
         <h2>About</h2>
         <div class="text">
-          <p>My journey began at a digital agency, where I got hooked on the meeting point of technology, human behavior and data.</p>
-          <p>Since then I've designed mobile apps, web platforms and brand identities, often as the only designer in the room. I care about intuitive design that makes people's lives easier, and about bringing a clear design voice to the decision-making table.</p>
+          <p>Hello, I'm Matan Kidrony, but you can call me Kid. I'm a product and brand designer and creative lead who helps startups make clear design decisions, from the first sketch through every growth stage.</p>
+          <p>My journey began at a digital agency, where I got hooked on the meeting point of technology, human behavior and data. Since then I've designed mobile apps, web platforms and brand identities, often as the only designer in the room.</p>
+          <p>Over the years I've worked hands-on with more than 100 startups, founders and managers: bringing order to design chaos, aligning product and brand, and helping teams move faster with confidence. Sometimes I step in as an external Head of Design, sometimes as a strategic advisor. Always focused on clarity, momentum and decisions, not endless debates.</p>
+          <ul class="glance" aria-label="At a glance">
+            <li><b>15+</b><span>years designing</span></li>
+            <li><b>100+</b><span>startups &amp; founders</span></li>
+            <li><b>2</b><span>acquisitions (PayPal, Snap)</span></li>
+          </ul>
           <div class="skills">
             <div><b>Brand</b><span>Identity, visual language, guidelines, marketing</span></div>
             <div><b>Product</b><span>Research, UX, UI, prototyping, handoff</span></div>
             <div><b>Systems</b><span>Design systems, components, motion</span></div>
           </div>
+          <p class="sign">Keep smiling and stay sharp,<br><b>Matan</b></p>
         </div>
+      </div>
+    </div>
+    <div class="about-ticker" aria-label="Photos">
+      <ul class="tick">
+          <li><img src="assets/about/accelerator.webp" width="1200" height="744" loading="lazy" alt="Cheering with founders and mentors at a startup accelerator"></li>
+          <li><img src="assets/about/studio.webp" width="800" height="1065" loading="lazy" alt="Matan in a startup office, whiteboard sketches behind him"></li>
+          <li><img src="assets/about/office.webp" width="800" height="1067" loading="lazy" alt="A long meeting table in a high-rise office"></li>
+          <li><img src="assets/about/team.webp" width="750" height="732" loading="lazy" alt="A team selfie celebrating with colleagues"></li>
+          <li aria-hidden="true"><img src="assets/about/accelerator.webp" width="1200" height="744" loading="lazy" alt=""></li>
+          <li aria-hidden="true"><img src="assets/about/studio.webp" width="800" height="1065" loading="lazy" alt=""></li>
+          <li aria-hidden="true"><img src="assets/about/office.webp" width="800" height="1067" loading="lazy" alt=""></li>
+          <li aria-hidden="true"><img src="assets/about/team.webp" width="750" height="732" loading="lazy" alt=""></li>
+      </ul>
+    </div>
+    <div class="wrap">
+      <div class="mentor">
+        <div class="mentor-head">
+          <span class="mono">Mentoring</span>
+          <h3>What mentees say on ADPList</h3>
+          <p>Today I keep mentoring and teaching designers and founders to save time, boost creativity and work smarter, with less friction.</p>
+          <a class="go" href="https://adplist.org/mentors/matan-kidrony" target="_blank" rel="noopener">Book a session on ADPList <span aria-hidden="true">↗</span></a>
+        </div>
+        <iframe class="adp" src="https://adplist.org/widgets/reviews?src=matan-kidrony" title="Matan Kidrony's mentee reviews on ADPList" loading="lazy"></iframe>
       </div>
     </div>
   </section>
