@@ -229,12 +229,10 @@ a.project:hover .go span { transform: translateX(4px); }
 .skills div { border-top: 2px solid var(--ink); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
 .skills b { font: 600 1rem var(--f-display); }
 .skills span { color: var(--ink-soft); font-size: .95rem; }
-.glance { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.glance { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .glance li { display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 2px solid var(--accent); }
 .glance b { font: 800 clamp(1.8rem, 3vw, 2.4rem)/1 var(--f-display, inherit); }
 .glance span { font-size: .92rem; color: var(--ink-soft); }
-.about .sign { color: var(--ink-soft); }
-.about .sign b { color: var(--ink); }
 /* endless photo strip, as on matan.design/about */
 .about-ticker { margin-top: clamp(48px, 7vw, 88px); overflow: hidden; }
 .tick { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; width: max-content; animation: tick 48s linear infinite; }
@@ -528,14 +526,12 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <ul class="glance" aria-label="At a glance">
             <li><b>15+</b><span>years designing</span></li>
             <li><b>100+</b><span>startups &amp; founders</span></li>
-            <li><b>2</b><span>acquisitions (PayPal, Snap)</span></li>
           </ul>
           <div class="skills">
             <div><b>Brand</b><span>Identity, visual language, guidelines, marketing</span></div>
             <div><b>Product</b><span>Research, UX, UI, prototyping, handoff</span></div>
             <div><b>Systems</b><span>Design systems, components, motion</span></div>
           </div>
-          <p class="sign">Keep smiling and stay sharp,<br><b>Matan</b></p>
         </div>
       </div>
     </div>
