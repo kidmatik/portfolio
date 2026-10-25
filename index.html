@@ -241,6 +241,9 @@ a.project:hover .go span { transform: translateX(4px); }
 .tick img { height: 100%; width: auto; display: block; border-radius: 12px; }
 @keyframes tick { to { transform: translateX(calc(-50% - 8px)); } }
 @media (prefers-reduced-motion: reduce) { .tick { animation: none; } .about-ticker { overflow-x: auto; } }
+.badges { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+.badge-row { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 28px); flex-wrap: wrap; }
+.badge-row img { height: clamp(84px, 8vw, 112px); width: auto; display: block; }
 .mentor { margin-top: clamp(56px, 8vw, 104px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
 .mentor-head { display: flex; flex-direction: column; gap: 12px; }
 .mentor h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.15; }
@@ -531,6 +534,13 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
             <div><b>Brand</b><span>Identity, visual language, guidelines, marketing</span></div>
             <div><b>Product</b><span>Research, UX, UI, prototyping, handoff</span></div>
             <div><b>Systems</b><span>Design systems, components, motion</span></div>
+          </div>
+          <div class="badges">
+            <span class="mono">Certifications</span>
+            <div class="badge-row">
+              <img src="assets/about/badge-adobe.webp" width="600" height="601" loading="lazy" alt="Adobe Creative Cloud certified: Professional Visual Design">
+              <img src="assets/about/badge-google.webp" width="512" height="465" loading="lazy" alt="Google Cloud completion badge: Machine Learning Operations (MLOps) for Generative AI">
+            </div>
           </div>
         </div>
       </div>
