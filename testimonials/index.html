@@ -51,6 +51,9 @@ h1 span { color: var(--accent); }
 .quote .who { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .quote .who b { font: 600 1rem/1.2 var(--f-display); }
 .quote .who span { font-size: .88rem; color: var(--ink-soft); }
+.quote .src { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font: 500 .72rem/1 var(--f-mono); letter-spacing: .06em; color: var(--ink-soft); }
+.quote .src i { font-style: normal; color: #f4b400; letter-spacing: 1px; }
+.quote blockquote[dir="rtl"] p { text-align: right; font-size: 1.05rem; }
 .quote .cs { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; font: 600 14px var(--f-body); color: var(--accent-ink); text-decoration: none; }
 .quote .cs span { transition: transform .2s ease; }
 .quote .cs:hover span { transform: translateX(4px); }
@@ -132,7 +135,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 <main id="top">
   <div class="wrap">
     <section class="intro">
-      <span class="stars"><i aria-hidden="true">★★★★★</i><span class="mono">9 recommendations</span></span>
+      <span class="stars"><i aria-hidden="true">★★★★★</i><span class="mono">11 recommendations</span></span>
       <h1>What they <span>say.</span></h1>
       <p>Founders, CEOs and marketing leaders I've built brands and products with, in their own words.</p>
     </section>
@@ -208,6 +211,22 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <span class="who"><b>Yaakov Goldenhersh</b><span>CEO · List Funding</span></span>
         </figcaption>
         
+      </figure>
+      <figure class="quote">
+        <span class="src"><i aria-hidden="true">★★★★★</i>Google review</span>
+        <blockquote dir="rtl" lang="he"><p>עבדתי עם מתן על פיתוח קונספט ייחודי לאפליקציה המיועדת למשפחות לוחמים המתמודדים עם פוסט טראומה. מתן הביא עימו <mark>חשיבה יצירתית, הבנה מעמיקה ביצירת מסע לקוח</mark> ורצינות לכל אורך הדרך.</p></blockquote>
+        <figcaption>
+          <img src="assets/keren-dobkovsky.webp" alt="Keren Dobkovsky" width="56" height="56" loading="lazy">
+          <span class="who"><b>Keren Dobkovsky</b><span>Google review · 5 stars</span></span>
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <span class="src"><i aria-hidden="true">★★★★★</i>Google review</span>
+        <blockquote dir="rtl" lang="he"><p><mark>מקצוען אמיתי!</mark></p></blockquote>
+        <figcaption>
+          <img src="assets/david-biegeleisen.webp" alt="David Biegeleisen" width="56" height="56" loading="lazy">
+          <span class="who"><b>David Biegeleisen</b><span>Google review · 5 stars</span></span>
+        </figcaption>
       </figure>
     </section>
     <section class="cta">
