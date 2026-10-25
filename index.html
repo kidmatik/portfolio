@@ -174,7 +174,8 @@ a.project:hover .go span { transform: translateX(4px); }
 .spot-video .sv-bar i { width: 8px; height: 8px; border-radius: 50%; background: #cfcfd5; }
 .spot-video .sv-bar i:first-child { background: #f39545; }
 .spot-video .sv-bar span { margin-left: 8px; font: 500 .7rem var(--f-mono); color: #5a5666; }
-.spot-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.spot-video [hidden] { display: none !important; }
+.spot-video video, .spot-video .sv-frame { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 0; background: #000 center / cover no-repeat; }
 .spot-hint { font: 400 .8rem var(--f-mono); color: #a9a5b8; }
 @media (hover: none), (max-width: 760px) {
   .spot-cards { display: none; }
@@ -402,12 +403,12 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
             <div class="spot-video" aria-hidden="true"><div class="sv-bar"><i></i><i></i><i></i><span>gate-ventures.com</span></div><video muted loop playsinline preload="none" poster="assets/more/gate-ventures-poster.jpg"></video></div>
           </div>
           <ul class="spot-list">
-          <li class="spot-item" data-video="assets/more/gate-ventures.mp4" data-imgs="assets/more/gate-ventures-1.jpg,assets/more/gate-ventures-2.jpg,assets/more/gate-ventures-3.jpg,assets/more/gate-ventures-4.jpg"><a href="https://gate-ventures.com/" target="_blank" rel="noopener" aria-label="Gate Ventures, Website. Opens in a new tab"><span class="lbl lbl-default">Gate Ventures</span><span class="lbl lbl-alt" aria-hidden="true">Gate Ventures</span></a></li>
+          <li class="spot-item" data-video="assets/more/gate-ventures.mp4" data-label="gate-ventures.com" data-imgs="assets/more/gate-ventures-1.jpg,assets/more/gate-ventures-2.jpg,assets/more/gate-ventures-3.jpg,assets/more/gate-ventures-4.jpg"><a href="https://gate-ventures.com/" target="_blank" rel="noopener" aria-label="Gate Ventures, Website. Opens in a new tab"><span class="lbl lbl-default">Gate Ventures</span><span class="lbl lbl-alt" aria-hidden="true">Gate Ventures</span></a></li>
           <li class="spot-item" data-imgs="assets/more/trio-1.jpg,assets/more/trio-2.jpg,assets/more/trio-3.jpg,assets/more/trio-4.jpg"><a href="https://www.trio-cloud.com" target="_blank" rel="noopener" aria-label="Trio, Website. Opens in a new tab"><span class="lbl lbl-default">Trio</span><span class="lbl lbl-alt" aria-hidden="true">Trio</span></a></li>
           <li class="spot-item" data-imgs="assets/more/blings-1.jpg,assets/more/blings-2.jpg,assets/more/blings-3.jpg,assets/more/blings-4.jpg"><a href="https://www.blings.io" target="_blank" rel="noopener" aria-label="Blings, Interactive video. Opens in a new tab"><span class="lbl lbl-default">Blings</span><span class="lbl lbl-alt" aria-hidden="true">Blings</span></a></li>
           <li class="spot-item" data-imgs="assets/more/bk-digital-branding-1.jpg,assets/more/bk-digital-branding-2.jpg,assets/more/bk-digital-branding-3.jpg,assets/more/bk-digital-branding-4.jpg"><a href="https://matankidrony.myportfolio.com/bk-digital-branding" target="_blank" rel="noopener" aria-label="BK Digital, Full branding. Opens in a new tab"><span class="lbl lbl-default">BK Digital</span><span class="lbl lbl-alt" aria-hidden="true">BK Digital</span></a></li>
           <li class="spot-item" data-imgs="assets/more/paraspot-branding-product-1.jpg,assets/more/paraspot-branding-product-2.jpg,assets/more/paraspot-branding-product-3.jpg,assets/more/paraspot-branding-product-4.jpg"><a href="https://www.paraspot.ai" target="_blank" rel="noopener" aria-label="Paraspot, Branding &amp; product. Opens in a new tab"><span class="lbl lbl-default">Paraspot</span><span class="lbl lbl-alt" aria-hidden="true">Paraspot</span></a></li>
-          <li class="spot-item" data-imgs="assets/more/wer-1.jpg"><a href="https://vimeo.com/1199367863" target="_blank" rel="noopener" aria-label="WeR, Brand video. Opens in a new tab"><span class="lbl lbl-default">WeR</span><span class="lbl lbl-alt" aria-hidden="true">WeR</span></a></li>
+          <li class="spot-item" data-vimeo="1199367863" data-label="vimeo.com · WeR" data-poster="assets/more/wer-poster.jpg" data-imgs="assets/more/wer-1.jpg"><a href="https://vimeo.com/1199367863" target="_blank" rel="noopener" aria-label="WeR, Brand video. Opens in a new tab"><span class="lbl lbl-default">WeR</span><span class="lbl lbl-alt" aria-hidden="true">WeR</span></a></li>
           <li class="spot-item" data-imgs="assets/more/atlas-1.jpg,assets/more/atlas-2.jpg,assets/more/atlas-3.jpg,assets/more/atlas-4.jpg"><a href="https://matankidrony.myportfolio.com/atlas" target="_blank" rel="noopener" aria-label="Atlas, Branding, product &amp; website. Opens in a new tab"><span class="lbl lbl-default">Atlas</span><span class="lbl lbl-alt" aria-hidden="true">Atlas</span></a></li>
           <li class="spot-item" data-imgs="assets/more/eleos-branding-1.jpg,assets/more/eleos-branding-2.jpg,assets/more/eleos-branding-3.jpg,assets/more/eleos-branding-4.jpg"><a href="https://eleos.health" target="_blank" rel="noopener" aria-label="Eleos, Full branding. Opens in a new tab"><span class="lbl lbl-default">Eleos</span><span class="lbl lbl-alt" aria-hidden="true">Eleos</span></a></li>
           <li class="spot-item" data-imgs="assets/more/snippet-ui-ux-1.jpg,assets/more/snippet-ui-ux-2.jpg,assets/more/snippet-ui-ux-3.jpg,assets/more/snippet-ui-ux-4.jpg"><a href="https://matankidrony.myportfolio.com/snippet-ui-ux" target="_blank" rel="noopener" aria-label="Snippet, Product design. Opens in a new tab"><span class="lbl lbl-default">Snippet</span><span class="lbl lbl-alt" aria-hidden="true">Snippet</span></a></li>
@@ -664,12 +665,41 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 
   var vbox = document.querySelector('.spot-video'), vid = vbox && vbox.querySelector('video');
   if (vbox) gsap.set(vbox, { yPercent: -50, y: 0, scale: 0 });   // centered vertically; GSAP owns the transform from here
+  var vlabel = vbox && vbox.querySelector('.sv-bar span'), vframe = null, frameTimer = null;
+  function stopFrame() { clearTimeout(frameTimer); frameTimer = setTimeout(function () { if (vframe) { vframe.src = 'about:blank'; vframe.dataset.id = ''; } }, 400); }
+  function hideVideo() {
+    if (!vbox) return;
+    gsap.to(vbox, { scale: 0, duration: 0.3, ease: 'power3.out', overwrite: 'auto' });
+    if (vid) vid.pause();
+    stopFrame();
+  }
+  // items can carry a local video (data-video) or a Vimeo id (data-vimeo); data-label sets the window's address bar
   function showVideo(item) {
     if (!vbox) return false;
-    var src = item.dataset.video;
-    if (!src) { gsap.to(vbox, { scale: 0, duration: 0.3, ease: 'power3.out', overwrite: 'auto' }); if (vid) vid.pause(); return false; }
-    if (vid.getAttribute('src') !== src) { vid.src = src; }
-    var p = vid.play(); if (p && p.catch) p.catch(function () {});
+    var src = item.dataset.video, vimeo = item.dataset.vimeo;
+    if (!src && !vimeo) { hideVideo(); return false; }
+    if (vlabel) vlabel.textContent = item.dataset.label || '';
+    if (vimeo) {
+      clearTimeout(frameTimer);
+      vid.pause(); vid.hidden = true;
+      if (!vframe) {
+        vframe = document.createElement('iframe');
+        vframe.className = 'sv-frame'; vframe.title = 'Video'; vframe.allow = 'autoplay; fullscreen; picture-in-picture';
+        vframe.setAttribute('tabindex', '-1');
+        vbox.appendChild(vframe);
+      }
+      vframe.hidden = false;
+      vframe.style.backgroundImage = item.dataset.poster ? 'url(' + item.dataset.poster + ')' : '';
+      if (vframe.dataset.id !== vimeo) {
+        vframe.dataset.id = vimeo;
+        vframe.src = 'https://player.vimeo.com/video/' + vimeo + '?autoplay=1&muted=1&loop=1&autopause=0&title=0&byline=0&portrait=0&dnt=1';
+      }
+    } else {
+      stopFrame(); if (vframe) vframe.hidden = true;
+      vid.hidden = false;
+      if (vid.getAttribute('src') !== src) { vid.src = src; }
+      var p = vid.play(); if (p && p.catch) p.catch(function () {});
+    }
     var lr = list.getBoundingClientRect(), ir = item.getBoundingClientRect();
     var followY = (ir.top + ir.height / 2 - lr.top - lr.height / 2) * 0.5;
     gsap.to(vbox, { scale: 1, y: followY, rotation: calm ? 0 : -3, duration: calm ? 0.2 : 0.9, ease: calm ? 'power2.out' : 'elastic.out(1, 0.6)', overwrite: 'auto' });
@@ -699,7 +729,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   list.addEventListener('mouseleave', function () {
     if (!canHover.matches) return;
     gsap.to(cards, { scale: 0, duration: 0.45, ease: 'power3.out', overwrite: 'auto' });
-    if (vbox) { gsap.to(vbox, { scale: 0, duration: 0.35, ease: 'power3.out', overwrite: 'auto' }); vid.pause(); }
+    hideVideo();
     gsap.to(items, { height: base, duration: 0.35, ease: 'power3.out', overwrite: 'auto' });
   });
 
