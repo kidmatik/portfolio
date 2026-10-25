@@ -380,10 +380,10 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 <main id="top">
   <section class="intro">
     <div class="intro-text">
-      <h1 class="rotate" aria-label="I build brands that stick. I design products that work. I shape every idea from the first sketch to the final pixel.">
+      <h1 class="rotate" aria-label="I build brands that stick. I design products that work. I shape ideas from the first sketch to the final pixel.">
         <span class="s" data-a="I build" data-b=" brands that stick."><span class="a">I build</span><span class="b"> brands that stick.</span></span>
         <span class="s" data-a="I design" data-b=" products that work."><span class="a">I design</span><span class="b"> products that work.</span></span>
-        <span class="s" data-a="I shape" data-b=" every idea from the first sketch to the final pixel."><span class="a">I shape</span><span class="b"> every idea from the first sketch to the final pixel.</span></span>
+        <span class="s" data-a="I shape" data-b=" ideas from the first sketch to the final pixel."><span class="a">I shape</span><span class="b"> ideas from the first sketch to the final pixel.</span></span>
       </h1>
       <p class="sub">I'm Matan Kidrony, a product and brand designer with over 15 years of experience. I shape the thinking, the visual language and the system behind it, then carry it across every touchpoint.</p>
       <div class="facts">
@@ -946,11 +946,11 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
 })();
 </script>
 <script>
-/* headline: one sentence at a time, typed in, held for 3 seconds, then erased */
+/* headline: one sentence at a time, typed in, held for 4 seconds, then erased */
 (function () {
   var sentences = [].slice.call(document.querySelectorAll('.rotate .s'));
   if (sentences.length < 2 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var TYPE = 30, ERASE = 12, HOLD = 3000;
+  var TYPE = 30, ERASE = 12, HOLD = 4000;
   function show(el, n) {
     var A = el.dataset.a, B = el.dataset.b;
     el.querySelector('.a').textContent = A.slice(0, n);
