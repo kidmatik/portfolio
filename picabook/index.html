@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Picabook Brand Case Study | Matan Kidrony</title>
+<meta name="description" content="Picabook rebrand by Matan Kidrony: a symbol of a cover lifting open with a heart inside, a bilingual identity, illustrations, website, packaging and print.">
+<meta property="og:title" content="Picabook Brand Case Study | Matan Kidrony">
+<meta property="og:description" content="Every memory deserves a cover: identity, website, packaging and print for Picabook.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/picabook/assets/book.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Varela+Round&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the page is a photobook. Sections are "spreads" with page numbers; the hero is a
+   real 3D book whose red cover lifts open, the same gesture the logo is built on.
+   Single-theme on purpose: it shows the brand's real colors. */
+:root {
+  --red: #EB1E25;           /* Picabook red (brand sheet) */
+  --char: #404040;          /* Picabook charcoal (brand sheet) */
+  --gray: #D0D1D3;          /* Picabook light gray (brand sheet) */
+  --page: #FFFFFF;
+  --paper: #F3F3F4;
+  --ink: #2A2A2C;
+  --ink-soft: #66666C;
+  --line: #E4E4E7;
+  --f-brand: "Varela Round", "Arial Rounded MT Bold", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 18px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--page); color: var(--ink); font: 400 17px/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+img, video { max-width: 100%; display: block; }
+a { color: var(--red); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-brand); font-weight: 400; letter-spacing: -0.02em; line-height: 1.08; margin: 0; text-wrap: balance; color: var(--char); }
+h1 { font-size: clamp(2.6rem, 6vw, 5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
+h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
+h1 em, h2 em { font-style: normal; color: var(--red); }
+p { margin: 0; }
+.label { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+.lede { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.55; color: var(--ink-soft); }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.read { max-width: 62ch; }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+@media (max-width: 900px) { .two { grid-template-columns: minmax(0, 1fr); } }
+
+/* spreads: every section is a page pair with a folio */
+.spread { position: relative; padding-block: clamp(72px, 10vw, 128px); }
+.spread + .spread { border-top: 1px solid var(--line); }
+.spread.gray { background: var(--paper); border-top: 0; }
+.spread.gray + .spread { border-top: 0; }
+.folio { position: absolute; top: 22px; right: max(20px, env(safe-area-inset-right, 0px)); font: 500 .72rem var(--f-mono); letter-spacing: .1em; color: var(--ink-soft); }
+.spread.dark { background: var(--char); color: #fff; border-top: 0; }
+.spread.dark h2, .spread.dark h3 { color: #fff; }
+.spread.dark .lede, .spread.dark p { color: #c9c9cd; }
+.spread.dark .folio { color: #9b9ba0; }
+
+/* hero */
+.hero { background: var(--paper); padding-block: clamp(48px, 7vw, 96px); overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } .stage { order: -1; } }
+.hero-text { display: flex; flex-direction: column; gap: 24px; }
+.meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); max-width: 560px; }
+.meta div { padding: 14px 16px 0 0; display: flex; flex-direction: column; gap: 4px; }
+.meta dt { font: 500 .7rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.meta dd { margin: 0; font-weight: 600; color: var(--char); }
+
+/* the 3D photobook */
+.stage { display: grid; place-items: center; perspective: 1900px; min-height: clamp(320px, 38vw, 520px); }
+.book { position: relative; width: clamp(200px, 22vw, 300px); aspect-ratio: 420 / 520; transform-style: preserve-3d; transform: rotateX(10deg) rotateY(-22deg) rotateZ(2deg); transition: transform 1.1s cubic-bezier(.6,.05,.25,1); cursor: pointer; border: 0; padding: 0; background: none; -webkit-tap-highlight-color: transparent; }
+.book.open { transform: translateX(46%) rotateX(8deg) rotateY(-6deg) rotateZ(0deg); }
+.book .pageR { position: absolute; inset: 0; background: var(--page); border-radius: 2px 10px 10px 2px; box-shadow: 3px 3px 0 #ececee, 6px 6px 0 #e2e2e5, 9px 9px 0 #d8d8dc, 20px 30px 50px -20px rgb(42 42 44 / .45); display: flex; flex-direction: column; padding: 9%; gap: 6%; }
+.book .pageR img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; }
+.book .pageR span { font: 400 clamp(.7rem, .9vw, .85rem)/1.3 var(--f-brand); color: var(--ink-soft); direction: rtl; text-align: right; }
+.book .cover { position: absolute; inset: 0; transform-origin: left center; transform-style: preserve-3d; transform: translateZ(4px); transition: transform 1.1s cubic-bezier(.6,.05,.25,1); }
+.book.open .cover { transform: translateZ(4px) rotateY(-168deg); }
+.book .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 2px 10px 10px 2px; }
+.book .front { background: var(--red) url("assets/cover.jpg") center / cover no-repeat; box-shadow: inset 6px 0 10px -6px rgb(0 0 0 / .35); }
+.book .inside { transform: rotateY(180deg); background: var(--page); border-radius: 10px 2px 2px 10px; display: grid; place-items: center; padding: 12%; text-align: center; box-shadow: inset -8px 0 14px -8px rgb(0 0 0 / .18); }
+.book .inside p { font: 400 clamp(1rem, 1.6vw, 1.45rem)/1.25 var(--f-brand); color: var(--char); direction: rtl; }
+.book .inside small { display: block; margin-top: 10px; font: 400 .72rem var(--f-mono); color: var(--ink-soft); direction: ltr; }
+.book .inside .heart { display: block; width: 30px; height: 30px; margin: 0 auto 14px; }
+.stage-hint { margin-top: 18px; font: 500 .75rem var(--f-mono); letter-spacing: .08em; color: var(--ink-soft); text-align: center; }
+@media (max-width: 900px) { .book { width: min(40vw, 210px); } .book.open { transform: translateX(46%) rotateX(8deg) rotateY(-6deg); } .stage { min-height: 360px; } }
+
+/* figures */
+figure { margin: 0; }
+.fig { border-radius: var(--radius); overflow: hidden; background: var(--page); border: 1px solid var(--line); }
+.spread.dark .fig { border-color: rgb(255 255 255 / .12); }
+.cap { font: 400 .8rem/1.4 var(--f-mono); color: var(--ink-soft); padding-top: 12px; }
+.spread.dark .cap { color: #9b9ba0; }
+[data-zoom] { cursor: zoom-in; }
+
+/* the mark */
+.mark-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px; margin-top: 48px; align-items: stretch; }
+@media (max-width: 900px) { .mark-row { grid-template-columns: minmax(0, 1fr); } }
+.logo-tile { background: var(--page); border: 1px solid var(--line); border-radius: var(--radius); display: grid; place-items: center; padding: clamp(28px, 5vw, 56px); }
+.logo-tile.red { position: relative; background: var(--red); border-color: var(--red); padding: 0; overflow: hidden; min-height: 150px; }
+.logo-tile.red img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; }
+.eq { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 6px; }
+.eq .t { padding: 12px 16px; border-radius: 14px; background: var(--paper); display: flex; flex-direction: column; gap: 2px; }
+.eq b { font: 400 1.05rem var(--f-brand); color: var(--char); }
+.eq span { font-size: .85rem; color: var(--ink-soft); }
+.eq .op { font: 400 1.4rem var(--f-brand); color: var(--red); }
+
+/* foundations */
+.found { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 48px; }
+@media (max-width: 900px) { .found { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--page); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.card h3 { font: 500 .78rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.aa { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font: 400 clamp(4.2rem, 10vw, 7rem)/.9 var(--f-brand); color: var(--char); }
+.aa .he { direction: rtl; color: var(--red); }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 14px; font-family: var(--f-brand); font-size: 1.15rem; color: var(--char); }
+.row span:last-child { font: 400 .78rem var(--f-mono); color: var(--ink-soft); }
+.row .he { direction: rtl; }
+.note { font: 400 .8rem/1.5 var(--f-mono); color: var(--ink-soft); }
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.swatch { border: 0; padding: 0; background: none; cursor: pointer; text-align: left; font: inherit; color: inherit; display: flex; flex-direction: column; gap: 8px; }
+.swatch .chip { aspect-ratio: 1; border-radius: 50%; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .06); transition: transform .2s ease; }
+.swatch:hover .chip { transform: translateY(-3px); }
+.swatch b { font: 400 1rem var(--f-brand); color: var(--char); }
+.swatch code { font: 400 .78rem var(--f-mono); color: var(--ink-soft); }
+.swatch .copied { font: 500 .72rem var(--f-mono); color: var(--red); min-height: 1em; }
+.ratio { display: flex; height: 18px; border-radius: 999px; overflow: hidden; }
+.ratio i { display: block; }
+
+/* motion */
+.embed { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: #000; border-radius: var(--radius); overflow: hidden; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* illustration */
+.ill { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 48px; }
+@media (max-width: 760px) { .ill { grid-template-columns: minmax(0, 1fr); } }
+.steps { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: s; }
+.steps li { counter-increment: s; border-top: 2px solid var(--red); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.steps li::before { content: "0" counter(s); font: 500 .75rem var(--f-mono); color: var(--red); }
+.steps b { font: 400 1.1rem var(--f-brand); color: var(--char); }
+.steps span { color: var(--ink-soft); font-size: .95rem; }
+@media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+
+/* touchpoints: a photobook spread layout */
+.album { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+.album figure:nth-child(1) { grid-column: span 3; } .album figure:nth-child(2) { grid-column: span 3; }
+.album figure:nth-child(3) { grid-column: span 2; } .album figure:nth-child(4) { grid-column: span 2; } .album figure:nth-child(5) { grid-column: span 2; }
+.album figure:nth-child(6) { grid-column: span 6; }
+.album .fig { height: 100%; display: grid; place-items: center; }
+.album .fig img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) { .album figure:nth-child(n) { grid-column: span 6; } }
+
+/* website */
+.browser { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--page); box-shadow: 0 30px 60px -30px rgb(42 42 44 / .35); }
+.browser .bar { height: 36px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #ececee; }
+.browser .bar i { width: 11px; height: 11px; border-radius: 50%; background: #c9c9ce; }
+.browser .bar i:first-child { background: var(--red); }
+.browser .bar span { margin-left: 12px; font: 400 .75rem var(--f-mono); color: var(--ink-soft); }
+.browser video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #fff; }
+.site { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px; margin-top: 48px; align-items: center; }
+@media (max-width: 900px) { .site { grid-template-columns: minmax(0, 1fr); } }
+
+/* outro */
+.closing { font: 400 clamp(1.6rem, 3vw, 2.4rem)/1.25 var(--f-brand); color: #fff; max-width: 26ch; }
+.next { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: clamp(56px, 7vw, 96px); padding-top: 28px; border-top: 1px solid rgb(255 255 255 / .14); }
+.next a { color: #fff; text-decoration: none; font: 400 clamp(1.6rem, 3.4vw, 2.6rem) var(--f-brand); display: inline-flex; gap: 14px; align-items: center; min-height: 44px; }
+.next a span { transition: transform .2s ease; display: inline-block; }
+.next a:hover span { transform: translateX(6px); }
+.spread.dark .label { color: #ff8a8e; }
+footer { background: var(--char); color: #9b9ba0; font: 400 .82rem var(--f-mono); padding-block: 24px; border-top: 1px solid rgb(255 255 255 / .08); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+footer a { color: #fff; }
+@media (max-width: 760px) { footer a { display: inline-flex; align-items: center; min-height: 44px; } }
+
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh; overflow: auto; }
+dialog.lb::backdrop { background: rgb(20 20 22 / .88); }
+dialog.lb img { width: 100%; border-radius: 10px; background: #fff; }
+dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border: 0; border-radius: 999px; padding: 8px 14px; font: 600 14px var(--f-body); background: #fff; color: var(--char); cursor: pointer; min-height: 40px; }
+
+/* shared site header: identical on every page */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #f39545; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
+</style>
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
+  </div>
+</header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
+      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+  </nav>
+</div>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="label">Brand case study · Picabook</span>
+          <h1>Every memory deserves <em>a cover.</em></h1>
+          <p class="lede read">A full rebrand for Picabook, the service that turns the photos on your phone into printed albums, calendars and wall art. New identity, website, illustrations, packaging and print.</p>
+          <dl class="meta">
+            <div><dt>Role</dt><dd>Brand designer</dd></div>
+            <div><dt>Scope</dt><dd>Full rebrand</dd></div>
+            <div><dt>Market</dt><dd>Hebrew-first, bilingual</dd></div>
+            <div><dt>Deliverables</dt><dd>Identity, web, packaging, print</dd></div>
+          </dl>
+        </div>
+        <div class="stage">
+          <div>
+            <button class="book" id="book" type="button" aria-label="Open the Picabook album" aria-pressed="false">
+              <span class="pageR"><img src="assets/inside-photo.jpg" alt="" width="600" height="600"><span>ככל רגע נולד רגע · picabook.co.il</span></span>
+              <span class="cover">
+                <span class="face front"></span>
+                <span class="face inside"><span><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.3 3.2 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.8 0 6 3.8 4.5 7.3C19.5 16.4 12 21 12 21z" fill="#EB1E25"/></svg><p>כל האהבה<br>בספר משלך</p><small>All the love, in a book of your own</small></span></span>
+              </span>
+            </button>
+            <p class="stage-hint" id="bookHint">Click the album to open it</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread" id="brief">
+    <span class="folio" aria-hidden="true">p. 02 – 03</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">The brief</span>
+          <h2>Printed memories need a brand you want to <em>hold.</em></h2>
+        </div>
+        <div class="stack read">
+          <p class="lede">Picabook lets anyone pick photos from their phone or computer, design an album in a few minutes, and get it printed and delivered home.</p>
+          <p>I was asked for a full rebrand: a new identity, a website, and a family of printed pieces, from business cards and envelopes to product packaging. The brand had to feel warm and personal, read just as well in Hebrew and in Latin, and look good on a phone screen and on the cover of a real book.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread gray" id="mark">
+    <span class="folio" aria-hidden="true">p. 04 – 05</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">The mark</span>
+          <h2>The moment you lift <em>the cover.</em></h2>
+          <div class="eq" aria-label="Book cover plus heart">
+            <div class="t"><b>Cover</b><span>Lifting off the page</span></div>
+            <span class="op" aria-hidden="true">+</span>
+            <div class="t"><b>Heart</b><span>What's inside</span></div>
+          </div>
+        </div>
+        <p class="lede read">Every Picabook product begins with one gesture: opening the album. The symbol is exactly that, a red cover lifting off a gray page with a heart inside. It came out of a shape exploration of tabs, folded corners, open books and hand-drawn hearts.</p>
+      </div>
+      <div class="mark-row">
+        <figure>
+          <div class="fig"><img src="assets/shape-exploration.jpg" alt="Shape exploration sketches: a tab, a folded page corner, a book icon, an open book in a square, a heart drawn in one line and an open book line." width="1280" height="720" loading="lazy" data-zoom></div>
+          <figcaption class="cap">Shape exploration</figcaption>
+        </figure>
+        <div class="stack" style="gap:24px">
+          <div class="logo-tile"><img src="assets/logo.png" alt="Picabook logo: a red cover with a white heart lifting off a gray page, beside the lowercase wordmark." width="628" height="247"></div>
+          <div class="logo-tile red" style="aspect-ratio:21/10"><img src="assets/cover.jpg" alt="Picabook logo reversed in white on brand red." width="420" height="520" style="object-position:center"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread" id="foundations">
+    <span class="folio" aria-hidden="true">p. 06 – 07</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Foundations</span>
+          <h2>Soft, round and <em>bilingual.</em></h2>
+        </div>
+        <p class="lede read">A rounded sans that works in Hebrew and in Latin keeps the brand friendly in both languages. The palette is a single confident red, used sparingly, on charcoal and soft gray: the colors of a printed page.</p>
+      </div>
+      <div class="found">
+        <div class="card">
+          <h3>Type · Latin + Hebrew</h3>
+          <div class="aa" aria-hidden="true"><span>Aa</span><span class="he">אב</span></div>
+          <div class="row"><span>ABCDEFG abcdefg 012345</span><span>Latin</span></div>
+          <div class="row"><span class="he">אבגדהוז 012345</span><span>Hebrew</span></div>
+          <p class="note">Set here in Varela Round, a close relative of the brand's rounded typeface.</p>
+        </div>
+        <div class="card">
+          <h3>Color · click to copy</h3>
+          <div class="swatches">
+            <button class="swatch" type="button" data-hex="#EB1E25"><span class="chip" style="background:#EB1E25"></span><b>Red</b><code>#EB1E25</code><span class="copied" aria-live="polite"></span></button>
+            <button class="swatch" type="button" data-hex="#404040"><span class="chip" style="background:#404040"></span><b>Charcoal</b><code>#404040</code><span class="copied" aria-live="polite"></span></button>
+            <button class="swatch" type="button" data-hex="#D0D1D3"><span class="chip" style="background:#D0D1D3"></span><b>Soft gray</b><code>#D0D1D3</code><span class="copied" aria-live="polite"></span></button>
+          </div>
+          <div>
+            <div class="ratio" aria-label="Color balance: mostly white, then gray and charcoal, with a small amount of red"><i style="flex:6;background:#fff;box-shadow:inset 0 0 0 1px #e4e4e7"></i><i style="flex:2;background:#D0D1D3"></i><i style="flex:1.4;background:#404040"></i><i style="flex:.8;background:#EB1E25"></i></div>
+            <p class="note" style="margin-top:10px">Mostly white page, a little red. The red always points at what matters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread dark" id="motion">
+    <span class="folio" aria-hidden="true">p. 08 – 09</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Logo in motion</span>
+          <h2>The cover opens.</h2>
+        </div>
+        <p class="lede read">In motion, the mark does what it promises: the red cover lifts, the heart appears, and the wordmark follows.</p>
+      </div>
+      <figure style="margin-top:40px">
+        <div class="embed"><iframe src="https://player.vimeo.com/video/188977316?autoplay=1&amp;muted=1&amp;loop=1&amp;title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="Picabook logo animation" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" allowfullscreen></iframe></div>
+        <figcaption class="cap">Logo animation · 0:08</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="spread" id="illustration">
+    <span class="folio" aria-hidden="true">p. 10 – 11</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Illustration &amp; icons</span>
+          <h2>A small world of <em>red details.</em></h2>
+        </div>
+        <p class="lede read">A custom set of product icons and spot illustrations explains the service at a glance. Everything is drawn in gray line and fill, and the red heart shows up exactly once per drawing.</p>
+      </div>
+      <div class="ill">
+        <figure><div class="fig"><img src="assets/icons.jpg" alt="Custom icon set: calendar types, albums, year calendars, wall prints and extra services, drawn in red and gray." width="1024" height="1330" loading="lazy" data-zoom></div><figcaption class="cap">Product icons</figcaption></figure>
+        <figure><div class="fig"><img src="assets/illustrations.jpg" alt="Picabook red brand panel with spot illustrations: an open album, a tablet, a gift case and a box with a heart." width="1024" height="1304" loading="lazy" data-zoom></div><figcaption class="cap">Spot illustrations</figcaption></figure>
+      </div>
+      <figure style="margin-top:24px"><div class="fig"><img src="assets/how-it-works.jpg" alt="How it works illustration: choose photos on a tablet, design the album, receive the printed album in a box." width="1280" height="720" loading="lazy" data-zoom></div></figure>
+      <ol class="steps">
+        <li><b>Pick your photos</b><span>From your phone, tablet or computer.</span></li>
+        <li><b>Design the album</b><span>In a few minutes, with ready layouts.</span></li>
+        <li><b>It arrives home</b><span>Printed, bound and boxed.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="spread gray" id="touchpoints">
+    <span class="folio" aria-hidden="true">p. 12 – 13</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Touchpoints</span>
+          <h2>From the first card to the <em>box at your door.</em></h2>
+        </div>
+        <p class="lede read">The identity runs through every physical piece: the album itself, business cards, the delivery envelope, packaging for a family memory game, and the mobile app.</p>
+      </div>
+      <div class="album">
+        <figure><div class="fig"><img src="assets/book.jpg" alt="Picabook-branded photo album with a white cover and red spine." width="1280" height="720" loading="lazy" data-zoom></div></figure>
+        <figure><div class="fig"><img src="assets/cards.jpg" alt="A flurry of Picabook business cards in white and red." width="1280" height="720" loading="lazy" data-zoom></div></figure>
+        <figure><div class="fig"><img src="assets/app-phone.jpg" alt="Picabook app splash screen in red on a phone held in hand." width="1280" height="720" loading="lazy" data-zoom></div></figure>
+        <figure><div class="fig"><img src="assets/memory-game.jpg" alt="Packaging for a Picabook family memory game made from your own photos." width="1280" height="720" loading="lazy" data-zoom></div></figure>
+        <figure><div class="fig"><img src="assets/envelope.jpg" alt="Delivery envelope die-line with a red flap and a road photo: every moment is born a moment." width="1191" height="842" loading="lazy" data-zoom></div></figure>
+        <figure><div class="fig"><img src="assets/cards-dark.jpg" alt="Business cards floating on black, front and back." width="1600" height="1131" loading="lazy" data-zoom></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread" id="website">
+    <span class="folio" aria-hidden="true">p. 14 – 15</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Website</span>
+          <h2>A store that feels like <em>flipping an album.</em></h2>
+        </div>
+        <p class="lede read">The website puts real family photos first, uses the red only for products and calls to action, and keeps every path to "create an album" one click away.</p>
+      </div>
+      <div class="site">
+        <figure>
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>picabook.co.il</span></div>
+            <video src="assets/website.mp4" poster="assets/website-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Scroll-through of the Picabook website homepage"></video>
+          </div>
+          <figcaption class="cap">Homepage scroll-through</figcaption>
+        </figure>
+        <figure><div class="fig"><img src="assets/website-laptop.jpg" alt="Picabook website on a laptop: all the love in a book of your own." width="1280" height="720" loading="lazy" data-zoom></div><figcaption class="cap">Homepage hero</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="spread dark">
+    <span class="folio" aria-hidden="true">Back cover</span>
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Wrap-up</span>
+          <p class="closing">A brand you can hold in your hands.</p>
+        </div>
+        <div class="stack read">
+          <p>One gesture, opening the cover, became a symbol, a motion, an illustration language and a family of printed pieces. It works on a phone screen and on the spine of a real album, in Hebrew and in Latin.</p>
+        </div>
+      </div>
+      <div class="next">
+        <span class="label">Next project</span>
+        <a href="../wideview/">Wideview.io <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Picabook case study · Matan Kidrony</span>
+    <span><a href="../">All projects</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  var book = document.getElementById('book'), hint = document.getElementById('bookHint');
+  var calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function set(open) {
+    book.classList.toggle('open', open);
+    book.setAttribute('aria-pressed', open ? 'true' : 'false');
+    book.setAttribute('aria-label', open ? 'Close the Picabook album' : 'Open the Picabook album');
+    hint.textContent = open ? 'Click again to close it' : 'Click the album to open it';
+  }
+  book.addEventListener('click', function () { set(!book.classList.contains('open')); });
+  // open once on its own so the first frame tells the story
+  if (!calm) setTimeout(function () { set(true); }, 1100);
+
+  document.querySelectorAll('.swatch').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var hex = b.getAttribute('data-hex'), out = b.querySelector('.copied');
+      var done = function (m) { out.textContent = m; setTimeout(function () { out.textContent = ''; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(hex).then(function () { done('Copied'); }, function () { done(hex); });
+      else done(hex);
+    });
+  });
+
+  var lb = document.getElementById('lightbox'), lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+</body>
+</html>
