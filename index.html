@@ -290,6 +290,17 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   .bodied .bust { height: 96%; }
   .bodied .face-hint { right: 56%; top: 34%; }
 }
+/* hero variant: the portrait sits in an orange disc and the head peeks out over its top edge */
+.face-stage.circled { --d: min(38vw, 64svh, 620px); --k: 1.75; --top: .6; }
+.circled .disc { position: absolute; left: 50%; top: 50%; width: var(--d); aspect-ratio: 1; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); }
+/* the bust is scaled from the disc: head width ~ half the disc, glasses rise above its rim */
+.circled .bust { height: auto; bottom: auto; width: calc(var(--d) * var(--k)); top: calc(50% - var(--d) * var(--top));
+  /* visible = inside the disc, or anywhere above the disc's centre line (so only the head can leave it) */
+  -webkit-mask: radial-gradient(circle calc(var(--d) / 2) at 54.6% calc(var(--d) * var(--top)), #000 calc(100% - 1px), transparent 100%), linear-gradient(#000, #000) top / 100% calc(var(--d) * var(--top)) no-repeat;
+          mask: radial-gradient(circle calc(var(--d) / 2) at 54.6% calc(var(--d) * var(--top)), #000 calc(100% - 1px), transparent 100%), linear-gradient(#000, #000) top / 100% calc(var(--d) * var(--top)) no-repeat; }
+@media (max-width: 860px) {
+  .face-stage.circled { --d: min(80vw, 380px); height: calc(var(--d) * 1.25); }
+}
 </style>
 </head>
 <body>
@@ -331,7 +342,8 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <div><span class="mono">Experience</span><b>15+ years</b></div>
       </div>
     </div>
-    <div class="face-stage bodied" id="faceStage">
+    <div class="face-stage bodied circled" id="faceStage">
+      <span class="disc" aria-hidden="true"></span>
       <div class="bust">
       <button class="head" id="head" type="button" aria-label="Matan Kidrony. Click for a surprise.">
         <img class="bust-img" src="assets/body-2k.webp" srcset="assets/body-2k.webp 2610w, assets/body-4k.webp 5220w" sizes="(max-width: 860px) 230vw, 90vw" alt="" width="5220" height="3328" fetchpriority="high">
