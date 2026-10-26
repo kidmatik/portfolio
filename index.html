@@ -366,14 +366,14 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 @media (max-width: 860px) { .say { padding: 8px 12px; font-size: .9rem; border-width: 2.5px; box-shadow: 3px 3px 0 #15131c; } }
 @media (prefers-reduced-motion: reduce) { .say { animation: say-fade .2s both, say-out .3s forwards; animation-delay: 0s, var(--life, 1.5s); } @keyframes say-fade { from { opacity: 0; } } }
 /* tools strip under the hero: logos drawn as masks so they take the ink colour, and turn orange on hover */
-.tools-strip { border-block: 1px solid var(--line); padding-block: 30px 34px; overflow: hidden; }
+.tools-strip { border-block: 1px solid var(--line); padding-block: 36px 40px; overflow: hidden; }
 .tools-label { margin: 0 0 22px; text-align: center; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
 .tools-track { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .tools-run { display: flex; width: max-content; animation: tools-scroll 48s linear infinite; }
 .tools-track:hover .tools-run { animation-play-state: paused; }
-.tools { list-style: none; margin: 0; padding: 0 clamp(18px, 2.6vw, 36px) 0 0; display: flex; align-items: center; gap: clamp(18px, 2.6vw, 36px); flex: 0 0 auto; }
+.tools { list-style: none; margin: 0; padding: 0 clamp(28px, 4vw, 56px) 0 0; display: flex; align-items: center; gap: clamp(28px, 4vw, 56px); flex: 0 0 auto; }
 .tools li { flex: 0 0 auto; }
-.logo { display: block; width: clamp(30px, 2.6vw, 40px); height: clamp(30px, 2.6vw, 40px); background: var(--ink); -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; transition: background-color .2s ease; }
+.logo { display: block; width: clamp(72px, 8vw, 120px); height: clamp(72px, 8vw, 120px); background: var(--ink); -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; transition: background-color .2s ease; }
 .logo:hover { background: var(--accent); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @keyframes tools-scroll { to { transform: translateX(-50%); } }
