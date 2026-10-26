@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atlas Case Study – Branding, Product UI/UX &amp; Website | Matan Kidrony</title>
+<meta name="description" content="Atlas by Matan Kidrony: a full rebrand, the entire product design and a new website for a platform that gives fundraisers, funds and non-profits high-end tools.">
+<link rel="canonical" href="https://kidmatik.github.io/portfolio/atlas/">
+<meta name="author" content="Matan Kidrony">
+<meta property="og:url" content="https://kidmatik.github.io/portfolio/atlas/">
+<meta property="og:site_name" content="Matan Kidrony">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:title" content="Atlas Case Study | Matan Kidrony">
+<meta property="og:description" content="The total package: brand, product UI/UX and website for Atlas.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/atlas/assets/before-after.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Poppins:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Nanum+Pen+Script&display=swap">
+<style>
+/* Atlas gets its own world: a sunrise. Deep navy and sun yellow from the logo, warm cream paper,
+   big type, and two live demos. Single theme on purpose: the page shows the brand's real colours. */
+:root {
+  --navy: #090044;
+  --sun: #FFCC00;
+  --cream: #FFF6D8;
+  --paper: #FFFDF6;
+  --ink: #090044;
+  --ink-soft: #55517C;
+  --line: #EDE4C2;
+  --f-display: "Poppins", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --f-hand: "Nanum Pen Script", "Bradley Hand", "Segoe Print", cursive;
+  --radius: 22px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; display: block; }
+img { height: auto; }
+a { color: var(--navy); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(3rem, 8vw, 6.6rem); }
+h2 { font-size: clamp(2rem, 4.6vw, 3.6rem); }
+p { margin: 0; }
+.label { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 10px; }
+.label::before { content: ""; width: 22px; height: 3px; border-radius: 3px; background: var(--sun); }
+.on-navy .label, .hero .label { color: #B9B4E6; }
+.hl { background: linear-gradient(transparent 58%, var(--sun) 58% 92%, transparent 92%); padding-inline: .06em; }
+.hand { font: 400 clamp(1.6rem, 3vw, 2.3rem)/1 var(--f-hand); color: var(--navy); }
+.on-navy .hand, .hero .hand { color: var(--sun); }
+
+/* reveal on scroll */
+.js .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.js .rv.in { opacity: 1; transform: none; }
+
+/* ---- hero: a rising sun ---- */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: var(--navy); color: #fff; padding-block: clamp(64px, 9vw, 120px) clamp(56px, 7vw, 96px); }
+.burst { position: absolute; z-index: -1; right: -22%; top: 46%; width: min(120vw, 1100px); aspect-ratio: 1; border-radius: 50%; transform: translateY(-50%); background: repeating-conic-gradient(from 0deg, rgb(255 204 0 / .20) 0 2.5deg, transparent 2.5deg 11deg); -webkit-mask-image: radial-gradient(circle, #000 0 22%, transparent 66%); mask-image: radial-gradient(circle, #000 0 22%, transparent 66%); animation: spin 120s linear infinite; }
+@keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.hero-text { display: flex; flex-direction: column; gap: 26px; }
+.hero h1 .hl { background: none; color: var(--sun); position: relative; white-space: nowrap; }
+.hero h1 .hl svg { position: absolute; left: -2%; bottom: -.14em; width: 104%; height: .3em; overflow: visible; }
+.hero h1 .hl path { stroke: var(--sun); stroke-width: 7; fill: none; stroke-linecap: round; stroke-dasharray: 420; stroke-dashoffset: 420; animation: draw 1.1s .5s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.lede { font-size: clamp(1.1rem, 1.7vw, 1.35rem); line-height: 1.55; color: #D9D5F6; max-width: 36em; }
+.meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 10px 0 0; padding-top: 22px; border-top: 1px solid rgb(255 255 255 / .16); }
+.meta div { display: flex; flex-direction: column; gap: 4px; }
+.meta dt { font: 500 .7rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: #9D98D4; }
+.meta dd { margin: 0; font-weight: 600; font-size: .98rem; line-height: 1.3; }
+.sun-mark { justify-self: center; width: min(44vw, 430px); filter: drop-shadow(0 0 70px rgb(255 204 0 / .5)); animation: bob 7s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-14px) rotate(-1.5deg); } }
+
+/* ---- shared section rhythm ---- */
+section { padding-block: clamp(64px, 9vw, 120px); }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.read p + p { margin-top: 14px; }
+.read .big { font: 600 clamp(1.25rem, 2.2vw, 1.7rem)/1.4 var(--f-display); letter-spacing: -0.01em; }
+.about-card { background: var(--cream); border-radius: var(--radius); padding: 24px 26px; border-left: 6px solid var(--sun); }
+.about-card b { display: block; font: 700 1.05rem var(--f-display); margin-bottom: 6px; }
+.cream { background: var(--cream); }
+.on-navy { background: var(--navy); color: #fff; }
+.card { background: #fff; border-radius: var(--radius); box-shadow: 0 30px 60px -34px rgb(9 0 68 / .35); overflow: hidden; }
+.cap { font: 500 .78rem/1.5 var(--f-mono); color: var(--ink-soft); margin-top: 14px; }
+.on-navy .cap { color: #A6A1DC; }
+
+/* before / after */
+.ba { display: grid; gap: 16px; margin-top: 40px; }
+.ba .card { padding: clamp(14px, 3vw, 36px); }
+.ba .tags { display: flex; justify-content: space-between; font: 600 .8rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); padding-inline: clamp(6px, 4vw, 70px); margin-bottom: 8px; }
+.ba .tags span:last-child { color: var(--navy); }
+
+/* the mark */
+.equation { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 8px; }
+.chip { background: rgb(255 255 255 / .08); border: 1.5px solid rgb(255 255 255 / .22); border-radius: 18px; padding: 14px 18px; transition: transform .25s ease, background .25s ease; }
+.chip:hover { transform: translateY(-4px) rotate(-1.5deg); background: rgb(255 204 0 / .16); }
+.chip b { display: block; font: 700 1.1rem var(--f-display); }
+.chip span { font-size: .82rem; color: #B9B4E6; }
+.op { font: 700 1.6rem var(--f-display); color: var(--sun); }
+.eq-sun { width: 96px; background: var(--sun); border-radius: 50%; padding: 22px; aspect-ratio: 1; display: grid; place-items: center; }
+.eq-sun img { width: 100%; filter: brightness(0) saturate(100%) invert(7%) sepia(60%) saturate(7300%) hue-rotate(247deg) brightness(.45); }
+.construct { padding: clamp(14px, 3vw, 30px); }
+
+/* lockup */
+.lockup { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: clamp(20px, 4vw, 56px); padding: clamp(28px, 6vw, 72px); margin-top: 36px; }
+.lockup .part { position: relative; padding-top: 34px; }
+.lockup .part::before { content: attr(data-n); position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 26px; height: 26px; border-radius: 6px; background: #C9CCD3; color: #fff; font: 600 .8rem/26px var(--f-mono); text-align: center; }
+.lockup .part::after { content: ""; position: absolute; top: 12px; left: 0; right: 0; height: 12px; border: 1.5px solid #9EA3AD; border-bottom: 0; z-index: -1; }
+.lockup .sun { width: clamp(80px, 15vw, 170px); }
+.lockup .word { width: 100%; max-width: 560px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+.sw { display: flex; align-items: center; gap: 12px; background: #fff; border-radius: 999px; padding: 8px 18px 8px 8px; box-shadow: 0 10px 30px -20px rgb(9 0 68 / .5); font: 500 .8rem var(--f-mono); }
+.sw i { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgb(9 0 68 / .15); }
+.sw b { font-weight: 600; }
+
+/* brand in use */
+.bento { display: grid; grid-template-columns: 1.5fr 1fr; grid-template-rows: auto auto; gap: 16px; margin-top: 36px; }
+.bento > * { border-radius: var(--radius); overflow: hidden; }
+.bento .photo { grid-row: span 2; position: relative; }
+.bento .photo img { width: 100%; height: 100%; object-fit: cover; }
+.bento .tile { display: grid; place-items: center; padding: clamp(24px, 4vw, 48px); min-height: 190px; }
+.bento .t-sun { background: var(--sun); }
+.bento .t-sun img { width: min(56%, 170px); filter: brightness(0) saturate(100%) invert(7%) sepia(60%) saturate(7300%) hue-rotate(247deg) brightness(.45); }
+.bento .t-navy { background: var(--navy); }
+.bento .t-navy img { width: min(78%, 280px); filter: brightness(0) invert(1); }
+
+/* demos */
+.demo-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 18px 36px; margin-bottom: 34px; }
+.demo-head .stack { max-width: 640px; }
+.demo-head .hand { transform: rotate(-3deg); display: inline-flex; gap: 8px; align-items: center; }
+.browser { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 50px 90px -40px rgb(0 0 0 / .65); border: 1px solid rgb(255 255 255 / .12); }
+.browser .bar { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: #EEF0F4; border-bottom: 1px solid #DDE0E7; }
+.browser .dots { display: flex; gap: 7px; } .browser .dots i { width: 12px; height: 12px; border-radius: 50%; background: #FF5F57; } .browser .dots i:nth-child(2) { background: #FEBC2E; } .browser .dots i:nth-child(3) { background: #28C840; }
+.browser .url { flex: 1; text-align: center; font: 500 .78rem var(--f-mono); color: #6B7280; background: #fff; border-radius: 8px; padding: 6px 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.browser .open { font: 600 .75rem var(--f-mono); color: var(--navy); text-decoration: none; background: var(--sun); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+.frame { position: relative; aspect-ratio: 16 / 10; background: linear-gradient(110deg, #f3f3f6 30%, #fff 50%, #f3f3f6 70%) 0 0 / 200% 100%; animation: shimmer 1.6s linear infinite; }
+.frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.laptop { max-width: 980px; margin-inline: auto; }
+.laptop .screen { background: #14122B; border-radius: 22px 22px 6px 6px; padding: 14px 14px 18px; box-shadow: 0 50px 80px -44px rgb(9 0 68 / .7); }
+.laptop .screen .frame { border-radius: 8px; overflow: hidden; }
+.laptop .base { height: 16px; margin-inline: -4%; background: linear-gradient(#D3D5DE, #A9ACBA); border-radius: 0 0 22px 22px; position: relative; }
+.laptop .base::after { content: ""; position: absolute; left: 50%; top: 0; width: 120px; height: 6px; transform: translateX(-50%); background: #8E91A1; border-radius: 0 0 10px 10px; }
+
+/* outro */
+.outro { position: relative; isolation: isolate; overflow: hidden; }
+.outro .burst { left: -30%; right: auto; top: 110%; opacity: .7; }
+.quote { font: 700 clamp(1.7rem, 4.4vw, 3.4rem)/1.12 var(--f-display); letter-spacing: -0.02em; max-width: 21em; }
+.quote::before { content: "\201C"; display: block; font-size: 2.6em; line-height: .6; color: var(--sun); margin-bottom: .1em; }
+.next { margin-top: 56px; padding-top: 28px; border-top: 1px solid rgb(255 255 255 / .16); display: flex; flex-direction: column; gap: 8px; }
+.next a { color: #fff; font: 800 clamp(1.8rem, 4vw, 3rem)/1.05 var(--f-display); text-decoration: none; }
+.next a:hover { color: var(--sun); }
+
+footer { padding-block: 28px; font: 500 .8rem var(--f-mono); color: var(--ink-soft); background: var(--paper); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+footer a { color: var(--navy); }
+
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
+dialog.lb::backdrop { background: rgb(9 0 68 / .88); }
+dialog.lb img { max-width: 94vw; max-height: 88vh; border-radius: 14px; background: #fff; }
+dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button { background: var(--sun); border: 0; border-radius: 999px; padding: 8px 14px; font: 600 .8rem var(--f-mono); cursor: pointer; }
+[data-zoom] { cursor: zoom-in; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .two { grid-template-columns: minmax(0, 1fr); }
+  .sun-mark { order: -1; width: min(52vw, 230px); }
+  .burst { right: -60%; top: 22%; }
+  .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bento { grid-template-columns: minmax(0, 1fr); }
+  .bento .photo { grid-row: auto; }
+  .lockup { grid-template-columns: minmax(0, 1fr); justify-items: start; }
+  .browser .url { display: none; }
+  .frame { aspect-ratio: 4 / 3; }
+  .laptop .screen { padding: 8px 8px 12px; border-radius: 16px 16px 4px 4px; }
+}
+@media (max-width: 480px) { .eq-sun { width: 76px; padding: 16px; } .op { font-size: 1.3rem; } }
+
+/* shared site header (same on every page) */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-nav a.mk-cv { margin-left: 6px; border: 1.5px solid #15131c; border-radius: 999px; padding: 8px 14px; }
+.mk-nav a.mk-cv:hover { background: #15131c; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #e5701a; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
+</style>
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cv" href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download>CV</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
+  </div>
+</header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
+      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+        <a href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download><small>PDF</small>Download CV</a>
+  </nav>
+</div>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="burst" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="label">Brand · Product · Website case study</span>
+        <h1>The total <span class="hl">package.<svg viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C 70 4, 130 22, 200 12 S 330 6, 396 14"/></svg></span></h1>
+        <p class="lede">Full branding, the entire product design and a trendy new website for Atlas, the platform that gives fundraisers, funds and non-profit organizations high-end tools.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Senior Brand &amp; Product Designer</dd></div>
+          <div><dt>Scope</dt><dd>Branding, product UI/UX, website</dd></div>
+          <div><dt>Industry</dt><dd>Philanthropy tech</dd></div>
+          <div><dt>Deliverables</dt><dd>Logo, visual language, product, website</dd></div>
+        </dl>
+      </div>
+      <img class="sun-mark" src="assets/atlas-sun.svg" alt="The Atlas symbol: a bright yellow upward arrow with sun rays around it." width="890" height="910">
+    </div>
+  </div>
+
+  <section id="brief">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">The mission</span>
+          <h2>I was called for <span class="hl">the total package.</span></h2>
+        </div>
+        <div class="stack read rv">
+          <p class="big">A full re-branding, from a new logo to a fresh visual language, a trendy new website and the entire product design.</p>
+          <div class="about-card">
+            <b>About Atlas</b>
+            <p>Atlas provides high-end tools for fundraisers, funds and non-profit organizations, mainly for philanthropy and social reach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="before" class="cream">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Before &amp; after</span>
+        <h2>From a grey wordmark to a rising sun.</h2>
+      </div>
+      <figure class="ba rv" style="margin-inline:0">
+        <div class="card">
+          <div class="tags" aria-hidden="true"><span>Before</span><span>After</span></div>
+          <img src="assets/before-after.webp" alt="The old Atlas logo, a grey wordmark with a thin swirl, next to the new logo: a yellow sun-and-arrow symbol with a bold navy lowercase wordmark." width="1259" height="577" loading="lazy" data-zoom>
+        </div>
+        <figcaption class="cap">Old Atlas wordmark on the left. The new mark and wordmark on the right.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="mark" class="on-navy">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">The mark</span>
+          <h2>A letter, a sunrise and an arrow up.</h2>
+          <p style="color:#D9D5F6">The symbol is built from three simple ideas. The letter A, the light of the sun, and an arrow pointing up: a brighter day for the causes Atlas serves.</p>
+          <div class="equation" aria-label="A letter plus sunshine plus arrow up equals the Atlas symbol">
+            <div class="chip"><b>A letter</b><span>The initial</span></div>
+            <span class="op" aria-hidden="true">+</span>
+            <div class="chip"><b>Sunshine</b><span>Warmth and light</span></div>
+            <span class="op" aria-hidden="true">+</span>
+            <div class="chip"><b>Arrow up</b><span>Growth</span></div>
+            <span class="op" aria-hidden="true">=</span>
+            <div class="eq-sun"><img src="assets/atlas-sun.svg" alt="" width="890" height="910"></div>
+          </div>
+        </div>
+        <figure class="rv" style="margin:0">
+          <div class="card construct"><img src="assets/construction.webp" alt="Construction of the Atlas symbol: a hand-drawn letter A, plus a sunrise with rays, plus an upward arrow." width="922" height="310" loading="lazy" data-zoom></div>
+          <figcaption class="cap">The three drawings that became one symbol.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="logo">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">The logo</span>
+        <h2>Symbol and wordmark, in balance.</h2>
+        <p style="color:var(--ink-soft)">A friendly, rounded lowercase wordmark sits next to the symbol, sharing its weight so the two read as one.</p>
+      </div>
+      <div class="card lockup rv" role="img" aria-label="The Atlas logo lockup: the yellow sun symbol marked 1 and the navy wordmark marked 2.">
+        <div class="part" data-n="1"><img class="sun" src="assets/atlas-sun.svg" alt="" width="890" height="910"></div>
+        <div class="part" data-n="2"><img class="word" src="assets/atlas-wordmark.svg" alt="" width="2600" height="910"></div>
+      </div>
+      <div class="swatches rv" aria-label="Brand colours">
+        <div class="sw"><i style="background:#FFCC00"></i><span><b>Sun yellow</b><br>#FFCC00</span></div>
+        <div class="sw"><i style="background:#090044"></i><span><b>Deep navy</b><br>#090044</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="brand" class="cream">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Brand in use</span>
+        <h2>Sunshine on real people.</h2>
+      </div>
+      <div class="bento rv">
+        <div class="photo"><img src="assets/people.webp" alt="A group of smiling people taking a selfie in warm yellow tones, with the white Atlas symbol over the image." width="640" height="361" loading="lazy" data-zoom></div>
+        <div class="tile t-sun"><img src="assets/atlas-sun.svg" alt="" width="890" height="910" loading="lazy"></div>
+        <div class="tile t-navy"><img src="assets/atlas-wordmark.svg" alt="" width="2600" height="910" loading="lazy"></div>
+      </div>
+      <p class="cap rv">The symbol in white over photography, in navy on yellow, and the wordmark in white on navy.</p>
+    </div>
+  </section>
+
+  <section id="web" class="on-navy">
+    <div class="wrap">
+      <div class="demo-head rv">
+        <div class="stack">
+          <span class="label">Website design · live demo</span>
+          <h2>A trendy new website, ready to click.</h2>
+        </div>
+        <span class="hand">scroll and click inside <span aria-hidden="true">↓</span></span>
+      </div>
+      <div class="browser rv">
+        <div class="bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="url">Atlas Website · final version</span>
+          <a class="open" href="https://xd.adobe.com/embed/56416084-44bb-4c04-8d66-ab8fabd57781-0312/?fullscreen" target="_blank" rel="noopener">Open full screen ↗</a>
+        </div>
+        <div class="frame"><iframe src="https://xd.adobe.com/embed/56416084-44bb-4c04-8d66-ab8fabd57781-0312/?fullscreen" title="Atlas website design, interactive Adobe XD prototype" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="product">
+    <div class="wrap">
+      <div class="demo-head rv">
+        <div class="stack">
+          <span class="label">Product design · demo prototype</span>
+          <h2>The entire product, as a clickable prototype.</h2>
+        </div>
+        <a class="hand" href="https://xd.adobe.com/embed/63de992e-364f-49aa-90e5-14418ffc1646-368d/?fullscreen" target="_blank" rel="noopener" style="text-decoration:none">open it full screen ↗</a>
+      </div>
+      <div class="laptop rv">
+        <div class="screen"><div class="frame"><iframe src="https://xd.adobe.com/embed/63de992e-364f-49aa-90e5-14418ffc1646-368d/?fullscreen" title="Atlas product demo prototype, interactive Adobe XD flow" loading="lazy" allowfullscreen></iframe></div></div>
+        <div class="base" aria-hidden="true"></div>
+      </div>
+      <p class="cap rv" style="text-align:center">Atlas product demo prototype. Click through the flow.</p>
+    </div>
+  </section>
+
+  <section class="on-navy outro">
+    <div class="burst" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="label rv">Thank you</span>
+      <p class="quote rv" style="margin-top:22px">A big thank you to the lovely team at Atlas, who gave me the creative freedom and let me walk them through the creative process, toward their business growth and success.</p>
+      <div class="next rv">
+        <span class="label">Next project</span>
+        <a href="../bk-digital/">BK Digital <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Atlas case study · Matan Kidrony</span>
+    <span><a href="../">All projects</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var els = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(function (e) { e.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: .12 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  var lb = document.getElementById('lightbox'), lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+</body>
+</html>
