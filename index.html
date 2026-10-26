@@ -80,8 +80,10 @@ p { margin: 0; }
 /* intro: text left; my cut-out head right. Eyes follow the pointer, brows lift when
    the pointer comes close, and a click throws design-icon confetti. */
 .intro { display: grid; grid-template-columns: minmax(0, 1fr) clamp(360px, 44vw, 760px); min-height: max(560px, calc(100svh - 60px)); border-bottom: 1px solid var(--line); }
-.intro-text { align-self: center; padding-block: clamp(48px, 7vw, 96px); padding-left: max(20px, env(safe-area-inset-left, 0px), calc((100vw - 1180px) / 2 + 20px)); padding-right: clamp(24px, 4vw, 64px); min-width: 0; }
-.intro h1 { font-size: clamp(2.25rem, 4.3vw, 4.2rem); }
+.intro-text { container-type: inline-size; align-self: center; padding-block: clamp(48px, 7vw, 96px); padding-left: max(20px, env(safe-area-inset-left, 0px), calc((100vw - 1180px) / 2 + 20px)); padding-right: clamp(24px, 4vw, 64px); min-width: 0; }
+/* sized from the text column itself, so every typed sentence always fits on two lines */
+.intro h1 { font-size: clamp(1.75rem, 10.2cqw, 4.2rem); }
+.intro h1.rotate { max-width: 9.6em; }   /* a narrow measure: all three sentences always break into exactly two lines */
 .intro h1 .a { color: var(--ink); }
 .intro h1 .b { color: var(--accent); }
 /* one sentence at a time, stacked in one cell so the headline keeps its height while it types */
