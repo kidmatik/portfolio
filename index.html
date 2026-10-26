@@ -365,6 +365,19 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 @keyframes say-out { to { opacity: 0; transform: rotate(var(--r)) scale(.85) translateY(-8px); } }
 @media (max-width: 860px) { .say { padding: 8px 12px; font-size: .9rem; border-width: 2.5px; box-shadow: 3px 3px 0 #15131c; } }
 @media (prefers-reduced-motion: reduce) { .say { animation: say-fade .2s both, say-out .3s forwards; animation-delay: 0s, var(--life, 1.5s); } @keyframes say-fade { from { opacity: 0; } } }
+/* tools strip under the hero: logos drawn as masks so they take the ink colour, and turn orange on hover */
+.tools-strip { border-block: 1px solid var(--line); padding-block: 30px 34px; overflow: hidden; }
+.tools-label { margin: 0 0 22px; text-align: center; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.tools-track { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.tools-run { display: flex; width: max-content; animation: tools-scroll 48s linear infinite; }
+.tools-track:hover .tools-run { animation-play-state: paused; }
+.tools { list-style: none; margin: 0; padding: 0 clamp(18px, 2.6vw, 36px) 0 0; display: flex; align-items: center; gap: clamp(18px, 2.6vw, 36px); flex: 0 0 auto; }
+.tools li { flex: 0 0 auto; }
+.logo { display: block; width: clamp(30px, 2.6vw, 40px); height: clamp(30px, 2.6vw, 40px); background: var(--ink); -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; transition: background-color .2s ease; }
+.logo:hover { background: var(--accent); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@keyframes tools-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .tools-run { animation: none; } .tools-track { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tools[aria-hidden="true"] { display: none; } }
 </style>
 <script type="application/ld+json">
 {
@@ -540,6 +553,65 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     </div>
   </section>
 
+  <section class="tools-strip" aria-label="Tools I work with">
+    <p class="tools-label mono">Tools I design, prototype and ship with</p>
+    <div class="tools-track">
+      <div class="tools-run">
+        <ul class="tools">
+          <li><span class="logo" style="--logo:url(assets/tools/figma.svg)"><span class="sr">Figma</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/sketch.svg)"><span class="sr">Sketch</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/framer.svg)"><span class="sr">Framer</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/webflow.svg)"><span class="sr">Webflow</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/notion.svg)"><span class="sr">Notion</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/miro.svg)"><span class="sr">Miro</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/rive.svg)"><span class="sr">Rive</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/lottiefiles.svg)"><span class="sr">LottieFiles</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/davinciresolve.svg)"><span class="sr">DaVinci Resolve</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/blender.svg)"><span class="sr">Blender</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/unrealengine.svg)"><span class="sr">Unreal Engine</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/claude.svg)"><span class="sr">Claude</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/cursor.svg)"><span class="sr">Cursor</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/perplexity.svg)"><span class="sr">Perplexity</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/googlegemini.svg)"><span class="sr">Google Gemini</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/elevenlabs.svg)"><span class="sr">ElevenLabs</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/v0.svg)"><span class="sr">v0</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/replit.svg)"><span class="sr">Replit</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/supabase.svg)"><span class="sr">Supabase</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/github.svg)"><span class="sr">GitHub</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/vercel.svg)"><span class="sr">Vercel</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/linear.svg)"><span class="sr">Linear</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/obsidian.svg)"><span class="sr">Obsidian</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/stackblitz.svg)"><span class="sr">StackBlitz</span></span></li>
+        </ul>
+        <ul class="tools" aria-hidden="true">
+          <li><span class="logo" style="--logo:url(assets/tools/figma.svg)" aria-hidden="true"><span class="sr">Figma</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/sketch.svg)" aria-hidden="true"><span class="sr">Sketch</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/framer.svg)" aria-hidden="true"><span class="sr">Framer</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/webflow.svg)" aria-hidden="true"><span class="sr">Webflow</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/notion.svg)" aria-hidden="true"><span class="sr">Notion</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/miro.svg)" aria-hidden="true"><span class="sr">Miro</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/rive.svg)" aria-hidden="true"><span class="sr">Rive</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/lottiefiles.svg)" aria-hidden="true"><span class="sr">LottieFiles</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/davinciresolve.svg)" aria-hidden="true"><span class="sr">DaVinci Resolve</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/blender.svg)" aria-hidden="true"><span class="sr">Blender</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/unrealengine.svg)" aria-hidden="true"><span class="sr">Unreal Engine</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/claude.svg)" aria-hidden="true"><span class="sr">Claude</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/cursor.svg)" aria-hidden="true"><span class="sr">Cursor</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/perplexity.svg)" aria-hidden="true"><span class="sr">Perplexity</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/googlegemini.svg)" aria-hidden="true"><span class="sr">Google Gemini</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/elevenlabs.svg)" aria-hidden="true"><span class="sr">ElevenLabs</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/v0.svg)" aria-hidden="true"><span class="sr">v0</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/replit.svg)" aria-hidden="true"><span class="sr">Replit</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/supabase.svg)" aria-hidden="true"><span class="sr">Supabase</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/github.svg)" aria-hidden="true"><span class="sr">GitHub</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/vercel.svg)" aria-hidden="true"><span class="sr">Vercel</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/linear.svg)" aria-hidden="true"><span class="sr">Linear</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/obsidian.svg)" aria-hidden="true"><span class="sr">Obsidian</span></span></li>
+          <li><span class="logo" style="--logo:url(assets/tools/stackblitz.svg)" aria-hidden="true"><span class="sr">StackBlitz</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <section class="work" id="work">
     <div class="wrap">
       <div class="work-head">
