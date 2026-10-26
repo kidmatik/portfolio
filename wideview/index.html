@@ -129,8 +129,7 @@ section + section { border-top: 1px solid var(--line); }
 .band h2, .band h3 { color: var(--band-fg); }
 
 /* ---------- about ---------- */
-.about { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
-.avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; background: var(--violet-tint); box-shadow: 0 0 0 4px var(--surface), 0 0 0 5px var(--line); }
+.about { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
 @media (max-width: 560px) { .about { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- media frames ---------- */
@@ -373,7 +372,6 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   <section id="intro" style="border-top:0">
     <div class="wrap">
       <div class="about">
-        <img class="avatar" src="assets/img/matan-kidrony.jpg" alt="Portrait of Matan Kidrony" width="120" height="120">
         <div class="stack read">
           <span class="label">Introduction</span>
           <h2>Hello, I'm Matan.</h2>
