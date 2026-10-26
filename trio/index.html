@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Trio Case Study – Logo, Brand &amp; Website | Matan Kidrony</title>
-<meta name="description" content="Trio Cloud Technologies by Matan Kidrony: a new logo, brand identity and website design for an Israeli cloud and cyber company.">
+<title>Trio Case Study – Brand, Website &amp; Product UI/UX | Matan Kidrony</title>
+<meta name="description" content="Trio Cloud Technologies by Matan Kidrony: a new logo, brand identity, website design and product UI/UX for an Israeli cloud and cyber company.">
 <link rel="canonical" href="https://kidmatik.github.io/portfolio/trio/">
 <meta name="author" content="Matan Kidrony">
 <meta property="og:url" content="https://kidmatik.github.io/portfolio/trio/">
@@ -12,7 +12,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="he_IL">
 <meta property="og:title" content="Trio Case Study | Matan Kidrony">
-<meta property="og:description" content="Cloud, the next generation: a new logo, brand and website for Trio.">
+<meta property="og:description" content="Cloud, the next generation: a new logo, brand, website and product UI/UX for Trio.">
 <meta property="og:image" content="https://kidmatik.github.io/portfolio/trio/assets/site/home-d-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.png" type="image/png">
@@ -159,6 +159,19 @@ dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button 
   .browser .scroll { max-height: 470px; }
 }
 
+
+/* product UI/UX */
+.ui-top { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 40px); align-items: center; margin-top: 44px; }
+.ui-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 3vw, 32px); margin-top: clamp(28px, 4vw, 48px); }
+.ui-pair .browser, .ui-top .browser { margin-top: 0; }
+.ui-shot { display: block; width: 100%; }
+.ui-label { font: 800 .95rem var(--f-display); margin-top: 14px; text-align: center; color: #fff; }
+.ui-top .phone { margin-inline: auto; background: none; padding: 0; width: min(100%, 300px); border-radius: 28px; overflow: hidden; box-shadow: 0 50px 80px -40px rgb(0 0 0 / .7); }
+.ui-top .phone img { border-radius: 30px; display: block; width: 100%; }
+.on-navy .chips li { background: rgb(255 255 255 / .08); border-color: rgb(255 255 255 / .22); color: #fff; }
+.ban { padding: clamp(14px, 3vw, 36px); margin-top: 40px; }
+@media (max-width: 860px) { .ui-top, .ui-pair { grid-template-columns: minmax(0, 1fr); } }
+
 /* shared site header (same on every page) */
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
@@ -233,12 +246,12 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   <div class="hero">
     <div class="wrap">
       <div class="hero-text">
-        <span class="label">Brand &amp; website case study · Trio</span>
+        <span class="label">Brand, website &amp; product UI/UX case study · Trio</span>
         <h1>Cloud, the <span class="gt">next generation.</span></h1>
-        <p class="lede">A new logo, brand identity and website for Trio Cloud Technologies, an Israeli cloud and cyber company that gives resellers servers, backup, managed cyber protection and AI infrastructure.</p>
+        <p class="lede">A new logo, brand identity, website and product UI/UX for Trio Cloud Technologies, an Israeli cloud and cyber company that gives resellers servers, backup, managed cyber protection and AI infrastructure.</p>
         <dl class="meta">
           <div><dt>Role</dt><dd>Senior Brand &amp; Product Designer</dd></div>
-          <div><dt>Scope</dt><dd>Logo, brand, website design</dd></div>
+          <div><dt>Scope</dt><dd>Logo, brand, website, product UI/UX</dd></div>
           <div><dt>Industry</dt><dd>Cloud and cyber security</dd></div>
           <div><dt>Year</dt><dd>2025</dd></div>
         </dl>
@@ -346,7 +359,60 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <figure style="margin:0"><div class="phone"><div class="scr" tabindex="0" aria-label="Trio virtual servers page on mobile, scrollable"><img src="assets/site/servers-m.webp" alt="The Trio virtual servers page on a phone." width="780" height="9896" loading="lazy"></div></div><figcaption class="phone-cap">Virtual servers</figcaption></figure>
         <figure style="margin:0"><div class="phone"><div class="scr" tabindex="0" aria-label="Trio managed cyber page on mobile, scrollable"><img src="assets/site/cyber-m.webp" alt="The Trio managed cyber page on a phone." width="780" height="10912" loading="lazy"></div></div><figcaption class="phone-cap">Managed cyber</figcaption></figure>
       </div>
+      <figure class="rv" style="margin: 40px 0 0">
+        <div class="card ban"><img src="assets/ui/amendment13.webp" alt="A website banner about Israel's Privacy Protection Law Amendment 13: a large orange padlock illustration with a fingerprint, a shield and a password field next to Hebrew text asking whether your business meets the requirements." width="1948" height="577" loading="lazy" data-zoom></div>
+        <figcaption class="cap">A content banner for the privacy law Amendment 13 page, in the same brand colours.</figcaption>
+      </figure>
       <p class="credit rv">Design and branding: Matan Kidrony · Website development: Studio Kuli Alma.</p>
+    </div>
+  </section>
+
+  <section id="product-ui" class="on-navy">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">Product UI/UX</span>
+          <h2>The portal behind the cloud.</h2>
+        </div>
+        <div class="stack rv">
+          <p class="big">Beyond the brand and the website, I also designed the product UI/UX of the Trio portal, where resellers and their customers sign in, manage servers and keep track of billing.</p>
+          <ul class="chips" aria-label="Portal areas shown in the designs">
+            <li>Sign-in</li><li>Servers</li><li>Server details and actions</li><li>Live CPU, RAM, disk and network</li><li>Hosts</li><li>Audit logs</li><li>Orders and billing</li><li>User management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ui-top rv">
+        <figure style="margin:0">
+          <div class="browser">
+            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <img class="ui-shot" src="assets/ui/login-d.webp" alt="The Trio portal sign-in on desktop: a form on the right with the Trio logo, email or phone and password fields, a purple Sign in button and a Google option, beside a purple-tinted team photo." width="1440" height="900" loading="lazy" data-zoom>
+          </div>
+          <figcaption class="ui-label">Sign-in, desktop</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="phone"><img src="assets/ui/login-m.webp" alt="The Trio portal sign-in on a phone: the logo, email or phone and password fields, a purple Sign in button and a Google sign-in button." width="375" height="812" loading="lazy" data-zoom></div>
+          <figcaption class="ui-label">Sign-in, mobile</figcaption>
+        </figure>
+      </div>
+
+      <div class="ui-pair rv">
+        <figure style="margin:0">
+          <div class="browser">
+            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <img class="ui-shot" src="assets/ui/servers.webp" alt="The Servers screen of the Trio portal: a left navigation with Dashboard, Servers, Products, Hosts, Audit Logs, User Management and Orders and Billing, and a table of servers with active, on hold and down status chips." width="2000" height="1106" loading="lazy" data-zoom>
+          </div>
+          <figcaption class="ui-label">Servers</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div class="browser">
+            <div class="bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <img class="ui-shot" src="assets/ui/server-detail.webp" alt="A server's detail view in the Trio portal: action buttons for start, shutdown, edit and remote control, the server's details, a live console preview, and CPU, RAM, disks and network charts." width="2000" height="1106" loading="lazy" data-zoom>
+          </div>
+          <figcaption class="ui-label">Server details and live monitoring</figcaption>
+        </figure>
+      </div>
+      <p class="cap rv">Click any screen to enlarge it.</p>
     </div>
   </section>
 
