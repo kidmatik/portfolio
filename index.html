@@ -90,7 +90,11 @@ p { margin: 0; }
 .rotate { display: grid; }
 .rotate .s { grid-area: 1 / 1; visibility: hidden; }
 .rotate .s.on { visibility: visible; }
-.rotate .s.typing::after { content: ""; display: inline-block; width: 3px; height: .85em; margin-left: 4px; vertical-align: -.05em; background: var(--accent); animation: caret 1s steps(1) infinite; }
+.rotate .c { position: relative; opacity: 0; }
+.rotate .c.v { opacity: 1; }
+.rotate .typing .c.cur::after, .rotate .typing .c.cur0::before { content: ""; position: absolute; top: .12em; height: .8em; width: 3px; background: var(--accent); animation: caret 1s steps(1) infinite; }
+.rotate .typing .c.cur::after { left: 100%; margin-left: 4px; }
+.rotate .typing .c.cur0::before { right: 100%; margin-right: 4px; }
 @keyframes caret { 50% { opacity: 0; } }
 /* desktop-only line breaks in the hero subtitle; on phones it reads as one paragraph */
 .intro .sub .br-d { display: inline; }
@@ -521,7 +525,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   <section class="intro">
     <div class="intro-text">
       <h1 class="rotate" aria-label="I build brands that stick. I design products that work. I shape ideas to the final pixel.">
-        <span class="s" data-a="I build" data-b=" brands that stick."><span class="a">I build</span><span class="b"> brands that stick.</span></span>
+        <span class="s on" data-a="I build" data-b=" brands that stick."><span class="a">I build</span><span class="b"> brands that stick.</span></span>
         <span class="s" data-a="I design" data-b=" products that work."><span class="a">I design</span><span class="b"> products that work.</span></span>
         <span class="s" data-a="I shape" data-b=" ideas to the final pixel."><span class="a">I shape</span><span class="b"> ideas to the final pixel.</span></span>
       </h1>
@@ -1116,20 +1120,33 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
 })();
 </script>
 <script>
-/* headline: one sentence at a time, typed in, held for 4 seconds, then erased */
+/* headline: one sentence at a time. Every letter is in the layout from the start and typing only reveals it,
+   so nothing can reflow, jump or change height while it types or erases. */
 (function () {
   var sentences = [].slice.call(document.querySelectorAll('.rotate .s'));
   if (sentences.length < 2 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var TYPE = 30, ERASE = 12, HOLD = 4000;
-  function show(el, n) {
-    var A = el.dataset.a, B = el.dataset.b;
-    el.querySelector('.a').textContent = A.slice(0, n);
-    el.querySelector('.b').textContent = B.slice(0, Math.max(0, n - A.length));
+  var chars = sentences.map(function (el) {
+    var list = [];
+    ['a', 'b'].forEach(function (k) {
+      var box = el.querySelector('.' + k), txt = el.dataset[k];
+      box.textContent = '';
+      for (var i = 0; i < txt.length; i++) { var c = document.createElement('span'); c.className = 'c'; c.textContent = txt.charAt(i); box.appendChild(c); list.push(c); }
+    });
+    return list;
+  });
+  var shown = sentences.map(function () { return 0; });
+  function show(idx, n) {
+    var list = chars[idx], from = shown[idx], i;
+    if (from > 0) list[from - 1].classList.remove('cur'); else list[0].classList.remove('cur0');
+    if (n > from) { for (i = from; i < n; i++) list[i].classList.add('v'); } else { for (i = n; i < from; i++) list[i].classList.remove('v'); }
+    shown[idx] = n;
+    if (n > 0) list[n - 1].classList.add('cur'); else list[0].classList.add('cur0');
   }
-  function run(el, from, to, delay, done) {
+  function run(idx, from, to, delay, done) {
     var n = from;
     (function step() {
-      show(el, n);
+      show(idx, n);
       if (n === to) return done && done();
       n += to > from ? 1 : -1;
       setTimeout(step, delay);
@@ -1137,14 +1154,13 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
   }
   var idx = 0;
   function cycle() {
-    var el = sentences[idx], len = el.dataset.a.length + el.dataset.b.length;
+    var el = sentences[idx], len = chars[idx].length;
     el.classList.add('typing');
-    run(el, 0, len, TYPE, function () {
+    run(idx, 0, len, TYPE, function () {
       el.classList.remove('typing');
       setTimeout(function () {
         el.classList.add('typing');
-        run(el, len, 0, ERASE, function () {
-          show(el, len);
+        run(idx, len, 0, ERASE, function () {
           el.classList.remove('typing', 'on');
           idx = (idx + 1) % sentences.length;
           sentences[idx].classList.add('on');
@@ -1153,8 +1169,7 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
       }, HOLD);
     });
   }
-  // every sentence keeps its full length in the stack, so the headline height never changes
-  sentences.forEach(function (el, i) { var len = el.dataset.a.length + el.dataset.b.length; el.classList.toggle('on', i === 0); show(el, i === 0 ? 0 : len); });
+  show(0, 0);
   cycle();
 })();
 </script>
