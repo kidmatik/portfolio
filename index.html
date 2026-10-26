@@ -90,6 +90,9 @@ p { margin: 0; }
 .rotate .s.on { visibility: visible; }
 .rotate .s.typing::after { content: ""; display: inline-block; width: 3px; height: .85em; margin-left: 4px; vertical-align: -.05em; background: var(--accent); animation: caret 1s steps(1) infinite; }
 @keyframes caret { 50% { opacity: 0; } }
+/* desktop-only line breaks in the hero subtitle; on phones it reads as one paragraph */
+.intro .sub .br-d { display: inline; }
+@media (max-width: 860px) { .intro .sub .br-d { display: none; } }
 .intro .sub { margin-top: 28px; max-width: 52ch; font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.55; color: var(--ink-soft); }
 .facts { margin-top: clamp(40px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--line); }
 .facts div { padding: 16px 28px 0 0; margin-right: 28px; display: flex; flex-direction: column; gap: 6px; }
@@ -532,7 +535,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <span class="s" data-a="I design" data-b=" products that work."><span class="a">I design</span><span class="b"> products that work.</span></span>
         <span class="s" data-a="I shape" data-b=" ideas to the final pixel."><span class="a">I shape</span><span class="b"> ideas to the final pixel.</span></span>
       </h1>
-      <p class="sub">I'm Matan Kidrony, a senior product and brand designer.<br>I shape the thinking, the visual language and the system<br>behind it, then carry it across every touchpoint.</p>
+      <p class="sub">I'm Matan Kidrony, a senior product and brand designer.<br class="br-d">I shape the thinking, the visual language and the system<br class="br-d">behind it, then carry it across every touchpoint.</p>
       <div class="facts">
         <div><span class="mono">Focus</span><b>Product &amp; brand design</b></div>
         <div><span class="mono">Experience</span><b>15+ years</b></div>
