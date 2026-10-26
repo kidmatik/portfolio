@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eleos Brand Case Study – Full Branding | Matan Kidrony</title>
+<meta name="description" content="Full branding of Eleos by Matan Kidrony: logo, visual language, icons, brand guidelines and marketing for a healthcare startup improving behavioural therapy.">
+<link rel="canonical" href="https://kidmatik.github.io/portfolio/eleos/">
+<meta name="author" content="Matan Kidrony">
+<meta property="og:url" content="https://kidmatik.github.io/portfolio/eleos/">
+<meta property="og:site_name" content="Matan Kidrony">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:title" content="Eleos Brand Case Study | Matan Kidrony">
+<meta property="og:description" content="One session at a time: the full branding of Eleos, a healthcare startup improving behavioural therapy.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/eleos/assets/old-new.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Nunito:wght@300;400;600;700;800;900&family=Assistant:wght@400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Eleos gets a calm, rounded, clinical world: electric blue, cyan and night navy straight from the brand,
+   soft cards, generous space, and the three bars of the logo as the motif. Single theme on purpose. */
+:root {
+  --blue: #0000FF;
+  --cyan: #09B7D3;
+  --navy: #101E51;
+  --mist: #F1F5FF;
+  --paper: #FFFFFF;
+  --ink: #101E51;
+  --ink-soft: #566089;
+  --line: #DDE4FA;
+  --f-display: "Nunito", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Nunito", "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 28px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.7 var(--f-body); -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; display: block; }
+img { height: auto; }
+a { color: var(--blue); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 1160px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.04; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(3rem, 8.4vw, 6.8rem); font-weight: 900; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+h3 { font-size: 1.25rem; letter-spacing: -0.01em; }
+p { margin: 0; }
+.label { font: 600 .74rem/1.2 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--blue); display: inline-flex; align-items: center; gap: 10px; }
+.label::before { content: ""; width: 26px; height: 8px; border-radius: 8px; background: linear-gradient(90deg, var(--blue) 0 55%, var(--cyan) 55%); }
+.hero .label, .on-navy .label, .on-blue .label { color: #BFE9F3; }
+.hero .label::before, .on-navy .label::before, .on-blue .label::before { background: linear-gradient(90deg, #fff 0 55%, var(--cyan) 55%); }
+
+.js .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.js .rv.in { opacity: 1; transform: none; }
+
+/* ---- hero ---- */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: var(--blue); color: #fff; padding-block: clamp(64px, 9vw, 120px) clamp(56px, 7vw, 100px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.hero-text { display: flex; flex-direction: column; gap: 26px; }
+.hero h1 em { font-style: normal; color: #7FE6F7; }
+.lede { font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.6; color: #D8DEFF; max-width: 33em; }
+.meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 10px 0 0; padding-top: 22px; border-top: 1.5px solid rgb(255 255 255 / .25); }
+.meta div { display: flex; flex-direction: column; gap: 4px; }
+.meta dt { font: 600 .7rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: #9EAAFF; }
+.meta dd { margin: 0; font-weight: 700; font-size: .98rem; line-height: 1.3; }
+.hero .bars { justify-self: center; width: min(40vw, 380px); overflow: visible; }
+.bars .bar { fill: var(--blue); }
+.bars .b2 { fill: var(--cyan); }
+.hero .bars .bar { fill: #fff; }
+.hero .bars .b2 { fill: var(--cyan); }
+.hero .bars .bar { transform-box: fill-box; opacity: 0; animation: bar-in .9s cubic-bezier(.2,.8,.2,1) forwards; }
+.hero .bars .b1 { transform: translateX(120px); animation-delay: .15s; }
+.hero .bars .b2 { transform: translateX(-120px); animation-delay: .35s; }
+.hero .bars .b3 { transform: translateX(120px); animation-delay: .55s; }
+@keyframes bar-in { to { opacity: 1; transform: none; } }
+
+/* ---- sections ---- */
+section { padding-block: clamp(64px, 9vw, 120px); }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.mist { background: var(--mist); }
+.on-navy { background: var(--navy); color: #fff; }
+.on-blue { background: var(--blue); color: #fff; }
+.big { font: 700 clamp(1.2rem, 2.1vw, 1.6rem)/1.5 var(--f-display); letter-spacing: -0.01em; }
+.pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.pills li { list-style: none; background: var(--mist); color: var(--blue); border-radius: 999px; padding: 8px 16px; font-weight: 800; font-size: .92rem; }
+ul.pills { padding: 0; margin: 6px 0 0; }
+.card { background: #fff; border-radius: var(--radius); box-shadow: 0 40px 70px -40px rgb(16 30 81 / .35); overflow: hidden; }
+.cap { font: 500 .78rem/1.5 var(--f-mono); color: var(--ink-soft); margin-top: 14px; }
+.on-navy .cap { color: #A9B4E4; }
+.stage { margin-top: 36px; }
+
+/* old / new */
+.oldnew { display: block; width: 100%; }
+
+/* logo mechanism */
+.mech { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-top: 36px; }
+.grid-tile { position: relative; background: #fff; border-radius: var(--radius); padding: clamp(26px, 5vw, 56px); display: grid; place-items: center; box-shadow: 0 40px 70px -40px rgb(16 30 81 / .35); aspect-ratio: 1.15; overflow: hidden; }
+.grid-tile::before { content: ""; position: absolute; inset: 14%; background-image: linear-gradient(#DDE4FA 1.5px, transparent 1.5px), linear-gradient(90deg, #DDE4FA 1.5px, transparent 1.5px); background-size: 12.5% 16.66%; opacity: 0; transition: opacity 1s ease .4s; }
+.grid-tile.in::before { opacity: 1; }
+.grid-tile .bars { position: relative; width: min(58%, 240px); }
+.js .grid-tile .bar { transform-box: fill-box; opacity: 0; transition: opacity .6s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+.js .grid-tile .b1 { transform: translateX(60px); } .js .grid-tile .b2 { transform: translateX(-60px); } .js .grid-tile .b3 { transform: translateX(60px); }
+.js .grid-tile.in .bar { opacity: 1; transform: none; } .js .grid-tile.in .b2 { transition-delay: .15s; } .js .grid-tile.in .b3 { transition-delay: .3s; }
+.lock-tile { border-radius: var(--radius); display: grid; place-items: center; padding: clamp(22px, 4vw, 44px); }
+.lock-tile img { width: min(78%, 360px); }
+.t-navy { background: var(--navy); } .t-blue { background: var(--blue); } .t-white { background: #fff; box-shadow: 0 40px 70px -40px rgb(16 30 81 / .35); }
+.mech-side { display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 20px; }
+
+/* colours */
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 36px; }
+.sw { position: relative; border: 0; padding: 0; text-align: left; border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: 0 40px 70px -40px rgb(16 30 81 / .35); cursor: pointer; font: inherit; color: var(--ink); transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.sw:hover { transform: translateY(-8px); }
+.sw .chip { height: clamp(150px, 20vw, 250px); }
+.sw .info { padding: 18px 22px 22px; display: grid; gap: 2px; }
+.sw b { font: 800 1.35rem var(--f-display); }
+.sw .hex { font: 600 .9rem var(--f-mono); color: var(--blue); }
+.sw .vals { font: 500 .74rem/1.6 var(--f-mono); color: var(--ink-soft); }
+.sw .copied { position: absolute; top: 14px; right: 14px; background: #fff; color: var(--navy); font: 700 .74rem var(--f-mono); border-radius: 999px; padding: 6px 12px; opacity: 0; transform: translateY(-6px); transition: .25s; }
+.sw.did .copied { opacity: 1; transform: none; }
+
+/* icons */
+.icons-card { padding: clamp(10px, 3vw, 36px); }
+
+/* guidelines */
+.docs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.book img { border-radius: 18px; box-shadow: 0 50px 90px -40px rgb(0 0 0 / .7); }
+.scroller { max-height: 640px; overflow-y: auto; border-radius: var(--radius); background: #fff; box-shadow: 0 40px 70px -40px rgb(0 0 0 / .6); scrollbar-width: thin; scrollbar-color: var(--blue) transparent; overscroll-behavior: contain; }
+.scroller img { width: 100%; }
+.hand-note { font: 800 1rem var(--f-display); color: #7FE6F7; display: inline-flex; gap: 8px; margin-top: 14px; }
+
+/* outro */
+.quote { font: 800 clamp(1.6rem, 4vw, 3rem)/1.18 var(--f-display); letter-spacing: -0.02em; max-width: 22em; margin-top: 22px; }
+.next { margin-top: 56px; padding-top: 28px; border-top: 1.5px solid rgb(255 255 255 / .25); display: flex; flex-direction: column; gap: 8px; }
+.next a { color: #fff; font: 900 clamp(1.8rem, 4vw, 3rem)/1.05 var(--f-display); text-decoration: none; }
+.next a:hover { color: #7FE6F7; }
+.outro .bars { position: absolute; right: -4%; bottom: -12%; width: min(46vw, 420px); opacity: .18; pointer-events: none; z-index: -1; }
+.outro .bars .bar, .outro .bars .b2 { fill: #fff; }
+.outro { position: relative; isolation: isolate; overflow: hidden; }
+
+footer { padding-block: 28px; font: 500 .8rem var(--f-mono); color: var(--ink-soft); background: #fff; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+footer a { color: var(--blue); }
+
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
+dialog.lb::backdrop { background: rgb(16 30 81 / .9); }
+dialog.lb img { max-width: 94vw; max-height: 88vh; border-radius: 14px; background: #fff; }
+dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button { background: var(--cyan); color: #fff; border: 0; border-radius: 999px; padding: 8px 14px; font: 700 .8rem var(--f-mono); cursor: pointer; }
+[data-zoom] { cursor: zoom-in; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .two, .docs, .mech { grid-template-columns: minmax(0, 1fr); }
+  .hero .bars { order: -1; width: min(46vw, 190px); }
+  .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .swatches { grid-template-columns: minmax(0, 1fr); }
+  .sw .chip { height: 120px; }
+  .mech-side { grid-template-rows: none; }
+  .grid-tile { aspect-ratio: 1.3; }
+  .scroller { max-height: 480px; }
+}
+
+
+/* vision, mission, values: speech-bubble shapes straight from the brand book */
+.vm { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-top: 36px; }
+.bubble { border-radius: 40px; padding: clamp(24px, 4vw, 40px); }
+.bubble .tag { font: 700 .74rem var(--f-mono); letter-spacing: .16em; text-transform: uppercase; display: block; margin-bottom: 12px; }
+.b-vision { background: var(--blue); color: #fff; } .b-vision .tag { color: #9EE9F7; }
+.b-vision p { font: 800 clamp(1.4rem, 2.6vw, 2.1rem)/1.2 var(--f-display); letter-spacing: -0.02em; }
+.b-mission { background: #E3F6FA; } .b-mission .tag { color: #0A7F93; }
+.b-mission p { font-size: 1.05rem; } .b-mission p + p { margin-top: 12px; }
+.values { margin-top: 20px; border-radius: 40px; background: linear-gradient(135deg, var(--blue), #0A31E8 60%, #0764E8); color: #fff; padding: clamp(26px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2.2fr); gap: clamp(20px, 4vw, 48px); align-items: center; }
+.values h3 { font: 900 clamp(1.6rem, 3vw, 2.4rem)/1.05 var(--f-display); }
+.vlist { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.vlist li { background: var(--cyan); color: #fff; border-radius: 999px; padding: 18px 28px; font-weight: 700; line-height: 1.45; }
+.vlist li:nth-child(2) { margin-left: clamp(0px, 4vw, 44px); } .vlist li:nth-child(3) { margin-left: clamp(0px, 2vw, 22px); }
+
+/* rules, typography */
+.rules { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.rules ul { padding-left: 1.1em; margin: 12px 0 0; color: var(--ink-soft); } .rules li { margin: 6px 0; }
+.type-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0; background: #fff; border-radius: var(--radius); box-shadow: 0 40px 70px -40px rgb(16 30 81 / .35); overflow: hidden; margin-top: 40px; }
+.type-card > div { padding: clamp(24px, 4vw, 48px); }
+.type-card .big-aa { font: 800 clamp(5rem, 14vw, 9rem)/.9 var(--f-display); color: var(--cyan); letter-spacing: -0.04em; }
+.type-card .light { font: 300 clamp(1.4rem, 3vw, 2.2rem)/1.2 var(--f-display); margin-top: 18px; }
+.type-card .bold { font: 800 clamp(1.4rem, 3vw, 2.2rem)/1.2 var(--f-display); }
+.type-card .spec { font: 500 .78rem var(--f-mono); color: var(--ink-soft); margin-top: 8px; }
+.type-card .body { font: 400 1.05rem/1.7 "Assistant", var(--f-body); }
+.type-card .dark { background: var(--navy); color: #fff; }
+
+/* mockups and photos */
+.bento2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.bento2 figure { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--mist); }
+.bento2 img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.bento2 figure:hover img { transform: scale(1.04); }
+.photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.photos figure { margin: 0; border-radius: var(--radius); overflow: hidden; }
+.photos img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.photos figure:hover img { transform: scale(1.05); }
+
+/* website: designs in a browser, plus motion */
+.browser { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 50px 90px -40px rgb(16 30 81 / .5); border: 1px solid var(--line); margin-top: 28px; }
+.browser .bar { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: #EEF1FA; border-bottom: 1px solid var(--line); }
+.browser .dots { display: flex; gap: 7px; } .browser .dots i { width: 12px; height: 12px; border-radius: 50%; background: #FF5F57; } .browser .dots i:nth-child(2) { background: #FEBC2E; } .browser .dots i:nth-child(3) { background: #28C840; }
+.tabs { display: flex; gap: 6px; margin-left: 6px; }
+.tabs button { border: 0; background: transparent; font: 800 .82rem var(--f-display); color: var(--ink-soft); padding: 7px 16px; border-radius: 999px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--blue); color: #fff; }
+.browser .scroll { max-height: 640px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--blue) transparent; overscroll-behavior: contain; }
+.browser .scroll img { width: 100%; }
+.browser .scroll[hidden] { display: none; }
+.motion { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.motion figure { margin: 0; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 40px 70px -40px rgb(16 30 81 / .35); display: grid; }
+.motion video { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #F1F5FF; display: block; }
+.motion figcaption { padding: 12px 18px 16px; font: 800 .95rem var(--f-display); }
+
+/* brand book pages carousel */
+.pages-wrap { position: relative; margin-top: 8px; }
+.pages { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 22px; scrollbar-width: thin; scrollbar-color: var(--cyan) transparent; }
+.pages figure { flex: 0 0 min(88vw, 780px); margin: 0; scroll-snap-align: center; border-radius: 18px; overflow: hidden; box-shadow: 0 40px 70px -40px rgb(0 0 0 / .7); background: #fff; position: relative; }
+.pages figure span { position: absolute; left: 12px; bottom: 10px; background: rgb(16 30 81 / .8); color: #fff; font: 600 .7rem var(--f-mono); border-radius: 999px; padding: 4px 10px; }
+.pg-btn { position: absolute; top: 42%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: #fff; color: var(--navy); font: 900 1.2rem var(--f-display); cursor: pointer; box-shadow: 0 10px 30px -10px rgb(0 0 0 / .5); z-index: 2; }
+.pg-btn.prev { left: -10px; } .pg-btn.next { right: -10px; }
+.pg-btn:hover { background: var(--cyan); color: #fff; }
+
+@media (max-width: 860px) {
+  .vm, .values, .rules, .type-card { grid-template-columns: minmax(0, 1fr); }
+  .vlist li:nth-child(n) { margin-left: 0; border-radius: 30px; padding: 18px 22px; }
+  .bento2 { grid-template-columns: minmax(0, 1fr); }
+  .photos { grid-template-columns: minmax(0, 1fr); }
+  .motion { grid-template-columns: minmax(0, 1fr); }
+  .browser .scroll { max-height: 460px; }
+  .pg-btn { display: none; }
+}
+
+/* shared site header (same on every page) */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-nav a.mk-cv { margin-left: 6px; border: 1.5px solid #15131c; border-radius: 999px; padding: 8px 14px; }
+.mk-nav a.mk-cv:hover { background: #15131c; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #e5701a; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
+</style>
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cv" href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download>CV</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
+  </div>
+</header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
+      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+        <a href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download><small>PDF</small>Download CV</a>
+  </nav>
+</div>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="label">Brand case study · Eleos</span>
+        <h1>One <em>session</em> at a time.</h1>
+        <p class="lede">Eleos is a healthcare delivery startup that is significantly improving behavioural therapy. I created its full branding, from the new logo to the finishing touches of its brand book.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Senior Brand &amp; Product Designer</dd></div>
+          <div><dt>Scope</dt><dd>Full branding</dd></div>
+          <div><dt>Industry</dt><dd>Healthcare, behavioural therapy</dd></div>
+          <div><dt>Deliverables</dt><dd>Logo, visual language, marketing, website</dd></div>
+        </dl>
+      </div>
+      <svg class="bars" viewBox="40 80 360 400" role="img" aria-label="The Eleos symbol: three rounded bars, blue, cyan and blue, stacked like the letter E.">
+  <rect class="bar b1" x="127" y="97" width="260" height="81" rx="40.5"/>
+  <rect class="bar b2" x="55" y="240.5" width="260" height="81" rx="40.5"/>
+  <rect class="bar b3" x="127" y="384" width="260" height="81" rx="40.5"/>
+</svg>
+    </div>
+  </div>
+
+  <section id="brief">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">The mission</span>
+          <h2>The total package, made with love.</h2>
+        </div>
+        <div class="stack rv">
+          <p class="big">I was called for the “total package”: a full branding, from a new logo to a fresh visual language, marketing materials and a trendy new website, which I created with a lot of love and passion.</p>
+          <ul class="pills" aria-label="What was delivered">
+            <li>New logo</li><li>Visual language</li><li>Marketing materials</li><li>Website</li><li>Icons</li><li>Brand book</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oldnew" class="mist">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Old and new</span>
+        <h2>From a light wordmark to a confident mark.</h2>
+      </div>
+      <figure class="stage rv" style="margin-inline:0">
+        <div class="card"><img class="oldnew" src="assets/old-new.webp" alt="The old Eleos logo, a thin wordmark with a green circle behind the o, next to the new logo: a white lowercase eleos wordmark with a three-bar symbol on electric blue." width="1536" height="768" loading="lazy" data-zoom></div>
+        <figcaption class="cap">Old on the left, new on the right.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="vision" class="mist">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Vision, mission and values</span>
+        <h2>Everyone gets the care they deserve.</h2>
+      </div>
+      <div class="vm rv">
+        <div class="bubble b-vision"><span class="tag">Vision</span><p>At Eleos, our vision is simple: everyone gets the behavioral healthcare they deserve.</p></div>
+        <div class="bubble b-mission"><span class="tag">Mission</span><p>We’re on a mission to help more people with mental illness get well sooner by optimizing the quality and effectiveness of the behavioral healthcare they receive.</p><p>By doing this, we’ll play our part in solving the public behavioral health crisis by enabling access to quality behavioral healthcare, at a scale not currently possible.</p></div>
+      </div>
+      <div class="values rv">
+        <h3>Core values</h3>
+        <ul class="vlist">
+          <li>Each behavioral health session is a precious opportunity to bring individuals a step closer to living a happier, healthier and more fulfilled and productive life.</li>
+          <li>We believe struggling with mental health-related issues deserve the best care possible.</li>
+          <li>We believe technology and objective data can empower clinicians and their patients.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="logo">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">The logo</span>
+        <h2>Three rounded bars build the letter E.</h2>
+        <p style="color:var(--ink-soft)">The logo represents the letter E, timeline and conversation elements from the Eleos product, and visualizes progress and motion. The middle bar steps to the left, and the symbol sits on a two-unit modular grid.</p>
+      </div>
+      <div class="mech rv">
+        <div class="grid-tile" id="gridTile"><svg class="bars" viewBox="40 80 360 400" role="img" aria-label="The Eleos symbol: three rounded bars, blue, cyan and blue, stacked like the letter E.">
+  <rect class="bar b1" x="127" y="97" width="260" height="81" rx="40.5"/>
+  <rect class="bar b2" x="55" y="240.5" width="260" height="81" rx="40.5"/>
+  <rect class="bar b3" x="127" y="384" width="260" height="81" rx="40.5"/>
+</svg></div>
+        <div class="mech-side">
+          <div class="lock-tile t-white"><img src="assets/logo-color.svg" alt="The Eleos master logo in full colour: blue and cyan bars with a navy wordmark." width="1456" height="422" loading="lazy"></div>
+          <div class="lock-tile t-navy"><img src="assets/logo-white.svg" alt="The Eleos logo in white and cyan on night navy." width="1456" height="422" loading="lazy"></div>
+          <div class="lock-tile t-blue"><img src="assets/logo-white.svg" alt="The Eleos logo in white and cyan on electric blue." width="1456" height="422" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules" class="mist">
+    <div class="wrap">
+      <div class="rules">
+        <div class="stack rv">
+          <span class="label">Do’s and don’ts</span>
+          <h2>One logo, always consistent.</h2>
+          <p style="color:var(--ink-soft)">The logo should not be misinterpreted, modified or altered. Its orientation, colour and composition stay exactly as defined, with no exceptions.</p>
+          <ul>
+            <li>Never use the old version of the logo</li>
+            <li>Never distort the proportions or change elements relative to each other</li>
+            <li>Never add contours or change its colours</li>
+            <li>Minimum size: 160px in digital, 45mm in print</li>
+          </ul>
+        </div>
+        <figure class="rv" style="margin:0">
+          <div class="card"><img src="assets/bb/p12.webp" alt="Brand book page on logo misuse: examples of what not to do with the Eleos logo, including the old logo, distorted proportions, added contours and changed colours, and the minimum size of 160 pixels or 45 millimetres." width="1600" height="900" loading="lazy" data-zoom></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="colours">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Colour and type</span>
+        <h2>Blue, cyan and night navy, set in Nunito.</h2>
+        <p style="color:var(--ink-soft)">Click a colour to copy its hex.</p>
+      </div>
+      <div class="swatches rv">
+        <button class="sw" type="button" data-hex="#0000FF"><span class="chip" style="display:block;background:#0000FF"></span><span class="info"><b>Blue</b><span class="hex">#0000FF</span><span class="vals">RGB 0 · 0 · 255<br>CMYK 90 · 80 · 0 · 0</span></span><span class="copied" aria-live="polite"></span></button>
+        <button class="sw" type="button" data-hex="#09B7D3"><span class="chip" style="display:block;background:#09B7D3"></span><span class="info"><b>Cyan</b><span class="hex">#09B7D3</span><span class="vals">RGB 9 · 183 · 211<br>CMYK 72 · 0 · 17 · 0</span></span><span class="copied" aria-live="polite"></span></button>
+        <button class="sw" type="button" data-hex="#101E51"><span class="chip" style="display:block;background:#101E51"></span><span class="info"><b>Night navy</b><span class="hex">#101E51</span><span class="vals">RGB 16 · 30 · 81<br>CMYK 100 · 92 · 40 · 37</span></span><span class="copied" aria-live="polite"></span></button>
+      </div>
+      <div class="type-card rv">
+        <div>
+          <div class="big-aa" aria-hidden="true">Aa</div>
+          <p class="spec">Primary font · Nunito, Light and Bold</p>
+          <p class="light">Nunito Light</p>
+          <p class="bold">Nunito Bold</p>
+        </div>
+        <div class="dark">
+          <p class="spec" style="color:#A9B4E4">Secondary font, for body text · Assistant Regular</p>
+          <p class="body" style="margin-top:14px">The welcome to the official brand guidelines of Eleos is intended to educate anyone responsible for creating internal or external communications with the Eleos brand, so every sentence reads clearly and calmly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mockups" class="mist">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Logo in use</span>
+        <h2>On cards, walls, phones and paper.</h2>
+      </div>
+      <div class="bento2 rv">
+        <figure><img src="assets/bb/p15.webp" alt="Two electric blue business cards with the white Eleos logo and translucent rounded bars." width="1600" height="900" loading="lazy" data-zoom></figure>
+        <figure><img src="assets/bb/p16.webp" alt="A bright, modern meeting room with the Eleos logo on the wall behind a long white table." width="1600" height="900" loading="lazy" data-zoom></figure>
+        <figure><img src="assets/bb/p17.webp" alt="A phone on a blue background showing the Eleos login screen with the logo and a cyan Next button." width="1600" height="900" loading="lazy" data-zoom></figure>
+        <figure><img src="assets/bb/p18.webp" alt="A clipboard holding a Therapy Session sheet with the Eleos logo and blue and cyan rounded bars." width="1600" height="900" loading="lazy" data-zoom></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="website">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Website</span>
+        <h2>Behavioral healthcare delivery, supercharged.</h2>
+        <p style="color:var(--ink-soft)">The website design follows the brand: a curved electric-blue header, round photography and bars that echo the logo. Scroll through the full designs below.</p>
+      </div>
+      <figure class="rv" style="margin: 36px 0 0"><div class="card"><img src="assets/bb/p19.webp" alt="The Eleos website in a browser window on a blue curved background: an electric blue header with the headline and a circular photo of two people talking." width="1600" height="900" loading="lazy" data-zoom></div></figure>
+      <div class="browser rv">
+        <div class="bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div class="tabs" role="tablist" aria-label="Website designs">
+            <button type="button" role="tab" aria-selected="true" data-tab="home">Homepage</button>
+            <button type="button" role="tab" aria-selected="false" data-tab="clinics">For clinics</button>
+          </div>
+        </div>
+        <div class="scroll" id="tab-home" tabindex="0" aria-label="Eleos homepage design, scrollable"><img src="assets/design/homepage.webp" alt="The full Eleos homepage design: a blue curved hero with a circular photo, trusted-by logos, an evidence-based care section, product features, benefits and a call to action." width="1440" height="7012" loading="lazy"></div>
+        <div class="scroll" id="tab-clinics" tabindex="0" hidden aria-label="Eleos for clinics page design, scrollable"><img src="assets/design/clinics.webp" alt="The Eleos for clinics page design: improve outcomes by driving evidence-based care at scale, key numbers, a focus on what impacts outcomes, benefits and testimonials." width="1440" height="6095" loading="lazy"></div>
+      </div>
+      <div class="motion rv" aria-label="Website animations">
+        <figure><video muted loop playsinline preload="none" poster="assets/video/works-in-every-settings.jpg" data-src="assets/video/works-in-every-settings.mp4" aria-label="Animation: a clinician with a mug and laptop, surrounded by floating icons for different care settings."></video><figcaption>Works in every setting</figcaption></figure>
+        <figure><video muted loop playsinline preload="none" poster="assets/video/understand-big-picture.jpg" data-src="assets/video/understand-big-picture.mp4" aria-label="Animation: dashboard cards with population overview, clients improvement trend lines and evidence-based ratio."></video><figcaption>Understand the big picture</figcaption></figure>
+        <figure><video muted loop playsinline preload="none" poster="assets/video/text-from-voice.jpg" data-src="assets/video/text-from-voice.mp4" aria-label="Animation: a sound wave turning into labelled notes such as talk time, techniques used, mood checks and progress notes."></video><figcaption>Text from voice</figcaption></figure>
+        <figure><video muted loop playsinline preload="none" poster="assets/video/infinite-icons.jpg" data-src="assets/video/infinite-icons.mp4" aria-label="Animation: an infinity loop of in-session and between-session steps around a clinician."></video><figcaption>The infinite loop of care</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="icons" class="mist">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">Icon family</span>
+          <h2>A set of friendly line icons.</h2>
+          <p style="color:var(--ink-soft)">Nine duotone icons in the brand colours, from certificates and CBT to conversation, care and growth, made to sit comfortably next to the logo.</p>
+        </div>
+        <figure class="rv" style="margin:0">
+          <div class="card icons-card"><img src="assets/icons.webp" alt="Nine duotone line icons on white tiles: a certificate, a head labelled CBT, two chat bubbles, three hands around a person, a person with a laptop and a chat bubble, a hand holding two hearts, a person presenting charts, a puzzle head, and a person meditating with arrows pointing up." width="920" height="780" loading="lazy" data-zoom></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="imagery">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 760px">
+        <span class="label">Imagery</span>
+        <h2>Real conversations, under a wash of blue.</h2>
+      </div>
+      <div class="photos rv">
+        <figure><img src="assets/bb/p21.webp" alt="Two women at a clinic desk, smiling, one wearing a lanyard, in a blue-toned photo with the white Eleos logo in the corner." width="1600" height="900" loading="lazy" data-zoom></figure>
+        <figure><img src="assets/bb/p22.webp" alt="A therapist and a client talking in armchairs in a bright room, in a blue-toned photo with the white Eleos logo." width="1600" height="900" loading="lazy" data-zoom></figure>
+        <figure><img src="assets/bb/p23.webp" alt="Two women talking across a table, one with glasses, in a blue-toned photo with translucent rounded bars and the Eleos logo." width="1600" height="900" loading="lazy" data-zoom></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="guidelines" class="on-navy">
+    <div class="wrap">
+      <div class="docs" style="margin-bottom: 44px">
+        <div class="stack rv">
+          <span class="label">Brand book &amp; guidelines</span>
+          <h2>Everything in one book.</h2>
+          <p style="color:#C7CEF2">Twenty-four pages that take anyone creating Eleos communications from vision and logo to colour, type, mockups, website, icons and imagery.</p>
+        </div>
+        <figure class="book rv" style="margin:0">
+          <img src="assets/brand-book.webp" alt="A stack of printed Eleos Brand Book and Guidelines in electric blue, on a night navy surface." width="1536" height="960" loading="lazy" data-zoom>
+        </figure>
+      </div>
+      <div class="pages-wrap rv">
+        <button class="pg-btn prev" type="button" aria-label="Previous page">←</button>
+        <div class="pages" id="pages" tabindex="0" aria-label="Eleos brand book pages, scroll sideways">
+        <figure><img src="assets/bb/p01.webp" alt="Eleos brand book, page 1 of 24" width="1600" height="900" loading="lazy" data-zoom><span>01 / 24</span></figure>
+        <figure><img src="assets/bb/p02.webp" alt="Eleos brand book, page 2 of 24" width="1600" height="900" loading="lazy" data-zoom><span>02 / 24</span></figure>
+        <figure><img src="assets/bb/p03.webp" alt="Eleos brand book, page 3 of 24" width="1600" height="900" loading="lazy" data-zoom><span>03 / 24</span></figure>
+        <figure><img src="assets/bb/p04.webp" alt="Eleos brand book, page 4 of 24" width="1600" height="900" loading="lazy" data-zoom><span>04 / 24</span></figure>
+        <figure><img src="assets/bb/p05.webp" alt="Eleos brand book, page 5 of 24" width="1600" height="900" loading="lazy" data-zoom><span>05 / 24</span></figure>
+        <figure><img src="assets/bb/p06.webp" alt="Eleos brand book, page 6 of 24" width="1600" height="900" loading="lazy" data-zoom><span>06 / 24</span></figure>
+        <figure><img src="assets/bb/p07.webp" alt="Eleos brand book, page 7 of 24" width="1600" height="900" loading="lazy" data-zoom><span>07 / 24</span></figure>
+        <figure><img src="assets/bb/p08.webp" alt="Eleos brand book, page 8 of 24" width="1600" height="900" loading="lazy" data-zoom><span>08 / 24</span></figure>
+        <figure><img src="assets/bb/p09.webp" alt="Eleos brand book, page 9 of 24" width="1600" height="900" loading="lazy" data-zoom><span>09 / 24</span></figure>
+        <figure><img src="assets/bb/p10.webp" alt="Eleos brand book, page 10 of 24" width="1600" height="900" loading="lazy" data-zoom><span>10 / 24</span></figure>
+        <figure><img src="assets/bb/p11.webp" alt="Eleos brand book, page 11 of 24" width="1600" height="900" loading="lazy" data-zoom><span>11 / 24</span></figure>
+        <figure><img src="assets/bb/p12.webp" alt="Eleos brand book, page 12 of 24" width="1600" height="900" loading="lazy" data-zoom><span>12 / 24</span></figure>
+        <figure><img src="assets/bb/p13.webp" alt="Eleos brand book, page 13 of 24" width="1600" height="900" loading="lazy" data-zoom><span>13 / 24</span></figure>
+        <figure><img src="assets/bb/p14.webp" alt="Eleos brand book, page 14 of 24" width="1600" height="900" loading="lazy" data-zoom><span>14 / 24</span></figure>
+        <figure><img src="assets/bb/p15.webp" alt="Eleos brand book, page 15 of 24" width="1600" height="900" loading="lazy" data-zoom><span>15 / 24</span></figure>
+        <figure><img src="assets/bb/p16.webp" alt="Eleos brand book, page 16 of 24" width="1600" height="900" loading="lazy" data-zoom><span>16 / 24</span></figure>
+        <figure><img src="assets/bb/p17.webp" alt="Eleos brand book, page 17 of 24" width="1600" height="900" loading="lazy" data-zoom><span>17 / 24</span></figure>
+        <figure><img src="assets/bb/p18.webp" alt="Eleos brand book, page 18 of 24" width="1600" height="900" loading="lazy" data-zoom><span>18 / 24</span></figure>
+        <figure><img src="assets/bb/p19.webp" alt="Eleos brand book, page 19 of 24" width="1600" height="900" loading="lazy" data-zoom><span>19 / 24</span></figure>
+        <figure><img src="assets/bb/p20.webp" alt="Eleos brand book, page 20 of 24" width="1600" height="900" loading="lazy" data-zoom><span>20 / 24</span></figure>
+        <figure><img src="assets/bb/p21.webp" alt="Eleos brand book, page 21 of 24" width="1600" height="900" loading="lazy" data-zoom><span>21 / 24</span></figure>
+        <figure><img src="assets/bb/p22.webp" alt="Eleos brand book, page 22 of 24" width="1600" height="900" loading="lazy" data-zoom><span>22 / 24</span></figure>
+        <figure><img src="assets/bb/p23.webp" alt="Eleos brand book, page 23 of 24" width="1600" height="900" loading="lazy" data-zoom><span>23 / 24</span></figure>
+        <figure><img src="assets/bb/p24.webp" alt="Eleos brand book, page 24 of 24" width="1600" height="900" loading="lazy" data-zoom><span>24 / 24</span></figure>
+        </div>
+        <button class="pg-btn next" type="button" aria-label="Next page">→</button>
+      </div>
+      <p class="cap">Flip through all 24 pages. Click a page to enlarge it.</p>
+    </div>
+  </section>
+
+  <section class="on-blue outro">
+    <svg class="bars" viewBox="40 80 360 400" role="img" aria-label="The Eleos symbol: three rounded bars, blue, cyan and blue, stacked like the letter E.">
+  <rect class="bar b1" x="127" y="97" width="260" height="81" rx="40.5"/>
+  <rect class="bar b2" x="55" y="240.5" width="260" height="81" rx="40.5"/>
+  <rect class="bar b3" x="127" y="384" width="260" height="81" rx="40.5"/>
+</svg>
+    <div class="wrap">
+      <span class="label rv">Thank you</span>
+      <p class="quote rv">A big thank you to the awesome team at Eleos, who gave me the creative freedom and the delight to take this journey with them and walk them through the creative process, toward their business growth and success.</p>
+      <div class="next rv">
+        <span class="label">Next project</span>
+        <a href="../atlas/">Atlas <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Eleos case study · Matan Kidrony</span>
+    <span><a href="../">All projects</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var els = document.querySelectorAll('.rv, .grid-tile');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(function (e) { e.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: .15 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  document.querySelectorAll('.sw').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var hex = b.getAttribute('data-hex'), out = b.querySelector('.copied');
+      var done = function (msg) { out.textContent = msg; b.classList.add('did'); setTimeout(function () { b.classList.remove('did'); }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(hex).then(function () { done('Copied ' + hex); }, function () { done(hex); }); } else { done(hex); }
+    });
+  });
+
+  document.querySelectorAll('.tabs button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.tabs button').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+      document.querySelectorAll('.browser .scroll').forEach(function (sc) { sc.hidden = sc.id !== 'tab-' + b.dataset.tab; });
+    });
+  });
+  var vids = document.querySelectorAll('.motion video');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var vo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) { if (!v.src) v.src = v.dataset.src; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: .35 });
+    vids.forEach(function (v) { vo.observe(v); });
+  } else { vids.forEach(function (v) { v.controls = true; v.src = v.dataset.src; }); }
+  var pg = document.getElementById('pages');
+  if (pg) {
+    var step = function (dir) { pg.scrollBy({ left: dir * (pg.querySelector('figure').offsetWidth + 16), behavior: 'smooth' }); };
+    document.querySelector('.pg-btn.prev').addEventListener('click', function () { step(-1); });
+    document.querySelector('.pg-btn.next').addEventListener('click', function () { step(1); });
+  }
+  var lb = document.getElementById('lightbox'), lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+</body>
+</html>
