@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BK Digital Brand Case Study – Full Branding | Matan Kidrony</title>
+<meta name="description" content="Full branding of BK Digital by Matan Kidrony: logo, visual language, marketing and print for a cloud-based AI accounting platform.">
+<link rel="canonical" href="https://kidmatik.github.io/portfolio/bk-digital/">
+<meta name="author" content="Matan Kidrony">
+<meta property="og:url" content="https://kidmatik.github.io/portfolio/bk-digital/">
+<meta property="og:site_name" content="Matan Kidrony">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:title" content="BK Digital Brand Case Study | Matan Kidrony">
+<meta property="og:description" content="Full branding for BK Digital: logo, visual language, marketing and a paperless accounting process.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/bk-digital/assets/brand-board.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Rubik:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: BK Digital's own world. Deep navy "brand" bands alternate with soft lavender
+   "paper" bands; the magenta-to-violet gradient is the one loud element.
+   Deliberately single-theme: the page shows the brand's real colors. */
+:root {
+  --navy: #14213D;          /* Cymbio brand navy */
+  --magenta: #F39B2F;       /* Cymbio brand magenta */
+  --violet: #1B3A5C;        /* Cymbio brand violet */
+  --lavender: #EEF3F8;
+  --paper: #F7F8FA;
+  --ink: #14213D;
+  --ink-soft: #4E5B6E;
+  --line: #DCE3EC;
+  --on-navy: #EEF4FA;
+  --on-navy-soft: #9FB3CC;
+  --grad: linear-gradient(100deg, #F39B2F 0%, #E8642C 100%);
+
+  --f-brand: "Rubik", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 18px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--f-body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--violet); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--magenta); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-brand); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.7rem, 6.8vw, 5.6rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 4.2vw, 3.3rem); }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.65rem); font-weight: 500; }
+p { margin: 0; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.label { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--violet); }
+.navy .label { color: #F39B2F; }
+.lede { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.55; color: var(--ink-soft); }
+.navy .lede, .navy p { color: var(--on-navy-soft); }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.read { max-width: 64ch; }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+@media (max-width: 900px) { .two { grid-template-columns: minmax(0, 1fr); } }
+
+section { padding-block: clamp(72px, 10vw, 128px); }
+.navy { background: var(--navy); color: var(--on-navy); }
+.navy h1, .navy h2, .navy h3 { color: var(--on-navy); }
+.lav { background: var(--lavender); }
+
+.kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.exit { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font: 600 .85rem/1 var(--f-body); background: #fff; color: #14213D; }
+.exit::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #F39B2F; }
+
+/* hero */
+.hero { padding-block: clamp(56px, 9vw, 112px) 0; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; width: 900px; height: 900px; right: -320px; top: -380px; border-radius: 50%; background: radial-gradient(closest-side, rgb(255 3 236 / .35), rgb(92 3 236 / .18) 55%, transparent 72%); pointer-events: none; }
+.hero .wrap { position: relative; }
+.hero-text { display: flex; flex-direction: column; gap: 26px; max-width: 980px; }
+.meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgb(255 255 255 / .12); margin-top: 18px; }
+.meta div { padding: 16px 16px 0 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.meta dt { font: 500 .7rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--on-navy-soft); }
+.meta dd { margin: 0; font-weight: 600; color: var(--on-navy); }
+@media (max-width: 700px) { .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; } }
+.hero-shot { margin-top: clamp(48px, 6vw, 80px); border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
+.hero-shot img { width: 100%; }
+
+/* figures */
+figure { margin: 0; }
+.fig { border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid var(--line); }
+.navy .fig { border-color: rgb(255 255 255 / .1); background: transparent; }
+.cap { font: 400 .8rem/1.4 var(--f-mono); color: var(--ink-soft); padding-top: 12px; }
+.navy .cap { color: var(--on-navy-soft); }
+[data-zoom] { cursor: zoom-in; }
+
+/* before / after */
+.ba { margin-top: 40px; }
+
+/* the mark */
+.equation { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 8px; }
+.equation .term { display: flex; flex-direction: column; gap: 4px; padding: 14px 18px; border-radius: 14px; border: 1px solid rgb(255 255 255 / .14); background: rgb(255 255 255 / .04); }
+.equation .term b { font: 500 1.05rem var(--f-brand); color: #fff; }
+.equation .term span { font-size: .85rem; color: var(--on-navy-soft); }
+.equation .op { font: 500 1.4rem var(--f-brand); color: var(--magenta); }
+.clear { margin-top: 28px; background: #fff; border-radius: var(--radius); padding: 12px; }
+
+/* foundations */
+.found { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 48px; }
+@media (max-width: 900px) { .found { grid-template-columns: minmax(0, 1fr); } }
+.card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.card h3 { font: 500 .78rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+.specimen .aa { font: 700 clamp(5rem, 13vw, 9rem)/.9 var(--f-brand); letter-spacing: -0.04em; }
+.specimen .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 14px; }
+.specimen .row span:first-child { font-family: var(--f-brand); font-size: 1.35rem; }
+.specimen .row .w4 { font-weight: 400; } .specimen .row .w7 { font-weight: 700; }
+.specimen .row span:last-child { font: 400 .78rem var(--f-mono); color: var(--ink-soft); }
+.specimen .sample { font: 700 clamp(1.4rem, 2.6vw, 2rem)/1.1 var(--f-brand); text-transform: uppercase; letter-spacing: -0.01em; }
+.chars { font: 400 1rem/1.6 var(--f-brand); color: var(--ink-soft); word-break: break-all; }
+
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.swatch { border: 0; padding: 0; background: none; cursor: pointer; text-align: left; font: inherit; color: inherit; display: flex; flex-direction: column; gap: 10px; }
+.swatch .chip { aspect-ratio: 1; border-radius: 14px; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .06); transition: transform .2s ease; }
+.swatch:hover .chip { transform: translateY(-3px); }
+.swatch b { font: 500 1rem var(--f-brand); }
+.swatch code { font: 400 .8rem var(--f-mono); color: var(--ink-soft); }
+.swatch .copied { font: 500 .72rem var(--f-mono); color: var(--violet); min-height: 1em; }
+.gradbar { height: 64px; border-radius: 14px; background: var(--grad); display: flex; align-items: flex-end; justify-content: space-between; padding: 10px 14px; color: #fff; font: 500 .75rem var(--f-mono); }
+
+/* graphic language */
+.lang { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 24px; margin-top: 48px; align-items: stretch; }
+@media (max-width: 900px) { .lang { grid-template-columns: minmax(0, 1fr); } }
+.lang .fig { display: flex; flex-direction: column; justify-content: center; padding: clamp(12px, 2vw, 24px); }
+.motifs { margin: 36px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.motifs li { border-top: 2px solid var(--ink); padding-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.motifs b { font: 500 1.05rem var(--f-brand); }
+.motifs span { color: var(--ink-soft); font-size: .95rem; }
+@media (max-width: 760px) { .motifs { grid-template-columns: minmax(0, 1fr); } }
+
+/* touchpoints */
+.tp-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 48px; }
+.embed { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: var(--navy); border-radius: var(--radius); overflow: hidden; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; cursor: pointer; background: center / cover no-repeat; display: grid; place-items: center; }
+.poster::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(20 19 58 / .15), rgb(20 19 58 / .55)); }
+.play { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--grad); color: #fff; font: 600 15px var(--f-body); transition: transform .2s ease; }
+.poster:hover .play { transform: scale(1.04); }
+.play svg { width: 16px; height: 16px; }
+
+/* website */
+.site { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 24px; margin-top: 48px; align-items: start; }
+@media (max-width: 900px) { .site { grid-template-columns: minmax(0, 1fr); } }
+.scroller { max-height: 720px; overflow-y: auto; overscroll-behavior: contain; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; scrollbar-width: thin; scrollbar-color: var(--violet) transparent; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; background: var(--grad); color: #fff; text-decoration: none; font: 600 15px var(--f-body); width: fit-content; }
+
+/* outro */
+.outro .closing { font: 500 clamp(1.5rem, 2.8vw, 2.2rem)/1.3 var(--f-brand); color: var(--on-navy); max-width: 30ch; }
+.next { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: clamp(56px, 7vw, 96px); padding-top: 28px; border-top: 1px solid rgb(255 255 255 / .12); }
+.next a { color: #fff; text-decoration: none; font: 700 clamp(1.6rem, 3.4vw, 2.6rem) var(--f-brand); display: inline-flex; gap: 14px; align-items: center; }
+.next a span { transition: transform .2s ease; display: inline-block; }
+.next a:hover span { transform: translateX(6px); }
+footer { background: var(--navy); color: var(--on-navy-soft); font: 400 .82rem var(--f-mono); padding-block: 24px; border-top: 1px solid rgb(255 255 255 / .08); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+footer a { color: var(--on-navy); }
+
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh; overflow: auto; }
+dialog.lb::backdrop { background: rgb(10 8 30 / .88); }
+dialog.lb img { width: 100%; border-radius: 10px; }
+dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border: 0; border-radius: 999px; padding: 8px 14px; font: 600 14px var(--f-body); background: #fff; color: var(--navy); cursor: pointer; }
+/* mobile: give every small text link a comfortable 44px tap area */
+@media (max-width: 760px) {
+  footer a, .btn.ghost, figcaption a, .cap a, .rail a, .next a { display: inline-flex; align-items: center; min-height: 44px; } }
+/* shared site header: identical on every page */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-nav a.mk-cv { margin-left: 6px; border: 1.5px solid #15131c; border-radius: 999px; padding: 8px 14px; }
+.mk-nav a.mk-cv:hover { background: #15131c; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #e5701a; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
+
+/* six-step process list */
+.steps { list-style: none; margin: 8px 0 0; padding: 0; counter-reset: st; display: grid; gap: 14px; }
+.steps li { counter-increment: st; display: grid; grid-template-columns: 44px 1fr; gap: 2px 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.steps li::before { content: counter(st, decimal-leading-zero); grid-row: span 2; font: 600 .8rem/1 var(--f-mono); color: var(--navy); padding-top: 6px; }
+.steps b { font: 700 1.05rem/1.2 var(--f-brand); color: var(--ink); }
+.steps span { color: var(--ink-soft); font-size: .95rem; }
+</style>
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cv" href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download>CV</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
+  </div>
+</header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
+      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+        <a href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download><small>PDF</small>Download CV</a>
+  </nav>
+</div>
+
+<main id="top">
+  <div class="hero navy">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="kicker"><span class="label">Brand case study · BK Digital</span></div>
+        <h1>Designing the brand behind the product. <span class="grad-text">Full branding process.</span></h1>
+        <p class="lede read">The logo, visual language, marketing materials and print for BK Digital, a cloud-based, AI-powered system that automates accounting and financial management.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Senior Brand &amp; Product Designer</dd></div>
+          <div><dt>Scope</dt><dd>Full branding process</dd></div>
+          <div><dt>Industry</dt><dd>AI accounting SaaS</dd></div>
+          <div><dt>Deliverables</dt><dd>Logo, visual language, marketing, print</dd></div>
+        </dl>
+      </div>
+      <div class="hero-shot">
+        <img src="assets/brand-board.webp" alt="BK Digital logo system on a navy and white board, with the wordmark in navy and orange." width="1200" height="1100" data-zoom>
+      </div>
+    </div>
+  </div>
+
+  <section id="brief">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">The mission</span>
+          <h2>Design the brand behind the product.</h2>
+        </div>
+        <div class="stack read">
+          <p class="lede">From logo to visual language, marketing materials and print design, the brand had to explain a new Paperless Accounting Automated System.</p>
+          <p>BK Digital is a cloud-based, AI-powered system that automates all aspects of accounting and financial management in organizations. The brand needed to feel as clear and dependable as the product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="logo" class="navy">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Logo exploration</span>
+          <h2>Finding the right mark.</h2>
+          <p>I explored several lockups for the wordmark, from a horizontal logotype to a compact badge, before settling on the version that reads well at every size.</p>
+        </div>
+        <figure>
+          <div class="fig"><img src="assets/logo-search.webp" alt="A grid of BK Digital logo options: horizontal wordmarks, a compact BK badge and stacked lockups in black and navy." width="950" height="1088" loading="lazy" data-zoom></div>
+          <figcaption class="cap">Logo search across wordmarks, badges and stacked lockups.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">The process</span>
+          <h2>A paperless workflow, explained in six steps.</h2>
+          <p>The brand carried a simple story: invoices move through the system from capture to management, with no paper in between.</p>
+          <ol class="steps">
+            <li><b>Capture</b><span>Documents are scanned or uploaded</span></li>
+            <li><b>Recognize</b><span>The system reads the data</span></li>
+            <li><b>Collaborate</b><span>Teams review and comment together</span></li>
+            <li><b>Approve</b><span>The right person signs off</span></li>
+            <li><b>Post to accounting</b><span>Records go into the accounting system</span></li>
+            <li><b>Manage</b><span>Everything stays organized and traceable</span></li>
+          </ol>
+        </div>
+        <figure>
+          <div class="fig"><img src="assets/process.webp" alt="Six-step paperless accounting diagram in navy and orange: 1 Capture, 2 Recognize, 3 Collaborate, 4 Approve, 5 Post to accounting system, 6 Manage." width="638" height="643" loading="lazy" data-zoom></div>
+          <figcaption class="cap">The paperless workflow, as an illustrated six-step process.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" class="lav">
+    <div class="wrap">
+      <figure class="clear">
+        <img src="assets/product.webp" alt="BK Digital product screens in an isometric view: a laptop and phones showing the dashboard in navy and white." width="1280" height="720" loading="lazy" data-zoom>
+      </figure>
+      <p class="cap">The brand carried into the product: the same navy and orange, in calm, clear screens.</p>
+    </div>
+  </section>
+
+  <section class="navy outro">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack">
+          <span class="label">Wrap-up</span>
+          <p class="closing">A brand that makes accounting feel simple.</p>
+        </div>
+        <div class="stack read">
+          <p>The brand connects the product from its first screen to its print materials, so BK Digital speaks with one clear voice.</p>
+          <p>A special thanks to the brilliant and friendly people at Brooks-Keret.</p>
+        </div>
+      </div>
+      <div class="next">
+        <span class="label">Next project</span>
+        <a href="../voca/">Voca.ai <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>BK Digital case study · Matan Kidrony</span>
+    <span><a href="../">All projects</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  document.querySelectorAll('.embed[data-embed]').forEach(function (box) {
+    var btn = box.querySelector('.poster');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = box.getAttribute('data-embed') + '&autoplay=true';
+      f.title = btn.getAttribute('aria-label') || 'Video';
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      box.innerHTML = '';
+      box.appendChild(f);
+    });
+  });
+
+  document.querySelectorAll('.swatch').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var hex = b.getAttribute('data-hex'), out = b.querySelector('.copied');
+      var done = function (msg) { out.textContent = msg; setTimeout(function () { out.textContent = ''; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(hex).then(function () { done('Copied'); }, function () { done(hex); });
+      } else { done(hex); }
+    });
+  });
+
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+</body>
+</html>
