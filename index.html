@@ -239,6 +239,9 @@ a.project:hover .go span { transform: translateX(4px); }
 .wa:hover { transform: translateY(-2px); background: #187a42; }
 .wa.mail { background: #fff; color: #15131c; }
 .wa.mail:hover { background: #e5701a; color: #fff; }
+.open-to { margin: 18px 0 0; font: 600 16px var(--f-body); color: #f2c49a; }
+.cv-btn { margin-top: 28px; margin-left: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 999px; border: 1.5px solid #fff; color: #fff; text-decoration: none; font: 600 16px var(--f-body); transition: background .2s ease, color .2s ease; }
+.cv-btn:hover { background: #fff; color: #15131c; }
 .wa svg { width: 22px; height: 22px; }
 .channels { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .channels li { border-top: 1px solid rgb(255 255 255 / .12); }
@@ -304,6 +307,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 .mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
 .mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
 .mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-nav a.mk-cv { margin-left: 6px; border: 1.5px solid #15131c; border-radius: 999px; padding: 8px 14px; }
+.mk-nav a.mk-cv:hover { background: #15131c; color: #fff; }
 .mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
 @media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
 @media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
@@ -490,6 +495,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       <a class="mk-wide" href="#side">Side projects</a>
       <a class="mk-wide" href="#about">About</a>
       <a class="mk-wide" href="testimonials/">Testimonials</a>
+      <a class="mk-cv" href="assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download>CV</a>
       <a class="mk-cta" href="#contact">Contact</a>
     </nav>
     <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
@@ -506,6 +512,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       <a href="#about"><small>03</small>About</a>
       <a href="testimonials/"><small>04</small>Testimonials</a>
       <a href="#contact"><small>05</small>Contact</a>
+        <a href="assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download><small>PDF</small>Download CV</a>
   </nav>
 </div>
 
@@ -521,6 +528,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       <div class="facts">
         <div><span class="mono">Focus</span><b>Product &amp; brand design</b></div>
         <div><span class="mono">Experience</span><b>15+ years</b></div>
+        <div><span class="mono">Open to</span><b>Senior &amp; lead roles</b></div>
       </div>
     </div>
     <div class="face-stage bodied circled" id="faceStage">
@@ -761,10 +769,12 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <span class="mono" style="color:#a9a5b8">Contact</span>
           <h2 style="margin-top:14px">Let's build something <span>worth remembering.</span></h2>
           <p class="lead">Brand, product or both. Tell me what you're working on and I'll get back to you.</p>
+          <p class="open-to">Open to senior/lead product design roles, full-time or contract.</p>
           <a class="wa mail" href="mailto:kidronym@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             Email Matan
           </a>
+          <a class="cv-btn" href="assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download>Download CV (PDF)</a>
         </div>
         <ul class="channels">
           <li><div class="row"><span class="k">Email</span><a class="val" href="mailto:kidronym@gmail.com" style="padding:0;display:inline;color:inherit">kidronym@gmail.com</a><button class="copy" type="button" data-copy="kidronym@gmail.com">Copy</button></div></li>
