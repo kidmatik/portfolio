@@ -171,6 +171,13 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 /* mobile: give every small text link a comfortable 44px tap area */
 @media (max-width: 760px) {
   footer a, .btn.ghost, figcaption a, .cap a, .rail a, .next a { display: inline-flex; align-items: center; min-height: 44px; } }
+/* motion: the two product videos */
+.vids { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(18px, 3vw, 32px); margin-top: clamp(28px, 4vw, 48px); }
+.vid { margin: 0; }
+.vid video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--navy); border-radius: var(--radius); box-shadow: 0 40px 70px -40px rgb(20 33 61 / .55); }
+.vid figcaption { font: 500 .74rem/1.5 var(--f-mono); letter-spacing: .04em; color: var(--ink-soft); margin-top: 12px; }
+@media (min-width: 900px) { .vids { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; } }
+
 /* shared site header: identical on every page */
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
@@ -329,6 +336,31 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <img src="assets/product.jpg" alt="BK Digital website hero: the headline Digitizing Your Finance Department in large black type, an orange swirling line, the BK DIGITAL logo and a Contact us button." width="640" height="361" loading="lazy" data-zoom>
       </figure>
       <p class="cap">The brand on the web: bold type, a single orange line and plenty of white space.</p>
+    </div>
+  </section>
+
+  <section id="motion">
+    <div class="wrap">
+      <div class="stack">
+        <span class="label">In motion</span>
+        <h2>The product, explained in motion.</h2>
+        <p class="lede">Two animated videos that walk through the paperless workflow, from the first invoice to the final export.</p>
+      </div>
+      <div class="vids">
+        <figure class="vid">
+          <video controls playsinline preload="none" poster="assets/video/explainer-poster.webp" width="1920" height="1080" aria-label="BK Digital main explainer video, about one minute">
+            <source src="assets/video/explainer-720.mp4" type="video/mp4" media="(max-width: 760px)">
+            <source src="assets/video/explainer.mp4" type="video/mp4">
+          </video>
+          <figcaption>Main explainer, 1:05.</figcaption>
+        </figure>
+        <figure class="vid">
+          <video controls playsinline preload="none" poster="assets/video/promo-poster.webp" width="1280" height="720" aria-label="BK Digital short promo video, 23 seconds">
+            <source src="assets/video/promo.mp4" type="video/mp4">
+          </video>
+          <figcaption>Short promo, 0:23.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
