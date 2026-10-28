@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ondat Brand Case Study – Full Branding | Matan Kidrony</title>
+<meta name="description" content="Full branding of Ondat by Matan Kidrony: logo, colours, typography, icons, website, mobile app, business cards and billboards for a cloud native data platform.">
+<link rel="canonical" href="https://kidmatik.github.io/portfolio/ondat/">
+<meta name="author" content="Matan Kidrony">
+<meta property="og:url" content="https://kidmatik.github.io/portfolio/ondat/">
+<meta property="og:site_name" content="Matan Kidrony">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:title" content="Ondat Brand Case Study | Matan Kidrony">
+<meta property="og:description" content="Deploy Better Faster: the full branding of Ondat, the cloud native data layer.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/ondat/assets/billboard.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600;700&family=Merriweather:wght@700&family=Lato:wght@400;700&family=Assistant:wght@300;400&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Ondat: the brand's own system. Source Sans Pro Bold with Merriweather Bold for emphasis, cyan, mint and
+   deep blue on a night-navy contrast colour, and the diagonal cut of its billboards. Single theme on purpose. */
+:root {
+  --night: #031033;
+  --cyan: #13BCEA;
+  --mint: #5AC0A6;
+  --blue: #0D47A1;
+  --grey: #EDEDED;
+  --grad: linear-gradient(120deg, #5AC0A6 0%, #13BCEA 100%);
+  --paper: #FFFFFF;
+  --mist: #F1FAFD;
+  --ink: #031033;
+  --ink-soft: #4C5C80;
+  --line: #D5E9F2;
+  --f-head: "Source Sans 3", "Source Sans Pro", "Segoe UI", system-ui, sans-serif;
+  --f-serif: "Merriweather", Georgia, serif;
+  --f-body: "Lato", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 22px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.7 var(--f-body); -webkit-font-smoothing: antialiased; }
+img, svg { max-width: 100%; display: block; }
+img { height: auto; }
+a { color: var(--blue); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 1160px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-head); font-weight: 700; letter-spacing: -0.02em; line-height: 1.04; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.3rem); }
+p { margin: 0; }
+.label { font: 700 .8rem/1.2 var(--f-head); letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); display: inline-flex; align-items: center; gap: 10px; }
+.label::before { content: ""; width: 22px; height: 6px; border-radius: 3px; background: var(--grad); transform: skewX(-24deg); }
+.hero .label, .on-night .label { color: #7FD3EE; }
+.gt { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.js .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.js .rv.in { opacity: 1; transform: none; }
+
+/* ---- hero: the billboard line, on a blueprint grid ---- */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: var(--night); color: #fff; padding-block: clamp(64px, 9vw, 120px) clamp(56px, 7vw, 100px); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background-image: linear-gradient(rgb(19 188 234 / .09) 1px, transparent 1px), linear-gradient(90deg, rgb(19 188 234 / .09) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 80% 90% at 70% 50%, #000 20%, transparent 78%); mask-image: radial-gradient(ellipse 80% 90% at 70% 50%, #000 20%, transparent 78%); }
+.hero::after { content: ""; position: absolute; z-index: -1; right: -8%; top: 50%; width: min(70vw, 720px); aspect-ratio: 1; transform: translateY(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgb(19 188 234 / .30), rgb(90 192 166 / .08) 60%, transparent 100%); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.hero-text { display: flex; flex-direction: column; gap: 26px; }
+h1.tag { font-size: clamp(3.4rem, 9vw, 7.2rem); line-height: .86; letter-spacing: -0.035em; }
+h1.tag span { display: block; }
+h1.tag .w2 { font-family: var(--f-serif); font-weight: 700; color: var(--mint); font-size: .86em; line-height: 1; margin: -.04em 0 -.02em .55em; letter-spacing: -0.03em; }
+h1.tag .w3 { margin-left: 1.15em; }
+.lede { font-size: clamp(1.1rem, 1.7vw, 1.3rem); line-height: 1.6; color: #C3D6EE; max-width: 34em; }
+.meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 10px 0 0; padding-top: 22px; border-top: 1px solid rgb(127 211 238 / .3); }
+.meta div { display: flex; flex-direction: column; gap: 4px; }
+.meta dt { font: 700 .72rem/1 var(--f-head); letter-spacing: .14em; text-transform: uppercase; color: #6FA6C6; }
+.meta dd { margin: 0; font-weight: 700; font-size: .98rem; line-height: 1.3; }
+.sym { justify-self: center; width: min(32vw, 320px); overflow: visible; filter: drop-shadow(0 0 50px rgb(19 188 234 / .55)); }
+.sym .p1, .sym .p2 { opacity: 0; animation: snap 1s cubic-bezier(.2,.9,.25,1.05) forwards; }
+.sym .p1 { transform: translate(-40px, -40px); animation-delay: .15s; }
+.sym .p2 { transform: translate(40px, 40px); animation-delay: .3s; }
+@keyframes snap { to { opacity: 1; transform: none; } }
+
+/* ---- sections ---- */
+section { padding-block: clamp(64px, 9vw, 120px); }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.mist { background: var(--mist); }
+.on-night { background: var(--night); color: #fff; }
+.big { font: 700 clamp(1.25rem, 2.2vw, 1.65rem)/1.4 var(--f-head); }
+.card { background: #fff; border-radius: var(--radius); box-shadow: 0 40px 70px -40px rgb(3 16 51 / .4); overflow: hidden; }
+.cap { font: 500 .78rem/1.5 var(--f-mono); color: var(--ink-soft); margin-top: 14px; }
+
+/* three steps */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 40px 0 0; padding: 0; list-style: none; counter-reset: st; }
+.steps li { counter-increment: st; position: relative; background: #fff; border-radius: var(--radius); padding: 28px 26px 30px; box-shadow: 0 30px 60px -40px rgb(3 16 51 / .4); overflow: hidden; border: 1px solid var(--line); }
+.steps li::before { content: "0" counter(st); display: block; font: 700 .85rem var(--f-head); letter-spacing: .12em; color: var(--cyan); margin-bottom: 14px; }
+.steps li::after { content: ""; position: absolute; right: -26px; top: -26px; width: 90px; height: 90px; background: var(--grad); opacity: .18; transform: skewX(-24deg); border-radius: 18px; }
+.steps b { display: block; font: 700 1.6rem var(--f-head); margin-bottom: 6px; }
+.steps span { color: var(--ink-soft); }
+
+/* logo board */
+.board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.tile { border-radius: var(--radius); display: grid; place-items: center; min-height: clamp(180px, 24vw, 280px); padding: 28px; }
+.tile img { width: min(72%, 360px); }
+.t-white { background: #fff; box-shadow: 0 40px 70px -40px rgb(3 16 51 / .4); }
+.t-navy { background: var(--night); }
+.t-grad { background: var(--grad); }
+.t-icon { background: #F8F8F8; }
+.t-icon .app { width: clamp(120px, 15vw, 170px); aspect-ratio: 1; background: #fff; border-radius: 30px; display: grid; place-items: center; box-shadow: 0 30px 50px -22px rgb(3 16 51 / .35); }
+.t-icon .app img { width: 52%; }
+.grid-card { padding: clamp(14px, 3vw, 36px); }
+
+/* colours */
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.sw { border: 0; padding: 0; text-align: left; border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: 0 30px 60px -40px rgb(3 16 51 / .4); cursor: pointer; font: inherit; color: var(--ink); transition: transform .3s cubic-bezier(.2,.8,.2,1); position: relative; border: 1px solid var(--line); }
+.sw:hover { transform: translateY(-6px); }
+.sw .chip { display: block; height: clamp(90px, 12vw, 140px); }
+.sw .info { display: grid; padding: 14px 20px 18px; gap: 2px; }
+.sw b { font: 700 1.2rem var(--f-head); } .sw .hex { font: 500 .9rem var(--f-mono); color: var(--blue); }
+.sw .vals { font: 500 .74rem/1.6 var(--f-mono); color: var(--ink-soft); }
+.sw .copied { position: absolute; top: 12px; right: 12px; background: #fff; font: 600 .72rem var(--f-mono); border-radius: 999px; padding: 5px 11px; opacity: 0; transform: translateY(-6px); transition: .25s; }
+.sw.did .copied { opacity: 1; transform: none; }
+
+/* typography */
+.type { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.tcard { background: #fff; border-radius: var(--radius); padding: clamp(22px, 3vw, 36px); border: 1px solid var(--line); box-shadow: 0 30px 60px -40px rgb(3 16 51 / .35); }
+.tcard .name { font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; }
+.tcard .abc { margin-top: 12px; font-size: .95rem; line-height: 1.55; color: var(--ink); word-break: break-word; }
+.tc1 .name { font: 700 clamp(1.7rem, 3.2vw, 2.5rem)/1.1 "Source Sans 3", sans-serif; color: var(--cyan); } .tc1 .abc { font-family: "Source Sans 3", sans-serif; font-weight: 700; }
+.tc2 .name { font: 700 clamp(1.5rem, 2.8vw, 2.2rem)/1.15 "Merriweather", serif; color: var(--mint); } .tc2 .abc { font-family: "Merriweather", serif; font-weight: 700; }
+.tc3 .name { font: 700 clamp(1.7rem, 3.2vw, 2.5rem)/1.1 "Lato", sans-serif; color: var(--night); } .tc3 .abc { font-family: "Lato", sans-serif; font-weight: 700; }
+.tc4 .name { font: 300 clamp(1.7rem, 3.2vw, 2.5rem)/1.1 "Assistant", sans-serif; color: var(--night); } .tc4 .abc { font-family: "Assistant", sans-serif; font-weight: 300; }
+
+/* identity in use */
+.use { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+.u { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: 0 40px 70px -40px rgb(3 16 51 / .4); }
+.u.wide { grid-column: 1 / -1; }
+.u img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.8,.2,1); cursor: zoom-in; }
+.u:hover img { transform: scale(1.025); }
+.u figcaption { position: absolute; left: 14px; bottom: 14px; background: var(--night); color: #fff; font: 700 .72rem var(--f-head); letter-spacing: .12em; text-transform: uppercase; border-radius: 999px; padding: 6px 13px; pointer-events: none; }
+
+/* outro */
+.outro { position: relative; isolation: isolate; overflow: hidden; }
+.outro::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgb(19 188 234 / .08) 1px, transparent 1px), linear-gradient(90deg, rgb(19 188 234 / .08) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: linear-gradient(180deg, transparent, #000 60%); mask-image: linear-gradient(180deg, transparent, #000 60%); }
+.next { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.next a { color: #fff; font: 700 clamp(1.8rem, 4vw, 3rem)/1.05 var(--f-head); text-decoration: none; }
+.next a:hover { color: var(--cyan); }
+
+footer { padding-block: 28px; font: 500 .8rem var(--f-mono); color: var(--ink-soft); background: #fff; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+footer a { color: var(--blue); }
+
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
+dialog.lb::backdrop { background: rgb(3 16 51 / .92); }
+dialog.lb img { max-width: 94vw; max-height: 88vh; border-radius: 14px; background: #fff; }
+dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button { background: var(--cyan); color: #fff; border: 0; border-radius: 999px; padding: 8px 14px; font: 700 .8rem var(--f-head); cursor: pointer; }
+[data-zoom] { cursor: zoom-in; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .two { grid-template-columns: minmax(0, 1fr); }
+  .sym { order: -1; width: min(36vw, 150px); }
+  .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps, .board, .swatches, .type, .use { grid-template-columns: minmax(0, 1fr); }
+  h1.tag { font-size: clamp(3rem, 15vw, 4.6rem); }
+}
+
+/* shared site header (same on every page) */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-nav a.mk-cv { margin-left: 6px; border: 1.5px solid #15131c; border-radius: 999px; padding: 8px 14px; }
+.mk-nav a.mk-cv:hover { background: #15131c; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #e5701a; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
+</style>
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cv" href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download>CV</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
+  </div>
+</header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
+      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+        <a href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download><small>PDF</small>Download CV</a>
+  </nav>
+</div>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="label">Brand case study · Ondat</span>
+        <h1 class="tag" aria-label="Deploy Better Faster."><span class="w1">Deploy</span><span class="w2">Better</span><span class="w3">Faster.</span></h1>
+        <p class="lede">Ondat is a new solution for DevOps teams and developers to manage and deploy their databases and Kubernetes instances. I created its full branding, from a new logo to a fresh visual language.</p>
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Senior Brand &amp; Product Designer</dd></div>
+          <div><dt>Scope</dt><dd>Full branding</dd></div>
+          <div><dt>Industry</dt><dd>DevOps, cloud native data</dd></div>
+          <div><dt>Deliverables</dt><dd>Logo, colour, type, icons, website, app, print</dd></div>
+        </dl>
+      </div>
+      <svg class="sym" viewBox="952.08 135.29 77.46 111.06" role="img" aria-label="The Ondat symbol: two slanted slabs in a cyan gradient that fit together like a lightning bolt.">
+  <defs><linearGradient id="oa" gradientUnits="userSpaceOnUse" x1="961.34" y1="137.29" x2="980.70" y2="218.64"><stop offset="0" stop-color="#13BCEA" stop-opacity=".04"/><stop offset=".45" stop-color="#13BCEA" stop-opacity=".45"/><stop offset=".85" stop-color="#13BCEA"/></linearGradient><linearGradient id="ob" gradientUnits="userSpaceOnUse" x1="1000.91" y1="162.99" x2="1020.27" y2="244.35"><stop offset=".12" stop-color="#13BCEA"/><stop offset=".55" stop-color="#13BCEA" stop-opacity=".45"/><stop offset="1" stop-color="#13BCEA" stop-opacity=".04"/></linearGradient></defs>
+  <path class="p1" d="M979.066 218.644L954.075 200.370L983.800 137.287C996.703 141.858 1002.488 156.861 995.993 168.912L983.043 192.938L988.974 197.176L979.066 218.644Z" fill="url(#oa)"/>
+  <path class="p2" d="M1002.541 162.994L1027.532 181.268L997.807 244.351C984.904 239.780 979.119 224.777 985.614 212.726L998.564 188.700L992.633 184.462L1002.541 162.994Z" fill="url(#ob)"/>
+</svg>
+    </div>
+  </div>
+
+  <section id="brief">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">The mission</span>
+          <h2>A full re-branding, from the first question.</h2>
+        </div>
+        <div class="stack rv">
+          <p class="big">I was called for a full re-branding, from a new logo to a fresh visual language, created through an extensive deep dive.</p>
+        </div>
+      </div>
+      <ol class="steps rv" aria-label="The process">
+        <li><b>Understand</b><span>An extensive deep dive, first to understand the product and its world.</span></li>
+        <li><b>Research</b><span>Then research, to find the best solution.</span></li>
+        <li><b>Identity</b><span>An identity that is both tailor-made and original.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="logo" class="mist">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 780px">
+        <span class="label">Logo and brand identity</span>
+        <h2>Two slabs, one charge.</h2>
+        <p style="color:var(--ink-soft)">The symbol is made of two slanted slabs that fit together with a bolt-shaped gap between them, fading out at opposite ends. It sits beside a lowercase wordmark that mixes a bold “on” with a light “dat”.</p>
+      </div>
+      <div class="board rv">
+        <div class="tile t-white"><img src="assets/logo-color.svg" alt="The Ondat logo in full colour: the cyan gradient symbol with a deep navy lowercase wordmark." width="1056" height="432" loading="lazy"></div>
+        <div class="tile t-navy"><img src="assets/logo-onnavy.svg" alt="The Ondat logo on night navy: the fading cyan symbol with a white wordmark." width="1056" height="432" loading="lazy"></div>
+        <div class="tile t-grad"><img src="assets/logo-white.svg" alt="The Ondat logo in white on the mint-to-cyan gradient." width="1056" height="432" loading="lazy"></div>
+        <div class="tile t-icon"><div class="app"><img src="assets/symbol.svg" alt="The Ondat app icon: the symbol on a white rounded square." width="400" height="500" loading="lazy"></div></div>
+      </div>
+      <div class="two" style="margin-top: clamp(40px, 6vw, 72px)">
+        <figure class="rv" style="margin:0">
+          <div class="card grid-card"><img src="assets/logo-grid.webp" alt="The Ondat logo on its construction grid, with two-unit module markers around the symbol and the wordmark." width="901" height="558" loading="lazy" data-zoom></div>
+          <figcaption class="cap">Construction on a two-unit modular grid.</figcaption>
+        </figure>
+        <figure class="rv" style="margin:0">
+          <div class="card"><img src="assets/identity.webp" alt="Brand board titled Logo and Brand Identity: the Ondat app icon on a rounded square next to the full logo with its wordmark." width="1462" height="1056" loading="lazy" data-zoom></div>
+          <figcaption class="cap">App icon and logo.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="colour">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 780px">
+        <span class="label">Brand colours</span>
+        <h2>Cyan, mint and deep blue, on night navy.</h2>
+        <p style="color:var(--ink-soft)">Three primary colours, a dark contrast colour and a light grey. Click a colour to copy its hex.</p>
+      </div>
+      <div class="swatches rv">
+        <button class="sw" type="button" data-hex="#13BCEA"><span class="chip" style="background:#13BCEA"></span><span class="info"><b>Primary 1</b><span class="hex">#13BCEA</span><span class="vals">Pantone P 115-6 C<br>RGB 19 · 188 · 234</span></span><span class="copied" aria-live="polite"></span></button>
+        <button class="sw" type="button" data-hex="#5AC0A6"><span class="chip" style="background:#5AC0A6"></span><span class="info"><b>Primary 2</b><span class="hex">#5AC0A6</span><span class="vals">Pantone P 136-5 C<br>RGB 90 · 192 · 166</span></span><span class="copied" aria-live="polite"></span></button>
+        <button class="sw" type="button" data-hex="#0D47A1"><span class="chip" style="background:#0D47A1"></span><span class="info"><b>Primary 3</b><span class="hex">#0D47A1</span><span class="vals">Pantone P 104-8 C<br>RGB 13 · 71 · 161</span></span><span class="copied" aria-live="polite"></span></button>
+        <button class="sw" type="button" data-hex="#031033"><span class="chip" style="background:#031033"></span><span class="info"><b>Contrast</b><span class="hex">#031033</span><span class="vals">Pantone P 103-16 U<br>RGB 3 · 16 · 51</span></span><span class="copied" aria-live="polite"></span></button>
+        <button class="sw" type="button" data-hex="#EDEDED"><span class="chip" style="background:#EDEDED"></span><span class="info"><b>Light grey</b><span class="hex">#EDEDED</span><span class="vals">Pantone P 179-2 C<br>RGB 237 · 237 · 237</span></span><span class="copied" aria-live="polite"></span></button>
+        <div class="sw" style="cursor:default"><span class="chip" style="background:linear-gradient(120deg,#5AC0A6,#13BCEA)"></span><span class="info"><b>The gradient</b><span class="hex">Mint to cyan</span><span class="vals">The signature diagonal wash<br>on billboards, cards and web</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="type" class="mist">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 780px">
+        <span class="label">Typography</span>
+        <h2>Source Sans, with a serif accent.</h2>
+        <p style="color:var(--ink-soft)">Source Sans Pro Bold leads, Merriweather Bold adds the editorial accent (like the “Better” in the tagline), and Lato and Assistant carry the supporting text.</p>
+      </div>
+      <div class="type rv">
+        <div class="tcard tc1"><div class="name">Source Sans Pro Bold</div><div class="abc">ABCDEFGHIKLMNOPQRSTUVWXYZ<br>abcdefghiklmnopqrstuvwxyz<br>01234567890</div></div>
+        <div class="tcard tc2"><div class="name">Merriweather Bold</div><div class="abc">ABCDEFGHIKLMNOPQRSTUVWXYZ<br>abcdefghiklmnopqrstuvwxyz<br>01234567890</div></div>
+        <div class="tcard tc3"><div class="name">Lato</div><div class="abc">ABCDEFGHIKLMNOPQRSTUVWXYZ<br>abcdefghiklmnopqrstuvwxyz<br>01234567890</div></div>
+        <div class="tcard tc4"><div class="name">Assistant</div><div class="abc">ABCDEFGHIKLMNOPQRSTUVWXYZ<br>abcdefghiklmnopqrstuvwxyz<br>01234567890</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="icons">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">Iconography</span>
+          <h2>Icons for a developer’s day.</h2>
+          <p style="color:var(--ink-soft)">Eight icons on night-navy discs, drawn in the cyan-to-mint gradient with small orange and pink accents: a database, a folder, a locked backup, a mobile device, a monitor, a shield, mail and settings.</p>
+        </div>
+        <figure class="rv" style="margin:0">
+          <div class="card"><img src="assets/icons.webp" alt="Eight icons on night-navy circles: a database with a gear, a folder, a lock with a refresh arrow, a phone with a signal, a monitor with a cube, a shield with a signal, an envelope with a notification dot, and two gears." width="1756" height="1264" loading="lazy" data-zoom></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="use" class="mist">
+    <div class="wrap">
+      <div class="stack rv" style="max-width: 780px">
+        <span class="label">The identity in use</span>
+        <h2>On screens, cards, billboards and photos.</h2>
+        <p style="color:var(--ink-soft)">The line “Deploy Better Faster” and the diagonal mint-to-cyan cut carry through every touchpoint. Click any image to enlarge it.</p>
+      </div>
+      <div class="use">
+        <figure class="u wide rv"><img src="assets/website.webp" alt="The Ondat website on a laptop drawn in outline over a mint-to-cyan gradient: a hero headline reading The Cloud Native Data Layer, two buttons and a code window." width="1756" height="1264" loading="lazy" data-zoom><figcaption>Website</figcaption></figure>
+        <figure class="u  rv"><img src="assets/mobile.webp" alt="A phone showing the Ondat mobile site: the logo and a menu icon on a grey header, and a mint-to-cyan diagonal with the words Deploy Better Faster and a Get Started button." width="1756" height="1264" loading="lazy" data-zoom><figcaption>Mobile app</figcaption></figure>
+        <figure class="u  rv"><img src="assets/cards.webp" alt="Two Ondat business cards: a white card with the logo and contact details cut by a mint-to-cyan diagonal, and a navy card with the words Deploy Better Faster set at an angle." width="1757" height="1264" loading="lazy" data-zoom><figcaption>Business cards</figcaption></figure>
+        <figure class="u wide rv"><img src="assets/billboard.webp" alt="A billboard and signage board in night navy: the Ondat logo in the corner and a mint-to-cyan diagonal with the words Deploy Better Faster." width="1756" height="1264" loading="lazy" data-zoom><figcaption>Billboards and signage</figcaption></figure>
+        <figure class="u wide rv"><img src="assets/photo.webp" alt="A man in a blazer smiling at his phone on a bench, in a teal duotone photo cut by a navy diagonal with the white Ondat logo." width="1756" height="1263" loading="lazy" data-zoom><figcaption>Photography</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="on-night outro" style="padding-block: clamp(48px, 7vw, 88px)">
+    <div class="wrap">
+      <span class="label rv">Next project</span>
+      <div class="next rv"><a href="../trio/">Trio <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Ondat case study · Matan Kidrony</span>
+    <span><a href="../">All projects</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var els = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(function (e) { e.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: .12 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  document.querySelectorAll('.sw[data-hex]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var hex = b.getAttribute('data-hex'), out = b.querySelector('.copied');
+      var done = function (msg) { out.textContent = msg; b.classList.add('did'); setTimeout(function () { b.classList.remove('did'); }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(hex).then(function () { done('Copied ' + hex); }, function () { done(hex); }); } else { done(hex); }
+    });
+  });
+  var lb = document.getElementById('lightbox'), lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+</body>
+</html>
