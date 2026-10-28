@@ -213,7 +213,16 @@ a.project:hover .go span { transform: translateX(4px); }
 .spot-video [hidden] { display: none !important; }
 .project[hidden] { display: none !important; }
 .spot-video video, .spot-video .sv-frame { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 0; background: #000 center / cover no-repeat; }
-.spot-hint { font: 400 .8rem var(--f-mono); color: #a9a5b8; }
+/* a sticker with the hint, stuck on the top corner of the dark card */
+.spot-sticker { position: absolute; z-index: 3; top: clamp(14px, 2.4vw, 30px); right: clamp(14px, 3.4vw, 44px); margin: 0; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px 9px 12px; background: #fff; color: #15131c; border-radius: 14px; font: 800 .82rem/1.1 var(--f-display); letter-spacing: -0.01em; transform: rotate(5deg); box-shadow: 3px 3px 0 var(--accent); pointer-events: none; }
+.spot-sticker svg { flex: none; color: var(--accent); }
+/* more companies, after the project names */
+.spot-more { width: 100%; max-width: 980px; margin-top: clamp(24px, 4vw, 44px); padding-top: 28px; border-top: 1px solid rgb(255 255 255 / .12); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.spot-more .mono { color: #a9a5b8; }
+.spot-more ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 0; }
+.spot-more li { font: 700 clamp(1.05rem, 1.7vw, 1.35rem)/1.5 var(--f-display); letter-spacing: -0.01em; color: #ECE9F5; }
+.spot-more li + li::before { content: "·"; margin-inline: .6em; color: var(--accent); }
+.spot-more li.and { color: var(--accent); font-weight: 500; }
 @media (hover: none), (max-width: 760px) {
   .spot-cards { display: none; }
   .spot { padding: 56px 24px; }
@@ -223,8 +232,12 @@ a.project:hover .go span { transform: translateX(4px); }
   .spot-item a { padding-block: 16px; width: 100%; }
   .spot-item .spot-nolink { padding-block: 16px; width: 100%; }
   .spot-item .lbl-default { font-size: clamp(1.9rem, 8.5vw, 2.6rem); }
-  .spot-hint .h { display: none; } }
-@media (hover: hover) and (min-width: 761px) { .spot-hint .t { display: none; } }
+  .spot-sticker .h { display: none; }
+  .spot-sticker { top: 12px; right: 12px; font-size: .75rem; padding: 7px 12px 7px 9px; }
+  .spot { padding-top: 84px; }
+  .spot-more li + li::before { display: none; }
+  .spot-more ul { gap: 4px 20px; } }
+@media (hover: hover) and (min-width: 761px) { .spot-sticker .t { display: none; } }
 
 /* side projects */
 .side { border-top: 1px solid var(--line); padding-block: clamp(64px, 9vw, 112px); }
@@ -634,6 +647,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   <section class="more" id="more">
     <div class="wrap">
       <div class="spot">
+        <p class="spot-sticker"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z"/></svg><span class="h">Hover a name to peek inside</span><span class="t">Tap a name to open the project</span></p>
         <div class="spot-head">
           <span class="mono">More work</span>
           <h2>Brands, products and motion</h2>
@@ -659,7 +673,12 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <li class="spot-item" data-imgs="assets/more/picabook-1.jpg,assets/more/picabook-2.jpg,assets/more/picabook-3.jpg,assets/more/picabook-4.jpg"><a href="picabook/" aria-label="Picabook, brand case study"><span class="lbl lbl-default">Picabook</span><span class="lbl lbl-alt" aria-hidden="true">Picabook</span></a></li>
           </ul>
         </div>
-        <p class="spot-hint"><span class="h">Hover a name to peek inside</span><span class="t">Tap a name to open the project</span></p>
+        <div class="spot-more">
+          <span class="mono">Also worked with</span>
+          <ul aria-label="More companies I worked with">
+            <li>Google</li><li>IBM</li><li>Lenovo</li><li>SecondNature</li><li>Aporia</li><li>Techstars</li><li>Medallia</li><li class="and">and more…</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
