@@ -424,7 +424,7 @@ html.pre { overflow: hidden; }
 html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; align-items: center; justify-content: center; background: var(--paper); color: var(--ink); will-change: transform; }
 #preloader.lift { transform: translateY(-110%); transition: transform 1s cubic-bezier(.65, 0, .25, 1); }
 #preloader .pl-stage { position: relative; height: 64px; width: min(80vw, 340px); display: flex; align-items: center; justify-content: center; }
-#preloader .pl-word { position: absolute; display: flex; align-items: center; gap: 12px; font: 600 clamp(1.8rem, 4.4vw, 2.6rem)/1 var(--f-display); letter-spacing: -0.02em; white-space: nowrap; animation: pl-in .2s ease-out both; }
+#preloader .pl-word { position: absolute; display: flex; align-items: center; gap: 12px; font: 800 clamp(1.8rem, 4.4vw, 2.6rem)/1 "Bricolage Grotesque", var(--f-display); letter-spacing: -0.02em; white-space: nowrap; animation: pl-in .2s ease-out both; }
 #preloader .pl-word i { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: none; }
 #preloader .pl-word.out { animation: pl-out .2s ease-out both; }
 @keyframes pl-in { from { opacity: 0; transform: translateY(20px); } }
@@ -1226,12 +1226,18 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
       el.remove();
     }, 1050);
   }
-  put(words[0]);
-  var timer = setInterval(function () {
-    i++;
-    if (i >= words.length) { clearInterval(timer); setTimeout(finish, 450); return; }
-    put(words[i]);
-  }, STEP);
+  function start() {
+    put(words[0]);
+    var timer = setInterval(function () {
+      i++;
+      if (i >= words.length) { clearInterval(timer); setTimeout(finish, 450); return; }
+      put(words[i]);
+    }, STEP);
+  }
+  // wait for Bricolage Grotesque so the first greetings are never set in a fallback font (capped, so a slow font can't hold the page)
+  var cap = new Promise(function (r) { setTimeout(r, 1500); });
+  var font = (document.fonts && document.fonts.load) ? document.fonts.load('800 40px "Bricolage Grotesque"') : Promise.resolve();
+  Promise.race([font, cap]).then(start, start);
 })();
 </script>
 <script>
