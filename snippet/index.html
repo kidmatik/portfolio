@@ -75,6 +75,18 @@ section { padding-block: clamp(56px, 8vw, 112px); }
 .cap { font: 500 .74rem/1.5 var(--f-mono); letter-spacing: .04em; color: var(--soft); margin-top: 14px; }
 .head { display: flex; flex-direction: column; gap: 18px; max-width: 760px; margin-bottom: clamp(28px, 4vw, 52px); }
 
+/* application screens */
+.duo { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, .45fr); gap: clamp(18px, 3vw, 40px); align-items: center; }
+.browser { margin: 0; border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 60px 90px -50px rgb(38 44 106 / .5), 0 0 0 1px var(--line); }
+.browser .bar { display: flex; gap: 7px; padding: 12px 16px; background: #EEF2F8; }
+.browser .bar i { width: 10px; height: 10px; border-radius: 50%; background: #CBD5E5; display: block; }
+.browser img { width: 100%; cursor: zoom-in; }
+.phone { margin: 0; border-radius: 34px; padding: 10px; background: var(--deep); box-shadow: 0 50px 80px -40px rgb(20 26 74 / .6); justify-self: center; width: 100%; max-width: 320px; }
+.phone img { width: 100%; border-radius: 25px; background: #fff; cursor: zoom-in; }
+.pair { display: grid; grid-template-columns: minmax(0, .5fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 36px); align-items: center; }
+.photo img { height: 100%; object-fit: cover; }
+@media (max-width: 860px) { .duo, .pair { grid-template-columns: minmax(0, 1fr); } .phone { max-width: 280px; } }
+
 /* walkthrough */
 .video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #191919; box-shadow: 0 60px 90px -50px rgb(20 26 74 / .7); }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -217,22 +229,45 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <h2>One site, one platform, every screen.</h2>
         <p class="soft">The marketing pages, the employee journey and the application flow share one clean visual language, from the laptop down to the phone.</p>
       </div>
-      <figure class="frame rv"><img src="assets/system.webp" alt="Isometric overview of the Snippet screens: a laptop with the website hero, an employee dashboard with a chart, a tablet and a phone with the loan app, and several blue and white landing pages." width="1900" height="1235" loading="lazy" data-zoom></figure>
+      <figure class="frame rv"><img src="assets/system.webp" alt="Isometric overview of the Snippet screens: a laptop with the website hero, an employee dashboard with a chart, a tablet and a phone with the loan app, and several blue and white landing pages." width="2000" height="1300" loading="lazy" data-zoom></figure>
     </div>
   </section>
 
-  <section id="mobile">
+  <section id="application">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="label">The application</span>
+        <h2>How much would you like to borrow?</h2>
+        <p class="soft">The application is a short, guided flow of four steps. Each screen asks one thing, shows progress at the top and keeps the amount, the term and the next action in view, on a laptop or on a phone.</p>
+      </div>
+      <div class="duo rv">
+        <figure class="browser">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <img src="assets/desktop-terms.webp" alt="Snippet loan application on desktop, step one, Loan terms: a borrowing amount slider set to 1,400 dollars, a term slider set to 16 months, a loan purpose dropdown, a credit score dropdown and Back and Continue buttons." width="1366" height="1193" loading="lazy" data-zoom>
+        </figure>
+        <figure class="phone">
+          <img src="assets/mobile-terms.webp" alt="The same Loan terms step on mobile, with a four-step progress bar at the top and the same sliders and dropdowns stacked in one column." width="360" height="1109" loading="lazy" data-zoom>
+        </figure>
+      </div>
+      <p class="cap rv">Step 1 of 4, Loan info, on desktop and mobile.</p>
+    </div>
+  </section>
+
+  <section id="regions" class="mist">
     <div class="wrap two">
       <div class="stack rv">
-        <span class="label">Loan terms on mobile</span>
-        <h2>How much would you like to borrow?</h2>
-        <p class="soft">The application is a short, guided flow. Each step asks one thing, shows progress at the top and keeps the amount, the loan terms and the next action in view, even on a small screen.</p>
+        <span class="label">Two regions</span>
+        <h2>One entry, two sites.</h2>
+        <p class="soft">The first screen explains the idea in a few lines, then lets visitors pick their region, the US site or the Japanese one, so the same product speaks both languages.</p>
       </div>
-      <figure class="frame rv"><img src="assets/tablet.webp" alt="A tablet resting by a swimming pool, showing the Snippet loan terms step with a borrowing amount slider set to 1,400 dollars." width="1600" height="1066" loading="lazy" data-zoom></figure>
+      <div class="pair rv">
+        <figure class="phone"><img src="assets/mobile-region.webp" alt="Snippet mobile entry screen: the headline Helping People to Raise their Financial Wellbeing, a short description, US Site and JP Site buttons and a photo of people playing tug of war." width="360" height="640" loading="lazy" data-zoom></figure>
+        <figure class="frame photo"><img src="assets/tablet.webp" alt="A tablet resting by a swimming pool, showing the Snippet loan terms step with a borrowing amount slider." width="1600" height="1066" loading="lazy" data-zoom></figure>
+      </div>
     </div>
   </section>
 
-  <section id="walkthrough" class="mist">
+  <section id="walkthrough">
     <div class="wrap">
       <div class="head rv">
         <span class="label">Walkthrough</span>
