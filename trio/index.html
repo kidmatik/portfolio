@@ -172,6 +172,22 @@ dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button 
 .ban { padding: clamp(14px, 3vw, 36px); margin-top: 40px; }
 @media (max-width: 860px) { .ui-top, .ui-pair { grid-template-columns: minmax(0, 1fr); } }
 
+/* Trio Cyber: the new sub-brand, on the deep purple of its own site */
+.cyber { background: radial-gradient(70% 60% at 85% 0%, #5D1DAC 0%, transparent 70%), #230646; color: #fff; }
+.cyber .label { color: #C9B6FF; } .cyber h2 { color: #fff; } .cyber .big { color: #fff; } .cyber .cap { color: #B7A3E6; }
+.cyber .logo-tile { background: #fff; border-radius: var(--radius); padding: clamp(26px, 5vw, 56px); display: grid; place-items: center; box-shadow: 0 40px 70px -40px rgb(0 0 0 / .6); }
+.cyber .logo-tile img { width: min(100%, 440px); height: auto; }
+.cyber .pal { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; padding: 0; list-style: none; }
+.cyber .pal li { display: inline-flex; align-items: center; gap: 9px; font: 500 .72rem/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; padding: 9px 13px 9px 9px; border-radius: 999px; background: rgb(255 255 255 / .08); border: 1px solid rgb(255 255 255 / .18); color: #fff; }
+.cyber .pal i { width: 16px; height: 16px; border-radius: 50%; display: block; box-shadow: 0 0 0 1px rgb(255 255 255 / .35); }
+.cyber-dev { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(0, .8fr); gap: clamp(20px, 3vw, 44px); align-items: start; margin-top: clamp(36px, 5vw, 64px); }
+.cyber-dev .browser { margin-top: 0; border-color: rgb(255 255 255 / .15); box-shadow: 0 60px 100px -40px rgb(0 0 0 / .7); }
+.cyber-dev .cscroll { max-height: 640px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--orange) transparent; overscroll-behavior: contain; }
+.cyber-dev .cscroll img { width: 100%; }
+.cyber-dev .phone { margin-inline: auto; }
+.cyber .live-link { display: inline-flex; align-self: flex-start; gap: 8px; margin-top: 8px; padding: 12px 20px; border-radius: 999px; background: var(--grad); color: #fff; text-decoration: none; font: 800 .95rem var(--f-display); }
+@media (max-width: 900px) { .cyber-dev { grid-template-columns: minmax(0, 1fr); } }
+
 /* shared site header (same on every page) */
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
@@ -368,7 +384,49 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <div class="card ban"><img src="assets/ui/amendment13.webp" alt="A website banner about Israel's Privacy Protection Law Amendment 13: a large orange padlock illustration with a fingerprint, a shield and a password field next to Hebrew text asking whether your business meets the requirements." width="1948" height="577" loading="lazy" data-zoom></div>
         <figcaption class="cap">A content banner for the privacy law Amendment 13 page, in the same brand colours.</figcaption>
       </figure>
-      <p class="credit rv">Design and branding: Matan Kidrony · Website development: Studio Kuli Alma.</p>
+      <p class="credit rv">Design and branding: Matan Kidrony.</p>
+    </div>
+  </section>
+
+  <section id="cyber" class="cyber">
+    <div class="wrap">
+      <div class="two">
+        <div class="stack rv">
+          <span class="label">Trio Cyber · the new service</span>
+          <h2>A cyber brand, with Trio's DNA.</h2>
+          <a class="live-link" href="https://trio-cyber.co.il/" target="_blank" rel="noopener">Visit trio-cyber.co.il <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="stack rv">
+          <p class="big">Trio Cyber is the new service Trio is promoting: cyber solutions for businesses from the world's leading vendors, with local expert support in Hebrew. I designed its branding and its website.</p>
+          <span class="rtl-note" style="color: var(--ink)">Designed in Hebrew, right to left</span>
+        </div>
+      </div>
+      <div class="two" style="margin-top: clamp(36px, 5vw, 64px); align-items: center">
+        <div class="logo-tile rv"><img src="assets/cyber/logo.webp" alt="The Trio Cyber logo: an orange cloud with a loop, the word TRIO in deep navy and a small Cyber tag." width="768" height="148" loading="lazy"></div>
+        <div class="stack rv">
+          <p style="color:#D6CBF3">The Trio logo carries over, with a Cyber tag that makes the new service its own. The site moves from Trio's cloud blues to a deep purple, keeping the orange for every action.</p>
+          <ul class="pal" aria-label="Trio Cyber colours">
+            <li><i style="background:#001151"></i>Navy</li><li><i style="background:#FA6543"></i>Orange</li><li><i style="background:#FAAE43"></i>Amber</li><li><i style="background:#5D1DAC"></i>Purple</li><li><i style="background:#2A0352"></i>Deep violet</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cyber-dev rv">
+        <div>
+          <div class="browser">
+            <div class="bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <div class="tabs"><button type="button" aria-selected="true" tabindex="-1" style="cursor:default">trio-cyber.co.il</button></div>
+              <a class="open" href="https://trio-cyber.co.il/" target="_blank" rel="noopener">Live site ↗</a>
+            </div>
+            <div class="cscroll" tabindex="0" aria-label="Trio Cyber website design, scrollable"><img src="assets/cyber/site-d.webp" alt="The Trio Cyber website in Hebrew: a purple hero with the headline Cyber solutions for businesses, full digital security, vendor logos, a product grid, a quote form, FAQ and footer." width="1440" height="4325" loading="lazy"></div>
+          </div>
+          <p class="cap" style="margin-top:14px">Scroll inside the window to see the full page.</p>
+        </div>
+        <figure style="margin:0">
+          <div class="phone"><div class="scr" tabindex="0" aria-label="Trio Cyber website on mobile, scrollable"><img src="assets/cyber/site-m.webp" alt="The Trio Cyber website on a phone." width="780" height="11900" loading="lazy"></div></div>
+          <figcaption class="phone-cap" style="color:#fff">Mobile</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
