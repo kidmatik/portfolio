@@ -147,6 +147,7 @@ p { margin: 0; }
 .work-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
 .work-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
 .projects { display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 861px) { .projects { display: grid; grid-auto-rows: 1fr; } }
 
 .project {
   display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
