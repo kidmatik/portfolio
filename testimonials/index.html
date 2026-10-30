@@ -58,6 +58,11 @@ h1 span { color: var(--accent); }
 .quote .who { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .quote .who b { font: 600 1rem/1.2 var(--f-display); }
 .quote .who span { font-size: .88rem; color: var(--ink-soft); }
+.quote .who b { display: inline-flex; align-items: center; gap: 8px; }
+.quote .li { display: inline-flex; width: 20px; height: 20px; color: var(--ink-soft); transition: color .2s, transform .2s; }
+.quote .li svg { width: 100%; height: 100%; }
+.quote .li:hover { color: #0A66C2; transform: translateY(-1px); }
+.quote .li:focus-visible { outline: 2px solid #0A66C2; outline-offset: 3px; border-radius: 4px; }
 .quote .ini { width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--line); color: var(--ink-soft); font: 600 1rem var(--f-display); }
 .quote .src { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font: 500 .72rem/1 var(--f-mono); letter-spacing: .06em; color: var(--ink-soft); }
 .quote .src i { font-style: normal; color: #f4b400; letter-spacing: 1px; }
@@ -161,7 +166,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan is by far <mark>the most talented full-stack designer that I've ever had the pleasure to work with</mark>. He is skilled in every aspect, quick and detailed. We've built some truly incredible brands together and I am so thankful for his professionalism. Matan is an absolutely pleasure to work and truly one of a kind.</p></blockquote>
         <figcaption>
           <img src="assets/jolene-amit.webp" alt="Jolene Amit" width="56" height="56" loading="lazy">
-          <span class="who"><b>Jolene Amit</b><span>VP Marketing · Cymbio</span></span>
+          <span class="who"><b>Jolene Amit<a class="li" href="https://www.linkedin.com/in/joleneamit" target="_blank" rel="noopener noreferrer" aria-label="Jolene Amit on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>VP Marketing · Cymbio</span></span>
         </figcaption>
         <a class="cs" href="../cymbio/">Read the case study <span aria-hidden="true">→</span></a>
       </figure>
@@ -169,7 +174,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan is a pleasant, efficient, and talented designer and UX developer. At Voca AI, we worked with Matan on various projects - starting from the website, through conferences graphics and also product UX and design. Matan was, and still is, <mark>our go-to choice for UX and design</mark>. I highly recommend Matan - he is a real pro!</p></blockquote>
         <figcaption>
           <img src="assets/einav-itamar.webp" alt="Einav Itamar" width="56" height="56" loading="lazy">
-          <span class="who"><b>Einav Itamar</b><span>CEO · Voca.ai (Acquired by Snap)</span></span>
+          <span class="who"><b>Einav Itamar<a class="li" href="https://www.linkedin.com/in/1itamar/" target="_blank" rel="noopener noreferrer" aria-label="Einav Itamar on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>CEO · Voca.ai (Acquired by Snap)</span></span>
         </figcaption>
         <a class="cs" href="../voca/">Read the case study <span aria-hidden="true">→</span></a>
       </figure>
@@ -177,7 +182,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan consistently pushed us with his <mark>exceptional design skills and attention to details</mark>. His ability to transform concepts into visually stunning creations is nothing but short of remarkable.</p></blockquote>
         <figcaption>
           <img src="assets/omer-fogel.webp" alt="Omer Fogel" width="56" height="56" loading="lazy">
-          <span class="who"><b>Omer Fogel</b><span>CEO &amp; Founder · Wideview.io</span></span>
+          <span class="who"><b>Omer Fogel<a class="li" href="https://www.linkedin.com/in/omer-fogel-475558104/" target="_blank" rel="noopener noreferrer" aria-label="Omer Fogel on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>CEO &amp; Founder · Wideview.io</span></span>
         </figcaption>
         <a class="cs" href="../wideview/">Read the case study <span aria-hidden="true">→</span></a>
       </figure>
@@ -185,7 +190,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>I had the pleasure of working with Matan on the development of my website, and the experience was exceptional. Matan is a true professional who combines <mark>technical expertise with a great eye for design and user experience</mark>. He was attentive to every detail, highly responsive, and made sure the final result exceeded my expectations. If you're looking for someone talented and reliable to bring your vision to life, I highly recommend working with Matan!</p></blockquote>
         <figcaption>
           <img src="assets/eli-maurice.webp" alt="Eli Maurice" width="56" height="56" loading="lazy">
-          <span class="who"><b>Eli Maurice</b><span>Managing Director · Gate Ventures</span></span>
+          <span class="who"><b>Eli Maurice<a class="li" href="https://www.linkedin.com/in/eli-maurice/" target="_blank" rel="noopener noreferrer" aria-label="Eli Maurice on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>Managing Director · Gate Ventures</span></span>
         </figcaption>
         <a class="cs" href="https://gate-ventures.com/" target="_blank" rel="noopener">See the website <span aria-hidden="true">↗</span></a>
       </figure>
@@ -193,7 +198,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>We worked with Matan at Blings.io's initial stage. Matan helped us with design, motion graphics and videos, both for us and for our clients. <mark>Everything Matan touched looked great</mark>, and it resulted in new clients and finally with an investment. Matan will be a great asset for any startup.</p></blockquote>
         <figcaption>
           <img src="assets/yonatan-schrieber.webp" alt="Yonatan Schrieber" width="56" height="56" loading="lazy">
-          <span class="who"><b>Yonatan Schrieber</b><span>CEO &amp; Co-Founder · Blings.io</span></span>
+          <span class="who"><b>Yonatan Schrieber<a class="li" href="https://www.linkedin.com/in/yonatan-schreiber/" target="_blank" rel="noopener noreferrer" aria-label="Yonatan Schrieber on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>CEO &amp; Co-Founder · Blings.io</span></span>
         </figcaption>
         
       </figure>
@@ -201,7 +206,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan is a brilliant creative individual. He executes his vision in an exceptional manner and the results are shown! I love working with him and <mark>I highly recommend Matan to anybody who needs branding and creative ideas</mark>.</p></blockquote>
         <figcaption>
           <img src="assets/lee-shafrir.webp" alt="Lee Shafrir" width="56" height="56" loading="lazy">
-          <span class="who"><b>Lee Shafrir</b><span>VP Marketing &amp; Biz Dev · Brooks-Keret</span></span>
+          <span class="who"><b>Lee Shafrir<a class="li" href="https://www.linkedin.com/in/leeshafrir/" target="_blank" rel="noopener noreferrer" aria-label="Lee Shafrir on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>VP Marketing &amp; Biz Dev · Brooks-Keret</span></span>
         </figcaption>
         
       </figure>
@@ -209,7 +214,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan was our lead graphic designer for the class of 2019 at Techstars. He supported the companies not only with his creative input, but also helped sharpen their story and define their narrative. Even in times of immense pressure he kept a calm and positive perspective of things and got every job done often even earlier than expected. If you need any kind of creative support, <mark>Matan is your go to guy</mark>.</p></blockquote>
         <figcaption>
           <img src="assets/franka-godina.webp" alt="Franka Godina" width="56" height="56" loading="lazy">
-          <span class="who"><b>Franka Godina</b><span>Program Manager · Techstars Tel Aviv</span></span>
+          <span class="who"><b>Franka Godina<a class="li" href="https://www.linkedin.com/in/franka-godina/" target="_blank" rel="noopener noreferrer" aria-label="Franka Godina on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>Program Manager · Techstars Tel Aviv</span></span>
         </figcaption>
         
       </figure>
@@ -217,7 +222,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan did an amazing job <mark>designing to 20 different companies in such a short periods of time</mark> without compromising on quality and professionalism. It was a pleasure working with him on both a personal and professional level.</p></blockquote>
         <figcaption>
           <img src="assets/hilla-ovil-brenner.webp" alt="Hilla Ovil-Brenner" width="56" height="56" loading="lazy">
-          <span class="who"><b>Hilla Ovil-Brenner</b><span>Managing Director · Techstars Tel Aviv</span></span>
+          <span class="who"><b>Hilla Ovil-Brenner<a class="li" href="https://www.linkedin.com/in/hillao/" target="_blank" rel="noopener noreferrer" aria-label="Hilla Ovil-Brenner on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>Managing Director · Techstars Tel Aviv</span></span>
         </figcaption>
         
       </figure>
@@ -225,7 +230,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan was always very switched on, a good listener, who is resourceful to deliver UI/UX and product designs with short turnaround. He implements great ideas, whether they origin from himself or others, making him <mark>a true team player</mark>.</p></blockquote>
         <figcaption>
           <img src="assets/jens-schindler.webp" alt="Jens Schindler" width="56" height="56" loading="lazy">
-          <span class="who"><b>Jens Schindler</b><span>Director · DACH</span></span>
+          <span class="who"><b>Jens Schindler<a class="li" href="https://www.linkedin.com/in/jens-schindler-03846229/" target="_blank" rel="noopener noreferrer" aria-label="Jens Schindler on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>Director · DACH</span></span>
         </figcaption>
         
       </figure>
@@ -233,7 +238,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <blockquote><p>Matan is <mark>super efficient, fun and easy to work with</mark>. He is also really good under pressure with tight schedules. I highly recommend working with him!</p></blockquote>
         <figcaption>
           <img src="assets/yaakov-goldenhersh.webp" alt="Yaakov Goldenhersh" width="56" height="56" loading="lazy">
-          <span class="who"><b>Yaakov Goldenhersh</b><span>CEO · List Funding</span></span>
+          <span class="who"><b>Yaakov Goldenhersh<a class="li" href="https://www.linkedin.com/in/yaacov-goldenhersh-10376556/" target="_blank" rel="noopener noreferrer" aria-label="Yaakov Goldenhersh on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>CEO · List Funding</span></span>
         </figcaption>
         
       </figure>
