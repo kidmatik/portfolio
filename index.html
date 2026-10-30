@@ -173,7 +173,7 @@ a.project:hover .go span { transform: translateX(4px); }
 .cover.wv { background: var(--wv); }
 .cover.cy { background: #e9e9ec; }
 .cover.vo { background: #E8F3F9; display: grid; place-items: center; }
-.cover.vo img { object-fit: contain; height: auto; }
+.cover.vo img { object-fit: cover; object-position: center; }
 .cover.tr { background: radial-gradient(70% 80% at 85% 10%, rgb(250 101 67 / .35), transparent 70%), radial-gradient(60% 70% at 0% 100%, rgb(250 174 67 / .18), transparent 70%), #001151; display: grid; place-items: center; padding: clamp(22px, 4vw, 44px); }
 .cover.tr .tr-site { width: 86%; height: auto; max-height: 100%; border-radius: 12px; box-shadow: 0 30px 60px -20px rgb(0 0 0 / .6), 0 0 0 1px rgb(255 255 255 / .12); object-fit: cover; object-position: top; aspect-ratio: 16 / 10; transform: translateX(6%); }
 .cover.tr .tr-mark { position: absolute; left: clamp(14px, 3vw, 34px); bottom: clamp(14px, 3vw, 30px); width: clamp(84px, 11vw, 140px); height: auto; filter: drop-shadow(0 14px 28px rgb(0 0 0 / .45)); }
@@ -645,10 +645,10 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <a class="project" href="voca/">
           <div class="cover vo">
             <span class="exit">Acquired by Snap</span>
-            <img src="voca/assets/ill-hero.jpg" alt="Voca.ai hero illustration: the outlined Voca Agent reaches between two phones to a smiling customer." width="2568" height="915" loading="lazy">
+            <img src="voca/assets/ill-thumb.jpg" alt="Voca.ai hero illustration: the outlined Voca Agent reaches between two phones to a smiling customer." width="1200" height="680" loading="lazy">
           </div>
           <div class="body">
-            <span class="mono">Brand designer</span>
+            <span class="mono">Brand &amp; product designer</span>
             <h3>Voca.ai</h3>
             <p class="line">A voice AI brand built on empathy: a waveform-heart symbol, an AI agent character, a custom illustration world, website and motion.</p>
             <ul class="tags"><li>Brand identity</li><li>Illustration</li><li>Website</li><li>Motion</li></ul>
