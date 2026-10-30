@@ -278,6 +278,10 @@ a.project:hover .go span { transform: translateX(4px); }
 /* about */
 .about { border-top: 1px solid var(--line); padding-block: clamp(64px, 9vw, 112px); }
 .about-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 80px); }
+.about-side { display: flex; flex-direction: column; gap: 28px; align-self: start; position: sticky; top: 88px; }
+.about-video { margin: 0; width: min(100%, 320px); border-radius: 24px; overflow: hidden; background: #15131c; box-shadow: 0 30px 60px -30px rgb(21 19 28 / .45); }
+.about-video video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; }
+@media (max-width: 860px) { .about-side { position: static; } .about-video { width: min(100%, 300px); } }
 .about h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
 .about .text { display: flex; flex-direction: column; gap: 18px; max-width: 64ch; }
 .about .text p:first-child { font-size: 1.2rem; line-height: 1.55; }
@@ -746,7 +750,15 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   <section class="about" id="about">
     <div class="wrap">
       <div class="about-grid">
-        <h2>About</h2>
+        <div class="about-side">
+          <h2>About</h2>
+          <figure class="about-video">
+            <video controls playsinline preload="none" poster="assets/video/about-matan-poster.webp" width="720" height="1280" aria-label="Matan introduces himself in a short video">
+              <source src="assets/video/about-matan-540.mp4" type="video/mp4" media="(max-width: 760px)">
+              <source src="assets/video/about-matan.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
         <div class="text">
           <p>Hello, I'm Matan, but you can call me Kid. I'm a senior brand &amp; product designer. I help teams make clear design decisions, from the first sketch through every growth stage.</p>
           <p>My journey began at a digital agency, where I got hooked on the meeting point of technology, human behavior and data. Since then I've designed mobile apps, web platforms and brand identities, often as the only designer in the room.</p>
