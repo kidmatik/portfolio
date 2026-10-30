@@ -424,7 +424,7 @@ html.pre { overflow: hidden; }
 html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; align-items: center; justify-content: center; background: var(--paper); color: var(--ink); will-change: transform; }
 #preloader.lift { transform: translateY(-110%); transition: transform 1s cubic-bezier(.65, 0, .25, 1); }
 #preloader .pl-stage { position: relative; height: 64px; width: min(80vw, 340px); display: flex; align-items: center; justify-content: center; }
-#preloader .pl-word { position: absolute; display: flex; align-items: center; gap: 12px; font: 800 clamp(1.8rem, 4.4vw, 2.6rem)/1 "Bricolage Grotesque", var(--f-display); letter-spacing: -0.02em; white-space: nowrap; animation: pl-in .2s ease-out both; }
+#preloader .pl-word { position: absolute; display: flex; align-items: center; gap: 12px; font: 800 clamp(1.8rem, 4.4vw, 2.6rem)/1 "Bricolage Grotesque", "Heebo", "Onest", "Noto Sans JP", var(--f-display); letter-spacing: -0.02em; white-space: nowrap; animation: pl-in .2s ease-out both; }
 #preloader .pl-word i { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: none; }
 #preloader .pl-word.out { animation: pl-out .2s ease-out both; }
 @keyframes pl-in { from { opacity: 0; transform: translateY(20px); } }
@@ -531,6 +531,7 @@ html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; 
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "z4vryhoqje");
 </script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@800&family=Onest:wght@800&family=Noto+Sans+JP:wght@800&display=swap&text=%D7%A9%D7%9C%D7%95%D7%9D%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF">
 <script>
 /* preloader: greetings, once per visit. Skipped for reduced motion; the timeout is a failsafe so the page can never stay covered. */
 (function () {
@@ -1234,9 +1235,14 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
       put(words[i]);
     }, STEP);
   }
-  // wait for Bricolage Grotesque so the first greetings are never set in a fallback font (capped, so a slow font can't hold the page)
+  // wait for Bricolage Grotesque (and the Hebrew, Russian and Japanese companions) so the first greetings are never set in a fallback font (capped, so a slow font can't hold the page)
   var cap = new Promise(function (r) { setTimeout(r, 1500); });
-  var font = (document.fonts && document.fonts.load) ? document.fonts.load('800 40px "Bricolage Grotesque"') : Promise.resolve();
+  var font = (document.fonts && document.fonts.load) ? Promise.all([
+    document.fonts.load('800 40px "Bricolage Grotesque"'),
+    document.fonts.load('800 40px "Heebo"', 'שלום'),
+    document.fonts.load('800 40px "Onest"', 'Привет'),
+    document.fonts.load('800 40px "Noto Sans JP"', 'こんにちは')
+  ]) : Promise.resolve();
   Promise.race([font, cap]).then(start, start);
 })();
 </script>
