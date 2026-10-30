@@ -90,6 +90,16 @@ section { padding-block: clamp(56px, 8vw, 112px); }
 .pair2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 3vw, 36px); align-items: start; justify-items: center; }
 .pair2 .phone { max-width: 300px; }
 @media (max-width: 560px) { .pair2 { grid-template-columns: minmax(0, 1fr); } }
+.phone { position: relative; }
+.phone .screen { aspect-ratio: 360 / 640; border-radius: 25px; overflow: hidden; background: #fff; }
+.phone .screen.scroll { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: rgb(38 44 106 / .35) transparent; outline-offset: 3px; }
+.phone .screen img { border-radius: 0; cursor: default; }
+.phone .screen.scroll img { cursor: grab; }
+.phone .hint { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; background: var(--navy); color: #fff; font: 500 .72rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; pointer-events: none; box-shadow: 0 10px 24px -10px rgb(20 26 74 / .7); transition: opacity .4s, transform .4s; }
+.phone .hint svg { width: 14px; height: 14px; animation: nudge 1.4s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
+.phone.scrolled .hint { opacity: 0; transform: translate(-50%, 8px); }
+
 /* walkthrough */
 .video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #191919; box-shadow: 0 60px 90px -50px rgb(20 26 74 / .7); }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -247,9 +257,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <div class="bar"><i></i><i></i><i></i></div>
           <img src="assets/desktop-terms.webp" alt="Snippet loan application on desktop, step one, Loan terms: a borrowing amount slider set to 1,400 dollars, a term slider set to 16 months, a loan purpose dropdown, a credit score dropdown and Back and Continue buttons." width="1366" height="1088" loading="lazy" data-zoom>
         </figure>
-        <figure class="phone">
-          <img src="assets/mobile-terms.webp" alt="The same Loan terms step on mobile, with a four-step progress bar at the top and the same sliders and dropdowns stacked in one column." width="360" height="1109" loading="lazy" data-zoom>
-        </figure>
+        <figure class="phone"><div class="screen scroll" tabindex="0" role="region" aria-label="Scrollable screen: Loan terms on mobile"><img src="assets/mobile-terms.webp" alt="The same Loan terms step on mobile, with a four-step progress bar at the top and the same sliders and dropdowns stacked in one column." width="360" height="1109" loading="lazy" draggable="false"></div><span class="hint" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M4 9l4 4 4-4"/></svg>Scroll the screen</span></figure>
       </div>
       <p class="cap rv">Step 1 of 4, Loan info, on desktop and mobile.</p>
     </div>
@@ -263,7 +271,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <p class="soft">The first screen explains the idea in a few lines, then lets visitors pick their region, the US site or the Japanese one, so the same product speaks both languages.</p>
       </div>
       <div class="pair rv">
-        <figure class="phone"><img src="assets/mobile-region.webp" alt="Snippet mobile entry screen: the headline Helping People to Raise their Financial Wellbeing, a short description, US Site and JP Site buttons and a photo of people playing tug of war." width="360" height="640" loading="lazy" data-zoom></figure>
+        <figure class="phone"><div class="screen"><img src="assets/mobile-region.webp" alt="Snippet mobile entry screen: the headline Helping People to Raise their Financial Wellbeing, a short description, US Site and JP Site buttons and a photo of people playing tug of war." width="360" height="640" loading="lazy" draggable="false"></div></figure>
         <figure class="frame photo"><img src="assets/tablet.webp" alt="A tablet resting by a swimming pool, showing the Snippet loan terms step with a borrowing amount slider." width="1600" height="1066" loading="lazy" data-zoom></figure>
       </div>
     </div>
@@ -277,8 +285,8 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         <p class="soft">The Japanese site keeps the structure and the guided steps, and adapts the details: yen amounts, Japanese labels, a start-date field and a co-branded header with 横浜銀行 (Bank of Yokohama) under the FuturePay name.</p>
       </div>
       <div class="pair2 rv">
-        <figure class="phone"><img src="assets/jp-home.webp" alt="Japanese mobile home screen: the FuturePay headline, buttons for employees and employers, and a photo of a smiling worker in a hard hat, under the Bank of Yokohama logo." width="360" height="636" loading="lazy" data-zoom></figure>
-        <figure class="phone"><img src="assets/jp-terms.webp" alt="Japanese Loan terms step on mobile: amount in 10,000-yen units, a 16-month term, loan purpose, start date and the buttons Back and Next." width="360" height="1199" loading="lazy" data-zoom></figure>
+        <figure class="phone"><div class="screen"><img src="assets/jp-home.webp" alt="Japanese mobile home screen: the FuturePay headline, buttons for employees and employers, and a photo of a smiling worker in a hard hat, under the Bank of Yokohama logo." width="360" height="636" loading="lazy" draggable="false"></div></figure>
+        <figure class="phone"><div class="screen scroll" tabindex="0" role="region" aria-label="Scrollable screen: Japanese Loan terms step on mobile"><img src="assets/jp-terms.webp" alt="Japanese Loan terms step on mobile: amount in 10,000-yen units, a 16-month term, loan purpose, start date and the buttons Back and Next." width="360" height="1199" loading="lazy" draggable="false"></div><span class="hint" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v10M4 9l4 4 4-4"/></svg>Scroll the screen</span></figure>
       </div>
     </div>
   </section>
@@ -329,6 +337,9 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: .12 });
     els.forEach(function (e) { io.observe(e); });
   }
+  document.querySelectorAll('.screen.scroll').forEach(function (el) {
+    el.addEventListener('scroll', function () { if (el.scrollTop > 24) el.parentNode.classList.add('scrolled'); }, { passive: true });
+  });
   var lb = document.getElementById('lightbox'), lbImg = document.createElement('img'); lb.appendChild(lbImg);
   document.querySelectorAll('[data-zoom]').forEach(function (img) {
     img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
