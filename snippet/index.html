@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Snippet Loan Platform Case Study – Product Design | Matan Kidrony</title>
+<meta name="description" content="Product design for Snippet Finance by Matan Kidrony: the corporate website and the loan application platform, desktop and mobile, in English and Japanese.">
+<link rel="canonical" href="https://kidmatik.github.io/portfolio/snippet/">
+<meta name="author" content="Matan Kidrony">
+<meta property="og:url" content="https://kidmatik.github.io/portfolio/snippet/">
+<meta property="og:site_name" content="Matan Kidrony">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta property="og:title" content="Snippet Loan Platform Case Study | Matan Kidrony">
+<meta property="og:description" content="Financing on fairer terms: the website and loan application platform for Snippet Finance.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/snippet/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Snippet: the brand's own palette (deep navy, sky blue, a leaf-green accent) on a clean, airy page. Single theme on purpose. */
+:root {
+  --paper: #FFFFFF; --mist: #F1F6FB; --ink: #1C2260; --soft: #55608A; --line: #DCE5F1;
+  --navy: #262C6A; --sky: #85D6F4; --leaf: #8DC63F; --deep: #141A4A;
+  --f-head: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 26px;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.7 var(--f-body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--navy); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 8px; }
+.wrap { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2 { font-family: var(--f-head); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 0; text-wrap: balance; color: var(--navy); }
+h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+p { margin: 0; }
+.label { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--soft); display: inline-flex; align-items: center; gap: 12px; }
+.label::before { content: ""; width: 28px; height: 2px; background: var(--leaf); }
+.js .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+.js .rv.in { opacity: 1; transform: none; }
+
+/* hero */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(180deg, #F1F6FB 0%, #fff 100%); padding-block: clamp(48px, 7vw, 96px) clamp(40px, 6vw, 80px); }
+.hero::before { content: ""; position: absolute; z-index: -1; right: -12%; top: -20%; width: min(80vw, 820px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, rgb(133 214 244 / .5), transparent 70%); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(24px, 5vw, 72px); align-items: center; }
+.hero-text { display: flex; flex-direction: column; gap: 26px; }
+h1 { font-size: clamp(3rem, 7.6vw, 6.4rem); line-height: .9; letter-spacing: -0.04em; }
+h1 em { font-style: normal; color: var(--navy); background: linear-gradient(transparent 62%, var(--sky) 62%, var(--sky) 92%, transparent 92%); }
+.lede { font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.65; color: var(--soft); max-width: 32em; }
+.meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 8px 0 0; padding-top: 22px; border-top: 1px solid var(--line); }
+.meta div { display: flex; flex-direction: column; gap: 6px; }
+.meta dt { font: 500 .68rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--soft); }
+.meta dd { margin: 0; font-weight: 600; font-size: .95rem; line-height: 1.35; color: var(--ink); }
+.logo-card { background: #fff; border-radius: var(--radius); box-shadow: 0 50px 80px -50px rgb(38 44 106 / .5), 0 0 0 1px var(--line); padding: clamp(12px, 3vw, 36px); }
+.logo-card img { width: 100%; }
+
+section { padding-block: clamp(56px, 8vw, 112px); }
+.mist { background: var(--mist); }
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.big { font: 500 clamp(1.2rem, 2.1vw, 1.55rem)/1.45 var(--f-head); color: var(--ink); letter-spacing: -0.01em; }
+.soft { color: var(--soft); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.chips span { font: 500 .74rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: 10px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: var(--navy); }
+.frame { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; box-shadow: 0 50px 80px -50px rgb(38 44 106 / .45), 0 0 0 1px var(--line); }
+.frame img { width: 100%; cursor: zoom-in; transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+.frame:hover img { transform: scale(1.025); }
+.cap { font: 500 .74rem/1.5 var(--f-mono); letter-spacing: .04em; color: var(--soft); margin-top: 14px; }
+.head { display: flex; flex-direction: column; gap: 18px; max-width: 760px; margin-bottom: clamp(28px, 4vw, 52px); }
+
+/* walkthrough */
+.video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #191919; box-shadow: 0 60px 90px -50px rgb(20 26 74 / .7); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.cta { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; margin-top: 8px; padding: 14px 24px; border-radius: 999px; background: var(--navy); color: #fff; text-decoration: none; font: 600 1rem/1 var(--f-body); transition: transform .2s, background .2s; }
+.cta:hover { background: var(--deep); transform: translateY(-2px); }
+.cta svg { width: 16px; height: 16px; }
+
+/* outro */
+.outro { background: var(--deep); color: #fff; position: relative; isolation: isolate; overflow: hidden; }
+.outro::before { content: ""; position: absolute; z-index: -1; right: -10%; bottom: -60%; width: min(90vw, 800px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, rgb(133 214 244 / .3), transparent 70%); }
+.outro h2 { color: #fff; } .outro .label { color: #9FB3E0; }
+.next { display: flex; flex-direction: column; gap: 6px; margin-top: 18px; }
+.next a { color: #fff; font: 800 clamp(1.8rem, 4.2vw, 3.2rem)/1.05 var(--f-head); letter-spacing: -0.03em; text-decoration: none; }
+.next a:hover { color: var(--sky); }
+footer { padding-block: 28px; font: 500 .78rem var(--f-mono); color: var(--soft); border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+footer a { color: var(--navy); }
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
+dialog.lb::backdrop { background: rgb(20 26 74 / .92); }
+dialog.lb img { max-width: 94vw; max-height: 88vh; border-radius: 14px; background: #fff; }
+dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button { background: #fff; color: var(--navy); border: 0; border-radius: 999px; padding: 8px 14px; font: 600 .8rem var(--f-body); cursor: pointer; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .two { grid-template-columns: minmax(0, 1fr); }
+  .meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  h1 { font-size: clamp(2.8rem, 14vw, 4.4rem); }
+}
+
+/* shared site header (same on every page) */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #e5701a; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
+</style>
+<script>
+/* Microsoft Clarity: heatmaps, recordings and basic stats */
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "z4vryhoqje");
+</script>
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
+  </div>
+</header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
+      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+        <a href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download><small>PDF</small>Download CV</a>
+  </nav>
+</div>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="label">Product design · Snippet Finance</span>
+        <h1 aria-label="Financing on fairer terms."><span>Financing on</span> <em>fairer</em> terms.</h1>
+        <p class="lede">The corporate website and the loan application platform for Snippet Finance, designed for desktop and mobile, in English and Japanese.</p>
+        <dl class="meta">
+          <div><dt>Client</dt><dd>Snippet Finance</dd></div>
+          <div><dt>Role</dt><dd>Senior Brand &amp; Product Designer</dd></div>
+          <div><dt>Scope</dt><dd>Website, loan application platform</dd></div>
+          <div><dt>Year</dt><dd>2019</dd></div>
+        </dl>
+      </div>
+      <div class="logo-card"><img src="assets/logo.webp" alt="The Snippet logo: a bold navy wordmark whose letters overlap in sky blue, with a small green leaf on the i." width="1320" height="760"></div>
+    </div>
+  </div>
+
+  <section id="mission">
+    <div class="wrap two">
+      <div class="stack rv">
+        <span class="label">The mission</span>
+        <h2>Design the platform that lends fairly.</h2>
+      </div>
+      <div class="stack rv">
+        <p class="big">Design the loan application platform and the front-end website for Snippet Finance. Snippet helps employees access financing on fairer terms.</p>
+        <p class="soft">By deducting a small amount (a “snippet”) from salary each month towards loan repayment, Snippet provides an affordable way to consolidate debt or top up finances when needed. This is some of the work created throughout 2019.</p>
+        <div class="chips" aria-label="Scope"><span>Corporate website</span><span>Loan application platform</span><span>Desktop &amp; mobile</span><span>English &amp; Japanese</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="system" class="mist">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="label">The system</span>
+        <h2>One site, one platform, every screen.</h2>
+        <p class="soft">The marketing pages, the employee journey and the application flow share one clean visual language, from the laptop down to the phone.</p>
+      </div>
+      <figure class="frame rv"><img src="assets/system.webp" alt="Isometric overview of the Snippet screens: a laptop with the website hero, an employee dashboard with a chart, a tablet and a phone with the loan app, and several blue and white landing pages." width="1900" height="1235" loading="lazy" data-zoom></figure>
+    </div>
+  </section>
+
+  <section id="mobile">
+    <div class="wrap two">
+      <div class="stack rv">
+        <span class="label">Loan terms on mobile</span>
+        <h2>How much would you like to borrow?</h2>
+        <p class="soft">The application is a short, guided flow. Each step asks one thing, shows progress at the top and keeps the amount, the loan terms and the next action in view, even on a small screen.</p>
+      </div>
+      <figure class="frame rv"><img src="assets/tablet.webp" alt="A tablet resting by a swimming pool, showing the Snippet loan terms step with a borrowing amount slider set to 1,400 dollars." width="1600" height="1066" loading="lazy" data-zoom></figure>
+    </div>
+  </section>
+
+  <section id="walkthrough" class="mist">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="label">Walkthrough</span>
+        <h2>See the application flow.</h2>
+        <a class="cta" href="https://snippetfinance.com/Employees" target="_blank" rel="noopener">Enter the Snippet website
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12L12 4M5 4h7v7"/></svg></a>
+      </div>
+      <div class="video rv"><iframe src="https://www-ccv.adobe.io/v1/player/ccv/VrCx-JyYCQN/embed?bgcolor=%23191919&amp;lazyLoading=true&amp;api_key=BehancePro2View" title="Snippet loan application walkthrough" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
+  </section>
+
+  <section class="outro" id="next">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:0">
+        <span class="label">Next</span>
+        <h2>Got a product that needs to feel this clear?</h2>
+        <div class="next">
+          <a href="../#contact">Let's talk →</a>
+          <a href="../#work">More case studies</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Matan Kidrony</span>
+    <span><a href="../">All projects</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+<dialog class="lb" id="lightbox" aria-label="Enlarged image">
+  <form method="dialog"><button type="submit">Close ✕</button></form>
+</dialog>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+  var els = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(function (e) { e.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }); }, { threshold: .12 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  var lb = document.getElementById('lightbox'), lbImg = document.createElement('img'); lb.appendChild(lbImg);
+  document.querySelectorAll('[data-zoom]').forEach(function (img) {
+    img.addEventListener('click', function () { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt; if (lb.showModal) lb.showModal(); });
+  });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+</body>
+</html>
