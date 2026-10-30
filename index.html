@@ -215,12 +215,13 @@ a.project:hover .go span { transform: translateX(4px); }
 .spot-sticker { position: absolute; z-index: 3; top: clamp(14px, 2.4vw, 30px); right: clamp(14px, 3.4vw, 44px); margin: 0; display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px 9px 12px; background: #fff; color: #15131c; border-radius: 14px; font: 800 .82rem/1.1 var(--f-display); letter-spacing: -0.01em; transform: rotate(5deg); box-shadow: 3px 3px 0 var(--accent); pointer-events: none; }
 .spot-sticker svg { flex: none; color: var(--accent); }
 /* more companies, after the project names */
-.spot-more { width: 100%; max-width: 980px; margin-top: clamp(24px, 4vw, 44px); padding-top: 28px; border-top: 1px solid rgb(255 255 255 / .12); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.spot-more { width: 100%; max-width: 1100px; margin-top: clamp(24px, 4vw, 44px); padding-top: 28px; border-top: 1px solid rgb(255 255 255 / .12); display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
 .spot-more .mono { color: #a9a5b8; }
 .spot-more ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 0; }
-.spot-more li { font: 700 clamp(1.05rem, 1.7vw, 1.35rem)/1.5 var(--f-display); letter-spacing: -0.01em; color: #ECE9F5; }
+.spot-more li { font: 700 clamp(.9rem, 1.4vw, 1.1rem)/1.5 var(--f-display); letter-spacing: -0.01em; color: #ECE9F5; }
 .spot-more li + li::before { content: "·"; margin-inline: .6em; color: var(--accent); }
-.spot-more li.and { color: var(--accent); font-weight: 500; }
+.spot-more li.and { color: #fff; font-weight: 500; }
+@media (min-width: 861px) { .spot-more ul { flex-wrap: nowrap; white-space: nowrap; } }
 @media (hover: none), (max-width: 760px) {
   .spot-cards { display: none; }
   .spot { padding: 56px 24px; }
