@@ -417,6 +417,18 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @keyframes tools-scroll { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .tools-run { animation: none; } .tools-track { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tools[aria-hidden="true"] { display: none; } }
+
+/* preloader: a rapid hello in six languages, then the cover lifts away */
+#preloader { display: none; }
+html.pre { overflow: hidden; }
+html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; align-items: center; justify-content: center; background: var(--paper); color: var(--ink); will-change: transform; }
+#preloader.lift { transform: translateY(-110%); transition: transform 1s cubic-bezier(.65, 0, .25, 1); }
+#preloader .pl-stage { position: relative; height: 64px; width: min(80vw, 340px); display: flex; align-items: center; justify-content: center; }
+#preloader .pl-word { position: absolute; display: flex; align-items: center; gap: 12px; font: 600 clamp(1.8rem, 4.4vw, 2.6rem)/1 var(--f-display); letter-spacing: -0.02em; white-space: nowrap; animation: pl-in .2s ease-out both; }
+#preloader .pl-word i { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: none; }
+#preloader .pl-word.out { animation: pl-out .2s ease-out both; }
+@keyframes pl-in { from { opacity: 0; transform: translateY(20px); } }
+@keyframes pl-out { to { opacity: 0; transform: translateY(-100px); } }
 </style>
 <script type="application/ld+json">
 {
@@ -519,8 +531,17 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "z4vryhoqje");
 </script>
+<script>
+/* preloader: greetings, once per visit. Skipped for reduced motion; the timeout is a failsafe so the page can never stay covered. */
+(function () {
+  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('mkPre')) return; } catch (e) {}
+  document.documentElement.classList.add('pre');
+  setTimeout(function () { document.documentElement.classList.remove('pre'); }, 7000);
+})();
+</script>
 </head>
 <body>
+<div id="preloader" aria-hidden="true"><div class="pl-stage"></div></div>
 
 <header class="mk-bar">
   <div class="mk-bar-in">
@@ -1183,6 +1204,37 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
 })();
 </script>
 <script>
+/* preloader sequence */
+(function () {
+  var root = document.documentElement, el = document.getElementById('preloader');
+  if (!el || !root.classList.contains('pre')) return;
+  var stage = el.querySelector('.pl-stage');
+  var words = ['Hello', 'Hola', 'Ciao', 'Привет', 'こんにちは', 'שלום'], i = 0, cur = null, STEP = 300;
+  function put(text) {
+    var prev = cur;
+    if (prev) { prev.classList.add('out'); setTimeout(function () { prev.remove(); }, 220); }
+    cur = document.createElement('div'); cur.className = 'pl-word';
+    var dot = document.createElement('i'), t = document.createElement('span'); t.textContent = text;
+    cur.appendChild(dot); cur.appendChild(t); stage.appendChild(cur);
+  }
+  function finish() {
+    el.classList.add('lift');
+    setTimeout(function () { document.dispatchEvent(new Event('mk-pre-done')); }, 350);
+    setTimeout(function () {
+      root.classList.remove('pre');
+      try { sessionStorage.setItem('mkPre', '1'); } catch (e) {}
+      el.remove();
+    }, 1050);
+  }
+  put(words[0]);
+  var timer = setInterval(function () {
+    i++;
+    if (i >= words.length) { clearInterval(timer); setTimeout(finish, 450); return; }
+    put(words[i]);
+  }, STEP);
+})();
+</script>
+<script>
 /* headline: one sentence at a time. Every letter is in the layout from the start and typing only reveals it,
    so nothing can reflow, jump or change height while it types or erases. */
 (function () {
@@ -1233,7 +1285,8 @@ document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
     });
   }
   show(0, 0);
-  cycle();
+  if (document.documentElement.classList.contains('pre')) document.addEventListener('mk-pre-done', cycle, { once: true });
+  else cycle();
 })();
 </script>
 </body>
