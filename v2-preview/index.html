@@ -525,8 +525,11 @@ html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; 
 .proof .who { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .proof .who b { font: 600 1rem/1.2 var(--f-display); }
 .proof .who span { font-size: .88rem; color: var(--ink-soft); }
-.proof-more { display: inline-flex; margin-top: 28px; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; background: var(--ink); color: var(--paper); text-decoration: none; font: 600 15px var(--f-body); }
-.proof-more:hover { background: var(--accent); color: #15131c; }
+.proof .who b { display: inline-flex; align-items: center; gap: 8px; }
+.proof .li { display: inline-flex; width: 20px; height: 20px; color: var(--ink-soft); transition: color .2s, transform .2s; }
+.proof .li svg { width: 100%; height: 100%; }
+.proof .li:hover { color: #0A66C2; transform: translateY(-1px); }
+.proof .li:focus-visible { outline: 2px solid #0A66C2; outline-offset: 3px; border-radius: 4px; }
 @media (max-width: 960px) { .t-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>
 <script type="application/ld+json">
@@ -925,25 +928,24 @@ html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; 
           <blockquote><p>Matan is by far <mark>the most talented full-stack designer that I've ever had the pleasure to work with</mark>. He is skilled in every aspect, quick and detailed. We've built some truly incredible brands together and I am so thankful for his professionalism.</p></blockquote>
           <figcaption>
             <img src="testimonials/assets/jolene-amit.webp" alt="Jolene Amit" width="56" height="56" loading="lazy">
-            <span class="who"><b>Jolene Amit</b><span>VP Marketing · Cymbio</span></span>
+            <span class="who"><b>Jolene Amit<a class="li" href="https://www.linkedin.com/in/joleneamit" target="_blank" rel="noopener noreferrer" aria-label="Jolene Amit on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>VP Marketing · Cymbio</span></span>
           </figcaption>
         </figure>
         <figure class="quote">
           <blockquote><p>Matan is a pleasant, efficient, and talented designer and UX developer. Matan was, and still is, <mark>our go-to choice for UX and design</mark>. I highly recommend Matan - he is a real pro!</p></blockquote>
           <figcaption>
             <img src="testimonials/assets/einav-itamar.webp" alt="Einav Itamar" width="56" height="56" loading="lazy">
-            <span class="who"><b>Einav Itamar</b><span>CEO · Voca.ai</span></span>
+            <span class="who"><b>Einav Itamar<a class="li" href="https://www.linkedin.com/in/1itamar/" target="_blank" rel="noopener noreferrer" aria-label="Einav Itamar on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>CEO · Voca.ai</span></span>
           </figcaption>
         </figure>
         <figure class="quote">
           <blockquote><p>Matan consistently pushed us with his <mark>exceptional design skills and attention to details</mark>. His ability to transform concepts into visually stunning creations is nothing but short of remarkable.</p></blockquote>
           <figcaption>
             <img src="testimonials/assets/omer-fogel.webp" alt="Omer Fogel" width="56" height="56" loading="lazy">
-            <span class="who"><b>Omer Fogel</b><span>CEO &amp; Founder · Wideview.io</span></span>
+            <span class="who"><b>Omer Fogel<a class="li" href="https://www.linkedin.com/in/omer-fogel-475558104/" target="_blank" rel="noopener noreferrer" aria-label="Omer Fogel on LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></b><span>CEO &amp; Founder · Wideview.io</span></span>
           </figcaption>
         </figure>
       </div>
-      <a class="proof-more" href="testimonials/">Read more testimonials <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
