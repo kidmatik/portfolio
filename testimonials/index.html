@@ -71,6 +71,13 @@ h1 span { color: var(--accent); }
 .quote .cs span { transition: transform .2s ease; }
 .quote .cs:hover span { transform: translateX(4px); }
 
+.mentor { scroll-margin-top: 84px; margin-bottom: clamp(56px, 8vw, 104px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 80px); align-items: start; padding-top: clamp(32px, 5vw, 56px); border-top: 1px solid var(--line); }
+.mentor-head { display: flex; flex-direction: column; gap: 12px; }
+.mentor h2 { font: 800 clamp(1.5rem, 2.6vw, 2.1rem)/1.12 var(--f-display); letter-spacing: -0.02em; margin: 0; }
+.mentor-head p { margin: 0; color: var(--ink-soft); line-height: 1.55; }
+.mentor .go { margin-top: 6px; font: 600 15px var(--f-body); color: var(--accent-ink); text-decoration: none; display: inline-flex; gap: 8px; }
+.adp { width: 100%; height: 560px; border: 0; border-radius: 16px; background: #fff; }
+@media (max-width: 860px) { .mentor { grid-template-columns: minmax(0, 1fr); } .adp { height: 620px; } }
 .cta { margin-bottom: clamp(72px, 10vw, 120px); background: #15131c; color: #fff; border-radius: clamp(24px, 4vw, 40px); padding: clamp(32px, 5vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
 .cta h2 { margin: 0; font: 800 clamp(1.7rem, 3.4vw, 2.6rem)/1.1 var(--f-display); letter-spacing: -0.02em; }
 .cta h2 span { color: #e5701a; }
@@ -83,7 +90,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 /* shared site header: identical on every page */
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
-.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 700 28px/1 "Caveat", "Bricolage Grotesque", "Segoe UI", cursive; letter-spacing: 0; white-space: nowrap; }
 .mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
 .mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
 .mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
@@ -91,7 +98,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 .mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
 .mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
 @media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
-@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 25px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
 @media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
 @media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
 /* mobile menu: hamburger + full-screen overlay (shared on every page) */
@@ -123,6 +130,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "z4vryhoqje");
 </script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap&text=Matan%20Kidrony">
 </head>
 <body>
 
@@ -131,7 +139,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
     <nav class="mk-nav" aria-label="Site">
       <a href="../#work">Case Studies</a>
-      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../side-projects/">Side projects</a>
       <a class="mk-wide" href="../#about">About</a>
       <a class="mk-wide" href="../testimonials/" aria-current="page">Testimonials</a>
       <a class="mk-cta" href="../#contact">Contact</a>
@@ -146,7 +154,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   </div>
   <nav aria-label="Site">
       <a href="../#work"><small>01</small>Case Studies</a>
-      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../side-projects/"><small>02</small>Side projects</a>
       <a href="../#about"><small>03</small>About</a>
       <a href="../testimonials/" aria-current="page"><small>04</small>Testimonials</a>
       <a href="../#contact"><small>05</small>Contact</a>
@@ -258,6 +266,15 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
           <span class="who"><b>David Biegeleisen</b><span>Google review · 5 stars</span></span>
         </figcaption>
       </figure>
+    </section>
+    <section class="mentor" id="adplist" aria-labelledby="adp-h">
+      <div class="mentor-head">
+        <span class="mono">Mentoring</span>
+        <h2 id="adp-h">What mentees say on ADPList</h2>
+        <p>Today I keep mentoring and teaching designers and founders to save time, boost creativity and work smarter, with less friction.</p>
+        <a class="go" href="https://adplist.org/mentors/matan-kidrony" target="_blank" rel="noopener">Book a session on ADPList <span aria-hidden="true">↗</span></a>
+      </div>
+      <iframe class="adp" src="https://adplist.org/widgets/reviews?src=matan-kidrony" title="Matan Kidrony's mentee reviews on ADPList" loading="lazy"></iframe>
     </section>
     <section class="cta">
       <h2>Your company could be <span>next.</span></h2>

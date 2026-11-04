@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Side Projects | Matan Kidrony | מתן קידרוני</title>
+<meta name="description" content="Side projects by Matan Kidrony: AI products and tools I build for fun, including OnePager.Fun and a UX Analysis Audit for SaaS products.">
+<link rel="canonical" href="https://kidmatik.github.io/portfolio/side-projects/">
+<meta name="author" content="Matan Kidrony">
+<meta property="og:url" content="https://kidmatik.github.io/portfolio/side-projects/">
+<meta property="og:site_name" content="Matan Kidrony">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Side Projects | Matan Kidrony">
+<meta property="og:description" content="Things I build for fun: AI products and tools by Matan Kidrony.">
+<meta property="og:image" content="https://kidmatik.github.io/portfolio/assets/og-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a wall of quotes. Masonry columns of cards; each card highlights the one phrase
+   that says it best, and links to the case study when there is one. */
+:root {
+  --ink: #15131c; --ink-soft: #5a5666; --paper: #f3f3f5; --surface: #ffffff; --line: #e2e1e7;
+  --accent: #e5701a; --accent-ink: #b4520a; --mark: #fde3cc;
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #e5701a; --accent-ink: #f6a865; --mark: #4a2a12; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #e5701a; --accent-ink: #f6a865; --mark: #4a2a12; color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--f-body); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1 { font: 800 clamp(2.6rem, 6vw, 5rem)/1.02 var(--f-display); letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+h1 span { color: var(--accent); }
+.mono { font: 500 .74rem/1.2 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.intro { padding-block: clamp(56px, 8vw, 104px) clamp(36px, 5vw, 56px); display: flex; flex-direction: column; gap: 22px; }
+.intro p { margin: 0; max-width: 54ch; color: var(--ink-soft); font-size: clamp(1.05rem, 1.5vw, 1.25rem); }
+.stars { display: inline-flex; align-items: center; gap: 10px; }
+.stars i { font-style: normal; color: #f4b400; letter-spacing: 2px; font-size: 1.1rem; }
+
+.wall { columns: 3 320px; column-gap: 22px; padding-bottom: clamp(56px, 8vw, 96px); }
+.quote { break-inside: avoid; margin: 0 0 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px 26px 24px; display: flex; flex-direction: column; gap: 22px; position: relative; }
+.quote::before { content: "\201C"; position: absolute; top: 6px; right: 20px; font: 800 4.5rem/1 var(--f-display); color: var(--accent); opacity: .22; pointer-events: none; }
+.quote blockquote { margin: 0; }
+.quote p { margin: 0; font-size: 1.02rem; line-height: 1.65; }
+.quote mark { background: linear-gradient(transparent 55%, var(--mark) 55%); color: inherit; font-weight: 600; padding: 0 .1em; }
+.quote figcaption { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+.quote figcaption img { width: 52px; height: 52px; border-radius: 50%; flex: none; filter: grayscale(1); }
+.quote .who { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.quote .who b { font: 600 1rem/1.2 var(--f-display); }
+.quote .who span { font-size: .88rem; color: var(--ink-soft); }
+.quote .who b { display: inline-flex; align-items: center; gap: 8px; }
+.quote .li { display: inline-flex; width: 20px; height: 20px; color: var(--ink-soft); transition: color .2s, transform .2s; }
+.quote .li svg { width: 100%; height: 100%; }
+.quote .li:hover { color: #0A66C2; transform: translateY(-1px); }
+.quote .li:focus-visible { outline: 2px solid #0A66C2; outline-offset: 3px; border-radius: 4px; }
+.quote .ini { width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--line); color: var(--ink-soft); font: 600 1rem var(--f-display); }
+.quote .src { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font: 500 .72rem/1 var(--f-mono); letter-spacing: .06em; color: var(--ink-soft); }
+.quote .src i { font-style: normal; color: #f4b400; letter-spacing: 1px; }
+.quote blockquote[dir="rtl"] p { text-align: right; font-size: 1.05rem; }
+.quote .cs { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; font: 600 14px var(--f-body); color: var(--accent-ink); text-decoration: none; }
+.quote .cs span { transition: transform .2s ease; }
+.quote .cs:hover span { transform: translateX(4px); }
+
+.cta { margin-bottom: clamp(72px, 10vw, 120px); background: #15131c; color: #fff; border-radius: clamp(24px, 4vw, 40px); padding: clamp(32px, 5vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta h2 { margin: 0; font: 800 clamp(1.7rem, 3.4vw, 2.6rem)/1.1 var(--f-display); letter-spacing: -0.02em; }
+.cta h2 span { color: #e5701a; }
+.cta a { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #e5701a; color: #15131c; text-decoration: none; font: 600 16px var(--f-body); }
+.cta a:hover { background: #ffad66; }
+footer { border-top: 1px solid var(--line); padding-block: 28px; font: 400 .85rem var(--f-mono); color: var(--ink-soft); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+@media (max-width: 760px) { footer a { display: inline-flex; align-items: center; min-height: 44px; } }
+
+/* shared site header: identical on every page */
+.mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
+.mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 700 28px/1 "Caveat", "Bricolage Grotesque", "Segoe UI", cursive; letter-spacing: 0; white-space: nowrap; }
+.mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
+.mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
+.mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
+.mk-nav a.mk-cta { margin-left: 6px; background: #15131c; color: #fff; }
+.mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
+.mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
+@media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 25px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
+/* mobile menu: hamburger + full-screen overlay (shared on every page) */
+.mk-burger { display: none; margin-left: auto; width: 44px; height: 44px; border: 0; border-radius: 12px; background: #15131c; color: #fff; cursor: pointer; place-items: center; -webkit-tap-highlight-color: transparent; }
+.mk-burger span { position: relative; display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before, .mk-burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; border-radius: 2px; }
+.mk-burger span::before { top: -6px; } .mk-burger span::after { top: 6px; }
+.mk-menu { position: fixed; inset: 0; z-index: 60; background: #15131c; color: #fff; display: flex; flex-direction: column; padding: env(safe-area-inset-top, 0px) max(20px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+.mk-menu.open { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.mk-menu-top { height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.mk-menu-top .mk-logo { color: #fff; }
+.mk-close { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: #15131c; cursor: pointer; font: 500 22px/1 system-ui, sans-serif; display: grid; place-items: center; }
+.mk-menu nav { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+.mk-menu nav a { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; color: #fff; text-decoration: none; font: 800 clamp(2.2rem, 10vw, 3rem)/1.05 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.03em; border-bottom: 1px solid rgb(255 255 255 / .08); opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .35s ease, color .2s ease; }
+.mk-menu nav a small { font: 500 .72rem/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .1em; color: #a9a5b8; }
+.mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #e5701a; }
+.mk-menu.open nav a { opacity: 1; transform: none; }
+.mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+@media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
+@media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
+html.mk-lock, html.mk-lock body { overflow: hidden; }
+
+/* side projects */
+.side-page { padding-block: clamp(8px, 2vw, 24px) clamp(72px, 10vw, 128px); }
+.side-page h2 { display: none; }
+.side-page .work-head { display: none; }
+.side-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.project { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; text-decoration: none; color: inherit; transition: transform .25s ease, box-shadow .25s ease; }
+a.project:hover { transform: translateY(-3px); box-shadow: 0 24px 48px -28px rgb(21 19 28 / .35); }
+a.project:hover .go span { transform: translateX(4px); }
+.project .cover { position: relative; overflow: hidden; aspect-ratio: 16 / 10; background: var(--paper); border-bottom: 1px solid var(--line); }
+.project .cover img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.project .body { padding: clamp(22px, 3vw, 34px); display: flex; flex-direction: column; gap: 14px; }
+.project h3 { font: 800 clamp(1.5rem, 2.4vw, 2rem)/1.1 var(--f-display); letter-spacing: -0.02em; margin: 0; }
+.project .line { margin: 0; color: var(--ink-soft); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.tags li { font: 500 .72rem/1 var(--f-mono); padding: 7px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft); }
+.go { margin-top: 8px; font: 600 15px var(--f-body); color: var(--accent-ink); display: inline-flex; gap: 8px; align-items: center; }
+.go span { display: inline-block; transition: transform .2s ease; }
+.project[hidden] { display: none !important; }
+@media (max-width: 760px) { .side-grid { grid-template-columns: minmax(0, 1fr); } }
+</style>
+<script>
+/* Microsoft Clarity: heatmaps, recordings and basic stats */
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "z4vryhoqje");
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap&text=Matan%20Kidrony">
+</head>
+<body>
+
+<header class="mk-bar">
+  <div class="mk-bar-in">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <nav class="mk-nav" aria-label="Site">
+      <a href="../#work">Case Studies</a>
+      <a class="mk-wide" href="../side-projects/" aria-current="page">Side projects</a>
+      <a class="mk-wide" href="../#about">About</a>
+      <a class="mk-wide" href="../testimonials/">Testimonials</a>
+      <a class="mk-cta" href="../#contact">Contact</a>
+    </nav>
+    <button class="mk-burger" id="mkOpen" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mkMenu"><span></span></button>
+  </div>
+</header>
+<div class="mk-menu" id="mkMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="mk-menu-top">
+    <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
+    <button class="mk-close" id="mkClose" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <nav aria-label="Site">
+      <a href="../#work"><small>01</small>Case Studies</a>
+      <a href="../side-projects/" aria-current="page"><small>02</small>Side projects</a>
+      <a href="../#about"><small>03</small>About</a>
+      <a href="../testimonials/"><small>04</small>Testimonials</a>
+      <a href="../#contact"><small>05</small>Contact</a>
+        <a href="../assets/cv/Matan_Kidrony_CV_Senior_Brand_Product.pdf" download><small>PDF</small>Download CV</a>
+  </nav>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="intro">
+      <span class="mono">Things I build for fun</span>
+      <h1>Side <span>projects</span></h1>
+      <p>Small AI products and tools I design and build on the side, to learn faster and to scratch my own itches.</p>
+    </div>
+    <section class="side-page" id="side">
+    <div>
+      <div class="work-head">
+        <h2>Side projects</h2>
+        <span class="mono">Things I build for fun</span>
+      </div>
+      <div class="side-grid">
+        <a class="project" href="https://onepager.fun/" target="_blank" rel="noopener">
+          <div class="cover"><img src="../assets/side/onepager.jpg" alt="OnePager.Fun homepage: Creating your company one-pager should be fun, with an AI prompt box over a beach photo." width="1200" height="750" loading="lazy"></div>
+          <div class="body">
+            <span class="mono">onepager.fun</span>
+            <h3>OnePager.Fun</h3>
+            <p class="line">Describe your company and AI writes the copy, picks the layout and matches your brand. A beautiful one-pager in minutes.</p>
+            <ul class="tags"><li>AI product</li><li>Web app</li></ul>
+            <span class="go">Visit site <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+        <a class="project" href="https://kidmatik.github.io/ux-analysis-audit/landing.html" target="_blank" rel="noopener">
+          <div class="cover"><img src="../assets/side/ux-audit.jpg" alt="UX Analysis Audit landing page: Find what is blocking growth inside your product, with a website field and Start Product Audit button." width="1200" height="750" loading="lazy"></div>
+          <div class="body">
+            <span class="mono">kidmatik.github.io</span>
+            <h3>UX Analysis Audit</h3>
+            <p class="line">Senior-level UX audits for SaaS products, with annotated screens, an AI and search visibility check, and a clear plan of what to fix first.</p>
+            <ul class="tags"><li>AI</li><li>SaaS</li><li>UX</li></ul>
+            <span class="go">Visit site <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+        <a class="project" hidden href="https://blinklab.framer.website/" target="_blank" rel="noopener">
+          <div class="cover"><img src="../assets/side/blinklab.jpg" alt="BlinkLab: Let AI do the design work so your startup can move faster, with a Join the Waitlist button." width="1200" height="750" loading="lazy"></div>
+          <div class="body">
+            <span class="mono">blinklab.framer.website</span>
+            <h3>BlinkLab</h3>
+            <p class="line">An AI design partner for startups: DesignOps automation built by a real designer, not a prompt. Fast, effortless and on brand.</p>
+            <ul class="tags"><li>AI</li><li>DesignOps</li></ul>
+            <span class="go">Visit site <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+        <a class="project" hidden href="https://brandkeeper.lovable.app" target="_blank" rel="noopener">
+          <div class="cover"><img src="../assets/side/brandkeeper.jpg" alt="BrandKeeper homepage in Hebrew with a brand card showing color swatches and a Bricolage Grotesque type pair." width="1200" height="750" loading="lazy"></div>
+          <div class="body">
+            <span class="mono">brandkeeper.lovable.app</span>
+            <h3>BrandKeeper</h3>
+            <p class="line">A living brand hub for freelance designers: every client's colors, fonts and logo in one place, with AI that creates on brand and checks consistency.</p>
+            <ul class="tags"><li>AI</li><li>Brand tools</li><li>Hebrew</li></ul>
+            <span class="go">Visit site <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Matan Kidrony</span>
+    <span><a href="../">Home</a> · <a href="../#contact">Get in touch</a></span>
+  </div>
+</footer>
+
+<script>
+/* mobile menu */
+(function () {
+  var menu = document.getElementById('mkMenu'), open = document.getElementById('mkOpen'), close = document.getElementById('mkClose');
+  if (!menu || !open) return;
+  function set(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false');
+    document.documentElement.classList.toggle('mk-lock', on);
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { set(true); });
+  close.addEventListener('click', function () { set(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) set(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', function (m) { if (m.matches && menu.classList.contains('open')) set(false); });
+})();
+</script>
+</body>
+</html>

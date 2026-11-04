@@ -239,7 +239,7 @@ dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button 
 /* shared site header (same on every page) */
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
-.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 600 15px/1 "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 700 28px/1 "Caveat", "Bricolage Grotesque", "Segoe UI", cursive; letter-spacing: 0; white-space: nowrap; }
 .mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
 .mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
 .mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
@@ -247,7 +247,7 @@ dialog.lb form { position: absolute; top: 10px; right: 10px; } dialog.lb button 
 .mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
 .mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
 @media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
-@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 14px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
+@media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 25px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
 @media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
 @media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
 /* mobile menu: hamburger + full-screen overlay (shared on every page) */
@@ -279,6 +279,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "z4vryhoqje");
 </script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap&text=Matan%20Kidrony">
 </head>
 <body>
 
@@ -287,7 +288,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page">Matan Kidrony</a>
     <nav class="mk-nav" aria-label="Site">
       <a href="../#work" aria-current="page">Case Studies</a>
-      <a class="mk-wide" href="../#side">Side projects</a>
+      <a class="mk-wide" href="../side-projects/">Side projects</a>
       <a class="mk-wide" href="../#about">About</a>
       <a class="mk-wide" href="../testimonials/">Testimonials</a>
       <a class="mk-cta" href="../#contact">Contact</a>
@@ -302,7 +303,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   </div>
   <nav aria-label="Site">
       <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
-      <a href="../#side"><small>02</small>Side projects</a>
+      <a href="../side-projects/"><small>02</small>Side projects</a>
       <a href="../#about"><small>03</small>About</a>
       <a href="../testimonials/"><small>04</small>Testimonials</a>
       <a href="../#contact"><small>05</small>Contact</a>
