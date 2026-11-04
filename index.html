@@ -568,6 +568,9 @@ html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; 
 ::view-transition-old(root) { z-index: 1; }
 ::view-transition-new(root) { z-index: 2; }
 .tt-cover { position: fixed; inset: 0; z-index: 100000; pointer-events: none; }
+.proof .li, .quote .li { position: relative; }
+.proof .li::after, .quote .li::after { content: ""; position: absolute; inset: -12px -8px; }
+.proof .go { display: inline-flex; align-items: center; min-height: 44px; }
 </style>
 <script type="application/ld+json">
 {
