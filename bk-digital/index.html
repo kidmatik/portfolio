@@ -225,18 +225,14 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 .steps span { color: var(--ink-soft); font-size: .95rem; }
 
 @media (max-width: 340px) { .mk-logo { font-size: 20px; } }
-/* header logo: letter by letter, each letter flips into a different typeface in a quick ripple, and sometimes the colour flows through the name */
+/* header logo: one letter at a time flips into a different typeface */
 .mk-lg { display: inline-flex; align-items: baseline; white-space: pre; }
 .mk-lg .lt { display: inline-block; transform-origin: 50% 70%; backface-visibility: hidden; will-change: transform, opacity; }
 .mk-lg .lt.out { animation: lt-out .2s ease-in forwards; }
 .mk-lg .lt.in { animation: lt-in .36s cubic-bezier(.2,.9,.25,1.25) both; }
 @keyframes lt-out { to { opacity: 0; transform: perspective(260px) rotateX(-85deg) translateY(-40%); filter: blur(3px); } }
 @keyframes lt-in { from { opacity: 0; transform: perspective(260px) rotateX(85deg) translateY(40%); filter: blur(3px); } to { opacity: 1; transform: none; filter: blur(0); } }
-.mk-lg .lt.grad { background: linear-gradient(100deg, #b8500b 0%, #e5701a 30%, #f59a3d 55%, #e5701a 80%, #b8500b 100%); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: lgflow 2.4s linear infinite; }
-.mk-lg .lt.grad.in, .mk-lg .lt.grad.out { animation: none; }
-@keyframes lgflow { to { background-position: -260% 0; } }
-@media (prefers-reduced-motion: reduce) { .mk-lg .lt.grad { animation: none; } }
-</style>
+@media (prefers-reduced-motion: reduce) { </style>
 <script>
 /* Microsoft Clarity: heatmaps, recordings and basic stats */
 (function(c,l,a,r,i,t,y){
@@ -526,15 +522,14 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     if (document.hidden) return;
     var i = nextSlot(), opts = [];
     for (var f = 0; f < F.length; f++) if (f !== cur[i] && f !== cur[i - 1] && f !== cur[i + 1]) opts.push(f);
-    var idx = opts[Math.floor(Math.random() * opts.length)], colour = Math.random() < .3;
+    var idx = opts[Math.floor(Math.random() * opts.length)];
     cur[i] = idx;
     rows.forEach(function (row) {
       var el = row[i];
       el.classList.remove('in'); el.classList.add('out');
       setTimeout(function () {
         style(el, F[idx], K[idx]);
-        el.classList.remove('out', 'grad'); el.style.animationDelay = '';
-        if (colour) { el.classList.add('grad'); el.style.animationDelay = (-Math.random() * 2) + 's'; }
+        el.classList.remove('out');
         void el.offsetWidth; el.classList.add('in');
         setTimeout(function () { el.classList.remove('in'); }, 420);
       }, 200);
