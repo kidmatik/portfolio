@@ -262,32 +262,40 @@ a.project:hover .go span { transform: translateX(4px); }
 
 /* contact */
 .contact { padding-block: 0 clamp(72px, 10vw, 120px); }
-.contact-card { background: var(--spot-bg); color: #fff; border-radius: clamp(24px, 4vw, 48px); padding: clamp(36px, 6vw, 80px) clamp(22px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
-.contact-card h2 { font-size: clamp(2.2rem, 5vw, 4rem); color: #fff; }
+.contact-card { background: var(--spot-bg); color: #fff; border-radius: clamp(24px, 4vw, 44px); padding: clamp(30px, 5vw, 56px) clamp(22px, 4.5vw, 56px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(28px, 5vw, 64px); align-items: stretch; }
+.contact-card h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.05; color: #fff; margin-top: 14px; }
 .contact-card h2 span { color: #e5701a; }
-.contact-card .lead { margin-top: 18px; padding-block: 0; color: #c9c5d6; max-width: 46ch; font-size: 1.08rem; }
-.contact-card .lead2 { margin-top: 14px; }
+.contact-card .lead { margin-top: 16px; padding-block: 0; color: #c9c5d6; max-width: 44ch; font-size: 1.05rem; line-height: 1.55; }
+.ask { margin-top: 22px; }
+.ask .mono { display: block; color: #a9a5b8; margin-bottom: 10px; }
+.asks { display: flex; flex-wrap: nowrap; gap: 8px; }
+.asks a { white-space: nowrap; font: 500 .85rem/1 var(--f-body); padding: 10px 14px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .3); color: #fff; text-decoration: none; transition: background .2s ease, border-color .2s ease; }
+.asks a:hover { background: rgb(255 255 255 / .1); border-color: #e5701a; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; margin-top: 22px; }
+.cta-row .wa { margin: 0; }
+.direct { border-left: 1px solid rgb(255 255 255 / .14); padding-left: clamp(22px, 3.5vw, 44px); display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.status { display: inline-flex; align-items: center; gap: 9px; font: 600 .98rem var(--f-body); }
+.status i { width: 9px; height: 9px; border-radius: 50%; background: #5fd18a; box-shadow: 0 0 0 0 rgb(95 209 138 / .6); animation: ping 2.2s ease-out infinite; }
+@keyframes ping { 70%, 100% { box-shadow: 0 0 0 9px rgb(95 209 138 / 0); } }
+@media (prefers-reduced-motion: reduce) { .status i { animation: none; } }
+.reply { color: #c9c5d6; font-size: .95rem; margin-top: 4px; }
+.lines { display: flex; flex-direction: column; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.lines a { display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-radius: 14px; border: 1px solid rgb(255 255 255 / .2); color: #fff; text-decoration: none; font: 500 .95rem var(--f-body); transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.lines a:hover { border-color: #e5701a; background: rgb(255 255 255 / .06); transform: translateX(3px); }
+.lines svg { width: 20px; height: 20px; flex: none; }
+.lines .arr { margin-left: auto; color: #a9a5b8; }
+.mailrow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font: 500 .85rem var(--f-mono); color: #c9c5d6; }
+.mailrow a { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+@media (max-width: 860px) { .contact-card { grid-template-columns: minmax(0, 1fr); } .direct { border-left: 0; border-top: 1px solid rgb(255 255 255 / .14); padding: 24px 0 0; } .asks { flex-wrap: wrap; } }
 .wa { margin-top: 28px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: #1f8f4e; color: #fff; text-decoration: none; font: 600 16px var(--f-body); transition: transform .2s ease, background .2s ease; }
 .wa:hover { transform: translateY(-2px); background: #187a42; }
 .wa.mail { background: #fff; color: #15131c; }
 .wa.mail:hover { background: #e5701a; color: #15131c; }
 .wa.mail { height: 52px; box-sizing: border-box; padding: 0 22px; line-height: 1; vertical-align: top; }
 .cta-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; margin-top: 28px; }
-.cta-row .wa, .cta-row .cv-btn { margin: 0; }
-.cv-btn { margin-top: 28px; margin-left: 12px; vertical-align: top; display: inline-flex; align-items: center; gap: 8px; height: 52px; box-sizing: border-box; padding: 0 22px; line-height: 1; border-radius: 999px; border: 1.5px solid #fff; color: #fff; text-decoration: none; font: 600 16px var(--f-body); transition: background .2s ease, color .2s ease; }
-.cv-btn:hover { background: #fff; color: #15131c; }
 .wa svg { width: 22px; height: 22px; }
-.channels { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
-.channels li { border-top: 1px solid rgb(255 255 255 / .12); }
-.channels li:last-child { border-bottom: 1px solid rgb(255 255 255 / .12); }
-.channels a, .channels .row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 18px 4px; color: #fff; text-decoration: none; }
-.channels a:hover .val { color: #e5701a; }
-.channels .k { font: 500 .72rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: #a9a5b8; }
-.channels .val { font: 600 clamp(1.05rem, 1.8vw, 1.35rem)/1.2 var(--f-display); overflow-wrap: anywhere; transition: color .2s ease; }
-.channels .arr { color: #a9a5b8; font-size: 1.1rem; }
 .copy { border: 1px solid rgb(255 255 255 / .25); background: transparent; color: #fff; border-radius: 999px; padding: 7px 12px; font: 500 .78rem var(--f-mono); cursor: pointer; }
 .copy:hover { background: rgb(255 255 255 / .1); }
-@media (max-width: 860px) { .contact-card { grid-template-columns: minmax(0, 1fr); } .channels a, .channels .row { grid-template-columns: 84px minmax(0, 1fr) auto; } }
 
 /* about */
 .about { border-top: 1px solid var(--line); padding-block: clamp(64px, 9vw, 112px); }
@@ -1050,22 +1058,35 @@ html.pre #preloader { display: flex; position: fixed; inset: 0; z-index: 11000; 
       <div class="contact-card">
         <div>
           <span class="mono" style="color:#a9a5b8">Contact</span>
-          <h2 style="margin-top:14px">Let's build something <span>together.</span></h2>
-          <p class="lead">I'm open to Senior and Lead opportunities across Product Design and Brand Design - full-time, fractional or contract.</p>
-          <p class="lead lead2">If you're building something ambitious and need someone who can connect strategy, design and execution, let's talk.</p>
+          <h2>Got something ambitious? <span>Let's talk.</span></h2>
+          <p class="lead">Open to Senior and Lead roles in Product Design and Brand Design. Full-time, fractional or contract.</p>
+          <div class="ask">
+            <span class="mono">What's on your mind?</span>
+            <div class="asks">
+              <a href="mailto:kidronym@gmail.com?subject=Lead%20design%20role">A lead design role</a>
+              <a href="mailto:kidronym@gmail.com?subject=Brand%20project">A brand to build</a>
+              <a href="mailto:kidronym@gmail.com?subject=Design%20partner">A design partner</a>
+            </div>
+          </div>
           <div class="cta-row">
-          <a class="wa mail" href="mailto:kidronym@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            Email Matan
-          </a>
+            <a class="wa mail" href="mailto:kidronym@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              Email me
+            </a>
           </div>
         </div>
-        <ul class="channels">
-          <li><div class="row"><span class="k">Email</span><a class="val" href="mailto:kidronym@gmail.com" style="padding:0;display:inline;color:inherit">kidronym@gmail.com</a><button class="copy" type="button" data-copy="kidronym@gmail.com">Copy</button></div></li>
-          <li><a href="https://wa.me/972526884104" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="val">+972 52-688-4104</span><span class="arr" aria-hidden="true">↗</span></a></li>
-          <li><a href="https://www.linkedin.com/in/matankidrony" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="val">in/matankidrony</span><span class="arr" aria-hidden="true">↗</span></a></li>
-          <li><a href="https://www.matankidrony.com" target="_blank" rel="noopener"><span class="k">Website</span><span class="val">matankidrony.com</span><span class="arr" aria-hidden="true">↗</span></a></li>
-        </ul>
+        <div class="direct">
+          <div>
+            <div class="status"><i aria-hidden="true"></i>Open to new work</div>
+            <p class="reply">I usually reply within a day.</p>
+          </div>
+          <ul class="lines">
+            <li><a href="https://wa.me/972526884104" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5A8.5 8.5 0 1 1 21 11.5z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.3-1.3-1.8-1-.8.8c-.8-.4-1.600-1.200-2-2l.8-.8-1-1.800z"/></svg>WhatsApp<span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/matankidrony" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.500V16M8 7.500v.01M12 16v-3a2.500 2.500 0 0 1 5 0v3M12 10.500V16"/></svg>LinkedIn<span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.matankidrony.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.200 3 14.800 0 18M12 3c-3 3.200-3 14.800 0 18"/></svg>matankidrony.com<span class="arr" aria-hidden="true">↗</span></a></li>
+          </ul>
+          <div class="mailrow"><a href="mailto:kidronym@gmail.com">kidronym@gmail.com</a><button class="copy" type="button" data-copy="kidronym@gmail.com">Copy</button></div>
+        </div>
       </div>
     </div>
   </section>
