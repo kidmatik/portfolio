@@ -172,14 +172,15 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 @media (max-width: 760px) { footer a { display: inline-flex; align-items: center; min-height: 44px; } }
 
 @media (max-width: 340px) { .mk-logo { font-size: 20px; } }
-/* header logo: one letter at a time flips into a different typeface */
-.mk-lg { display: inline-flex; align-items: baseline; white-space: pre; }
-.mk-lg .lt { display: inline-block; transform-origin: 50% 70%; backface-visibility: hidden; will-change: transform, opacity; }
-.mk-lg .lt.out { animation: lt-out .12s ease-in forwards; }
-.mk-lg .lt.in { animation: lt-in .24s cubic-bezier(.2,.9,.25,1.25) both; }
-@keyframes lt-out { to { opacity: 0; transform: perspective(260px) rotateX(-85deg) translateY(-40%); filter: blur(3px); } }
-@keyframes lt-in { from { opacity: 0; transform: perspective(260px) rotateX(85deg) translateY(40%); filter: blur(3px); } to { opacity: 1; transform: none; filter: blur(0); } }
-@media (prefers-reduced-motion: reduce) { </style>
+/* header logo: Matan and Kidrony swap typefaces one word at a time */
+.mk-lg { display: inline-flex; align-items: baseline; gap: .3em; white-space: nowrap; }
+.mk-lg .w { display: inline-block; clip-path: inset(0); padding: .18em .04em; margin: -.18em -.04em; }
+.mk-lg .w i { display: inline-block; font-style: normal; will-change: transform, opacity; }
+.mk-lg .w i.out { animation: lt-out .16s cubic-bezier(.5,0,.9,.4) forwards; }
+.mk-lg .w i.in { animation: lt-in .3s cubic-bezier(.2,.9,.3,1) both; }
+@keyframes lt-out { to { transform: translateY(-70%); opacity: 0; filter: blur(2px); } }
+@keyframes lt-in { from { transform: translateY(70%); opacity: 0; filter: blur(2px); } to { transform: none; opacity: 1; filter: blur(0); } }
+</style>
 <script>
 /* Microsoft Clarity: heatmaps, recordings and basic stats */
 (function(c,l,a,r,i,t,y){
@@ -188,7 +189,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "z4vryhoqje");
 </script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Instrument+Serif:ital@1&family=Syne:wght@800&family=DM+Serif+Display&family=Unbounded:wght@600&family=Playfair+Display:ital,wght@1,700&family=Space+Grotesk:wght@700&family=Yellowtail&display=swap&text=Matan%20Kidrony">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Instrument+Serif:ital@1&family=DM+Serif+Display&family=Playfair+Display:ital,wght@1,700&family=Space+Grotesk:wght@700&display=swap&text=Matan%20Kidrony">
 </head>
 <body>
 
@@ -383,88 +384,66 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 })();
 </script>
 <script>
-/* the logo: one letter at a time flips into a different typeface; only that letter animates, the rest of the name stays still */
+/* the logo: Matan and Kidrony swap typefaces one word at a time (same height, width and baseline), then both settle on Caveat Bold and stay put until the next page load */
 (function () {
   var logos = [].slice.call(document.querySelectorAll('.mk-lg'));
   if (!logos.length) return;
   var F = [
-    { f: 'Caveat', w: 700 },
     { f: '"Bricolage Grotesque"', w: 700 },
     { f: '"Instrument Serif"', w: 700, s: 'italic' },
-    { f: 'Syne', w: 700 },
     { f: '"DM Serif Display"', w: 700 },
-    { f: 'Unbounded', w: 700 },
     { f: '"Playfair Display"', w: 700, s: 'italic' },
     { f: '"Space Grotesk"', w: 700 },
-    { f: 'Yellowtail', w: 700 }
+    { f: 'Caveat', w: 700 }
   ];
-  var rows = [], text = '';
+  var words = [], names = [];
   logos.forEach(function (lg) {
-    var txt = lg.textContent; text = txt; lg.textContent = ''; lg.setAttribute('aria-hidden', 'true');
+    var parts = lg.textContent.split(' '); lg.textContent = ''; lg.setAttribute('aria-hidden', 'true');
     var row = [];
-    for (var c = 0; c < txt.length; c++) {
-      var sp = document.createElement('span'); sp.className = 'lt'; sp.textContent = txt.charAt(c);
-      if (txt.charAt(c) === ' ') { sp.style.width = '.3em'; sp.textContent = '\u00a0'; }
-      lg.appendChild(sp); row.push(sp);
-    }
-    rows.push(row);
-  });
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var K = F.map(function () { return 1; });
-  var cur = text.split('').map(function () { return 1; });       // each letter's current typeface
-  var slots = [];
-  for (var s = 0; s < text.length; s++) if (text.charAt(s) !== ' ') slots.push(s);
-  var queue = [], last = -1;
-  function measure() {            // scale every typeface to the same x-height, so mixed letters sit on one line
-    var cv = document.createElement('canvas').getContext('2d'), TARGET = .5;
-    F.forEach(function (o, i) {
-      cv.font = (o.s || 'normal') + ' ' + o.w + ' 100px ' + o.f;
-      var xh = cv.measureText('n').actualBoundingBoxAscent / 100;
-      K[i] = xh > 0 ? Math.max(.5, Math.min(1.2, TARGET / xh)) : 1;
+    parts.forEach(function (t, n) {
+      var w = document.createElement('span'); w.className = 'w';
+      var i = document.createElement('i'); i.textContent = t; w.appendChild(i); lg.appendChild(w); row.push(i);
+      names[n] = t;
     });
+    words.push(row);
+  });
+  var cv = document.createElement('canvas').getContext('2d');
+  function metr(o, t) {
+    cv.font = (o.s || 'normal') + ' ' + o.w + ' 100px ' + o.f + ', sans-serif';
+    return { w: cv.measureText(t).width, x: cv.measureText('x').actualBoundingBoxAscent, H: cv.measureText('H').actualBoundingBoxAscent };
   }
-  function style(el, o, k) {
+  function style(el, o, t) {      // same x-height and cap-height as Bricolage, then the width is matched with letter-spacing
+    var r = metr(F[0], t), m = metr(o, t);
+    var k = Math.max(.7, Math.min(1.5, ((r.x / m.x) + (r.H / m.H)) / 2));
+    var ls = Math.max(-.06, Math.min(.12, (r.w - m.w * k) / (t.length * 100 * k)));
     el.style.fontFamily = o.f + ', "Bricolage Grotesque", sans-serif';
     el.style.fontWeight = o.w; el.style.fontStyle = o.s || 'normal';
-    el.style.fontSize = '100%';
+    el.style.fontSize = (k * 100) + '%'; el.style.letterSpacing = ls + 'em';
   }
-  function nextSlot() {           // every letter gets its turn, in a shuffled order, never the same one twice in a row
-    if (!queue.length) {
-      queue = slots.slice();
-      for (var i = queue.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = queue[i]; queue[i] = queue[j]; queue[j] = t; }
-      if (queue[queue.length - 1] === last && queue.length > 1) queue.unshift(queue.pop());
-    }
-    return (last = queue.pop());
-  }
-  function change(i, forced) {
-    var opts = [];
-    for (var f = 0; f < F.length; f++) if (f !== cur[i] && f !== cur[i - 1] && f !== cur[i + 1]) opts.push(f);
-    var idx = forced != null ? forced : opts[Math.floor(Math.random() * opts.length)];
-    cur[i] = idx;
-    rows.forEach(function (row) {
-      var el = row[i];
-      el.classList.remove('in'); el.classList.add('out');
-      setTimeout(function () {
-        style(el, F[idx], K[idx]);
-        el.classList.remove('out');
-        void el.offsetWidth; el.classList.add('in');
-        setTimeout(function () { el.classList.remove('in'); }, 280);
-      }, 120);
-    });
-  }
-  function settle() {             // a few rounds of shuffling, then every letter lands on Caveat and the logo stays put until the next page load
-    var left = slots.length * 2, fin = null;
-    var timer = setInterval(function () {
-      if (document.hidden) return;
-      if (left > 0) { left--; change(nextSlot()); return; }
-      if (!fin) { fin = slots.slice(); for (var q = fin.length - 1; q > 0; q--) { var r = Math.floor(Math.random() * (q + 1)), t = fin[q]; fin[q] = fin[r]; fin[r] = t; } }
-      while (fin.length && cur[fin[fin.length - 1]] === 0) fin.pop();
-      if (!fin.length) { clearInterval(timer); return; }
-      change(fin.pop(), 0);
-    }, 140);
-  }
+  function put(n, o) { words.forEach(function (row) { style(row[n], o, names[n]); }); }
   var loads = F.map(function (o) { return document.fonts.load((o.s ? 'italic ' : '') + o.w + ' 40px ' + o.f, 'Matan Kidrony'); });
-  Promise.all(loads).then(function () { measure(); rows.forEach(function (row) { row.forEach(function (el, n) { if (text.charAt(n) !== ' ') style(el, F[1], 1); }); }); settle(); }, function () {});
+  Promise.all(loads).then(function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { put(0, F[5]); put(1, F[5]); return; }
+    put(0, F[0]); put(1, F[0]);
+    var cur = [F[0], F[0]], n = 0, total = 10;
+    function swap(w, o, done) {
+      words.forEach(function (row) {
+        var el = row[w]; el.className = 'out';
+        setTimeout(function () { style(el, o, names[w]); el.className = 'in'; }, 160);
+      });
+      setTimeout(done, 460);
+    }
+    function next() {
+      if (document.hidden) { setTimeout(next, 300); return; }
+      var w = n % 2, o;
+      if (n < total) { do { o = F[1 + Math.floor(Math.random() * 4)]; } while (o === cur[w]); }
+      else if (n < total + 2) o = F[5];
+      else return;
+      n++; cur[w] = o;
+      setTimeout(function () { swap(w, o, next); }, 370);
+    }
+    next();
+  }, function () {});
 })();
 </script>
 </body>
