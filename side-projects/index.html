@@ -423,7 +423,7 @@ a.project:hover .go span { transform: translateX(4px); }
     });
   }
   var loads = F.map(function (o) { return document.fonts.load((o.s ? 'italic ' : '') + o.w + ' 40px ' + o.f, 'Matan Kidrony'); });
-  Promise.all(loads).then(function () { measure(); setInterval(change, 700); }, function () {});
+  Promise.all(loads).then(function () { measure(); setInterval(change, 1500); }, function () {});
 })();
 </script>
 </body>
