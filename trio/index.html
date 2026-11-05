@@ -572,14 +572,14 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   if (!logos.length) return;
   var F = [
     { f: 'Caveat', w: 700 },
-    { f: '"Bricolage Grotesque"', w: 800 },
-    { f: '"Instrument Serif"', w: 400, s: 'italic' },
-    { f: 'Syne', w: 800 },
-    { f: '"DM Serif Display"', w: 400 },
-    { f: 'Unbounded', w: 600 },
+    { f: '"Bricolage Grotesque"', w: 700 },
+    { f: '"Instrument Serif"', w: 700, s: 'italic' },
+    { f: 'Syne', w: 700 },
+    { f: '"DM Serif Display"', w: 700 },
+    { f: 'Unbounded', w: 700 },
     { f: '"Playfair Display"', w: 700, s: 'italic' },
     { f: '"Space Grotesk"', w: 700 },
-    { f: 'Yellowtail', w: 400 }
+    { f: 'Yellowtail', w: 700 }
   ];
   var rows = [], text = '';
   logos.forEach(function (lg) {
@@ -609,7 +609,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   function style(el, o, k) {
     el.style.fontFamily = o.f + ', "Bricolage Grotesque", sans-serif';
     el.style.fontWeight = o.w; el.style.fontStyle = o.s || 'normal';
-    el.style.fontSize = (k * 100) + '%';
+    el.style.fontSize = '100%';
   }
   function nextSlot() {           // every letter gets its turn, in a shuffled order, never the same one twice in a row
     if (!queue.length) {
@@ -619,11 +619,10 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     }
     return (last = queue.pop());
   }
-  function change() {
-    if (document.hidden) return;
-    var i = nextSlot(), opts = [];
+  function change(i, forced) {
+    var opts = [];
     for (var f = 0; f < F.length; f++) if (f !== cur[i] && f !== cur[i - 1] && f !== cur[i + 1]) opts.push(f);
-    var idx = opts[Math.floor(Math.random() * opts.length)];
+    var idx = forced != null ? forced : opts[Math.floor(Math.random() * opts.length)];
     cur[i] = idx;
     rows.forEach(function (row) {
       var el = row[i];
@@ -636,8 +635,19 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       }, 200);
     });
   }
+  function settle() {             // a few rounds of shuffling, then every letter lands on Caveat and the logo stays put until the next page load
+    var left = slots.length * 2, fin = null;
+    var timer = setInterval(function () {
+      if (document.hidden) return;
+      if (left > 0) { left--; change(nextSlot()); return; }
+      if (!fin) { fin = slots.slice(); for (var q = fin.length - 1; q > 0; q--) { var r = Math.floor(Math.random() * (q + 1)), t = fin[q]; fin[q] = fin[r]; fin[r] = t; } }
+      while (fin.length && cur[fin[fin.length - 1]] === 0) fin.pop();
+      if (!fin.length) { clearInterval(timer); return; }
+      change(fin.pop(), 0);
+    }, 420);
+  }
   var loads = F.map(function (o) { return document.fonts.load((o.s ? 'italic ' : '') + o.w + ' 40px ' + o.f, 'Matan Kidrony'); });
-  Promise.all(loads).then(function () { measure(); setInterval(change, 1500); }, function () {});
+  Promise.all(loads).then(function () { measure(); settle(); }, function () {});
 })();
 </script>
 </body>
