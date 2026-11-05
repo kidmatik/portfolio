@@ -168,14 +168,33 @@ a.project:hover .go span { transform: translateX(4px); }
 .tt-cover { position: fixed; inset: 0; z-index: 100000; pointer-events: none; }
 
 @media (max-width: 340px) { .mk-logo { font-size: 20px; } }
-/* header logo: Matan and Kidrony swap typefaces one word at a time */
-.mk-lg { display: inline-flex; align-items: baseline; gap: .3em; white-space: nowrap; }
-.mk-lg .w { display: inline-block; clip-path: inset(0); padding: .18em .04em; margin: -.18em -.04em; }
-.mk-lg .w i { display: inline-block; font-style: normal; will-change: transform, opacity; }
-.mk-lg .w i.out { animation: lt-out .16s cubic-bezier(.5,0,.9,.4) forwards; }
-.mk-lg .w i.in { animation: lt-in .3s cubic-bezier(.2,.9,.3,1) both; }
+/* header logo: letter by letter, then a dot bounces in */
+.mk-lg { display: inline-flex; align-items: baseline; white-space: nowrap; position: relative; }
+.mk-lg .l { display: inline-block; clip-path: inset(0 -.5em); padding: .34em 0; margin: -.34em 0; text-align: center; transition: width .25s ease; }
+.mk-lg .l.sp { width: .3em; }
+.mk-lg .l i { display: inline-block; font-style: normal; will-change: transform, opacity; }
+.mk-lg .l i.out { animation: lt-out .12s cubic-bezier(.5,0,.9,.4) forwards; }
+.mk-lg .l i.in { animation: lt-in .24s cubic-bezier(.2,.9,.3,1) both; }
 @keyframes lt-out { to { transform: translateY(-70%); opacity: 0; filter: blur(2px); } }
 @keyframes lt-in { from { transform: translateY(70%); opacity: 0; filter: blur(2px); } to { transform: none; opacity: 1; filter: blur(0); } }
+.mk-lg .dot { display: inline-block; width: .17em; height: .17em; margin-left: .09em; border-radius: 50%; background: #e5701a; opacity: 0; }
+.mk-lg .dot.show { opacity: 1; }
+.mk-lg .dot.bounce { animation: dot-in 1s both; }
+@keyframes dot-in {
+  0% { transform: translate(-5em, 0); opacity: 0; animation-timing-function: cubic-bezier(.15,.7,.3,1); }
+  34% { transform: translate(0, 0); opacity: 1; animation-timing-function: cubic-bezier(.2,.8,.4,1); }
+  52% { transform: translate(0, -.75em); animation-timing-function: cubic-bezier(.6,0,.9,.5); }
+  68% { transform: translate(0, 0); animation-timing-function: cubic-bezier(.2,.8,.4,1); }
+  80% { transform: translate(0, -.3em); animation-timing-function: cubic-bezier(.6,0,.9,.5); }
+  90% { transform: translate(0, 0); animation-timing-function: cubic-bezier(.2,.8,.4,1); }
+  95% { transform: translate(0, -.08em); animation-timing-function: cubic-bezier(.6,0,.9,.5); }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+.mk-lg .mk-frame { position: absolute; left: 0; top: 0; max-width: none; max-height: none; overflow: visible; pointer-events: none; }
+.mk-lg .mk-frame path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.mk-lg .mk-frame.draw path { animation: frame-draw 1s cubic-bezier(.45,.05,.3,1) forwards; }
+.mk-lg .mk-frame.show path { stroke-dashoffset: 0; }
+@keyframes frame-draw { to { stroke-dashoffset: 0; } }
 </style>
 <script>
 /* Microsoft Clarity: heatmaps, recordings and basic stats */
@@ -363,7 +382,7 @@ a.project:hover .go span { transform: translateX(4px); }
 })();
 </script>
 <script>
-/* the logo: Matan and Kidrony swap typefaces one word at a time (same height, width and baseline), then both settle on Caveat Bold and stay put until the next page load */
+/* the logo: letter by letter, left to right, each letter flips into another typeface (same height and baseline); a second round lands every letter on Caveat Bold, then a dot bounces in and stays until the next page load */
 (function () {
   var logos = [].slice.call(document.querySelectorAll('.mk-lg'));
   if (!logos.length) return;
@@ -375,53 +394,91 @@ a.project:hover .go span { transform: translateX(4px); }
     { f: '"Space Grotesk"', w: 700 },
     { f: 'Caveat', w: 700 }
   ];
-  var words = [], names = [];
+  var rows = [], text = '', dots = [];
   logos.forEach(function (lg) {
-    var parts = lg.textContent.split(' '); lg.textContent = ''; lg.setAttribute('aria-hidden', 'true');
+    var txt = lg.textContent; text = txt; lg.textContent = ''; lg.setAttribute('aria-hidden', 'true');
     var row = [];
-    parts.forEach(function (t, n) {
-      var w = document.createElement('span'); w.className = 'w';
-      var i = document.createElement('i'); i.textContent = t; w.appendChild(i); lg.appendChild(w); row.push(i);
-      names[n] = t;
-    });
-    words.push(row);
+    for (var c = 0; c < txt.length; c++) {
+      var s = document.createElement('span'), i = document.createElement('i'), ch = txt.charAt(c);
+      s.className = 'l' + (ch === ' ' ? ' sp' : ''); i.textContent = ch === ' ' ? ' ' : ch;
+      s.appendChild(i); lg.appendChild(s); row.push({ s: s, i: i, c: ch });
+    }
+    var d = document.createElement('span'); d.className = 'dot'; lg.appendChild(d); dots.push(d);
+    rows.push(row);
   });
   var cv = document.createElement('canvas').getContext('2d');
   function metr(o, t) {
     cv.font = (o.s || 'normal') + ' ' + o.w + ' 100px ' + o.f + ', sans-serif';
     return { w: cv.measureText(t).width, x: cv.measureText('x').actualBoundingBoxAscent, H: cv.measureText('H').actualBoundingBoxAscent };
   }
-  function style(el, o, t) {      // same x-height and cap-height as Bricolage, then the width is matched with letter-spacing
-    var r = metr(F[0], t), m = metr(o, t);
-    var k = Math.max(.7, Math.min(1.5, ((r.x / m.x) + (r.H / m.H)) / 2));
-    var ls = Math.max(-.06, Math.min(.12, (r.w - m.w * k) / (t.length * 100 * k)));
+  function style(L, o, natural) {   // same x-height and cap-height as Bricolage; the slot keeps Bricolage's width until the final round
+    if (L.c === ' ') return;
+    var r = metr(F[0], L.c), q = metr(o, L.c);
+    var k = Math.max(.7, Math.min(1.5, ((r.x / q.x) + (r.H / q.H)) / 2)), el = L.i;
     el.style.fontFamily = o.f + ', "Bricolage Grotesque", sans-serif';
     el.style.fontWeight = o.w; el.style.fontStyle = o.s || 'normal';
-    el.style.fontSize = (k * 100) + '%'; el.style.letterSpacing = ls + 'em';
+    el.style.fontSize = (k * 100) + '%';
+    L.o = o; L.k = k;
+    L.s.style.width = ((natural ? q.w * k : r.w) / 100) + 'em';
   }
-  function put(n, o) { words.forEach(function (row) { style(row[n], o, names[n]); }); }
+  function swap(L, o, natural) {
+    if (L.c === ' ') return;
+    L.i.className = 'out';
+    setTimeout(function () { style(L, o, natural); L.i.className = 'in'; }, 120);
+  }
+  var frames = [];
+  function frameShape() {          // a thin rounded rectangle around the whole name, drawn from the left like a pen marking the edges
+    logos.forEach(function (lg, n) {
+      var f = frames[n]; if (!f) return;
+      var P = 8, r = 6, lr = lg.getBoundingClientRect(), fpx = parseFloat(getComputedStyle(lg).fontSize);
+      var base = lr.top + dots[n].offsetTop + dots[n].offsetHeight, top = Infinity, bot = -Infinity, left = 0, row = rows[n];
+      row.forEach(function (L, j) {        // the real ink of the name: tallest letter above the baseline, deepest descender below it
+        if (L.c === ' ' || !L.o) return;
+        var o = L.o; cv.font = (o.s || 'normal') + ' ' + o.w + ' 100px ' + o.f + ', sans-serif';
+        var m = cv.measureText(L.c), px = fpx * L.k / 100;
+        top = Math.min(top, base - m.actualBoundingBoxAscent * px); bot = Math.max(bot, base + m.actualBoundingBoxDescent * px);
+        if (!left) left = L.s.getBoundingClientRect().left - m.actualBoundingBoxLeft * px;
+      });
+      var x0 = left - lr.left, x1 = dots[n].offsetLeft + dots[n].offsetWidth, y0 = top - lr.top, y1 = bot - lr.top;
+      var w = x1 - x0 + P * 2, h = y1 - y0 + P * 2;
+      f.setAttribute('width', w); f.setAttribute('height', h);
+      f.style.left = (x0 - P) + 'px'; f.style.top = (y0 - P) + 'px';
+      f.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+      f.firstChild.setAttribute('d', 'M1 ' + h / 2 + ' L1 ' + (r + 1) + ' Q1 1 ' + (r + 1) + ' 1 L' + (w - r - 1) + ' 1 Q' + (w - 1) + ' 1 ' + (w - 1) + ' ' + (r + 1) + ' L' + (w - 1) + ' ' + (h - r - 1) + ' Q' + (w - 1) + ' ' + (h - 1) + ' ' + (w - r - 1) + ' ' + (h - 1) + ' L' + (r + 1) + ' ' + (h - 1) + ' Q1 ' + (h - 1) + ' 1 ' + (h - r - 1) + ' Z');
+    });
+  }
+  function drawFrame(still) {
+    logos.forEach(function (lg, n) {
+      var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'), p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      s.setAttribute('class', 'mk-frame'); s.setAttribute('aria-hidden', 'true'); p.setAttribute('pathLength', '1'); s.appendChild(p); lg.appendChild(s); frames[n] = s;
+    });
+    frameShape();
+    frames.forEach(function (s) { s.setAttribute('class', 'mk-frame ' + (still ? 'show' : 'draw')); });
+    addEventListener('resize', frameShape);
+  }
+  function showDots() { dots.forEach(function (d) { d.className = 'dot bounce'; }); setTimeout(drawFrame, 1050); }
   var loads = F.map(function (o) { return document.fonts.load((o.s ? 'italic ' : '') + o.w + ' 40px ' + o.f, 'Matan Kidrony'); });
   Promise.all(loads).then(function () {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { put(0, F[5]); put(1, F[5]); return; }
-    put(0, F[0]); put(1, F[0]);
-    var cur = [F[0], F[0]], n = 0, total = 10;
-    function swap(w, o, done) {
-      words.forEach(function (row) {
-        var el = row[w]; el.className = 'out';
-        setTimeout(function () { style(el, o, names[w]); el.className = 'in'; }, 160);
-      });
-      setTimeout(done, 460);
+    var idx = [];
+    for (var k = 0; k < text.length; k++) if (text.charAt(k) !== ' ') idx.push(k);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      rows.forEach(function (r) { idx.forEach(function (k) { style(r[k], F[5], true); }); });
+      dots.forEach(function (d) { d.className = 'dot show'; });
+      drawFrame(true);
+      return;
     }
-    function next() {
-      if (document.hidden) { setTimeout(next, 300); return; }
-      var w = n % 2, o;
-      if (n < total) { do { o = F[1 + Math.floor(Math.random() * 4)]; } while (o === cur[w]); }
-      else if (n < total + 2) o = F[5];
-      else return;
-      n++; cur[w] = o;
-      setTimeout(function () { swap(w, o, next); }, 370);
-    }
-    next();
+    rows.forEach(function (r) { idx.forEach(function (k) { style(r[k], F[0], false); }); });
+    var cur = idx.map(function () { return 0; }), step = 0, GAP = 270;
+    for (var p = 0; p < 2; p++) idx.forEach(function (k, n) {
+      var fin = p === 1;
+      setTimeout(function wait() {
+        if (document.hidden) { setTimeout(wait, 300); return; }
+        var f;
+        if (fin) f = 5; else { do { f = 1 + Math.floor(Math.random() * 4); } while (f === cur[n]); cur[n] = f; }
+        rows.forEach(function (r) { swap(r[k], F[f], fin); });
+        if (fin && n === idx.length - 1) setTimeout(showDots, 500);
+      }, step++ * GAP);
+    });
   }, function () {});
 })();
 </script>
