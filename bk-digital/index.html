@@ -228,8 +228,8 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 /* header logo: one letter at a time flips into a different typeface */
 .mk-lg { display: inline-flex; align-items: baseline; white-space: pre; }
 .mk-lg .lt { display: inline-block; transform-origin: 50% 70%; backface-visibility: hidden; will-change: transform, opacity; }
-.mk-lg .lt.out { animation: lt-out .2s ease-in forwards; }
-.mk-lg .lt.in { animation: lt-in .36s cubic-bezier(.2,.9,.25,1.25) both; }
+.mk-lg .lt.out { animation: lt-out .12s ease-in forwards; }
+.mk-lg .lt.in { animation: lt-in .24s cubic-bezier(.2,.9,.25,1.25) both; }
 @keyframes lt-out { to { opacity: 0; transform: perspective(260px) rotateX(-85deg) translateY(-40%); filter: blur(3px); } }
 @keyframes lt-in { from { opacity: 0; transform: perspective(260px) rotateX(85deg) translateY(40%); filter: blur(3px); } to { opacity: 1; transform: none; filter: blur(0); } }
 @media (prefers-reduced-motion: reduce) { </style>
@@ -530,8 +530,8 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
         style(el, F[idx], K[idx]);
         el.classList.remove('out');
         void el.offsetWidth; el.classList.add('in');
-        setTimeout(function () { el.classList.remove('in'); }, 420);
-      }, 200);
+        setTimeout(function () { el.classList.remove('in'); }, 280);
+      }, 120);
     });
   }
   function settle() {             // a few rounds of shuffling, then every letter lands on Caveat and the logo stays put until the next page load
@@ -543,7 +543,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       while (fin.length && cur[fin[fin.length - 1]] === 0) fin.pop();
       if (!fin.length) { clearInterval(timer); return; }
       change(fin.pop(), 0);
-    }, 420);
+    }, 140);
   }
   var loads = F.map(function (o) { return document.fonts.load((o.s ? 'italic ' : '') + o.w + ' 40px ' + o.f, 'Matan Kidrony'); });
   Promise.all(loads).then(function () { measure(); rows.forEach(function (row) { row.forEach(function (el, n) { if (text.charAt(n) !== ' ') style(el, F[1], 1); }); }); settle(); }, function () {});
