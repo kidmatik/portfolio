@@ -98,7 +98,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 /* shared site header: identical on every page */
 .mk-bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgb(243 243 245 / .9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e1e7; color: #15131c; }
 .mk-bar-in { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); height: 60px; display: flex; align-items: center; gap: 20px; }
-.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 700 28px/1 "Caveat", "Bricolage Grotesque", "Segoe UI", cursive; letter-spacing: 0; white-space: nowrap; }
+.mk-logo { display: inline-flex; align-items: center; gap: 10px; color: #15131c; text-decoration: none; font: 700 28px/1 "Bricolage Grotesque", "Caveat", "Segoe UI", sans-serif; letter-spacing: 0; white-space: nowrap; }
 .mk-nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
 .mk-nav a { font: 500 14px/1 "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif; color: #5a5666; text-decoration: none; padding: 9px 12px; border-radius: 999px; white-space: nowrap; }
 .mk-nav a:hover, .mk-nav a[aria-current="page"] { color: #15131c; background: #fff; }
@@ -462,7 +462,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   });
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var K = F.map(function () { return 1; });
-  var cur = text.split('').map(function () { return 0; });       // each letter's current typeface
+  var cur = text.split('').map(function () { return 1; });       // each letter's current typeface
   var slots = [];
   for (var s = 0; s < text.length; s++) if (text.charAt(s) !== ' ') slots.push(s);
   var queue = [], last = -1;
@@ -515,7 +515,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     }, 420);
   }
   var loads = F.map(function (o) { return document.fonts.load((o.s ? 'italic ' : '') + o.w + ' 40px ' + o.f, 'Matan Kidrony'); });
-  Promise.all(loads).then(function () { measure(); settle(); }, function () {});
+  Promise.all(loads).then(function () { measure(); rows.forEach(function (row) { row.forEach(function (el, n) { if (text.charAt(n) !== ' ') style(el, F[1], 1); }); }); settle(); }, function () {});
 })();
 </script>
 </body>
