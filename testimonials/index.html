@@ -31,16 +31,16 @@
    that says it best, and links to the case study when there is one. */
 :root {
   --ink: #15131c; --ink-soft: #5a5666; --paper: #f3f3f5; --surface: #ffffff; --line: #e2e1e7;
-  --accent: #e5701a; --accent-ink: #b4520a; --mark: #fde3cc;
+  --accent: #e5701a; --accent-ink: #b4520a; --mark: #fde3cc; --spot-bg: #15131c;
   --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --f-body: "Instrument Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #e5701a; --accent-ink: #f6a865; --mark: #4a2a12; color-scheme: dark; }
+  :root:not([data-theme="light"]) { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #e5701a; --accent-ink: #f6a865; --mark: #4a2a12; --spot-bg: #1c1a25; color-scheme: dark; }
 }
-:root[data-theme="dark"] { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #e5701a; --accent-ink: #f6a865; --mark: #4a2a12; color-scheme: dark; }
+:root[data-theme="dark"] { --ink: #f1f0f5; --ink-soft: #a6a2b4; --paper: #101016; --surface: #18181f; --line: #2a2933; --accent: #e5701a; --accent-ink: #f6a865; --mark: #4a2a12; --spot-bg: #1c1a25; color-scheme: dark; }
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--f-body); -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; display: block; }
@@ -86,11 +86,6 @@ h1 span { color: var(--accent); }
 .mentor .go { margin-top: 6px; font: 600 15px var(--f-body); color: var(--accent-ink); text-decoration: none; display: inline-flex; gap: 8px; }
 .adp { width: 100%; height: 560px; border: 0; border-radius: 16px; background: #fff; }
 @media (max-width: 860px) { .mentor { grid-template-columns: minmax(0, 1fr); } .adp { height: 620px; } }
-.cta { margin-bottom: clamp(72px, 10vw, 120px); background: #15131c; color: #fff; border-radius: clamp(24px, 4vw, 40px); padding: clamp(32px, 5vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
-.cta h2 { margin: 0; font: 800 clamp(1.7rem, 3.4vw, 2.6rem)/1.1 var(--f-display); letter-spacing: -0.02em; }
-.cta h2 span { color: #e5701a; }
-.cta a { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #e5701a; color: #15131c; text-decoration: none; font: 600 16px var(--f-body); }
-.cta a:hover { background: #ffad66; }
 footer { border-top: 1px solid var(--line); padding-block: 28px; font: 400 .85rem var(--f-mono); color: var(--ink-soft); }
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 @media (max-width: 760px) { footer a { display: inline-flex; align-items: center; min-height: 44px; } }
@@ -184,6 +179,41 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
 .mk-lg .mk-frame.draw path { animation: frame-draw 1s cubic-bezier(.45,.05,.3,1) forwards; }
 .mk-lg .mk-frame.show path { stroke-dashoffset: 0; }
 @keyframes frame-draw { to { stroke-dashoffset: 0; } }
+
+/* contact */
+.contact { padding-block: 0 clamp(72px, 10vw, 120px); }
+.contact-card { background: var(--spot-bg); color: #fff; border-radius: clamp(24px, 4vw, 44px); padding: clamp(30px, 5vw, 56px) clamp(22px, 4.5vw, 56px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(28px, 5vw, 64px); align-items: stretch; }
+.contact-card h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.05; color: #fff; margin-top: 14px; }
+.contact-card h2 span { color: #e5701a; }
+.contact-card .lead { margin-top: 16px; padding-block: 0; color: #c9c5d6; max-width: 44ch; font-size: 1.05rem; line-height: 1.55; }
+.ask { margin-top: 22px; }
+.ask .mono { display: block; color: #a9a5b8; margin-bottom: 10px; }
+.asks { display: flex; flex-wrap: nowrap; gap: 8px; }
+.asks a { white-space: nowrap; font: 500 .85rem/1 var(--f-body); padding: 10px 14px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .3); color: #fff; text-decoration: none; transition: background .2s ease, border-color .2s ease; }
+.asks a:hover { background: rgb(255 255 255 / .1); border-color: #e5701a; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; margin-top: 22px; }
+.cta-row .wa { margin: 0; }
+.direct { border-left: 1px solid rgb(255 255 255 / .14); padding-left: clamp(22px, 3.5vw, 44px); display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.status { display: inline-flex; align-items: center; gap: 9px; font: 600 .98rem var(--f-body); }
+.status i { width: 9px; height: 9px; border-radius: 50%; background: #5fd18a; box-shadow: 0 0 0 3px rgb(95 209 138 / .22); }
+.reply { color: #c9c5d6; font-size: .95rem; margin-top: 4px; }
+.lines { display: flex; flex-direction: column; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.lines a { display: flex; align-items: center; gap: 12px; padding: 13px 16px; border-radius: 14px; border: 1px solid rgb(255 255 255 / .2); color: #fff; text-decoration: none; font: 500 .95rem var(--f-body); transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.lines a:hover { border-color: #e5701a; background: rgb(255 255 255 / .06); transform: translateX(3px); }
+.lines svg { width: 20px; height: 20px; flex: none; }
+.lines .arr { margin-left: auto; color: #a9a5b8; }
+.mailrow { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font: 500 .85rem var(--f-mono); color: #c9c5d6; }
+.mailrow a { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+@media (max-width: 860px) { .contact-card { grid-template-columns: minmax(0, 1fr); } .direct { border-left: 0; border-top: 1px solid rgb(255 255 255 / .14); padding: 24px 0 0; } .asks { flex-wrap: wrap; } }
+.wa { margin-top: 28px; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: #1f8f4e; color: #fff; text-decoration: none; font: 600 16px var(--f-body); transition: transform .2s ease, background .2s ease; }
+.wa:hover { transform: translateY(-2px); background: #187a42; }
+.wa.mail { background: #fff; color: #15131c; }
+.wa.mail:hover { background: #e5701a; color: #15131c; }
+.wa.mail { height: 52px; box-sizing: border-box; padding: 0 22px; line-height: 1; vertical-align: top; }
+.cta-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; margin-top: 28px; }
+.wa svg { width: 22px; height: 22px; }
+.copy { border: 1px solid rgb(255 255 255 / .25); background: transparent; color: #fff; border-radius: 999px; padding: 9px 14px; font: 500 .78rem var(--f-mono); cursor: pointer; }
+.copy:hover { background: rgb(255 255 255 / .1); }
 </style>
 <script>
 /* Microsoft Clarity: heatmaps, recordings and basic stats */
@@ -205,7 +235,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       <a class="mk-wide" href="../side-projects/">Side projects</a>
       <a class="mk-wide" href="../#about">About</a>
       <a class="mk-wide" href="../testimonials/" aria-current="page">Testimonials</a>
-      <a class="mk-cta" href="../#contact">Contact</a>
+      <a class="mk-cta" href="#contact">Contact</a>
     </nav>
     <button class="mk-theme" id="mkTheme" type="button" aria-label="Switch to dark mode" aria-pressed="false">
       <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.7 6.7 0 0 0 10.7 10.7z"/></svg>
@@ -224,7 +254,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       <a href="../side-projects/"><small>02</small>Side projects</a>
       <a href="../#about"><small>03</small>About</a>
       <a href="../testimonials/" aria-current="page"><small>04</small>Testimonials</a>
-      <a href="../#contact"><small>05</small>Contact</a>
+      <a href="#contact"><small>05</small>Contact</a>
   </nav>
 </div>
 
@@ -384,17 +414,51 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
       </div>
       <iframe class="adp" src="https://adplist.org/widgets/reviews?src=matan-kidrony" title="Matan Kidrony's mentee reviews on ADPList" loading="lazy"></iframe>
     </section>
-    <section class="cta">
-      <h2>Your company could be <span>next.</span></h2>
-      <a href="../#contact">Let's talk <span aria-hidden="true">→</span></a>
-    </section>
   </div>
 </main>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <span class="mono" style="color:#a9a5b8">Contact</span>
+          <h2>Got something ambitious? <span>Let's talk.</span></h2>
+          <p class="lead">Open to Senior and Lead roles in Product Design and Brand Design. Full-time, fractional or contract.</p>
+          <div class="ask">
+            <span class="mono">What's on your mind?</span>
+            <div class="asks">
+              <a href="mailto:kidronym@gmail.com?subject=Lead%20design%20role">A lead design role</a>
+              <a href="mailto:kidronym@gmail.com?subject=Brand%20project">A brand to build</a>
+              <a href="mailto:kidronym@gmail.com?subject=Design%20partner">A design partner</a>
+            </div>
+          </div>
+          <div class="cta-row">
+            <a class="wa mail" href="mailto:kidronym@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              Email me
+            </a>
+          </div>
+        </div>
+        <div class="direct">
+          <div>
+            <div class="status"><i aria-hidden="true"></i>Open to new work</div>
+            <p class="reply">I usually reply within a day.</p>
+          </div>
+          <ul class="lines">
+            <li><a href="https://wa.me/972526884104" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5A8.5 8.5 0 1 1 21 11.5z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.3-1.3-1.8-1-.8.8c-.8-.4-1.600-1.200-2-2l.8-.8-1-1.800z"/></svg>WhatsApp<span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.linkedin.com/in/matankidrony" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.500V16M8 7.500v.01M12 16v-3a2.500 2.500 0 0 1 5 0v3M12 10.500V16"/></svg>LinkedIn<span class="arr" aria-hidden="true">↗</span></a></li>
+            <li><a href="https://www.matankidrony.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.200 3 14.800 0 18M12 3c-3 3.200-3 14.800 0 18"/></svg>matankidrony.com<span class="arr" aria-hidden="true">↗</span></a></li>
+          </ul>
+          <div class="mailrow"><a href="mailto:kidronym@gmail.com">kidronym@gmail.com</a><button class="copy" type="button" data-copy="kidronym@gmail.com">Copy</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <footer>
   <div class="wrap">
     <span>© 2026 Matan Kidrony</span>
-    <span><a href="../">Home</a> · <a href="../#contact">Get in touch</a></span>
+    <span><a href="../">Home</a> · <a href="#contact">Get in touch</a></span>
   </div>
 </footer>
 
@@ -553,6 +617,15 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     });
   }, function () {});
 })();
+</script>
+<script>
+document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var v = b.getAttribute('data-copy'), done = function (t) { b.textContent = t; setTimeout(function () { b.textContent = 'Copy'; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function () { done('Copied'); }, function () { done('Select it'); });
+    else done('Select it');
+  });
+});
 </script>
 </body>
 </html>
