@@ -199,6 +199,7 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 .mk-nav a.mk-cta:hover { background: #2c2938; color: #fff; }
 .mk-bar a:focus-visible { outline: 2px solid #e5701a; outline-offset: 2px; }
 @media (max-width: 640px) { .mk-nav a.mk-wide { display: none; } }
+@media (min-width: 761px) and (max-width: 940px) { .mk-bar-in { gap: 10px; } .mk-nav a { padding-inline: 7px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } .mk-theme { margin-left: 2px; } }
 @media (max-width: 380px) { .mk-bar-in { gap: 8px; } .mk-logo { font-size: 25px; } .mk-nav a { padding-inline: 9px; font-size: 13px; } .mk-nav a.mk-cta { margin-left: 2px; } }
 @media (max-width: 760px) { .mk-logo, .mk-nav a { min-height: 44px; display: inline-flex; align-items: center; } .mk-nav a.mk-wide { display: none; } }
 @media (min-width: 761px) { .mk-nav a.mk-wide { display: inline-flex; } }
@@ -218,7 +219,7 @@ dialog.lb button { position: sticky; top: 8px; float: right; margin: 8px; border
 .mk-menu nav a:hover, .mk-menu nav a[aria-current="page"] { color: #e5701a; }
 .mk-menu.open nav a { opacity: 1; transform: none; }
 .mk-menu.open nav a:nth-child(2) { transition-delay: .04s; } .mk-menu.open nav a:nth-child(3) { transition-delay: .08s; }
-.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; }
+.mk-menu.open nav a:nth-child(4) { transition-delay: .12s; } .mk-menu.open nav a:nth-child(5) { transition-delay: .16s; } .mk-menu.open nav a:nth-child(6) { transition-delay: .2s; }
 @media (prefers-reduced-motion: reduce) { .mk-menu, .mk-menu nav a { transition: none; } }
 @media (max-width: 760px) { .mk-nav { display: none; } .mk-burger { display: grid; } }
 html.mk-lock, html.mk-lock body { overflow: hidden; }
@@ -269,6 +270,7 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
     <a class="mk-logo" href="../" aria-label="Matan Kidrony, home page"><span class="mk-lg">Matan Kidrony</span></a>
     <nav class="mk-nav" aria-label="Site">
       <a href="../#work" aria-current="page">Case Studies</a>
+      <a class="mk-wide" href="../animation/">Animation</a>
       <a class="mk-wide" href="../side-projects/">Side projects</a>
       <a class="mk-wide" href="../#about">About</a>
       <a class="mk-wide" href="../testimonials/">Testimonials</a>
@@ -284,10 +286,11 @@ html.mk-lock, html.mk-lock body { overflow: hidden; }
   </div>
   <nav aria-label="Site">
       <a href="../#work" aria-current="page"><small>01</small>Case Studies</a>
-      <a href="../side-projects/"><small>02</small>Side projects</a>
-      <a href="../#about"><small>03</small>About</a>
-      <a href="../testimonials/"><small>04</small>Testimonials</a>
-      <a href="../#contact"><small>05</small>Contact</a>
+      <a href="../animation/"><small>02</small>Animation</a>
+      <a href="../side-projects/"><small>03</small>Side projects</a>
+      <a href="../#about"><small>04</small>About</a>
+      <a href="../testimonials/"><small>05</small>Testimonials</a>
+      <a href="../#contact"><small>06</small>Contact</a>
   </nav>
 </div>
 
