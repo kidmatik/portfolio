@@ -225,6 +225,9 @@ a.project:hover .go span { transform: translateX(4px); }
 .film-meta { width: min(100%, 920px); margin: clamp(32px, 4vw, 48px) 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; text-align: left; border-top: 1px solid rgb(255 255 255 / .12); padding-top: 24px; }
 .film-meta dt { font: 500 .66rem/1.2 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: #a99fb4; margin-bottom: 6px; }
 .film-meta dd { margin: 0; color: #e9e4f0; font-size: .98rem; line-height: 1.5; }
+.credits { width: min(100%, 920px); margin: clamp(32px, 4vw, 48px) 0 0; }
+.credits video { width: 100%; aspect-ratio: 16 / 9; display: block; border-radius: 6px; background: #fff; border: 1px solid #3a3342; }
+.credits figcaption { margin: 14px 0 0; text-align: left; }
 @media (max-width: 620px) { .film-meta { grid-template-columns: minmax(0, 1fr); } .still { flex-basis: 88%; } }
 @media (max-width: 560px) { .award .laurel { width: 38px; } .award-txt span { font-size: .56rem; letter-spacing: .16em; } .reel { height: 26px; } .reel::before { inset: 6px 0; } .screen { box-shadow: 0 0 0 5px #0a090d, 0 0 0 6px #2c2733, 0 30px 60px -20px rgb(0 0 0 / .8); } }
 @media (prefers-reduced-motion: reduce) { .film-play img { transition: none; } }
@@ -485,14 +488,15 @@ a.project:hover .go span { transform: translateX(4px); }
           <div class="stills" role="region" aria-roledescription="carousel" aria-label="Stills from Little Longings">
             <div class="stills-head"><span class="cin-label">Stills from the film</span><div class="slider-nav"><button class="st-prev" type="button" aria-label="Previous still">←</button><button class="st-next" type="button" aria-label="Next still">→</button></div></div>
             <ul class="st-track">
-            <li class="still" role="group" aria-roledescription="slide" aria-label="1 of 8"><img src="../assets/animation/film/ll-1.webp" alt="A wide desert of paper under a blue sky, with a tangled tree of ink lines and a tiny figure sitting under it." width="1280" height="720" loading="lazy"></li>
-            <li class="still" role="group" aria-roledescription="slide" aria-label="2 of 8"><img src="../assets/animation/film/ll-2.webp" alt="The animator, in thick glasses, waves from behind a laptop in the desert." width="1280" height="720" loading="lazy"></li>
-            <li class="still" role="group" aria-roledescription="slide" aria-label="3 of 8"><img src="../assets/animation/film/ll-3.webp" alt="The animator walks the desert with a drawing machine on his back, sketching on a sheet, while a long-necked white creature he drew sniffs at a skeleton." width="1280" height="720" loading="lazy"></li>
-            <li class="still" role="group" aria-roledescription="slide" aria-label="4 of 8"><img src="../assets/animation/film/ll-4.webp" alt="A long-necked white creature wanders past a termite mound in the desert." width="1280" height="720" loading="lazy"></li>
-            <li class="still" role="group" aria-roledescription="slide" aria-label="5 of 8"><img src="../assets/animation/film/ll-5.webp" alt="A close-up of the animator, laughing against a pink burst of rays and circles." width="1280" height="720" loading="lazy"></li>
-            <li class="still" role="group" aria-roledescription="slide" aria-label="6 of 8"><img src="../assets/animation/film/ll-6.webp" alt="A crowd of white creatures, one with a furry body and a chain reading CHING, shouting at the camera." width="1280" height="720" loading="lazy"></li>
-            <li class="still" role="group" aria-roledescription="slide" aria-label="7 of 8"><img src="../assets/animation/film/ll-7.webp" alt="A drawn woman with glasses and braided hair stands against a pink desert sky, mouth open in surprise." width="1280" height="720" loading="lazy"></li>
-            <li class="still" role="group" aria-roledescription="slide" aria-label="8 of 8"><img src="../assets/animation/film/ll-8.webp" alt="The creatures crowd around the animator\u0027s outstretched arm." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="1 of 9"><img src="../assets/animation/film/ll-1.webp" alt="A wide desert of paper under a blue sky, with a tangled tree of ink lines and a tiny figure sitting under it." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="2 of 9"><img src="../assets/animation/film/ll-2.webp" alt="The animator, in thick glasses, waves from behind a laptop in the desert." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="3 of 9"><img src="../assets/animation/film/ll-3.webp" alt="The animator walks the desert with a drawing machine on his back, sketching on a sheet, while a long-necked white creature he drew sniffs at a skeleton." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="4 of 9"><img src="../assets/animation/film/ll-4.webp" alt="A long-necked white creature wanders past a termite mound in the desert." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="5 of 9"><img src="../assets/animation/film/ll-5.webp" alt="A close-up of the animator, laughing against a pink burst of rays and circles." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="6 of 9"><img src="../assets/animation/film/ll-6.webp" alt="A crowd of white creatures, one with a furry body and a chain reading CHING, shouting at the camera." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="7 of 9"><img src="../assets/animation/film/ll-7.webp" alt="A drawn woman with glasses and braided hair stands against a pink desert sky, mouth open in surprise." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="8 of 9"><img src="../assets/animation/film/ll-8.webp" alt="The creatures crowd around the animator\u0027s outstretched arm." width="1280" height="720" loading="lazy"></li>
+            <li class="still" role="group" aria-roledescription="slide" aria-label="9 of 9"><img src="../assets/animation/film/ll-9.webp" alt="The animator tumbles, tiny, down a huge dark pit." width="1280" height="720" loading="lazy"></li>
             </ul>
           </div>
           <dl class="film-meta">
@@ -502,6 +506,10 @@ a.project:hover .go span { transform: translateX(4px); }
             <div><dt>Sound FX</dt><dd>Liran Netanel</dd></div>
             <div><dt>Made with</dt><dd>ToonBoom Studio and After Effects</dd></div>
           </dl>
+          <figure class="credits">
+            <video src="../assets/animation/film/credits.mp4" poster="../assets/animation/film/credits.webp" muted loop playsinline preload="metadata" aria-label="A looping clip from the end credits of Little Longings: the credits are drawn on a sheet of paper, with the animator and a headphone-wearing creature beside it."></video>
+            <figcaption class="cin-label">From the end credits</figcaption>
+          </figure>
         </div>
         <div class="reel bottom" aria-hidden="true"></div>
       </section>
@@ -762,6 +770,14 @@ a.project:hover .go span { transform: translateX(4px); }
   function go(d) { t.scrollBy({ left: d * (t.children[0].getBoundingClientRect().width + 14), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }
   p.addEventListener('click', function () { go(-1); }); n.addEventListener('click', function () { go(1); });
   t.addEventListener('scroll', function () { requestAnimationFrame(sync); }, { passive: true }); addEventListener('resize', sync); sync();
+})();
+</script>
+<script>
+/* the credits clip loops silently, and only while it is on screen (and never with reduced motion) */
+(function () {
+  var v = document.querySelector('.credits video'); if (!v || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) { v.play().catch(function () {}); return; }
+  new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) v.play().catch(function () {}); else v.pause(); }); }, { threshold: .35 }).observe(v);
 })();
 </script>
 </body>
