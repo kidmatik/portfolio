@@ -166,6 +166,7 @@ a.project:hover .go span { transform: translateX(4px); }
 @media (max-width: 620px) { .vid-grid { grid-template-columns: minmax(0, 1fr); } }
 .cover-play { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; display: block; -webkit-tap-highlight-color: transparent; }
 .cover-play:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.cover video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; display: block; }
 .cover iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; background: #000; }
 @media (prefers-reduced-motion: reduce) { .project.vid, .play, .project.vid .cover img { transition: none; } }
 
@@ -338,6 +339,17 @@ a.project:hover .go span { transform: translateX(4px); }
             <h3>Powerbeat Explainer</h3>
             <ul class="tags"><li>Explainer</li></ul>
           </div>
+        </article>
+        </div>
+      </section>
+      <section class="vgroup" aria-labelledby="g-cymbio">
+        <div class="vhead"><h2 id="g-cymbio">Cymbio</h2><a class="case" href="../cymbio/">Case study <span aria-hidden="true">→</span></a></div>
+        <div class="vid-grid">
+        <article class="project vid" data-src="../assets/animation/cymbio-explainer.mp4" data-title="Cymbio Explainer Video">
+          <div class="cover"><button class="cover-play" type="button" aria-label="Play video: Cymbio Explainer Video"><img src="../assets/animation/cymbio-explainer.webp" alt="Video thumbnail: Cymbio Explainer Video" width="960" height="540"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6a.6.6 0 0 0 .9.5l11-6.8a.6.6 0 0 0 0-1L8.9 4.7a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg></span><span class="dur">1:25</span></button></div>
+          <div class="body"><span class="mono">Cymbio</span>
+            <h3>Cymbio Explainer Video</h3>
+            <ul class="tags"><li>Explainer</li></ul></div>
         </article>
         </div>
       </section>
@@ -630,22 +642,45 @@ a.project:hover .go span { transform: translateX(4px); }
 })();
 </script>
 <script>
-/* the Vimeo player loads inside the card only when its play button is pressed; starting another video puts the previous card back to its thumbnail */
+/* a video loads inside its card only when the play button is pressed: Vimeo ones as the Vimeo player (asked for the best quality, 1080p, else 720p), local ones as a plain video; starting another puts the previous card back to its thumbnail */
 (function () {
-  var current = null;
+  var current = null, sdk = null;
+  function loadSdk() {
+    if (sdk) return sdk;
+    sdk = new Promise(function (res, rej) {
+      var sc = document.createElement('script'); sc.src = 'https://player.vimeo.com/api/player.js'; sc.onload = res; sc.onerror = rej; document.head.appendChild(sc);
+    });
+    return sdk;
+  }
+  function best(f) {          // ask the Vimeo player for 1080p, or 720p when 1080p is not offered, instead of its adaptive "auto"
+    loadSdk().then(function () {
+      var pl = new Vimeo.Player(f);
+      pl.ready().then(function () { return pl.getQualities(); }).then(function (qs) {
+        var ids = qs.map(function (q) { return q.id; });
+        var pick = ['1080p', '2160p', '1440p', '720p'].filter(function (id) { return ids.indexOf(id) > -1; });
+        if (pick.length) { var want = ids.indexOf('1080p') > -1 ? '1080p' : pick[pick.length - 1]; return pl.setQuality(want); }
+      }).catch(function () {});
+    }, function () {});
+  }
   function reset(card) {
     if (!card || !card._thumb) return;
     var cover = card.querySelector('.cover'); cover.textContent = ''; cover.appendChild(card._thumb); card._thumb = null;
   }
-  document.querySelectorAll('.vid[data-vimeo]').forEach(function (card) {
+  document.querySelectorAll('.vid[data-vimeo], .vid[data-src]').forEach(function (card) {
     var btn = card.querySelector('.cover-play'), cover = card.querySelector('.cover');
     btn.addEventListener('click', function () {
       if (current && current !== card) reset(current);
       card._thumb = btn; current = card;
-      var f = document.createElement('iframe');
-      f.src = 'https://player.vimeo.com/video/' + card.getAttribute('data-vimeo') + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
-      f.allow = 'autoplay; fullscreen; picture-in-picture'; f.allowFullscreen = true; f.title = card.getAttribute('data-title');
-      cover.textContent = ''; cover.appendChild(f);
+      var el, t = card.getAttribute('data-title');
+      if (card.hasAttribute('data-vimeo')) {
+        el = document.createElement('iframe');
+        el.src = 'https://player.vimeo.com/video/' + card.getAttribute('data-vimeo') + '?autoplay=1&quality=1080p&title=0&byline=0&portrait=0&dnt=1';
+        el.allow = 'autoplay; fullscreen; picture-in-picture'; el.allowFullscreen = true; el.title = t;
+        cover.textContent = ''; cover.appendChild(el); best(el);
+      } else {
+        el = document.createElement('video'); el.src = card.getAttribute('data-src'); el.controls = true; el.autoplay = true; el.playsInline = true; el.setAttribute('aria-label', t);
+        cover.textContent = ''; cover.appendChild(el);
+      }
     });
   });
 })();
